@@ -16,3 +16,36 @@ export function auditTransactions(tx,asOf){
 }
 export function blockingIssues(issues){return issues.filter(x=>x.code!=='future-transaction')}
 export function integrityNotice(issues){return issues.length?'Data quality warning: '+issues.length+' transaction issue(s). Review Import and backup before relying on calculated returns.':''}
+
+ // Independent cash-flow reconciliation, using the same valuation date as Overview.
+export function reconcilePortfolio(S,C,asOf){
+ const issues=auditTransactions(S.tx,asOf), rows=[], ledger=new Map();
+ if(blockingIssues(issues).length)return {ready:false,issues,rows};
+ for(const t of S.tx){
+  if(t.date>asOf)continue;
+  const h=ledger.get(t.name)||{name:t.name,type:t.type,units:0,bought:0,sold:0};
+  if(h.type!==t.type){issues.push({code:'asset-name-collision',name:t.name});continue}
+  const gross=t.units*t.price,fee=t.fee||0;
+  if(t.side==='buy'){h.units+=t.units;h.bought+=gross+fee}else{h.units-=t.units;h.sold+=gross-fee}
+  ledger.set(t.name,h);
+ }
+ const holdings=new Map(C.open.map(h=>[h.name,h]));
+ const near=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<=Math.max(.01,Math.abs(a)*1e-9);
+ for(const h of ledger.values()){
+  const p=holdings.get(h.name),open=h.units>1e-4;
+  if(open&&(!p||Math.abs(p.units-h.units)>1e-6))issues.push({code:'unit-mismatch',name:h.name});
+  if(!open&&p)issues.push({code:'unexpected-holding',name:h.name});
+  if(open){
+   if(!Number.isFinite(S.px?.[h.name])||S.px[h.name]<=0)issues.push({code:'missing-current-price',name:h.name});
+   else if(!S.pxd?.[h.name])issues.push({code:'undated-price',name:h.name});
+   else if(S.pxd[h.name]>asOf)issues.push({code:'future-price',name:h.name});
+   else if((Date.parse(asOf)-Date.parse(S.pxd[h.name]))/864e5>7)issues.push({code:'stale-price',name:h.name});
+  }
+  const value=p?.value??0,cost=p?.cost??0,realized=h.sold-(h.bought-cost),unrealized=value-cost;
+  rows.push({...h,value,cost,realized,unrealized,totalGain:value+h.sold-h.bought});
+ }
+ for(const p of C.open)if(!ledger.has(p.name))issues.push({code:'unexpected-holding',name:p.name});
+ const totals=rows.reduce((s,h)=>{for(const k of Object.keys(s))s[k]+=h[k];return s},{bought:0,sold:0,value:0,cost:0,realized:0,unrealized:0,totalGain:0});
+ if(!near(totals.value,C.tv)||!near(totals.cost,C.tc)||!near(totals.unrealized,C.pl)||!near(totals.totalGain,totals.realized+totals.unrealized))issues.push({code:'portfolio-total-mismatch'});
+ return {ready:!issues.some(x=>['asset-name-collision','unit-mismatch','unexpected-holding','portfolio-total-mismatch'].includes(x.code)),issues,rows,totals};
+}
