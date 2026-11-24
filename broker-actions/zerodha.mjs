@@ -1,4 +1,4 @@
-import {randomBytes,scryptSync,createCipheriv} from 'node:crypto';
+import {randomBytes,pbkdf2Sync,createCipheriv} from 'node:crypto';
 import {writeFileSync} from 'node:fs';
 const {KITE_API_KEY,KITE_ACCESS_TOKEN,BROKER_EXPORT_PASSWORD}=process.env;
 if(!KITE_API_KEY||!KITE_ACCESS_TOKEN||!BROKER_EXPORT_PASSWORD||BROKER_EXPORT_PASSWORD.length<24)throw Error('Missing required secrets or export password too short');
@@ -10,7 +10,7 @@ async function get(path){
 }
 const [equity,mutualFunds]=await Promise.all([get('/portfolio/holdings'),get('/mf/holdings')]);
 const snapshot={schema:'broker-snapshot-v1',broker:'zerodha',fetchedAt:new Date().toISOString(),data:{equity,mutualFunds}};
-const salt=randomBytes(16),iv=randomBytes(12),key=scryptSync(BROKER_EXPORT_PASSWORD,salt,32);
+const salt=randomBytes(16),iv=randomBytes(12),key=pbkdf2Sync(BROKER_EXPORT_PASSWORD,salt,600000,32,'sha256');
 const cipher=createCipheriv('aes-256-gcm',key,iv);
 const encrypted=Buffer.concat([cipher.update(JSON.stringify(snapshot),'utf8'),cipher.final()]);
-writeFileSync('broker-encrypted.json',JSON.stringify({schema:'broker-encrypted-v1',kdf:'scrypt',salt:salt.toString('base64'),iv:iv.toString('base64'),tag:cipher.getAuthTag().toString('base64'),data:encrypted.toString('base64')}),{mode:0o600,flag:'wx'});
+writeFileSync('broker-encrypted.json',JSON.stringify({schema:'broker-encrypted-v1',kdf:'pbkdf2-sha256',iterations:600000,salt:salt.toString('base64'),iv:iv.toString('base64'),tag:cipher.getAuthTag().toString('base64'),data:encrypted.toString('base64')}),{mode:0o600,flag:'wx'});
