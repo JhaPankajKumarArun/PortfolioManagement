@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test AMFI parser and fallback
+      - name: Test AMFI parser and cache
         run: |
           node --input-type=module <<'JS'
           import fs from 'node:fs';
@@ -24,7 +24,7 @@ jobs:
           const code=html.slice(start,end);
           const fixture=Array.from({length:101},(_,i)=>[100000+i,'INF000000001','-','Test fund','123.45','23-Nov-2026'].join(';')).join('\n');
           let requests=0;
-          const ctx=vm.createContext({AbortSignal,fetch:async()=>{requests++;return {ok:true,text:async()=>fixture}}});
+          const ctx=vm.createContext({location:{protocol:'file:'},AbortSignal,fetch:async()=>{requests++;return {ok:true,text:async()=>fixture}}});
           vm.runInContext(code,ctx);
           const rows=await vm.runInContext('amfiLatest()',ctx);
           assert.equal(rows.size,101);
@@ -32,7 +32,7 @@ jobs:
           assert.equal(rows.get('100000').date,'2026-11-23');
           await vm.runInContext('amfiLatest()',ctx);
           assert.equal(requests,1);
-          const bad=vm.createContext({AbortSignal,fetch:async()=>({ok:true,text:async()=>'<html>error</html>'})});
+          const bad=vm.createContext({location:{protocol:'file:'},AbortSignal,fetch:async()=>({ok:true,text:async()=>'<html>error</html>'})});
           vm.runInContext(code,bad);
           await assert.rejects(vm.runInContext('amfiLatest()',bad),/incomplete/);
           console.log('AMFI parser, cache and invalid-feed tests passed');
