@@ -1,0 +1,29 @@
+name: Public disclosure refresh
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 2 12 * *'
+permissions:
+  contents: write
+concurrency:
+  group: public-disclosure-refresh
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/modular-architecture
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/sync-disclosures.mjs
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/disclosures.json
+          git diff --cached --quiet || git commit -m 'Refresh public mutual fund disclosures'
+          git pull --rebase origin refactor/modular-architecture
+          git push origin HEAD:refactor/modular-architecture
