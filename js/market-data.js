@@ -17,6 +17,6 @@ async function indiaLatest(){return amfiProvider.indiaLatest(pd)}
 async function pwHydrate(){const a=await pwAll('stock');for(const x of a){const n=x.id.slice(6);if(x.data&&x.data.rows&&x.data.rows.length){PWH[n]=x.data.rows}}}
 async function pwCacheNav(){for(const [n,h] of Object.entries(NH||{})){if(h&&h.d&&h.d.length)try{await pwPut('nav:'+n,'nav',h,'MFAPI.in')}catch(e){}}}
 function pwAuto(){if(document.visibilityState==='hidden'||Date.now()-PW_LAST<6*60*60*1000)return;pwSyncStocks(false);pwCacheNav()}
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')pwAuto()});
-window.addEventListener('online',pwAuto);
+
+
 function navhEnsure(){if(NHBUSY||Date.now()-NHFAIL<6e5)return;const H=mfHeld(calc());if(!H.length)return;if(H.some(h=>!NH[h.name]||Date.now()-NH[h.name].t>432e5))navhLoad()}

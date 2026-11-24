@@ -25,3 +25,5 @@ jobs:
       - run: node tests/ui.mjs
 
       - run: node tests/errors.mjs
+
+      - run: node tests/refresh.mjs
