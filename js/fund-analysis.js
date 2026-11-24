@@ -61,8 +61,8 @@ const b3=addMD(td,-36),rets=[],dts=[];if(b3>=first){for(let i=1;i<n;i++)if(rows[
 if(rets.length>200){const m=mean(rets),sd=Math.sqrt(rets.reduce((a,x)=>a+(x-m)*(x-m),0)/(rets.length-1)),rf=RF/252,dd=Math.sqrt(rets.reduce((a,x)=>a+Math.min(0,x-rf)*Math.min(0,x-rf),0)/rets.length);o.sd=sd*Math.sqrt(252)*100;o.sh=(m*252-RF)/(sd*Math.sqrt(252));o.so=(m*252-RF)/(dd*Math.sqrt(252));let pk=0,mdd=0;rows.forEach(r=>{if(r[0]>=b3){pk=Math.max(pk,r[1]);mdd=Math.max(mdd,(pk-r[1])/pk)}});o.md=mdd*100;o.rets=rets;o.dts=dts}
 return o}
 function betaAlpha(o,ref){if(!o.dts)return;const x=[],y=[];o.dts.forEach((d,i)=>{if(ref.has(d)){x.push(ref.get(d));y.push(o.rets[i])}});if(x.length<200)return;const mx=mean(x),my=mean(y);let cv=0,vx=0;for(let i=0;i<x.length;i++){cv+=(x[i]-mx)*(y[i]-my);vx+=(x[i]-mx)*(x[i]-mx)}return{be:cv/vx,al:((my*252-RF)-(cv/vx)*(mx*252-RF))*100}}
-async function mfJson(u,ms){const r=await fetch(u,{signal:AbortSignal.timeout?AbortSignal.timeout(ms||25000):undefined});if(!r.ok)throw new Error('mfapi.in returned HTTP '+r.status);return r.json()}
-const toRows=j=>((j&&j.data)||[]).map(x=>[pd(x.date),parseFloat(x.nav)]).filter(x=>x[0]&&x[1]>0).sort((a,b)=>a[0]<b[0]?-1:a[0]>b[0]?1:0);
+async function mfJson(u,ms){return marketProviders.mfapi.mfJson(u,ms)}
+const toRows=j=>marketProviders.mfapi.toRows(j,pd);
 function updatePeersUi(){const w=$('#prw');if(w&&cur)w.innerHTML=peersBlock(cur)}
 async function peersLoad(name){if(PRBUSY)return;const isin=S.isin&&S.isin[name];PRMSG='';if(!isin){PRMSG='This fund has no saved ISIN. Import your CAS again so it can be matched.';updatePeersUi();return}
 PRBUSY=true;PRPROG='Finding the category…';updatePeersUi();
