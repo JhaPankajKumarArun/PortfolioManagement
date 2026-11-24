@@ -24,3 +24,16 @@ assert.equal(riskHistPrice({px:{A:200},pxd:{A:'2025-02-01'}},{},{},'2025-01-31',
 assert.deepEqual(calculateRiskSeries({tx:[tx[1]]},'2025-01-01',dnum,()=>100).points,[]);
 const realized=calculateRealized({tx});near(realized.reduce((s,x)=>s+x.gain,0),530);
 const tax=calculateTaxFY([{fy:'2025-26',bucket:'eqST',gain:10000,sell:'2025-05-01'},{fy:'2024-25',bucket:'eqST',gain:10000,sell:'2025-03-01'}],'2025-26',30);near(tax.tax,2080);
+
+ // Regression: historical untagged SIPs, without changing portfolio storage.
+const recurring=['2025-01-05','2025-02-06','2025-03-05','2025-04-07'].map((date,i)=>({name:'Monthly',type:'mf',side:'buy',date,units:1000/(100+i*10),price:100+i*10,sip:false}));
+const unrelated=[{...recurring[0],name:'Lump sum'},{...recurring[1],name:'Lump sum'},{...recurring[2],name:'Lump sum',units:100},{...recurring[2],side:'sell'},{...recurring[3],date:'2025-05-05'}];
+const history=[...recurring,...unrelated],before=JSON.stringify(history);
+const recovered=calculateSips(history,'2025-04-10');
+assert.equal(recovered.length,1);assert.equal(recovered[0].name,'Monthly');assert.equal(recovered[0].n,4);assert.equal(recovered[0].inferred,4);near(recovered[0].total,4000);near(recovered[0].amt,1000);assert.equal(recovered[0].active,true);assert.equal(recovered[0].missed,0);
+assert.equal(JSON.stringify(history),before);
+assert.equal(calculateSips(recurring,'2025-02-10').length,0);
+assert.equal(calculateSips(recurring,'2025-07-01')[0].active,false);
+assert.equal(calculateSips(recurring.map(t=>({...t,type:'stock'})),'2025-04-10').length,0);
+const mixed=calculateSips(recurring.map((t,i)=>({...t,sip:i===0})),'2025-04-10')[0];assert.equal(mixed.n,4);assert.equal(mixed.inferred,3);near(mixed.total,4000);
+console.log('SIP recovery regression fixtures passed');
