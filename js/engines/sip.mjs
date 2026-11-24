@@ -4,4 +4,4 @@ const ks=Object.keys(mo).sort(),last=L[L.length-1];let missed=0;for(let i=1;i<ks
 const ch=[];let pv=null;ks.forEach(k=>{const v=Math.round(mo[k]);if(pv===null||Math.abs(v-pv)>pv*.02)ch.push([k,v]);pv=v});
 return{name,mo,ch,missed,last:last.date,first:L[0].date,n:L.length,amt:mo[ks[ks.length-1]],active:(now-Date.parse(last.date))/day<=40,total:L.reduce((s,t)=>s+t.units*t.price+(t.fee||0),0)}})}
 
-export { calculateSips, ks, ch };
+export { calculateSips };

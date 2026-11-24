@@ -16,4 +16,4 @@ const lim=fy<'2018-19'?Infinity:fy<'2024-25'?1e5:125000,tEqST=Math.max(x.eqST,0)
 return{raw:rt,net:x,carry,lim,tEqST,tEqLT,tSlab,tOT,tax:(tEqST+tEqLT+tSlab+tOT)*1.04}}
 function calculateRemainingLots(n,S){const L=[];S.tx.filter(t=>t.name===n).sort(srt).forEach(t=>{if(t.side==='buy')L.push({d:t.date,u:t.units,p:(t.units*t.price+(t.fee||0))/t.units});else{let u=t.units;for(const l of L){if(u<=1e-9)break;const x=Math.min(l.u,u);l.u-=x;u-=x}}});return L.filter(l=>l.u>1e-6)}
 
-export { addM, fyOf, srt, taxAutoCls, taxClass, mk, calculateRealized, calculateTaxFY, x, carry, lim, calculateRemainingLots };
+export { addM, fyOf, srt, taxAutoCls, taxClass, mk, calculateRealized, calculateTaxFY, calculateRemainingLots };

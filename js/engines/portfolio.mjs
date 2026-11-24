@@ -7,4 +7,4 @@ const all=Object.values(m).map(h=>{h.price=S.px[h.name]>0?S.px[h.name]:h.last;h.
 const open=all.filter(h=>h.units>1e-4),tv=open.reduce((s,h)=>s+h.value,0),tc=open.reduce((s,h)=>s+h.cost,0);
 return{open,tv,tc,pl:tv-tc,plp:tc>0?(tv-tc)/tc*100:null,xirr:xirr(all.flatMap(h=>h.flows).concat([[asOf,tv]]))}}
 
-export { xirr, npv, calculatePortfolio, all, open };
+export { xirr, calculatePortfolio };
