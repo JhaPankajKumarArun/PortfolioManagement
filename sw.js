@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v34-broker-login';
+const CACHE_NAME = 'my-portfolio-pwa-v35-account-aggregator';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -69,7 +69,6 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
-  if (url.pathname.startsWith('/api/broker/')) return;
 
   // Network-first for external NAV / mutual fund API calls so live prices stay fresh
   if (url.origin !== self.location.origin) {
