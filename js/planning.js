@@ -1,3 +1,29 @@
+const goalFields=[['target','Target in today’s rupees',1000000],['saved','Savings earmarked today',0],['monthly','Monthly contribution',0],['years','Years remaining',5],['rate','Expected annual return (%)',8],['inflation','Annual inflation (%)',6]];
+const goalKey='portfolio-goals-v1';
+function readGoals(){try{const x=JSON.parse(localStorage.getItem(goalKey)||'[]');return Array.isArray(x)?x:[]}catch{return []}}
+function goalPlanner(){return `<h2>Financial goals</h2><div class='card pad'><p class='mut'>Allocate savings and contributions separately to each goal. Do not count the same money twice. Assumptions are illustrative, before taxes and fees.</p><label>Goal name<input id='goalName' maxlength='100' placeholder='Home, education, retirement'></label>${goalFields.map(([k,l,v])=>`<label>${l}<input id='goal-${k}' type='number' step='any' value='${v}'></label>`).join('')}<button type='button' class='btn' id='goalAdd'>Save new goal</button><p id='goalStatus' role='status' class='mut'></p><div id='goalRows'>${goalRows()}</div></div>`}
+function goalRows(){return readGoals().map(g=>`<div class='ur'><b>${esc(String(g.name))}</b><button type='button' data-goal-delete='${esc(String(g.id))}'>Delete</button></div><div class='goal-result' data-goal-result='${esc(String(g.id))}'></div>`).join('')}
+async function updateGoals(){
+ const {goalProjection}=await import('./engines/goals.mjs');
+ const root=document.getElementById('goalRows');if(!root)return;
+ const goals=readGoals();root.innerHTML=goalRows();
+ for(const el of root.querySelectorAll('[data-goal-result]')){
+ const g=goals.find(x=>String(x.id)===el.dataset.goalResult),p=goalProjection(g);if(!p){el.textContent='Invalid saved goal';continue}
+ const low=goalProjection({...g,rate:Math.max(-50,g.rate-3)}),high=goalProjection({...g,rate:Math.min(40,g.rate+3)});
+ el.innerHTML=`<div class='kv c3'><div><small>Future target</small><b>${cr(p.futureTarget)}</b></div><div><small>Projected corpus</small><b>${cr(p.projected)}</b></div><div><small>Required monthly SIP</small><b>${cr(p.requiredMonthly)}</b></div><div><small>Funding shortfall</small><b>${cr(p.shortfall)}</b></div><div><small>Projected funding</small><b>${p.funded.toFixed(1)}%</b></div><div><small>Saved today</small><b>${p.currentProgress.toFixed(1)}%</b></div></div><p class='mut'>Cautious / optimistic corpus: ${cr(low.projected)} / ${cr(high.projected)}. Scenario range, not probability.</p>`;
+ }
+}
+document.addEventListener('click',async e=>{
+ const add=e.target.closest('#goalAdd'),del=e.target.closest('[data-goal-delete]');if(!add&&!del)return;
+ const status=document.getElementById('goalStatus');
+ try{let goals=readGoals();if(del){if(!confirm('Delete this financial goal?'))return;goals=goals.filter(g=>String(g.id)!==del.dataset.goalDelete)}else{
+ const name=document.getElementById('goalName').value.trim(),g={name,id:crypto.randomUUID()};
+ for(const [k] of goalFields){const v=document.getElementById('goal-'+k).value;g[k]=v.trim()===''?NaN:Number(v)}
+ const {goalProjection}=await import('./engines/goals.mjs');if(!name||!goalProjection(g))throw Error('Enter a valid name and assumptions: 1 month–50 years, return −50% to 40%, inflation 0–30%, positive target and non-negative savings.');
+ goals.push(g)}
+ localStorage.setItem(goalKey,JSON.stringify(goals));status.textContent=del?'Goal deleted.':'Goal saved locally.';await updateGoals();
+ }catch(err){status.textContent=err.message||'Unable to save goal.'}
+});
 const SL=[['sip','Monthly SIP',0,200000,500],['step','Raise SIP every year by',0,25,1],['yrs','Years',1,40,1],['ret','Expected return a year',4,20,.5],['inf','Inflation a year',0,10,.5]],UL={sip:'',step:'%',yrs:' years',ret:'%',inf:'%'};
 const lv=k=>k==='sip'?inr(pl[k]):pl[k]+UL[k],pcs=el=>(el.value-el.min)/(el.max-el.min)*100+'%';
 function rangeFill(){document.querySelectorAll('input[type=range]').forEach(r=>r.style.setProperty('--p',pcs(r)))}
@@ -10,7 +36,7 @@ function planRes(C){const n=pl.yrs,sc=[pl.ret-3,pl.ret,pl.ret+3].map(r=>proj(r,C
 lines=[{pts:sc[2].map(p=>[p[0],p[1]]),color:'var(--gain)'},{pts:sc[0].map(p=>[p[0],p[1]]),color:'var(--loss)'},{pts:sc[1].map(p=>[p[0],p[2]]),color:'var(--mut)',dash:1,w:1.5},{pts:sc[1].map(p=>[p[0],p[1]]),color:'var(--acc)',w:3}];
 return `<section class='hero'><span class='lab'>Projected value in ${n} year${n>1?'s':''}</span><h1>${cr(ex[1])}</h1><p class='sub'>at ${pl.ret}% a year, from ${cr(C.tv)} today plus your SIP</p><div class='kp two'><div><small>You put in</small><strong>${cr(ex[2])}</strong></div><div><small>In today’s money</small><strong>${cr(real)}</strong></div></div></section>
 <div class='card pad gap'>${lineChart(lines,n,mx,3,['Today',n+' years'])}<div class='key'><span><i style='background:var(--acc)'></i>Expected</span><span><i style='background:var(--gain)'></i>Optimistic</span><span><i style='background:var(--loss)'></i>Cautious</span><span><i class='dash'></i>Invested</span></div><div class='three'><div style='--k:var(--loss)'><small>Cautious ${pl.ret-3}%</small><b>${cr(sc[0][n][1])}</b></div><div style='--k:var(--acc)'><small>Expected ${pl.ret}%</small><b>${cr(ex[1])}</b></div><div style='--k:var(--gain)'><small>Optimistic ${pl.ret+3}%</small><b>${cr(sc[2][n][1])}</b></div></div></div>`}
-const plan=C=>`<div id='res'>${planRes(C)}</div><h2>Your assumptions</h2><div class='card pad'>${SL.map(([k,l,a,b,s])=>`<label class='sl'><span><em>${l}</em><b>${lv(k)}</b></span><input type='range' min='${a}' max='${b}' step='${s}' value='${pl[k]}' data-p='${k}'></label>`).join('')}</div><p class='mut note'>The orange line starts from your current holdings plus your SIP. Markets never move in a straight line, so read the cautious and optimistic lines as a range, not a promise.</p><button class='btn' data-t='swp'>Plan withdrawals from this corpus</button>`;
+const plan=C=>`${goalPlanner()}<div id='res'>${planRes(C)}</div><h2>Your assumptions</h2><div class='card pad'>${SL.map(([k,l,a,b,s])=>`<label class='sl'><span><em>${l}</em><b>${lv(k)}</b></span><input type='range' min='${a}' max='${b}' step='${s}' value='${pl[k]}' data-p='${k}'></label>`).join('')}</div><p class='mut note'>The orange line starts from your current holdings plus your SIP. Markets never move in a straight line, so read the cautious and optimistic lines as a range, not a promise.</p><button class='btn' data-t='swp'>Plan withdrawals from this corpus</button>`;
 let sw={link:true,corp:0,ret:10,inf:6,step:6,wd:null,yrs:25,start:0};
 function swpVals(C){if(sw.link){const c=proj(pl.ret,C)[pl.yrs][1];return{corp:c,ret:pl.ret,inf:pl.inf,step:pl.inf,start:pl.yrs}}return{corp:sw.corp,ret:sw.ret,inf:sw.inf,step:sw.step,start:sw.start}}
 const swW=V=>sw.wd==null?Math.max(0,Math.round(V.corp*.04/12/100)*100):sw.wd;
