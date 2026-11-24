@@ -15,3 +15,12 @@ const dnum=d=>Date.parse(d)/86400000;
 const q=calculatePerformance({S:{tx},ser:{},PWH:{},pxAt:(s,n,d)=>d==='2025-01-01'?100:160,navCovers:()=>true,dnum},'2025-01-01','2025-04-01');near(q.cf,-1180);near(q.vch,-520);near(q.gain,660);
 const bm=calculateBenchmark([['2025-01-01',100],['2026-01-01',110]],{points:[{d:'2025-01-01'},{d:'2026-01-01'}]},[tx[0]],dnum);assert.equal(bm.ready,true);near(bm.ret,10);
 near(projectPortfolio(0,{tv:1000,tc:1000},{sip:100,step:10,yrs:2})[2][1],3520);near(swpSim(1200,0,100,0,1).end,0);
+
+import {calculateSips} from '../js/engines/sip.mjs';
+import {riskHistPrice,calculateRiskSeries,calculateRiskStats} from '../js/engines/risk.mjs';
+import {calculateRealized,calculateTaxFY} from '../js/engines/tax.mjs';
+const sip=calculateSips([{...tx[0],sip:true},{...tx[1],sip:true}], '2025-01-15')[0];near(sip.total,1010);assert.equal(sip.n,1);
+assert.equal(riskHistPrice({px:{A:200},pxd:{A:'2025-02-01'}},{},{},'2025-01-31',dnum,'A','mf','2025-01-31'),null);
+assert.deepEqual(calculateRiskSeries({tx:[tx[1]]},'2025-01-01',dnum,()=>100).points,[]);
+const realized=calculateRealized({tx});near(realized.reduce((s,x)=>s+x.gain,0),530);
+const tax=calculateTaxFY([{fy:'2025-26',bucket:'eqST',gain:10000,sell:'2025-05-01'},{fy:'2024-25',bucket:'eqST',gain:10000,sell:'2025-03-01'}],'2025-26',30);near(tax.tax,2080);
