@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v38-sip-optimization';
+const CACHE_NAME = 'my-portfolio-pwa-v39-overlap';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -7,6 +7,7 @@ const APP_SHELL = [
   './css/app.css',
   './js/engines/portfolio.mjs',
   './js/engines/allocation.mjs',
+  './js/engines/overlap.mjs',
   './js/engines/planning.mjs',
   './js/engines/goals.mjs',
   './js/engines/attribution.mjs',
