@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v37-goals';
+const CACHE_NAME = 'my-portfolio-pwa-v38-sip-optimization';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -15,6 +15,7 @@ const APP_SHELL = [
   './js/engines/benchmark.mjs',
   './js/engines/tax.mjs',
   './js/engines/sip.mjs',
+  './js/engines/sip-optimization.mjs',
   './js/bootstrap.mjs',
   './js/core/errors.mjs',
   './js/core/integrity.mjs',
