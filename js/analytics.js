@@ -1,4 +1,26 @@
-function overlapCard(){return `<h2>Mutual fund overlap</h2><div class='card pad'><p class='mut'>Import normalized scheme equity disclosures from official AMC statements. Weights are percentages of entire scheme NAV, not normalized equity weights. No disclosure is fetched automatically.</p><a href='https://www.amfiindia.com/' target='_blank' rel='noopener noreferrer'>AMFI disclosures</a><label>Disclosure JSON<input type='file' id='overlapFile' accept='.json,application/json'></label><button type='button' class='btn' id='overlapShow'>Calculate saved disclosures</button><div id='overlapOutput' role='status'></div><p class='mut'>Same-date pairs only; data older than 45 days excluded. Partial equity lists understate overlap and exposure. Direct stocks and indirect fund-of-fund holdings are excluded.</p></div>`}
+let overlapBusy=false,overlapAttempt=0,overlapMessage='';
+async function refreshOverlap(force=false){
+ if(!document.getElementById('overlapOutput'))return;
+ await showOverlap();
+ const status=()=>{const e=document.getElementById('overlapSyncStatus');if(e)e.textContent=overlapMessage};
+ status();if(overlapBusy)return;
+ if(!force&&(Date.now()-overlapAttempt<3600000||Date.now()-Number(localStorage.getItem('overlap-refresh-at')||0)<86400000))return;
+ overlapBusy=true;overlapAttempt=Date.now();overlapMessage='Refreshing public holdings catalog…';status();
+ try{
+ const {publicDisclosures}=await import('./services/providers/disclosures.mjs');
+ const {validateDisclosure}=await import('./engines/overlap.mjs');
+ const names=calc().open.filter(h=>h.type==='mf').map(h=>h.name);
+ if(!names.length)return;
+ const p=await publicDisclosures(names);
+ let rows=JSON.parse(localStorage.getItem(overlapKey)||'[]'),count=0;
+ for(const d of p.rows){if(!validateDisclosure(d,today())||!calc().open.some(h=>h.type==='mf'&&h.name===d.scheme)||rows.some(x=>x.scheme===d.scheme&&x.date>d.date))continue;rows=rows.filter(x=>x.scheme!==d.scheme).concat(d);count++}
+ localStorage.setItem(overlapKey,JSON.stringify(rows));if(!p.failures)localStorage.setItem('overlap-refresh-at',String(Date.now()));
+ overlapMessage='Public catalog matched '+count+' of '+names.length+' funds; '+p.failures+' catalog downloads failed. Unmatched funds retain saved disclosures.';
+ }catch(e){overlapMessage='Public holdings refresh unavailable; saved disclosures retained. '+e.message}
+ finally{overlapBusy=false;status();await showOverlap()}
+}
+document.addEventListener('click',e=>{if(e.target.closest('#overlapRefresh'))refreshOverlap(true)});
+function overlapCard(){return `<h2>Mutual fund overlap</h2><div class='card pad'><p class='mut'>Import normalized scheme equity disclosures from official AMC statements. Weights are percentages of entire scheme NAV, not normalized equity weights. Public catalog refresh downloads all available schemes, then matches locally. Coverage depends on the provider.</p><a href='https://www.amfiindia.com/' target='_blank' rel='noopener noreferrer'>AMFI disclosures</a><button type='button' class='btn' id='overlapRefresh'>Refresh public holdings</button><p id='overlapSyncStatus' role='status'></p><label>Optional manual disclosure JSON<input type='file' id='overlapFile' accept='.json,application/json'></label><button type='button' class='btn' id='overlapShow'>Calculate saved disclosures</button><div id='overlapOutput' role='status'></div><p class='mut'>Same-date pairs only; data older than 45 days excluded. Partial equity lists understate overlap and exposure. Direct stocks and indirect fund-of-fund holdings are excluded.</p></div>`}
 const overlapKey='portfolio-overlap-v1';
 async function showOverlap(file){
  const out=document.getElementById('overlapOutput');if(!out)return;
