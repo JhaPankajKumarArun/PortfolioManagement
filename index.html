@@ -532,7 +532,11 @@ async function amfiLatest(){
   if(amfiLatestPromise && Date.now()-amfiLatestAt<300000)return amfiLatestPromise;
   amfiLatestAt=Date.now();
   amfiLatestPromise=(async()=>{
-    const r=await fetch('https://portal.amfiindia.com/spages/NAVAll.txt',{signal:AbortSignal.timeout?AbortSignal.timeout(12000):undefined});
+    let r;
+    if(location.protocol==='https:' || location.protocol==='http:'){
+      try{const cached=await fetch(new URL('data/amfi-nav.txt',location.href),{cache:'no-cache',signal:AbortSignal.timeout?AbortSignal.timeout(5000):undefined});if(cached.ok && !(cached.headers.get('content-type')||'').includes('text/html'))r=cached;}catch(e){}
+    }
+    if(!r)r=await fetch('https://portal.amfiindia.com/spages/NAVAll.txt',{signal:AbortSignal.timeout?AbortSignal.timeout(12000):undefined});
     if(!r.ok)throw Error('AMFI HTTP '+r.status);
     const rows=new Map();
     for(const line of (await r.text()).split(/\r?\n/)){
