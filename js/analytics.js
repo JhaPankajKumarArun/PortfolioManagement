@@ -40,16 +40,7 @@ function portfolioRiskTile(){const a=paStats(),months=a.points.filter(x=>x.r!=nu
 
 // Phase 3: local performance attribution and concentration analysis.
 // Realised profit uses the app's existing FIFO/fee-aware tax-lot engine.
-function paAttribution(C){
- const map={};
- const get=n=>map[n]||(map[n]={name:n,realised:0,unrealised:0,value:0,cost:0});
- realized().forEach(g=>{get(g.name).realised+=g.gain});
- C.open.forEach(h=>{const x=get(h.name);x.unrealised=h.pl;x.value=h.value;x.cost=h.cost;x.type=h.type});
- const rows=Object.values(map).map(x=>({...x,total:x.realised+x.unrealised,weight:C.tv>0?x.value/C.tv*100:0}));
- const totalReal=rows.reduce((a,x)=>a+x.realised,0),totalUnreal=rows.reduce((a,x)=>a+x.unrealised,0),net=totalReal+totalUnreal;
- const live=rows.filter(x=>x.value>0).sort((a,b)=>b.value-a.value),top3=live.slice(0,3).reduce((a,x)=>a+x.weight,0),hhi=live.reduce((a,x)=>a+Math.pow(x.weight,2),0);
- return{rows:rows.sort((a,b)=>b.total-a.total),totalReal,totalUnreal,net,top3,hhi,largest:live[0]||null};
-}
+function paAttribution(C){return calculateAttribution(C,realized())}
 function portfolioAttributionTile(C){
  const a=paAttribution(C),fmt=n=>cr(n),row=x=>`<div class='ur' style='gap:8px'><span style='flex:1;min-width:0;text-align:left;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap'>${esc(x.name)} <small class='mut'>${x.value>0?x.weight.toFixed(1)+'% of portfolio':'closed'}</small></span><b class='${x.total>=0?'g':'l'}'>${x.total>=0?'+':''}${fmt(x.total)}</b></div>`;
  const leaders=a.rows.slice(0,4),laggards=[...a.rows].reverse().filter(x=>x.total<0).slice(0,3);

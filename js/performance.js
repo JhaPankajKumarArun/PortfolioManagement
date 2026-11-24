@@ -2,11 +2,7 @@ const perfEnd=()=>{const ds=[...Object.values(S.pxd||{}),...Object.values(NH).ma
 const dayAdd=(s,n)=>new Date(dnum(s)*864e5+n*864e5).toISOString().slice(0,10);
 function perfStart(k,end,first){const m={'1M':1,'3M':3,'6M':6,'1Y':12,'3Y':36,'5Y':60}[k];if(k==='1D')return dayAdd(end,-1);if(k==='1W')return dayAdd(end,-7);if(m)return addMD(end,-m);if(k==='YTD')return(+end.slice(0,4)-1)+'-12-31';if(k==='All')return first;return k}
 const navCovers=(n,d)=>{const a=NH[n]&&NH[n].d;if(!a||!a.length)return false;let last='';for(const r of a){if(r[0]>d)break;last=r[0]}return !!last&&dnum(d)-dnum(last)<=7};
-function perfCalc(C,start,end){const ser=pxSeries(C),span=Math.max(1,dnum(end)-dnum(start)),rows=[];let v0=0,v1=0,cf=0,den=0,est=false;
-[...new Set(S.tx.map(t=>t.name))].forEach(n=>{const tx=S.tx.filter(t=>t.name===n);let u0=0,u1=0,c=0,d=0;tx.forEach(t=>{if(t.date<=start)u0+=t.side==='buy'?t.units:-t.units;if(t.date<=end)u1+=t.side==='buy'?t.units:-t.units;if(t.date>start&&t.date<=end){const a=t.side==='buy'?t.units*t.price+(t.fee||0):-(t.units*t.price-(t.fee||0));c+=a;d+=a*(dnum(end)-dnum(t.date))/span}});
-const a0=u0>1e-6?u0*pxAt(ser,n,start):0,ep=pxAt(ser,n,end),a1=u1>1e-6&&ep>0?u1*ep:0;if(u0>1e-6||c!==0||u1>1e-6){rows.push({n,v0:a0,v1:a1,cf:c,gain:a1-a0-c,den:a0+d});v0+=a0;v1+=a1;cf+=c;den+=a0+d;
-const h=tx[0],sh=PWH&&PWH[n],stockCovered=h&&h.type==='stock'&&sh&&sh.length&&dnum(start)>=dnum(sh[0][0])&&dnum(end)<=dnum(sh[sh.length-1][0]);if(h&&h.type==='stock'&&!stockCovered||h&&h.type==='mf'&&(!navCovers(n,start)||!navCovers(n,end)))est=true}});
-const gain=v1-v0-cf;return{v0,v1,cf,gain,pct:den>1?gain/den*100:null,vch:v1-v0,vpct:v0>1?(v1-v0)/v0*100:null,rows,est,start,end}}
+function perfCalc(C,start,end){return calculatePerformance({S,ser:pxSeries(C),PWH,pxAt,navCovers,dnum},start,end)}
 const sg=v=>(v>=0?'+':'−')+cr(Math.abs(v)),PK2=['1D','1W','1M','3M','6M','YTD','1Y','3Y','5Y','All'];
 function perfGet(C,k){const end=perfEnd(),first=S.tx.reduce((a,t)=>t.date<a?t.date:a,'9999-12-31'),start=perfStart(k,end,first);if(k!=='All'&&start<=first)return null;if(start>=end)return null;const r=perfCalc(C,start,end);if(r.v0<=0&&k!=='All'&&r.cf===0)return null;return r}
 function perfBody(C){if(!C.open.length)return '';const end=perfEnd(),first=S.tx.reduce((a,t)=>t.date<a?t.date:a,'9999-12-31'),g=pf.mode==='gain',R={};PK2.forEach(k=>{R[k]=perfGet(C,k)});

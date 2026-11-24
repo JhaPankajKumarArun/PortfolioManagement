@@ -1,7 +1,7 @@
 const SL=[['sip','Monthly SIP',0,200000,500],['step','Raise SIP every year by',0,25,1],['yrs','Years',1,40,1],['ret','Expected return a year',4,20,.5],['inf','Inflation a year',0,10,.5]],UL={sip:'',step:'%',yrs:' years',ret:'%',inf:'%'};
 const lv=k=>k==='sip'?inr(pl[k]):pl[k]+UL[k],pcs=el=>(el.value-el.min)/(el.max-el.min)*100+'%';
 function rangeFill(){document.querySelectorAll('input[type=range]').forEach(r=>r.style.setProperty('--p',pcs(r)))}
-function proj(r,C){const mr=Math.pow(1+r/100,1/12)-1;let v=C.tv,inv=C.tc,s=pl.sip;const p=[[0,v,inv]];for(let y=1;y<=pl.yrs;y++){for(let m=0;m<12;m++){v=v*(1+mr)+s;inv+=s}s*=1+pl.step/100;p.push([y,v,inv])}return p}
+function proj(r,C){return projectPortfolio(r,C,pl)}
 function lineChart(lines,xmax,ymax,main,xl,ymin){ymin=ymin||0;const W=320,H=172,L=56,R=8,T=10,B=26,X=x=>L+x/xmax*(W-L-R),Y=v=>T+(1-(Math.min(Math.max(v,ymin),ymax)-ymin)/(ymax-ymin))*(H-T-B),id='g'+Math.floor(Math.random()*1e9);
 const grid=[0,.25,.5,.75,1].map(f=>{const y=T+(1-f)*(H-T-B),v=ymin+(ymax-ymin)*f;return `<line x1='${L}' x2='${W-R}' y1='${y.toFixed(1)}' y2='${y.toFixed(1)}' class='gr'></line><text x='${L-5}' y='${(y+3).toFixed(1)}' text-anchor='end'>${f===0&&ymin===0?'0':cr(v)}</text>`}).join('');
 const d=p=>p.map((q,i)=>(i?'L':'M')+X(q[0]).toFixed(1)+' '+Y(q[1]).toFixed(1)).join(''),m=lines[main],lp=m.pts[m.pts.length-1];
@@ -12,10 +12,6 @@ return `<section class='hero'><span class='lab'>Projected value in ${n} year${n>
 <div class='card pad gap'>${lineChart(lines,n,mx,3,['Today',n+' years'])}<div class='key'><span><i style='background:var(--acc)'></i>Expected</span><span><i style='background:var(--gain)'></i>Optimistic</span><span><i style='background:var(--loss)'></i>Cautious</span><span><i class='dash'></i>Invested</span></div><div class='three'><div style='--k:var(--loss)'><small>Cautious ${pl.ret-3}%</small><b>${cr(sc[0][n][1])}</b></div><div style='--k:var(--acc)'><small>Expected ${pl.ret}%</small><b>${cr(ex[1])}</b></div><div style='--k:var(--gain)'><small>Optimistic ${pl.ret+3}%</small><b>${cr(sc[2][n][1])}</b></div></div></div>`}
 const plan=C=>`<div id='res'>${planRes(C)}</div><h2>Your assumptions</h2><div class='card pad'>${SL.map(([k,l,a,b,s])=>`<label class='sl'><span><em>${l}</em><b>${lv(k)}</b></span><input type='range' min='${a}' max='${b}' step='${s}' value='${pl[k]}' data-p='${k}'></label>`).join('')}</div><p class='mut note'>The orange line starts from your current holdings plus your SIP. Markets never move in a straight line, so read the cautious and optimistic lines as a range, not a promise.</p><button class='btn' data-t='swp'>Plan withdrawals from this corpus</button>`;
 let sw={link:true,corp:0,ret:10,inf:6,step:6,wd:null,yrs:25,start:0};
-function swpSim(c,r,w,st,yrs){const mr=Math.pow(1+r/100,1/12)-1,pts=[[0,c]];let b=c,tw=0,m=0,wm=w,dep=false;
-outer:for(let y=1;y<=yrs;y++){for(let k=0;k<12;k++){const x=Math.min(b,wm);b-=x;tw+=x;if(x<wm-1e-6){dep=true;m+=x/wm;pts.push([m/12,0]);break outer}m++;b*=1+mr}wm*=1+st/100;pts.push([y,b])}
-return{pts,end:dep?0:b,tw,months:dep?Math.floor(m):m,dep}}
-function safeW(c,r,st,yrs){let lo=0,hi=Math.max(c,1);for(let i=0;i<45;i++){const mid=(lo+hi)/2;swpSim(c,r,mid,st,yrs).dep?hi=mid:lo=mid}return lo}
 function swpVals(C){if(sw.link){const c=proj(pl.ret,C)[pl.yrs][1];return{corp:c,ret:pl.ret,inf:pl.inf,step:pl.inf,start:pl.yrs}}return{corp:sw.corp,ret:sw.ret,inf:sw.inf,step:sw.step,start:sw.start}}
 const swW=V=>sw.wd==null?Math.max(0,Math.round(V.corp*.04/12/100)*100):sw.wd;
 const durT=m=>{const y=Math.floor(m/12),r=Math.floor(m%12);return y+' yr'+(y===1?'':'s')+(r?' '+r+' mo':'')};
