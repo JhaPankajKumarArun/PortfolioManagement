@@ -526,7 +526,31 @@ let LV={t:0,ok:0,err:[],net:false,busy:false};
 const NETMSG2='This page can’t reach mfapi.in, so prices can’t refresh here. Inside Claude the browser blocks outside requests. Update prices by hand, or use a hosted copy.';
 const liveMsg=()=>{if(!LV.t)return '';if(LV.net&&!LV.ok)return NETMSG2;if(LV.nm&&!LV.ok)return LV.nm+' fund'+(LV.nm===1?'':'s')+' couldn’t be matched. Import your CAS again so each fund’s ISIN is saved.';if(!LV.ok&&LV.err.length)return LV.err.join('. ');return(LV.ch?'Updated '+LV.ch+' of '+LV.ok+' fund'+(LV.ok===1?'':'s')+' with newer prices':'Prices are already the latest')+(LV.nd?' ('+fd(LV.nd)+')':'')+'.'+(LV.err.length?' '+LV.err.join('. ')+'.':'')};
 const liveNote=()=>LV.busy?' Fetching live NAVs…':LV.t?(LV.net&&!LV.ok?' Can’t reach mfapi.in from here.':LV.nm&&!LV.ok?' '+LV.nm+' fund'+(LV.nm===1?'':'s')+' not matched, re-import your CAS.':!LV.ok&&LV.err.length?' Couldn’t refresh, tap to retry.':' Live NAVs fetched '+new Date(LV.t).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'.'):'';
-async function liveGet(code){const r=await fetch('https://api.mfapi.in/mf/'+encodeURIComponent(code)+'/latest',{signal:AbortSignal.timeout?AbortSignal.timeout(10000):undefined});if(!r.ok)throw new Error('Scheme code '+code+' returned HTTP '+r.status);const j=await r.json(),d=j&&j.data&&j.data[0],nav=d?parseFloat(d.nav):NaN;if(!(nav>0))throw new Error('Scheme code '+code+' has no NAV');return{nav,date:pd(d.date)||today(),meta:j.meta||{}}}
+// Phase 4.3: AMFI-first latest NAV, with existing MFAPI fallback.
+let amfiLatestPromise=null, amfiLatestAt=0;
+async function amfiLatest(){
+  if(amfiLatestPromise && Date.now()-amfiLatestAt<300000)return amfiLatestPromise;
+  amfiLatestAt=Date.now();
+  amfiLatestPromise=(async()=>{
+    const r=await fetch('https://portal.amfiindia.com/spages/NAVAll.txt',{signal:AbortSignal.timeout?AbortSignal.timeout(12000):undefined});
+    if(!r.ok)throw Error('AMFI HTTP '+r.status);
+    const rows=new Map();
+    for(const line of (await r.text()).split(/\r?\n/)){
+      const [code,i1,i2,name,value,rawDate]=line.split(';').map(x=>x.trim());
+      if(!/^\d+$/.test(code)||!(Number(value)>0)||!rawDate)continue;
+      const m=/^(\d{1,2})-([A-Za-z]{3})-(\d{4})$/.exec(rawDate);
+      if(!m)continue;
+      const month=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m[2].toLowerCase())+1;
+      if(!month)continue;
+      const date=m[3]+'-'+String(month).padStart(2,'0')+'-'+m[1].padStart(2,'0');
+      rows.set(code,{nav:Number(value),date,meta:{isin_growth:i1,isin_div_reinvestment:i2,scheme_name:name}});
+    }
+    if(rows.size<100)throw Error('AMFI feed incomplete');
+    return rows;
+  })();
+  return amfiLatestPromise;
+}
+async function liveGet(code){try{const row=(await amfiLatest()).get(String(code));if(row)return row;}catch(e){/* Browser CORS or feed failure: retain MFAPI fallback. */}const r=await fetch('https://api.mfapi.in/mf/'+encodeURIComponent(code)+'/latest',{signal:AbortSignal.timeout?AbortSignal.timeout(10000):undefined});if(!r.ok)throw new Error('Scheme code '+code+' returned HTTP '+r.status);const j=await r.json(),d=j&&j.data&&j.data[0],nav=d?parseFloat(d.nav):NaN;if(!(nav>0))throw new Error('Scheme code '+code+' has no NAV');return{nav,date:pd(d.date)||today(),meta:j.meta||{}}}
 function saveSc(){S.sc=S.sc||{};document.querySelectorAll('[data-sc]').forEach(i=>{const v=i.value.trim();if(v)S.sc[i.dataset.sc]=v;else delete S.sc[i.dataset.sc]});save()}
 function toast(msg,act,lab){const o=$('#toast');if(o)o.remove();const t=document.createElement('div');t.id='toast';t.setAttribute('role','status');t.innerHTML=`<span>${esc(msg)}</span>${act?`<button ${act}>${esc(lab)}</button>`:''}`;document.body.appendChild(t);clearTimeout(window.__tt);window.__tt=setTimeout(()=>t.remove(),8000);const b=t.querySelector('button');if(b)b.addEventListener('click',()=>t.remove())}
 document.addEventListener('click',e=>{if(!e.target.closest('[data-a=livego]'))return;if(!calc().open.some(h=>{const t=S.tx.find(x=>x.name===h.name);return t&&t.type==='mf'})){toast('There are no mutual funds to refresh. Stock prices are updated by hand under Holdings, Update prices.');return}const m0=$('#lvm');if(m0)m0.textContent='Fetching…';toast('Checking for the latest NAVs…');liveRefresh(true).then(()=>{const m=$('#lvm');if(m)m.textContent=liveMsg();const bad=!LV.ok;toast(liveMsg(),bad&&LV.net?"data-a='prices'":bad&&LV.nm?"data-t='data'":'',bad&&LV.net?'Update prices':'Import CAS')})});
