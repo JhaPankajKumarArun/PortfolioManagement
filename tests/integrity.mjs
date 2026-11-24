@@ -18,3 +18,12 @@ assert.equal(reconcilePortfolio(state,{...C,tv:999},'2025-03-01').ready,false);
 assert.ok(reconcilePortfolio({...state,px:{}},C,'2025-03-01').issues.some(x=>x.code==='missing-current-price'));
 assert.ok(reconcilePortfolio({...state,pxd:{A:'2025-02-01'}},C,'2025-03-01').issues.some(x=>x.code==='stale-price'));
 assert.equal(reconcilePortfolio({...state,tx:[buy,sell]},C,'2025-03-01').ready,false);
+
+import {historicalCoverage} from '../js/core/integrity.mjs';
+const histState={tx:[buy,{...buy,side:'sell',date:'2025-03-15'}]};
+const hist={A:{d:[['2025-01-30',100],['2025-02-10',101],['2025-04-01',999]]}};
+const cov=historicalCoverage(histState,hist,{},'2025-03-31');
+assert.equal(cov.required,2);assert.equal(cov.covered,1);assert.equal(cov.percent,50);assert.deepEqual(cov.rows[0].missing,['2025-02-28']);assert.equal(cov.rows[0].latest,'2025-02-10');assert.equal(cov.rows[0].open,false);
+assert.equal(historicalCoverage({tx:[]},{},{},'2025-03-31').percent,null);
+assert.equal(historicalCoverage({tx:[buy]},{A:{d:[['2025-01-31',0],['2025-02-01',100]]}},{},'2025-01-31').covered,0);
+assert.equal(historicalCoverage({tx:[{...buy,type:'stock'}]},{},{A:[['2025-01-30',100]]},'2025-01-31').covered,1);
