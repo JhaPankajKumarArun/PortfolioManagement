@@ -10,3 +10,11 @@ assert.equal(validateDisclosure({...a,holdings:[h,h]},'2026-11-24'),false);
 assert.equal(overlapAnalysis(positions,[a,b],'2027-02-01').covered,0);
 assert.equal(overlapAnalysis(positions,[a,{...b,date:'2026-11-01'}],'2026-11-24').pairs.length,0);
 console.log('Overlap fixtures passed');
+
+assert.equal(p.pairs[0].details[0].a,20);
+assert.equal(p.pairs[0].details[0].b,10);
+assert.equal(p.pairs[0].details[0].weight,10);
+const selected=overlapAnalysis(positions.slice(0,1),[a,b],'2026-11-24');
+assert.equal(selected.pairs.length,0);
+assert.equal(selected.total,100000);
+assert.equal(selected.exposure[0].value,20000);
