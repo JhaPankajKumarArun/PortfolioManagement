@@ -1,7 +1,7 @@
 let overlapSelection=null,overlapRevision=0,overlapSection='overview';
 function holdingOverlap(C){
  const funds=C.open.filter(h=>h.type==='mf');if(!funds.length)return '';
- return `<div class='chips ho-launch'><button type='button' id='hoOpen'>Analyze overlap · ${funds.length} funds ›</button></div>`;
+ return `<div class='chips ho-launch' id='hoSelectBar'></div><p class='mut note' id='hoHint'>Long-press a mutual fund to select it for overlap analysis.</p>`;
 }
 function openHoldingOverlap(){
  if(document.getElementById('holdingOverlap'))return;
@@ -135,5 +135,26 @@ return(S.sample?`<div class='warn'>You’re viewing sample data.<button data-a='
 
 let lsort='value';
 function list(C){const key={value:h=>h.value,ret:h=>h.plp==null?-1e9:h.plp,gain:h=>h.pl,xirr:h=>h.xirr==null?-1e9:h.xirr}[lsort],L=C.open.filter(h=>flt==='all'||h.type===flt).sort((a,b)=>key(b)-key(a)),tot=L.reduce((s,h)=>s+h.value,0);
-return `<div class='chips'><button data-hist=''>All transactions</button><button data-a='prices'>Update prices</button>${elssData().length?`<button data-a='elss'>ELSS lock-in</button>`:''}</div><div class='seg'>${[['all','All'],['mf','Mutual funds'],['stock','Stocks']].map(([k,t])=>`<button class='${flt===k?'on':''}' data-f='${k}'>${t}</button>`).join('')}</div>${flt!=='stock'?holdingOverlap(C):''}<div class='srt'><span>Sort by</span>${[['value','Value'],['ret','Returns %'],['gain','Gain'],['xirr','XIRR']].map(([k,t])=>`<button data-s='${k}' class='${lsort===k?'on':''}'>${t}</button>`).join('')}</div><p class='mut' style='margin:0 4px 10px'>${L.length} fund${L.length===1?'':'s'} worth ${cr(tot)}</p><div class='list'>`+(L.map(h=>{const c=chgOf(h);return `<button class='hc' data-h='${esc(h.name)}'><div class='hct'>${av(h.name)}<div class='hm'><b>${esc(h.name)}</b><small>${c?(c.abs>=0?'▲ ':'▼ ')+cr(Math.abs(c.abs))+' ('+ap(c.pct)+') since '+fd(c.since):(+h.units.toFixed(3)).toLocaleString('en-IN')+' '+(h.type==='mf'?'units':'shares')+' at '+px(h.price)}</small></div>${pill(h.pl,ap(h.plp))}</div><div class='mg'><div><small>Invested</small><b>${cr(h.cost)}</b></div><div><small>Current</small><b>${cr(h.value)}</b></div><div><small>Total gain</small><b class='${cls(h.pl)}'>${cr(h.pl)}</b></div></div></button>`}).join('')||'<p class="mut">Nothing in this group yet.</p>')+`</div><p class='mut note'>Tap a fund for its chart, details and tax if redeemed.</p>`}
+return `<div class='chips'><button data-hist=''>All transactions</button><button data-a='prices'>Update prices</button>${elssData().length?`<button data-a='elss'>ELSS lock-in</button>`:''}</div><div class='seg'>${[['all','All'],['mf','Mutual funds'],['stock','Stocks']].map(([k,t])=>`<button class='${flt===k?'on':''}' data-f='${k}'>${t}</button>`).join('')}</div>${flt!=='stock'?holdingOverlap(C):''}<div class='srt'><span>Sort by</span>${[['value','Value'],['ret','Returns %'],['gain','Gain'],['xirr','XIRR']].map(([k,t])=>`<button data-s='${k}' class='${lsort===k?'on':''}'>${t}</button>`).join('')}</div><p class='mut' style='margin:0 4px 10px'>${L.length} fund${L.length===1?'':'s'} worth ${cr(tot)}</p><div class='list'>`+(L.map(h=>{const c=chgOf(h);return `<button class='hc' ${h.type==='mf'?`data-ho-fund='${esc(h.name)}'`:''} data-h='${esc(h.name)}'><div class='hct'>${av(h.name)}<div class='hm'><b>${esc(h.name)}</b><small>${c?(c.abs>=0?'▲ ':'▼ ')+cr(Math.abs(c.abs))+' ('+ap(c.pct)+') since '+fd(c.since):(+h.units.toFixed(3)).toLocaleString('en-IN')+' '+(h.type==='mf'?'units':'shares')+' at '+px(h.price)}</small></div>${pill(h.pl,ap(h.plp))}</div><div class='mg'><div><small>Invested</small><b>${cr(h.cost)}</b></div><div><small>Current</small><b>${cr(h.value)}</b></div><div><small>Total gain</small><b class='${cls(h.pl)}'>${cr(h.pl)}</b></div></div></button>`}).join('')||'<p class="mut">Nothing in this group yet.</p>')+`</div><p class='mut note'>Tap a fund for its chart, details and tax if redeemed.</p>`}
 
+
+let hoMode=false,hoPress=null,hoSuppressUntil=0;
+function paintHoldingSelection(){
+ const bar=document.getElementById('hoSelectBar');if(!bar)return;
+ const funds=calc().open.filter(h=>h.type==='mf');
+ if(hoMode)overlapSelection=new Set(funds.filter(h=>overlapSelection.has(h.name)).map(h=>h.name));
+ const n=hoMode?overlapSelection.size:0;
+ bar.innerHTML=hoMode?`<span class='ho-selected-count'>${n} selected</span><button type='button' id='hoSelectAll'>Select all</button><button type='button' id='hoCancel'>Cancel</button><button type='button' id='hoAnalyze' ${n<2?'disabled':''}>Analyze (${n})</button>`:"<button type='button' id='hoStart'>Select funds for overlap</button>";
+ document.querySelectorAll('[data-ho-fund]').forEach(b=>{const on=hoMode&&overlapSelection.has(b.dataset.hoFund);b.classList.toggle('ho-selected',on);if(hoMode)b.setAttribute('aria-pressed',String(on));else b.removeAttribute('aria-pressed')});
+ const hint=document.getElementById('hoHint');if(hint)hint.hidden=hoMode;
+}
+function stopHoPress(){if(hoPress){clearTimeout(hoPress.timer);hoPress=null}}
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('[data-ho-fund]');if(!b||hoMode||!e.isPrimary||e.button!==0)return;stopHoPress();const p={x:e.clientX,y:e.clientY,id:e.pointerId};hoPress=p;p.timer=setTimeout(()=>{if(hoPress!==p||!b.isConnected)return;hoMode=true;overlapSelection=new Set([b.dataset.hoFund]);hoSuppressUntil=Date.now()+1200;paintHoldingSelection();stopHoPress()},500)});
+document.addEventListener('pointermove',e=>{if(hoPress&&e.pointerId===hoPress.id&&Math.hypot(e.clientX-hoPress.x,e.clientY-hoPress.y)>10)stopHoPress()});
+for(const type of ['pointerup','pointercancel','scroll'])document.addEventListener(type,stopHoPress,true);
+document.addEventListener('contextmenu',e=>{if(e.target.closest('[data-ho-fund]'))e.preventDefault()});
+document.addEventListener('click',e=>{
+ const b=e.target.closest('[data-ho-fund]');if(b&&(hoMode||Date.now()<hoSuppressUntil)){e.preventDefault();e.stopImmediatePropagation();if(Date.now()<hoSuppressUntil){hoSuppressUntil=0;return}const n=b.dataset.hoFund;if(overlapSelection.has(n))overlapSelection.delete(n);else overlapSelection.add(n);paintHoldingSelection();return}
+ const action=e.target.closest('#hoStart,#hoSelectAll,#hoCancel,#hoAnalyze');if(action){e.preventDefault();if(action.id==='hoStart'){hoMode=true;overlapSelection=new Set()}else if(action.id==='hoSelectAll'){overlapSelection=new Set(calc().open.filter(h=>h.type==='mf').map(h=>h.name))}else if(action.id==='hoCancel'){hoMode=false;overlapSelection=null}else if(action.id==='hoAnalyze'&&overlapSelection.size>=2){hoMode=false;openHoldingOverlap()}paintHoldingSelection();return}
+ if(e.target.closest('[data-t],[data-f]')){hoMode=false;overlapSelection=null;stopHoPress()}
+},true);
