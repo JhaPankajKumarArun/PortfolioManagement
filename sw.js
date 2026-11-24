@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v36-allocation';
+const CACHE_NAME = 'my-portfolio-pwa-v37-goals';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -8,6 +8,7 @@ const APP_SHELL = [
   './js/engines/portfolio.mjs',
   './js/engines/allocation.mjs',
   './js/engines/planning.mjs',
+  './js/engines/goals.mjs',
   './js/engines/attribution.mjs',
   './js/engines/performance.mjs',
   './js/engines/risk.mjs',
