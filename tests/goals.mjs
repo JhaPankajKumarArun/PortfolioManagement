@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {goalProjection} from '../js/engines/goals.mjs';
+const g={target:120000,saved:0,monthly:10000,years:1,rate:0,inflation:0};
+const p=goalProjection(g);
+assert.equal(p.projected,120000);assert.equal(p.requiredMonthly,10000);assert.equal(p.shortfall,0);
+assert.equal(goalProjection({...g,inflation:10}).futureTarget,132000);
+assert.equal(goalProjection({...g,years:0}),null);
+assert.equal(goalProjection({...g,saved:120000}).requiredMonthly,0);
+const q=goalProjection({...g,rate:12,monthly:0,saved:100000});
+assert.ok(Math.abs(q.projected-112000)<1e-7);
+assert.ok(goalProjection({...g,rate:-10}).shortfall>0);
+console.log('Goal fixtures passed');
