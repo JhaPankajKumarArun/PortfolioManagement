@@ -21,3 +21,5 @@ jobs:
       - run: node tests/providers.mjs
 
       - run: node tests/state.mjs
+
+      - run: node tests/ui.mjs
