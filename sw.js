@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v35-account-aggregator';
+const CACHE_NAME = 'my-portfolio-pwa-v36-allocation';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -6,6 +6,7 @@ const APP_SHELL = [
   './index.html',
   './css/app.css',
   './js/engines/portfolio.mjs',
+  './js/engines/allocation.mjs',
   './js/engines/planning.mjs',
   './js/engines/attribution.mjs',
   './js/engines/performance.mjs',
