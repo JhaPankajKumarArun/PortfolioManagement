@@ -1,4 +1,15 @@
-function brokerSnapshotCard(){return `<h2>Broker synchronization</h2><div class='card pad'><p class='mut'>Zerodha / Paytm Money: run broker_sync.py locally on your PC, then select the exported snapshot. Holdings are for review only; no transactions are created.</p><label>Local pairing key<input id='brokerKey' type='password' autocomplete='off'></label><button class='btn' id='brokerFetch'>Fetch Zerodha holdings</button><p class='mut'>Direct sync requires the local Python server. Paytm direct sync is pending.</p><input type='file' id='brokerSnapshot' accept='.json,application/json'><pre id='brokerReview' style='white-space:pre-wrap;overflow-wrap:anywhere'></pre></div>`}
+function brokerSnapshotCard(){return `<h2>Broker synchronization</h2><div class='card pad'><p class='mut'>Run the encrypted broker workflow in GitHub Actions. Download and unzip its artifact, then select broker-encrypted.json. Decryption happens locally; no transactions are created.</p><a href='https://github.com/JhaPankajKumarArun/PortfolioManagement/actions/workflows/broker-sync.yml' target='_blank' rel='noopener noreferrer'>Open GitHub broker workflow</a><label>Export password<input id='brokerPassword' type='password' autocomplete='off'></label><input type='file' id='brokerSnapshot' accept='.json,application/json'><pre id='brokerReview' style='white-space:pre-wrap;overflow-wrap:anywhere'></pre></div>`}
+async function decryptBroker(j,password){
+ if(j.schema!=='broker-encrypted-v1')return j;
+ if(j.kdf!=='pbkdf2-sha256'||j.iterations!==600000||!password)throw Error('Export password or encryption format invalid');
+ const bytes=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+ const salt=bytes(j.salt),iv=bytes(j.iv),tag=bytes(j.tag),data=bytes(j.data);
+ if(salt.length!==16||iv.length!==12||tag.length!==16)throw Error('Invalid encrypted file');
+ const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+ const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:600000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['decrypt']);
+ const combined=new Uint8Array(data.length+tag.length);combined.set(data);combined.set(tag,data.length);
+ return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv},key,combined)));
+}
 function reviewBroker(j,out){
  if(j.schema!=='broker-snapshot-v1'||!['zerodha','paytm'].includes(j.broker)||!j.data||typeof j.data!=='object'||!Number.isFinite(Date.parse(j.fetchedAt)))throw Error('Invalid broker snapshot');
  const rows=j.broker==='zerodha'?[...(Array.isArray(j.data.equity)?j.data.equity:[]),...(Array.isArray(j.data.mutualFunds)?j.data.mutualFunds:[])]:null;
@@ -6,18 +17,9 @@ function reviewBroker(j,out){
 }
 document.addEventListener('change',async e=>{
  if(e.target.id!=='brokerSnapshot')return;
- const out=document.getElementById('brokerReview'),file=e.target.files?.[0];if(!file||!out)return;
- try{if(file.size>10000000)throw Error('File too large');reviewBroker(JSON.parse(await file.text()),out)}catch(err){out.textContent='Unable to review snapshot: '+err.message}
-});
-let brokerBusy=false;
-document.addEventListener('click',async e=>{
- if(!e.target.closest('#brokerFetch')||brokerBusy)return;
- const out=document.getElementById('brokerReview'),input=document.getElementById('brokerKey');
- if(location.origin!=='http://127.0.0.1:8765'){out.textContent='Open http://127.0.0.1:8765 after starting broker_server.py.';return}
- const key=input.value.trim();input.value='';if(!key){out.textContent='Enter the pairing key shown in the local terminal.';return}
- brokerBusy=true;out.textContent='Fetching holdings…';
- try{const r=await fetch('/api/broker/zerodha/holdings',{method:'POST',headers:{'X-Broker-Key':key},cache:'no-store'});const j=await r.json();if(!r.ok)throw Error(j.error||'Request failed');reviewBroker(j,document.getElementById('brokerReview')||out)}
- catch(err){(document.getElementById('brokerReview')||out).textContent='Sync failed: '+err.message}finally{brokerBusy=false}
+ const out=document.getElementById('brokerReview'),file=e.target.files?.[0],input=document.getElementById('brokerPassword');if(!file||!out)return;
+ const password=input.value;input.value='';e.target.value='';
+ try{if(file.size>10000000)throw Error('File too large');reviewBroker(await decryptBroker(JSON.parse(await file.text()),password),out)}catch(err){out.textContent='Unable to review snapshot. Check file and export password.'}
 });
 function historicalCoverageCard(){
  const q=integrity.historicalCoverage(S,NH,PWH,today());
