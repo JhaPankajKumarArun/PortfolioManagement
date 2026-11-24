@@ -6,3 +6,15 @@ assert.equal(auditTransactions([buy,sell],'2025-03-01')[0].code,'oversold');
 assert.equal(auditTransactions([{...buy,date:'2025-02-30'}],'2025-03-01')[0].code,'invalid-transaction');
 assert.equal(blockingIssues(auditTransactions([buy],'2024-01-01')).length,0);
 assert.equal(auditTransactions([{...buy,fee:-1}],'2025-03-01')[0].code,'invalid-transaction');
+
+import {reconcilePortfolio} from '../js/core/integrity.mjs';
+import {calculatePortfolio} from '../js/engines/portfolio.mjs';
+const state={tx:[buy,{...sell,units:4,price:150,fee:10}],px:{A:120},pxd:{A:'2025-03-01'}};
+const before=JSON.stringify(state), C=calculatePortfolio(state,'2025-03-01'),q=reconcilePortfolio(state,C,'2025-03-01');
+assert.equal(q.ready,true);assert.deepEqual(q.issues,[]);
+assert.deepEqual(q.totals,{bought:1000,sold:590,value:720,cost:600,realized:190,unrealized:120,totalGain:310});
+assert.equal(JSON.stringify(state),before);
+assert.equal(reconcilePortfolio(state,{...C,tv:999},'2025-03-01').ready,false);
+assert.ok(reconcilePortfolio({...state,px:{}},C,'2025-03-01').issues.some(x=>x.code==='missing-current-price'));
+assert.ok(reconcilePortfolio({...state,pxd:{A:'2025-02-01'}},C,'2025-03-01').issues.some(x=>x.code==='stale-price'));
+assert.equal(reconcilePortfolio({...state,tx:[buy,sell]},C,'2025-03-01').ready,false);
