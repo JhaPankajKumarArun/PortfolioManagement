@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v32-local-broker';
+const CACHE_NAME = 'my-portfolio-pwa-v33-github-broker';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
