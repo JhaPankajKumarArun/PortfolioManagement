@@ -19,3 +19,5 @@ jobs:
       - run: node tests/amfi.mjs
 
       - run: node tests/providers.mjs
+
+      - run: node tests/state.mjs
