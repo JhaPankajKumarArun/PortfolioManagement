@@ -23,3 +23,5 @@ jobs:
       - run: node tests/state.mjs
 
       - run: node tests/ui.mjs
+
+      - run: node tests/errors.mjs
