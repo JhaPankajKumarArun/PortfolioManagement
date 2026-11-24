@@ -1,33 +1,6 @@
 // Phase 2: cash-flow-adjusted portfolio risk analytics. All portfolio calculations run locally.
-const PA_RF=0.065;
-function paMonthEnd(s){const y=+s.slice(0,4),m=+s.slice(5,7)-1;return new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)}
-function paHistPrice(name,type,d){
- if(d===today()&&S.px&&S.px[name]>0&&S.pxd&&S.pxd[name]&&dnum(d)-dnum(S.pxd[name])<=7)return S.px[name];
- let rows=type==='stock'?(PWH&&PWH[name]||[]):(NH&&NH[name]&&NH[name].d||[]);
- if(!rows.length)return null;
- let v=null,dt='';for(const r of rows){if(r[0]>d)break;v=r[1];dt=r[0]}
- return v>0&&dt&&dnum(d)-dnum(dt)<=7?v:null;
-}
-function paPortfolioAt(d){const pos={};S.tx.filter(t=>t.date<=d).forEach(t=>{const p=pos[t.name]||(pos[t.name]={u:0,type:t.type});p.u+=(t.side==='buy'?1:-1)*t.units});let value=0,missing=[];
- Object.entries(pos).forEach(([n,p])=>{if(p.u>1e-6){const q=paHistPrice(n,p.type,d);if(q==null)missing.push(n);else value+=p.u*q}});
- return{value,missing};
-}
-function paBuild(){const tx=[...S.tx].sort((a,b)=>a.date.localeCompare(b.date));if(!tx.length)return{points:[],missing:[]};const first=tx[0].date,end=perfEnd(),start=paMonthEnd(first),dates=[];let y=+start.slice(0,4),m=+start.slice(5,7)-1;
- for(let guard=0;guard<1200;guard++){let d=paMonthEnd(`${y}-${String(m+1).padStart(2,'0')}-01`);if(d>end)d=end;if(!dates.length||dates[dates.length-1]!==d)dates.push(d);if(d===end)break;m++;if(m>11){m=0;y++}}
- const points=[],missingSet=new Set();let prev=null,index=100;
- dates.forEach(d=>{const v=paPortfolioAt(d);v.missing.forEach(n=>missingSet.add(n));if(v.missing.length){prev=null;points.length=0;index=100;return}
- if(prev){const flows=tx.filter(t=>t.date>prev.d&&t.date<=d).map(t=>({date:t.date,amt:(t.side==='buy'?1:-1)*(t.units*t.price+(t.side==='buy'?(t.fee||0):-(t.fee||0)))}));const net=flows.reduce((a,x)=>a+x.amt,0),span=Math.max(1,dnum(d)-dnum(prev.d)),weighted=flows.reduce((a,x)=>a+x.amt*(dnum(d)-dnum(x.date))/span,0),den=prev.value+weighted;
- if(den>0){const r=(v.value-prev.value-net)/den;if(Number.isFinite(r)&&r>-1&&r<10){index*=1+r;points.push({d,value:v.value,r,index})}}
- }else if(v.value>0){points.push({d,value:v.value,r:null,index:100})}
- prev={d,value:v.value};
- });return{points,missing:[...missingSet]};
-}
-function paStats(){const B=paBuild(),p=B.points,rets=p.filter(x=>x.r!=null).map(x=>x.r);if(rets.length<4)return{...B,ready:false};const avg=rets.reduce((a,x)=>a+x,0)/rets.length,sd=Math.sqrt(rets.reduce((a,x)=>a+(x-avg)**2,0)/Math.max(1,rets.length-1)),rf=Math.pow(1+PA_RF,1/12)-1,down=Math.sqrt(rets.reduce((a,x)=>a+Math.min(0,x-rf)**2,0)/rets.length),vol=sd*Math.sqrt(12),sh=vol>0?(avg*12-PA_RF)/vol:null,so=down>0?(avg*12-PA_RF)/(down*Math.sqrt(12)):null;
- let peak=0,mdd=0;const dd=p.map(x=>{peak=Math.max(peak,x.index);const z=peak>0?x.index/peak-1:0;mdd=Math.min(mdd,z);return{d:x.d,dd:z}});
- const roll=[];for(let i=12;i<p.length;i++){const a=p[i-12].index,b=p[i].index;if(a>0)roll.push({d:p[i].d,r:(Math.pow(b/a,1)-1)*100})}
- const best=rets.length?Math.max(...rets):null,worst=rets.length?Math.min(...rets):null;
- return{...B,ready:true,vol:vol*100,sh,so,mdd:mdd*100,dd,roll,best:best*100,worst:worst*100,rf:PA_RF*100};
-}
+function paBuild(){return calculateRiskSeries(S,perfEnd(),dnum,(n,t,d)=>riskHistPrice(S,PWH,NH,today(),dnum,n,t,d))}
+function paStats(){return calculateRiskStats(paBuild())}
 function portfolioRiskTile(){const a=paStats(),months=a.points.filter(x=>x.r!=null).length;
  if(!a.ready)return `<h2>Portfolio risk & rolling returns</h2><div class='card pad'><p class='mut'>Not enough complete monthly history yet. At least 4 complete monthly return periods are needed to show preliminary risk statistics. Annualised metrics become more meaningful with 12 or more periods.</p>${a.missing.length?`<p class='mut'>Missing or stale history: ${a.missing.slice(0,5).map(esc).join(', ')}${a.missing.length>5?' and '+(a.missing.length-5)+' more':''}. Load NAV history and map stock tickers to build a reliable series.</p>`:''}</div>`;
  const latest=a.points[a.points.length-1],roll=a.roll.slice(-12),maxroll=roll.length?Math.max(...roll.map(x=>x.r)):null,minroll=roll.length?Math.min(...roll.map(x=>x.r)):null;
@@ -55,7 +28,6 @@ function portfolioAttributionTile(C){
 // Phase 4: whole-portfolio benchmark intelligence. Benchmark histories are cached locally.
 const PBMS=[{id:'nifty50',name:'Nifty 50',symbol:'^NSEI'},{id:'nifty500',name:'Nifty 500',symbol:'^CRSLDX'},{id:'midcap150',name:'Nifty Midcap 150',symbol:'^NSEMDCP150'},{id:'smallcap250',name:'Nifty Smallcap 250',symbol:'^NSESMCP250'},{id:'sensex',name:'Sensex',symbol:'^BSESN'}];
 let PBMSEL='nifty50',PBMMSG='',PBMBUSY=false;
-function pbmPrice(rows,d){if(!rows||!rows.length)return null;let hit=null;for(const x of rows){if(x[0]>d)break;hit=x}return hit&&dnum(d)-dnum(hit[0])<=7?hit[1]:null}
 const PBM_ATTEMPTS={};
 async function pbmLoad(id,force=false){
  const b=PBMS.find(x=>x.id===id);if(!b||PBMBUSY)return;
@@ -75,8 +47,7 @@ async function pbmLoad(id,force=false){
  finally{PBMBUSY=false;updatePbmUi();if(PBMSEL!==id)pbmLoad(PBMSEL)}
 }
 async function pbmRows(id){const x=await pwGet('benchmark:'+id);return x&&x.data&&x.data.rows||[]}
-function pbmCalc(id,portfolio){return pbmRows(id).then(rows=>{const p=portfolio.points||[],tx=[...S.tx].sort((a,b)=>a.date.localeCompare(b.date));if(rows.length<2||p.length<2)return{ready:false,reason:'Not enough aligned portfolio and benchmark history.'};let prev=null,index=100,points=[],missing=0;for(const q of p){const price=pbmPrice(rows,q.d);if(price==null){missing++;prev=null;continue}let units=0,flowMissing=false;tx.filter(t=>t.date<=q.d).forEach(t=>{const at=pbmPrice(rows,t.date);if(at==null){flowMissing=true;return}const cash=t.units*t.price+(t.side==='buy'?(t.fee||0):-(t.fee||0));units+=(t.side==='buy'?1:-1)*Math.abs(cash)/at});if(flowMissing){missing++;prev=null;continue}const value=units*price;if(prev){const flows=tx.filter(t=>t.date>prev.d&&t.date<=q.d).map(t=>({date:t.date,amt:(t.side==='buy'?1:-1)*(t.units*t.price+(t.side==='buy'?(t.fee||0):-(t.fee||0)))}));const net=flows.reduce((a,x)=>a+x.amt,0),span=Math.max(1,dnum(q.d)-dnum(prev.d)),weighted=flows.reduce((a,x)=>a+x.amt*(dnum(q.d)-dnum(x.date))/span,0),den=prev.value+weighted,r=den>0?(value-prev.value-net)/den:null;if(r!=null&&Number.isFinite(r)&&r>-1&&r<10){index*=1+r;points.push({d:q.d,index,value,r})}}else if(value>0)points.push({d:q.d,index:100,value,r:null});prev={d:q.d,value}}
-const last=points[points.length-1],base=points[0];return points.length>=2?{ready:true,points,ret:(last.index/base.index-1)*100,missing}: {ready:false,reason:'Benchmark history does not cover enough of the portfolio dates.'}})}
+function pbmCalc(id,portfolio){return pbmRows(id).then(rows=>calculateBenchmark(rows,portfolio,S.tx,dnum))}
 async function portfolioBenchmarkTile(){const a=paBuild(),b=PBMS.find(x=>x.id===PBMSEL),cache=await pbmRows(PBMSEL);let c=null;if(cache.length)c=await pbmCalc(PBMSEL,a);const p=a.points||[],portRet=p.length>1?(p[p.length-1].index/p[0].index-1)*100:null;return `<h2>Whole-portfolio benchmark intelligence</h2><div class='card pad'><p class='mut'>Compare your complete portfolio with a market index using the same dated investment and redemption cash flows. Automatically load available TRI history and cache it locally. CSV import is optional.</p><div class='chips'>${PBMS.map(x=>`<button data-pbm='${x.id}' class='${PBMSEL===x.id?'on':''}'>${x.name}</button>`).join('')}</div>${PBMBUSY?`<p class='mut'>${esc(PBMMSG)}</p>`:c&&c.ready&&!c.missing&&c.points.length===p.length&&portRet!=null?`<div class='kv c3' style='margin-top:12px'><div><small>Portfolio return</small><b class='${portRet>=0?'g':'l'}'>${pc(portRet)}</b></div><div><small>${esc(b.name)} return</small><b class='${c.ret>=0?'g':'l'}'>${pc(c.ret)}</b></div><div><small>Relative difference</small><b class='${portRet-c.ret>=0?'g':'l'}'>${portRet-c.ret>=0?'+':''}${(portRet-c.ret).toFixed(2)} pp</b></div></div><p class='mut'>Aligned period: ${fd(p[0].d)} to ${fd(p[p.length-1].d)}. ${c.missing?c.missing+' benchmark dates were skipped due to missing/stale prices. ':''}Returns use monthly Modified Dietz cash-flow adjustment and are indicative, not a daily time-weighted index.</p>`:`<p class='mut' style='margin-top:12px'>${esc(PBMMSG||'No benchmark history cached yet. Load it to calculate a comparable return.')}</p>`}<p class='mut'>${esc(PBMMSG)} ${cache.length?'Latest cached date: '+cache[cache.length-1][0]:''}</p><a href='https://www.niftyindices.com/reports/historical-data' target='_blank' rel='noopener noreferrer'>Official NSE Indices downloads</a><label>Import CSV for ${esc(b.name)}<input type='file' accept='.csv,text/csv' data-india-bm='${b.id}'></label><button class='btn' data-a='pbmrefresh' ${PBMBUSY?'disabled':''}>${cache.length?'Refresh':'Load'} ${b.name} history</button><p class='mut note'>Use one index and one series type per CSV; importing replaces previous history. Verify the selected index before importing. Price-index returns exclude dividends; TRI includes reinvested dividends. Index returns exclude fund expense ratios, tracking error and investor taxes; the comparison is not an investable product return. Missing prices are not invented. Debt benchmark comparison is not included because a suitable verified debt-index series is not configured.</p></div>`}
 
 function home(C){if(!C.open.length)return empty();const pg=portChg(C);

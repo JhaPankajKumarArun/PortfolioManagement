@@ -1,22 +1,9 @@
 let txfy='',txlim=20;
 const slabR=()=>S.slab==null?30:S.slab;
-const addM=(s,m)=>{const [y,mo,day]=s.split('-').map(Number),first=new Date(Date.UTC(y,mo-1+m,1)),yy=first.getUTCFullYear(),mm=first.getUTCMonth(),last=new Date(Date.UTC(yy,mm+1,0)).getUTCDate();return new Date(Date.UTC(yy,mm,Math.min(day,last))).toISOString().slice(0,10)};
-const fyOf=d=>{const y=+d.slice(0,4),s=+d.slice(5,7)>=4?y:y-1;return s+'-'+String((s+1)%100).padStart(2,'0')};
-const srt=(a,b)=>a.date<b.date?-1:a.date>b.date?1:(a.side==='buy'?-1:1);
-function autoCls(n){const t=S.tx.find(x=>x.name===n);if(t&&t.type==='stock')return 'equity';const x=n.toLowerCase();
-if(/liquid|overnight|money market|ultra short|low duration|short duration|medium duration|long duration|corporate bond|gilt|credit risk|banking and psu|banking & psu|floater|dynamic bond|bond fund|debt/.test(x))return 'debt';
-if(/gold|silver|commodit|fund of fund|fof|international|overseas|global|nasdaq|s&p 500/.test(x))return 'other';return 'equity'}
-const clsOf=n=>(S.cls&&S.cls[n])||autoCls(n);
-function mk(n,c,b,s,u,cost,pro){const lt=c==='debt'?false:addM(b,c==='equity'?12:24)<s;return{name:n,cls:c,buy:b,sell:s,units:u,cost,pro,gain:pro-cost,lt,fy:fyOf(s),bucket:c==='equity'?(lt?'eqLT':'eqST'):c==='debt'?'slab':(lt?'otLT':'slab')}}
-function realized(){const out=[];[...new Set(S.tx.map(t=>t.name))].forEach(n=>{const L=[],c=clsOf(n);S.tx.filter(t=>t.name===n).sort(srt).forEach(t=>{if(t.side==='buy')L.push({d:t.date,u:t.units,p:(t.units*t.price+(t.fee||0))/t.units});else{let u=t.units;for(const l of L){if(u<=1e-9)break;if(l.u<=1e-9)continue;const x=Math.min(l.u,u);out.push(mk(n,c,l.d,t.date,x,x*l.p,x*t.price-(t.fee||0)*x/t.units));l.u-=x;u-=x}}})});return out}
-function taxFY(L,fy){const rt={eqST:0,eqLT:0,slab:0,otLT:0},pos={eqST:[0,0],eqLT:[0,0],otLT:[0,0]};
-L.forEach(g=>{rt[g.bucket]+=g.gain;if(g.gain>0&&pos[g.bucket])pos[g.bucket][g.sell>='2024-07-23'?1:0]+=g.gain});
-const x={...rt},off=(f,t)=>{if(x[f]<0&&x[t]>0){const u=Math.min(-x[f],x[t]);x[f]+=u;x[t]-=u}};
-off('eqST','slab');off('slab','eqST');off('eqST','eqLT');off('eqST','otLT');off('slab','eqLT');off('slab','otLT');off('eqLT','otLT');off('otLT','eqLT');
-const carry=Object.values(x).filter(v=>v<0).reduce((s,v)=>s-v,0),bl=(p,a,b)=>{const t=p[0]+p[1];return t?(p[0]*a+p[1]*b)/t:b};
-const lim=fy<'2018-19'?Infinity:fy<'2024-25'?1e5:125000,tEqST=Math.max(x.eqST,0)*bl(pos.eqST,.15,.2),tEqLT=fy<'2018-19'?0:Math.max(x.eqLT-lim,0)*bl(pos.eqLT,.1,.125),tSlab=Math.max(x.slab,0)*slabR()/100,tOT=Math.max(x.otLT,0)*bl(pos.otLT,.2,.125);
-return{raw:rt,net:x,carry,lim,tEqST,tEqLT,tSlab,tOT,tax:(tEqST+tEqLT+tSlab+tOT)*1.04}}
-function remLots(n){const L=[];S.tx.filter(t=>t.name===n).sort(srt).forEach(t=>{if(t.side==='buy')L.push({d:t.date,u:t.units,p:(t.units*t.price+(t.fee||0))/t.units});else{let u=t.units;for(const l of L){if(u<=1e-9)break;const x=Math.min(l.u,u);l.u-=x;u-=x}}});return L.filter(l=>l.u>1e-6)}
+const clsOf=n=>taxClass(n,S);
+function realized(){return calculateRealized(S)}
+function taxFY(L,fy){return calculateTaxFY(L,fy,slabR())}
+function remLots(n){return calculateRemainingLots(n,S)}
 function unreal(){const td=today();return calc().open.map(h=>{const c=clsOf(h.name),el=isElss(h.name);let ltg=0,ltv=0,loss=0;remLots(h.name).forEach(l=>{if(el&&addM(l.d,36)>td)return;const g=l.u*(h.price-l.p),lt=c==='debt'?false:addM(l.d,c==='equity'?12:24)<td;if(g<0)loss+=g;else if(lt){ltg+=g;ltv+=l.u*h.price}});return{name:h.name,c,ltg,ltv,loss}})}
 function harvest(G){const now=fyOf(today()),U=unreal(),used=G.filter(g=>g.fy===now&&g.bucket==='eqLT').reduce((s,g)=>s+g.gain,0),head=Math.max(0,125000-Math.max(0,used)),eq=U.filter(r=>r.c==='equity'&&r.ltg>0).sort((a,b)=>b.ltg-a.ltg),tot=eq.reduce((s,r)=>s+r.ltg,0),use=Math.min(head,tot),loss=U.filter(r=>r.loss<0);let h='';
 if(tot>0)h+=`<p class='ins'>You can book up to <b>${cr(use)}</b> of long-term equity gains tax-free before 31 Mar ${+now.slice(0,4)+1}. The yearly exemption is ₹1.25 L and ${cr(Math.max(0,used))} of it is already used. You hold ${cr(tot)} of such gains.</p>`+(use>0?eq.slice(0,3).map(r=>{const g=Math.min(use,r.ltg);return `<p class='ins'>${esc(r.name)}: redeeming about <b>${cr(g/r.ltg*r.ltv)}</b> would book ${cr(g)} of gain.</p>`}).join('')+`<p class='mut' style='margin:-2px 2px 10px'>Buying the units back straight away resets your cost price at no tax. Check exit loads and fund rules first.</p>`:'');
