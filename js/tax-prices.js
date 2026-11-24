@@ -1,9 +1,9 @@
 let txfy='',txlim=20;
 const slabR=()=>S.slab==null?30:S.slab;
-const clsOf=n=>taxClass(n,S);
-function realized(){return calculateRealized(S)}
-function taxFY(L,fy){return calculateTaxFY(L,fy,slabR())}
-function remLots(n){return calculateRemainingLots(n,S)}
+const clsOf=n=>financialFeatures.classification(n,S);
+function realized(){return financialFeatures.realized(S)}
+function taxFY(L,fy){return financialFeatures.tax(L,fy,slabR())}
+function remLots(n){return financialFeatures.remainingLots(n,S)}
 function unreal(){const td=today();return calc().open.map(h=>{const c=clsOf(h.name),el=isElss(h.name);let ltg=0,ltv=0,loss=0;remLots(h.name).forEach(l=>{if(el&&addM(l.d,36)>td)return;const g=l.u*(h.price-l.p),lt=c==='debt'?false:addM(l.d,c==='equity'?12:24)<td;if(g<0)loss+=g;else if(lt){ltg+=g;ltv+=l.u*h.price}});return{name:h.name,c,ltg,ltv,loss}})}
 function harvest(G){const now=fyOf(today()),U=unreal(),used=G.filter(g=>g.fy===now&&g.bucket==='eqLT').reduce((s,g)=>s+g.gain,0),head=Math.max(0,125000-Math.max(0,used)),eq=U.filter(r=>r.c==='equity'&&r.ltg>0).sort((a,b)=>b.ltg-a.ltg),tot=eq.reduce((s,r)=>s+r.ltg,0),use=Math.min(head,tot),loss=U.filter(r=>r.loss<0);let h='';
 if(tot>0)h+=`<p class='ins'>You can book up to <b>${cr(use)}</b> of long-term equity gains tax-free before 31 Mar ${+now.slice(0,4)+1}. The yearly exemption is ₹1.25 L and ${cr(Math.max(0,used))} of it is already used. You hold ${cr(tot)} of such gains.</p>`+(use>0?eq.slice(0,3).map(r=>{const g=Math.min(use,r.ltg);return `<p class='ins'>${esc(r.name)}: redeeming about <b>${cr(g/r.ltg*r.ltv)}</b> would book ${cr(g)} of gain.</p>`}).join('')+`<p class='mut' style='margin:-2px 2px 10px'>Buying the units back straight away resets your cost price at no tax. Check exit loads and fund rules first.</p>`:'');

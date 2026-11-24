@@ -1,7 +1,7 @@
 const SL=[['sip','Monthly SIP',0,200000,500],['step','Raise SIP every year by',0,25,1],['yrs','Years',1,40,1],['ret','Expected return a year',4,20,.5],['inf','Inflation a year',0,10,.5]],UL={sip:'',step:'%',yrs:' years',ret:'%',inf:'%'};
 const lv=k=>k==='sip'?inr(pl[k]):pl[k]+UL[k],pcs=el=>(el.value-el.min)/(el.max-el.min)*100+'%';
 function rangeFill(){document.querySelectorAll('input[type=range]').forEach(r=>r.style.setProperty('--p',pcs(r)))}
-function proj(r,C){return projectPortfolio(r,C,pl)}
+function proj(r,C){return financialFeatures.projection(r,C,pl)}
 function lineChart(lines,xmax,ymax,main,xl,ymin){ymin=ymin||0;const W=320,H=172,L=56,R=8,T=10,B=26,X=x=>L+x/xmax*(W-L-R),Y=v=>T+(1-(Math.min(Math.max(v,ymin),ymax)-ymin)/(ymax-ymin))*(H-T-B),id='g'+Math.floor(Math.random()*1e9);
 const grid=[0,.25,.5,.75,1].map(f=>{const y=T+(1-f)*(H-T-B),v=ymin+(ymax-ymin)*f;return `<line x1='${L}' x2='${W-R}' y1='${y.toFixed(1)}' y2='${y.toFixed(1)}' class='gr'></line><text x='${L-5}' y='${(y+3).toFixed(1)}' text-anchor='end'>${f===0&&ymin===0?'0':cr(v)}</text>`}).join('');
 const d=p=>p.map((q,i)=>(i?'L':'M')+X(q[0]).toFixed(1)+' '+Y(q[1]).toFixed(1)).join(''),m=lines[main],lp=m.pts[m.pts.length-1];

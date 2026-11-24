@@ -1,6 +1,6 @@
 // Phase 2: cash-flow-adjusted portfolio risk analytics. All portfolio calculations run locally.
-function paBuild(){return calculateRiskSeries(S,perfEnd(),dnum,(n,t,d)=>riskHistPrice(S,PWH,NH,today(),dnum,n,t,d))}
-function paStats(){return calculateRiskStats(paBuild())}
+function paBuild(){return financialFeatures.riskSeries(S,perfEnd(),dnum,PWH,NH,today())}
+function paStats(){return financialFeatures.riskStats(paBuild())}
 function portfolioRiskTile(){const a=paStats(),months=a.points.filter(x=>x.r!=null).length;
  if(!a.ready)return `<h2>Portfolio risk & rolling returns</h2><div class='card pad'><p class='mut'>Not enough complete monthly history yet. At least 4 complete monthly return periods are needed to show preliminary risk statistics. Annualised metrics become more meaningful with 12 or more periods.</p>${a.missing.length?`<p class='mut'>Missing or stale history: ${a.missing.slice(0,5).map(esc).join(', ')}${a.missing.length>5?' and '+(a.missing.length-5)+' more':''}. Load NAV history and map stock tickers to build a reliable series.</p>`:''}</div>`;
  const latest=a.points[a.points.length-1],roll=a.roll.slice(-12),maxroll=roll.length?Math.max(...roll.map(x=>x.r)):null,minroll=roll.length?Math.min(...roll.map(x=>x.r)):null;
@@ -13,7 +13,7 @@ function portfolioRiskTile(){const a=paStats(),months=a.points.filter(x=>x.r!=nu
 
 // Phase 3: local performance attribution and concentration analysis.
 // Realised profit uses the app's existing FIFO/fee-aware tax-lot engine.
-function paAttribution(C){return calculateAttribution(C,realized())}
+function paAttribution(C){return financialFeatures.attribution(C,realized())}
 function portfolioAttributionTile(C){
  const a=paAttribution(C),fmt=n=>cr(n),row=x=>`<div class='ur' style='gap:8px'><span style='flex:1;min-width:0;text-align:left;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap'>${esc(x.name)} <small class='mut'>${x.value>0?x.weight.toFixed(1)+'% of portfolio':'closed'}</small></span><b class='${x.total>=0?'g':'l'}'>${x.total>=0?'+':''}${fmt(x.total)}</b></div>`;
  const leaders=a.rows.slice(0,4),laggards=[...a.rows].reverse().filter(x=>x.total<0).slice(0,3);
@@ -42,7 +42,7 @@ async function pbmLoad(id,force=false){
  finally{PBMBUSY=false;updatePbmUi();if(PBMSEL!==id)pbmLoad(PBMSEL)}
 }
 async function pbmRows(id){const x=await pwGet('benchmark:'+id);return x&&x.data&&x.data.rows||[]}
-function pbmCalc(id,portfolio){return pbmRows(id).then(rows=>calculateBenchmark(rows,portfolio,S.tx,dnum))}
+function pbmCalc(id,portfolio){return pbmRows(id).then(rows=>financialFeatures.benchmark(rows,portfolio,S.tx,dnum))}
 async function portfolioBenchmarkTile(){const a=paBuild(),b=PBMS.find(x=>x.id===PBMSEL),cache=await pbmRows(PBMSEL);let c=null;if(cache.length)c=await pbmCalc(PBMSEL,a);const p=a.points||[],portRet=p.length>1?(p[p.length-1].index/p[0].index-1)*100:null;return `<h2>Whole-portfolio benchmark intelligence</h2><div class='card pad'><p class='mut'>Compare your complete portfolio with a market index using the same dated investment and redemption cash flows. Automatically load available TRI history and cache it locally. CSV import is optional.</p><div class='chips'>${PBMS.map(x=>`<button data-pbm='${x.id}' class='${PBMSEL===x.id?'on':''}'>${x.name}</button>`).join('')}</div>${PBMBUSY?`<p class='mut'>${esc(PBMMSG)}</p>`:c&&c.ready&&!c.missing&&c.points.length===p.length&&portRet!=null?`<div class='kv c3' style='margin-top:12px'><div><small>Portfolio return</small><b class='${portRet>=0?'g':'l'}'>${pc(portRet)}</b></div><div><small>${esc(b.name)} return</small><b class='${c.ret>=0?'g':'l'}'>${pc(c.ret)}</b></div><div><small>Relative difference</small><b class='${portRet-c.ret>=0?'g':'l'}'>${portRet-c.ret>=0?'+':''}${(portRet-c.ret).toFixed(2)} pp</b></div></div><p class='mut'>Aligned period: ${fd(p[0].d)} to ${fd(p[p.length-1].d)}. ${c.missing?c.missing+' benchmark dates were skipped due to missing/stale prices. ':''}Returns use monthly Modified Dietz cash-flow adjustment and are indicative, not a daily time-weighted index.</p>`:`<p class='mut' style='margin-top:12px'>${esc(PBMMSG||'No benchmark history cached yet. Load it to calculate a comparable return.')}</p>`}<p class='mut'>${esc(PBMMSG)} ${cache.length?'Latest cached date: '+cache[cache.length-1][0]:''}</p><a href='https://www.niftyindices.com/reports/historical-data' target='_blank' rel='noopener noreferrer'>Official NSE Indices downloads</a><label>Import CSV for ${esc(b.name)}<input type='file' accept='.csv,text/csv' data-india-bm='${b.id}'></label><button class='btn' data-a='pbmrefresh' ${PBMBUSY?'disabled':''}>${cache.length?'Refresh':'Load'} ${b.name} history</button><p class='mut note'>Use one index and one series type per CSV; importing replaces previous history. Verify the selected index before importing. Price-index returns exclude dividends; TRI includes reinvested dividends. Index returns exclude fund expense ratios, tracking error and investor taxes; the comparison is not an investable product return. Missing prices are not invented. Debt benchmark comparison is not included because a suitable verified debt-index series is not configured.</p></div>`}
 
 function home(C){if(!C.open.length)return empty();const pg=portChg(C);

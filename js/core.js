@@ -1,4 +1,4 @@
-function calc(){return calculatePortfolio(S,today())}
+function calc(){return financialFeatures.portfolio(S,today())}
 function insights(C){const o=[],top=[...C.open].sort((a,b)=>b.value-a.value)[0],w=top.value/C.tv*100;
 if(w>25)o.push(['w',`${esc(top.name)} is ${w.toFixed(0)}% of your portfolio. Check that this concentration is intentional.`]);
 const st=C.open.filter(h=>h.type==='stock').reduce((s,h)=>s+h.value,0)/C.tv*100;o.push(['i',`Stocks are ${st.toFixed(0)}% and mutual funds ${(100-st).toFixed(0)}% of your portfolio.`]);

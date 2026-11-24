@@ -2,7 +2,7 @@ const perfEnd=()=>{const ds=[...Object.values(S.pxd||{}),...Object.values(NH).ma
 const dayAdd=(s,n)=>new Date(dnum(s)*864e5+n*864e5).toISOString().slice(0,10);
 function perfStart(k,end,first){const m={'1M':1,'3M':3,'6M':6,'1Y':12,'3Y':36,'5Y':60}[k];if(k==='1D')return dayAdd(end,-1);if(k==='1W')return dayAdd(end,-7);if(m)return addMD(end,-m);if(k==='YTD')return(+end.slice(0,4)-1)+'-12-31';if(k==='All')return first;return k}
 const navCovers=(n,d)=>{const a=NH[n]&&NH[n].d;if(!a||!a.length)return false;let last='';for(const r of a){if(r[0]>d)break;last=r[0]}return !!last&&dnum(d)-dnum(last)<=7};
-function perfCalc(C,start,end){return calculatePerformance({S,ser:pxSeries(C),PWH,pxAt,navCovers,dnum},start,end)}
+function perfCalc(C,start,end){return financialFeatures.performance({S,ser:pxSeries(C),PWH,pxAt,navCovers,dnum},start,end)}
 const sg=v=>(v>=0?'+':'−')+cr(Math.abs(v)),PK2=['1D','1W','1M','3M','6M','YTD','1Y','3Y','5Y','All'];
 function perfGet(C,k){const end=perfEnd(),first=S.tx.reduce((a,t)=>t.date<a?t.date:a,'9999-12-31'),start=perfStart(k,end,first);if(k!=='All'&&start<=first)return null;if(start>=end)return null;const r=perfCalc(C,start,end);if(r.v0<=0&&k!=='All'&&r.cf===0)return null;return r}
 function perfBody(C){if(!C.open.length)return '';const end=perfEnd(),first=S.tx.reduce((a,t)=>t.date<a?t.date:a,'9999-12-31'),g=pf.mode==='gain',R={};PK2.forEach(k=>{R[k]=perfGet(C,k)});
