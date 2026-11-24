@@ -37,3 +37,12 @@ assert.equal(calculateSips(recurring,'2025-07-01')[0].active,false);
 assert.equal(calculateSips(recurring.map(t=>({...t,type:'stock'})),'2025-04-10').length,0);
 const mixed=calculateSips(recurring.map((t,i)=>({...t,sip:i===0})),'2025-04-10')[0];assert.equal(mixed.n,4);assert.equal(mixed.inferred,3);near(mixed.total,4000);
 console.log('SIP recovery regression fixtures passed');
+
+import {stressExposure} from '../js/engines/risk.mjs';
+const exposure=stressExposure([{name:'A',value:600},{name:'B',value:400}]);
+near(exposure.largestWeight,60);near(exposure.effective,1/.52);near(exposure.scenarios[1].loss,200);near(exposure.scenarios[3].remaining,820);
+assert.equal(stressExposure([]),null);
+assert.equal(riskHistPrice({}, {}, {A:{d:[['2025-01-31',100],['2025-02-01',999],['2025-01-30',90]]}},'2025-01-31',dnum,'A','mf','2025-01-31'),100);
+const riskPoints=Array.from({length:13},(_,i)=>({d:new Date(Date.UTC(2025,i+1,0)).toISOString().slice(0,10),r:i?0.01:null,index:100*1.01**i}));
+const riskResult=calculateRiskStats({points:[...riskPoints,{d:'2026-02-10',r:-.1,index:riskPoints[12].index*.9}],missing:[]});
+assert.equal(riskResult.months,12);assert.equal(riskResult.roll.length,1);assert.equal(riskResult.negativeMonths,0);
