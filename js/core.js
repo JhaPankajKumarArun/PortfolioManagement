@@ -1,13 +1,3 @@
-
-const K='portfolio-v1',$=s=>document.querySelector(s);
-let S={tx:[],px:{}},tab='home',flt='all',dr={},cur='',armed='',pl={sip:10000,step:10,yrs:15,ret:12,inf:6};
-try{const d=JSON.parse(localStorage.getItem(K));if(d&&Array.isArray(d.tx))S=d}catch(e){}
-const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
-const cr=n=>{const a=Math.abs(n),s=n<0?'−':'';return s+(a>=1e7?'₹'+(a/1e7).toFixed(2)+' Cr':a>=1e5?'₹'+(a/1e5).toFixed(2)+' L':inr(a))};
-const pc=n=>n==null||!isFinite(n)?'–':(n>0.05?'+':n<-0.05?'−':'')+Math.abs(n).toFixed(1)+'%';
-const cls=n=>n>=0?'g':'l',today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`} ;
 function calc(){return calculatePortfolio(S,today())}
 function insights(C){const o=[],top=[...C.open].sort((a,b)=>b.value-a.value)[0],w=top.value/C.tv*100;
 if(w>25)o.push(['w',`${esc(top.name)} is ${w.toFixed(0)}% of your portfolio. Check that this concentration is intentional.`]);
