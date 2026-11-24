@@ -37,13 +37,13 @@ function loadPdf(){
  if(!pdfLoading)pdfLoading=(async()=>{
   const load=src=>new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=new URL(src,document.baseURI).href;s.onload=resolve;s.onerror=()=>reject(Error('Unable to load local PDF reader: '+src));document.head.appendChild(s)});
   if(!globalThis.pdfjsLib)await load('./js/vendor/pdf.min.js');
-  if(!globalThis.pdfjsWorker?.WorkerMessageHandler)await load('./js/vendor/pdf.worker.min.js');
-  if(!globalThis.pdfjsLib||!globalThis.pdfjsWorker?.WorkerMessageHandler)throw Error('Local PDF reader initialization failed');
+  
+  if(!globalThis.pdfjsLib?.getDocument)throw Error('Local PDF reader initialization failed');
   globalThis.pdfjsLib.GlobalWorkerOptions.workerSrc=new URL('./js/vendor/pdf.worker.min.js',document.baseURI).href;
  })().catch(e=>{pdfLoading=null;throw e});
  return pdfLoading;
 }
-async function pdfText(buf,pw){await loadPdf();const doc=await pdfjsLib.getDocument({data:new Uint8Array(buf),password:pw||undefined,isEvalSupported:false}).promise,out=[];
+async function pdfText(buf,pw){await loadPdf();const doc=await pdfjsLib.getDocument({data:new Uint8Array(buf),password:pw||undefined,isEvalSupported:false,enableXfa:false}).promise,out=[];
 for(let n=1;n<=doc.numPages;n++){const tc=await(await doc.getPage(n)).getTextContent(),it=tc.items.filter(i=>i.str.trim()).map(i=>[i.transform[5],i.transform[4],i.str.trim()]).sort((a,b)=>b[0]-a[0]||a[1]-b[1]);let ln=[],ly=0;const flush=()=>{if(ln.length)out.push(ln.sort((a,b)=>a[1]-b[1]).map(x=>x[2]).join(' '));ln=[]};
 it.forEach(x=>{if(ln.length&&Math.abs(ly-x[0])>2.5)flush();if(!ln.length)ly=x[0];ln.push(x)});flush()}return out}
 function cleanName(n){const lo=n.toLowerCase();let c=n.length;for(const m of ['(advisor','(non','(demat','(formerly']){const i=lo.indexOf(m);if(i>0&&i<c)c=i}n=n.slice(0,c).trim();while(n.endsWith('-')||n.endsWith(' '))n=n.slice(0,-1);const j=n.indexOf('-');if(j>=4&&j<=10&&/^[A-Z0-9]+$/.test(n.slice(0,j)))n=n.slice(j+1).trim();return n}
