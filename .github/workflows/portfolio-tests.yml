@@ -17,7 +17,7 @@ jobs:
           import fs from 'node:fs';
           import vm from 'node:vm';
           import assert from 'node:assert/strict';
-          const html=fs.readFileSync('js/app.js','utf8');
+          const html=fs.readFileSync('js/market-data.js','utf8');
           const start=html.indexOf('let amfiLatestPromise=');
           const end=html.indexOf('async function liveGet(code)',start);
           assert.ok(start>=0 && end>start);

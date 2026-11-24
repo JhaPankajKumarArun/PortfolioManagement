@@ -1,0 +1,98 @@
+// Phase 2: cash-flow-adjusted portfolio risk analytics. All portfolio calculations run locally.
+const PA_RF=0.065;
+function paMonthEnd(s){const y=+s.slice(0,4),m=+s.slice(5,7)-1;return new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)}
+function paHistPrice(name,type,d){
+ if(d===today()&&S.px&&S.px[name]>0&&S.pxd&&S.pxd[name]&&dnum(d)-dnum(S.pxd[name])<=7)return S.px[name];
+ let rows=type==='stock'?(PWH&&PWH[name]||[]):(NH&&NH[name]&&NH[name].d||[]);
+ if(!rows.length)return null;
+ let v=null,dt='';for(const r of rows){if(r[0]>d)break;v=r[1];dt=r[0]}
+ return v>0&&dt&&dnum(d)-dnum(dt)<=7?v:null;
+}
+function paPortfolioAt(d){const pos={};S.tx.filter(t=>t.date<=d).forEach(t=>{const p=pos[t.name]||(pos[t.name]={u:0,type:t.type});p.u+=(t.side==='buy'?1:-1)*t.units});let value=0,missing=[];
+ Object.entries(pos).forEach(([n,p])=>{if(p.u>1e-6){const q=paHistPrice(n,p.type,d);if(q==null)missing.push(n);else value+=p.u*q}});
+ return{value,missing};
+}
+function paBuild(){const tx=[...S.tx].sort((a,b)=>a.date.localeCompare(b.date));if(!tx.length)return{points:[],missing:[]};const first=tx[0].date,end=perfEnd(),start=paMonthEnd(first),dates=[];let y=+start.slice(0,4),m=+start.slice(5,7)-1;
+ for(let guard=0;guard<1200;guard++){let d=paMonthEnd(`${y}-${String(m+1).padStart(2,'0')}-01`);if(d>end)d=end;if(!dates.length||dates[dates.length-1]!==d)dates.push(d);if(d===end)break;m++;if(m>11){m=0;y++}}
+ const points=[],missingSet=new Set();let prev=null,index=100;
+ dates.forEach(d=>{const v=paPortfolioAt(d);v.missing.forEach(n=>missingSet.add(n));if(v.missing.length){prev=null;points.length=0;index=100;return}
+ if(prev){const flows=tx.filter(t=>t.date>prev.d&&t.date<=d).map(t=>({date:t.date,amt:(t.side==='buy'?1:-1)*(t.units*t.price+(t.side==='buy'?(t.fee||0):-(t.fee||0)))}));const net=flows.reduce((a,x)=>a+x.amt,0),span=Math.max(1,dnum(d)-dnum(prev.d)),weighted=flows.reduce((a,x)=>a+x.amt*(dnum(d)-dnum(x.date))/span,0),den=prev.value+weighted;
+ if(den>0){const r=(v.value-prev.value-net)/den;if(Number.isFinite(r)&&r>-1&&r<10){index*=1+r;points.push({d,value:v.value,r,index})}}
+ }else if(v.value>0){points.push({d,value:v.value,r:null,index:100})}
+ prev={d,value:v.value};
+ });return{points,missing:[...missingSet]};
+}
+function paStats(){const B=paBuild(),p=B.points,rets=p.filter(x=>x.r!=null).map(x=>x.r);if(rets.length<4)return{...B,ready:false};const avg=rets.reduce((a,x)=>a+x,0)/rets.length,sd=Math.sqrt(rets.reduce((a,x)=>a+(x-avg)**2,0)/Math.max(1,rets.length-1)),rf=Math.pow(1+PA_RF,1/12)-1,down=Math.sqrt(rets.reduce((a,x)=>a+Math.min(0,x-rf)**2,0)/rets.length),vol=sd*Math.sqrt(12),sh=vol>0?(avg*12-PA_RF)/vol:null,so=down>0?(avg*12-PA_RF)/(down*Math.sqrt(12)):null;
+ let peak=0,mdd=0;const dd=p.map(x=>{peak=Math.max(peak,x.index);const z=peak>0?x.index/peak-1:0;mdd=Math.min(mdd,z);return{d:x.d,dd:z}});
+ const roll=[];for(let i=12;i<p.length;i++){const a=p[i-12].index,b=p[i].index;if(a>0)roll.push({d:p[i].d,r:(Math.pow(b/a,1)-1)*100})}
+ const best=rets.length?Math.max(...rets):null,worst=rets.length?Math.min(...rets):null;
+ return{...B,ready:true,vol:vol*100,sh,so,mdd:mdd*100,dd,roll,best:best*100,worst:worst*100,rf:PA_RF*100};
+}
+function portfolioRiskTile(){const a=paStats(),months=a.points.filter(x=>x.r!=null).length;
+ if(!a.ready)return `<h2>Portfolio risk & rolling returns</h2><div class='card pad'><p class='mut'>Not enough complete monthly history yet. At least 4 complete monthly return periods are needed to show preliminary risk statistics. Annualised metrics become more meaningful with 12 or more periods.</p>${a.missing.length?`<p class='mut'>Missing or stale history: ${a.missing.slice(0,5).map(esc).join(', ')}${a.missing.length>5?' and '+(a.missing.length-5)+' more':''}. Load NAV history and map stock tickers to build a reliable series.</p>`:''}</div>`;
+ const latest=a.points[a.points.length-1],roll=a.roll.slice(-12),maxroll=roll.length?Math.max(...roll.map(x=>x.r)):null,minroll=roll.length?Math.min(...roll.map(x=>x.r)):null;
+ const metric=(l,v)=>`<div><small>${l}</small><b>${v}</b></div>`;
+ const dd=a.dd.slice(-36),lo=Math.min(0,...dd.map(x=>x.dd)),hi=Math.max(0,...dd.map(x=>x.dd));
+ const chart=dd.length>1?`<div class='ur'><span>Drawdown over latest ${dd.length} monthly observations</span><b class='l'>${pc(a.mdd)}</b></div><div class='stk' style='height:12px;background:var(--line);overflow:hidden'><i style='width:${Math.min(100,Math.abs(a.mdd))}%;background:var(--loss)'></i></div><div class='ur'><small>Current drawdown</small><b class='${dd[dd.length-1].dd<0?'l':'g'}'>${pc(dd[dd.length-1].dd*100)}</b></div>`:'';
+ return `<h2>Portfolio risk & rolling returns</h2><div class='card pad'><div class='kv c3'>${metric('Annualised volatility',pc(a.vol))}${metric('Sharpe ratio',a.sh==null?'–':a.sh.toFixed(2))}${metric('Sortino ratio',a.so==null?'–':a.so.toFixed(2))}${metric('Maximum drawdown',pc(a.mdd))}${metric('Best month',pc(a.best))}${metric('Worst month',pc(a.worst))}</div><p class='mut' style='margin-top:12px'>Based on ${months} complete monthly portfolio return periods through ${fd(latest.d)}. Returns are cash-flow-adjusted using a monthly Modified Dietz approximation, then geometrically linked. Risk-free rate assumption: ${a.rf.toFixed(1)}% a year.</p>${chart}${a.roll.length?`<h3 style='margin:16px 0 6px'>Rolling 1-year returns</h3><div class='ur'><span>Best in available rolling windows</span><b class='g'>${pc(maxroll)}</b></div><div class='ur'><span>Worst in available rolling windows</span><b class='${minroll<0?'l':'g'}'>${pc(minroll)}</b></div><div class='ur'><span>Latest rolling 1-year</span><b class='${a.roll[a.roll.length-1].r<0?'l':'g'}'>${pc(a.roll[a.roll.length-1].r)}</b></div>`:`<p class='mut'>Rolling 1-year returns need at least 13 complete monthly valuation points.</p>`}<p class='mut note'>These are portfolio-level estimates, not a daily time-weighted return. Missing/stale prices are excluded rather than fabricated. Benchmark comparison is not included until a compatible benchmark history can be aligned to the same dates.</p></div>`;
+}
+
+
+// Phase 3: local performance attribution and concentration analysis.
+// Realised profit uses the app's existing FIFO/fee-aware tax-lot engine.
+function paAttribution(C){
+ const map={};
+ const get=n=>map[n]||(map[n]={name:n,realised:0,unrealised:0,value:0,cost:0});
+ realized().forEach(g=>{get(g.name).realised+=g.gain});
+ C.open.forEach(h=>{const x=get(h.name);x.unrealised=h.pl;x.value=h.value;x.cost=h.cost;x.type=h.type});
+ const rows=Object.values(map).map(x=>({...x,total:x.realised+x.unrealised,weight:C.tv>0?x.value/C.tv*100:0}));
+ const totalReal=rows.reduce((a,x)=>a+x.realised,0),totalUnreal=rows.reduce((a,x)=>a+x.unrealised,0),net=totalReal+totalUnreal;
+ const live=rows.filter(x=>x.value>0).sort((a,b)=>b.value-a.value),top3=live.slice(0,3).reduce((a,x)=>a+x.weight,0),hhi=live.reduce((a,x)=>a+Math.pow(x.weight,2),0);
+ return{rows:rows.sort((a,b)=>b.total-a.total),totalReal,totalUnreal,net,top3,hhi,largest:live[0]||null};
+}
+function portfolioAttributionTile(C){
+ const a=paAttribution(C),fmt=n=>cr(n),row=x=>`<div class='ur' style='gap:8px'><span style='flex:1;min-width:0;text-align:left;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap'>${esc(x.name)} <small class='mut'>${x.value>0?x.weight.toFixed(1)+'% of portfolio':'closed'}</small></span><b class='${x.total>=0?'g':'l'}'>${x.total>=0?'+':''}${fmt(x.total)}</b></div>`;
+ const leaders=a.rows.slice(0,4),laggards=[...a.rows].reverse().filter(x=>x.total<0).slice(0,3);
+ return `<h2>Performance attribution & concentration</h2><div class='card pad'><div class='kv c3'><div><small>Realised gains</small><b class='${a.totalReal>=0?'g':'l'}'>${fmt(a.totalReal)}</b></div><div><small>Unrealised gains</small><b class='${a.totalUnreal>=0?'g':'l'}'>${fmt(a.totalUnreal)}</b></div><div><small>Combined gain</small><b class='${a.net>=0?'g':'l'}'>${fmt(a.net)}</b></div></div>
+ ${leaders.length?`<h3 style='margin:16px 0 6px'>Holding contribution (realised + unrealised)</h3>${leaders.map(row).join('')}`:'<p class="mut">No holding-level gain data is available yet.</p>'}
+ ${laggards.length?`<h3 style='margin:16px 0 6px'>Largest negative contributors</h3>${laggards.map(row).join('')}`:''}
+ <h3 style='margin:16px 0 6px'>Concentration</h3><div class='ur'><span>Top 3 holdings</span><b>${a.top3.toFixed(1)}%</b></div><div class='ur'><span>Largest holding</span><b>${a.largest?esc(a.largest.name)+' · '+a.largest.weight.toFixed(1)+'%':'–'}</b></div><div class='ur'><span>Concentration index (HHI)</span><b>${a.hhi.toFixed(0)} / 10,000</b></div>
+ <p class='mut note'>Attribution combines FIFO realised gains (including recorded transaction fees) with current unrealised gains on open positions. Closed holdings remain included. Concentration uses current market value only. This is profit attribution, not a formal Brinson sector attribution.</p></div>`;
+}
+
+
+// Phase 4: whole-portfolio benchmark intelligence. Benchmark histories are cached locally.
+const PBMS=[{id:'nifty50',name:'Nifty 50',symbol:'^NSEI'},{id:'nifty500',name:'Nifty 500',symbol:'^CRSLDX'},{id:'midcap150',name:'Nifty Midcap 150',symbol:'^NSEMDCP150'},{id:'smallcap250',name:'Nifty Smallcap 250',symbol:'^NSESMCP250'},{id:'sensex',name:'Sensex',symbol:'^BSESN'}];
+let PBMSEL='nifty50',PBMMSG='',PBMBUSY=false;
+function pbmPrice(rows,d){if(!rows||!rows.length)return null;let hit=null;for(const x of rows){if(x[0]>d)break;hit=x}return hit&&dnum(d)-dnum(hit[0])<=7?hit[1]:null}
+const PBM_ATTEMPTS={};
+async function pbmLoad(id,force=false){
+ const b=PBMS.find(x=>x.id===id);if(!b||PBMBUSY)return;
+ if(!force&&Date.now()-(PBM_ATTEMPTS[id]||0)<3600000)return;
+ PBM_ATTEMPTS[id]=Date.now();PBMBUSY=true;PBMMSG='Fetching '+b.name+' TRI history…';updatePbmUi();
+ try{
+ const cached=await pwGet('benchmark:'+id);
+ if(!force&&cached?.source==='Automatic TRI provider'&&Date.now()-cached.updated<43200000){PBMMSG='Cached TRI history ready.';return}
+ const r=await fetch('./data/benchmarks/'+id+'.json',{cache:'no-cache',signal:AbortSignal.timeout(15000)});
+ if(!r.ok)throw Error('Provider HTTP '+r.status);
+ const j=await r.json();if(j.id!==id||j.series!=='TRI'||!Array.isArray(j.rows))throw Error('Unexpected benchmark series');
+ const rows=j.rows.filter(x=>Array.isArray(x)&&/^\d{4}-\d{2}-\d{2}$/.test(x[0])&&x[0]<=today()&&typeof x[1]==='number'&&Number.isFinite(x[1])&&x[1]>0);
+ if(rows.length!==j.rows.length||rows.length<2||rows.some((x,i)=>i&&x[0]<=rows[i-1][0]))throw Error('Invalid benchmark history');
+ if(cached?.data?.rows?.length&&rows[rows.length-1][0]<cached.data.rows[cached.data.rows.length-1][0])throw Error('Provider history is older than local cache');
+ await pwPut('benchmark:'+id,'benchmark',{rows,series:'TRI'},'Automatic TRI provider');PBMMSG=b.name+' TRI ready.';
+ }catch(e){PBMMSG='Automatic '+b.name+' history unavailable: '+e.message+'. Existing cache retained.'}
+ finally{PBMBUSY=false;updatePbmUi();if(PBMSEL!==id)pbmLoad(PBMSEL)}
+}
+async function pbmRows(id){const x=await pwGet('benchmark:'+id);return x&&x.data&&x.data.rows||[]}
+function pbmCalc(id,portfolio){return pbmRows(id).then(rows=>{const p=portfolio.points||[],tx=[...S.tx].sort((a,b)=>a.date.localeCompare(b.date));if(rows.length<2||p.length<2)return{ready:false,reason:'Not enough aligned portfolio and benchmark history.'};let prev=null,index=100,points=[],missing=0;for(const q of p){const price=pbmPrice(rows,q.d);if(price==null){missing++;prev=null;continue}let units=0,flowMissing=false;tx.filter(t=>t.date<=q.d).forEach(t=>{const at=pbmPrice(rows,t.date);if(at==null){flowMissing=true;return}const cash=t.units*t.price+(t.side==='buy'?(t.fee||0):-(t.fee||0));units+=(t.side==='buy'?1:-1)*Math.abs(cash)/at});if(flowMissing){missing++;prev=null;continue}const value=units*price;if(prev){const flows=tx.filter(t=>t.date>prev.d&&t.date<=q.d).map(t=>({date:t.date,amt:(t.side==='buy'?1:-1)*(t.units*t.price+(t.side==='buy'?(t.fee||0):-(t.fee||0)))}));const net=flows.reduce((a,x)=>a+x.amt,0),span=Math.max(1,dnum(q.d)-dnum(prev.d)),weighted=flows.reduce((a,x)=>a+x.amt*(dnum(q.d)-dnum(x.date))/span,0),den=prev.value+weighted,r=den>0?(value-prev.value-net)/den:null;if(r!=null&&Number.isFinite(r)&&r>-1&&r<10){index*=1+r;points.push({d:q.d,index,value,r})}}else if(value>0)points.push({d:q.d,index:100,value,r:null});prev={d:q.d,value}}
+const last=points[points.length-1],base=points[0];return points.length>=2?{ready:true,points,ret:(last.index/base.index-1)*100,missing}: {ready:false,reason:'Benchmark history does not cover enough of the portfolio dates.'}})}
+async function portfolioBenchmarkTile(){const a=paBuild(),b=PBMS.find(x=>x.id===PBMSEL),cache=await pbmRows(PBMSEL);let c=null;if(cache.length)c=await pbmCalc(PBMSEL,a);const p=a.points||[],portRet=p.length>1?(p[p.length-1].index/p[0].index-1)*100:null;return `<h2>Whole-portfolio benchmark intelligence</h2><div class='card pad'><p class='mut'>Compare your complete portfolio with a market index using the same dated investment and redemption cash flows. Automatically load available TRI history and cache it locally. CSV import is optional.</p><div class='chips'>${PBMS.map(x=>`<button data-pbm='${x.id}' class='${PBMSEL===x.id?'on':''}'>${x.name}</button>`).join('')}</div>${PBMBUSY?`<p class='mut'>${esc(PBMMSG)}</p>`:c&&c.ready&&!c.missing&&c.points.length===p.length&&portRet!=null?`<div class='kv c3' style='margin-top:12px'><div><small>Portfolio return</small><b class='${portRet>=0?'g':'l'}'>${pc(portRet)}</b></div><div><small>${esc(b.name)} return</small><b class='${c.ret>=0?'g':'l'}'>${pc(c.ret)}</b></div><div><small>Relative difference</small><b class='${portRet-c.ret>=0?'g':'l'}'>${portRet-c.ret>=0?'+':''}${(portRet-c.ret).toFixed(2)} pp</b></div></div><p class='mut'>Aligned period: ${fd(p[0].d)} to ${fd(p[p.length-1].d)}. ${c.missing?c.missing+' benchmark dates were skipped due to missing/stale prices. ':''}Returns use monthly Modified Dietz cash-flow adjustment and are indicative, not a daily time-weighted index.</p>`:`<p class='mut' style='margin-top:12px'>${esc(PBMMSG||'No benchmark history cached yet. Load it to calculate a comparable return.')}</p>`}<p class='mut'>${esc(PBMMSG)} ${cache.length?'Latest cached date: '+cache[cache.length-1][0]:''}</p><a href='https://www.niftyindices.com/reports/historical-data' target='_blank' rel='noopener noreferrer'>Official NSE Indices downloads</a><label>Import CSV for ${esc(b.name)}<input type='file' accept='.csv,text/csv' data-india-bm='${b.id}'></label><button class='btn' data-a='pbmrefresh' ${PBMBUSY?'disabled':''}>${cache.length?'Refresh':'Load'} ${b.name} history</button><p class='mut note'>Use one index and one series type per CSV; importing replaces previous history. Verify the selected index before importing. Price-index returns exclude dividends; TRI includes reinvested dividends. Index returns exclude fund expense ratios, tracking error and investor taxes; the comparison is not an investable product return. Missing prices are not invented. Debt benchmark comparison is not included because a suitable verified debt-index series is not configured.</p></div>`}
+
+function home(C){if(!C.open.length)return empty();const pg=portChg(C);
+return(S.sample?`<div class='warn'>You’re viewing sample data.<button data-a='clear'>Clear it and start with your own</button></div>`:'')+`<section class='hero'><div class='hl'><span class='lab'>Current value</span>${pill(C.pl,ap(C.plp))}</div><h1>${cr(C.tv)}</h1><p class='sub'>${pg?`${pg.abs>=0?'▲':'▼'} ${cr(Math.abs(pg.abs))} (${ap(pg.pct)}) since ${fd(pg.since)}`:`${C.pl>=0?'Up':'Down'} ${cr(Math.abs(C.pl))} overall`}</p><div class='kp'><div><small>Invested</small><strong>${cr(C.tc)}</strong></div><div><small>Returns</small><strong>${cr(C.pl)}</strong><small>${pc(C.plp)}</small></div><div><small>XIRR</small><strong>${pc(C.xirr)}</strong><small>a year</small></div></div></section>
+<div class='gap'>${priceCard(C)}</div>${perfTile(C)}${portfolioRiskTile()}${portfolioAttributionTile(C)}<div id="pbmw"><p class="mut">Loading benchmark comparison…</p></div><h2>If you redeemed today</h2><div class='card pad'>${redeemRows(redeemSim())}</div>${bmOverview(C)}<h2>Allocation</h2>${alloc(C)}${elssCard()}<h2>Worth a look</h2>${insights(C).map(([k,t])=>`<p class='ins ${k}'>${t}</p>`).join('')}<h2>Biggest holdings</h2><div class='list'>${[...C.open].sort((a,b)=>b.value-a.value).slice(0,5).map(h=>bar(h,C.tv)).join('')}</div><button class='btn ghost' data-t='list'>See all ${C.open.length} funds</button>`}
+
+let lsort='value';
+function list(C){const key={value:h=>h.value,ret:h=>h.plp==null?-1e9:h.plp,gain:h=>h.pl,xirr:h=>h.xirr==null?-1e9:h.xirr}[lsort],L=C.open.filter(h=>flt==='all'||h.type===flt).sort((a,b)=>key(b)-key(a)),tot=L.reduce((s,h)=>s+h.value,0);
+return `<div class='chips'><button data-hist=''>All transactions</button><button data-a='prices'>Update prices</button>${elssData().length?`<button data-a='elss'>ELSS lock-in</button>`:''}</div><div class='seg'>${[['all','All'],['mf','Mutual funds'],['stock','Stocks']].map(([k,t])=>`<button class='${flt===k?'on':''}' data-f='${k}'>${t}</button>`).join('')}</div><div class='srt'><span>Sort by</span>${[['value','Value'],['ret','Returns %'],['gain','Gain'],['xirr','XIRR']].map(([k,t])=>`<button data-s='${k}' class='${lsort===k?'on':''}'>${t}</button>`).join('')}</div><p class='mut' style='margin:0 4px 10px'>${L.length} fund${L.length===1?'':'s'} worth ${cr(tot)}</p><div class='list'>`+(L.map(h=>{const c=chgOf(h);return `<button class='hc' data-h='${esc(h.name)}'><div class='hct'>${av(h.name)}<div class='hm'><b>${esc(h.name)}</b><small>${c?(c.abs>=0?'▲ ':'▼ ')+cr(Math.abs(c.abs))+' ('+ap(c.pct)+') since '+fd(c.since):(+h.units.toFixed(3)).toLocaleString('en-IN')+' '+(h.type==='mf'?'units':'shares')+' at '+px(h.price)}</small></div>${pill(h.pl,ap(h.plp))}</div><div class='mg'><div><small>Invested</small><b>${cr(h.cost)}</b></div><div><small>Current</small><b>${cr(h.value)}</b></div><div><small>Total gain</small><b class='${cls(h.pl)}'>${cr(h.pl)}</b></div></div></button>`}).join('')||'<p class="mut">Nothing in this group yet.</p>')+`</div><p class='mut note'>Tap a fund for its chart, details and tax if redeemed.</p>`}
+
