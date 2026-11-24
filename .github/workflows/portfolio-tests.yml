@@ -7,33 +7,12 @@ on:
 permissions:
   contents: read
 jobs:
-  nav-test:
+  engine-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test AMFI parser and cache
-        run: |
-          node --input-type=module <<'JS'
-          import fs from 'node:fs';
-          import vm from 'node:vm';
-          import assert from 'node:assert/strict';
-          const html=fs.readFileSync('js/market-data.js','utf8');
-          const start=html.indexOf('let amfiLatestPromise=');
-          const end=html.indexOf('async function liveGet(code)',start);
-          assert.ok(start>=0 && end>start);
-          const code=html.slice(start,end);
-          const fixture=Array.from({length:101},(_,i)=>[100000+i,'INF000000001','-','Test fund','123.45','23-Nov-2026'].join(';')).join('\n');
-          let requests=0;
-          const ctx=vm.createContext({location:{protocol:'file:'},AbortSignal,fetch:async()=>{requests++;return {ok:true,text:async()=>fixture}}});
-          vm.runInContext(code,ctx);
-          const rows=await vm.runInContext('amfiLatest()',ctx);
-          assert.equal(rows.size,101);
-          assert.equal(rows.get('100000').nav,123.45);
-          assert.equal(rows.get('100000').date,'2026-11-23');
-          await vm.runInContext('amfiLatest()',ctx);
-          assert.equal(requests,1);
-          const bad=vm.createContext({location:{protocol:'file:'},AbortSignal,fetch:async()=>({ok:true,text:async()=>'<html>error</html>'})});
-          vm.runInContext(code,bad);
-          await assert.rejects(vm.runInContext('amfiLatest()',bad),/incomplete/);
-          console.log('AMFI parser, cache and invalid-feed tests passed');
-          JS
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/engines.mjs
+      - run: node tests/amfi.mjs
