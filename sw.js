@@ -1,7 +1,10 @@
-const CACHE_NAME = 'my-portfolio-pwa-v3';
+const CACHE_NAME = 'my-portfolio-pwa-v4-modular';
 const APP_SHELL = [
   './',
   './index.html',
+  './css/app.css',
+  './js/app.js',
+  './js/register-sw.js',
   './manifest.webmanifest',
   './icons/icon-180.png',
   './icons/icon-192.png',

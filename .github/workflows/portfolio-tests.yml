@@ -1,7 +1,7 @@
 name: Portfolio integration tests
 on:
   push:
-    branches: [phase-4.3]
+    branches: [phase-4.3, refactor/modular-architecture]
   pull_request:
     branches: [main]
 permissions:
@@ -17,7 +17,7 @@ jobs:
           import fs from 'node:fs';
           import vm from 'node:vm';
           import assert from 'node:assert/strict';
-          const html=fs.readFileSync('index.html','utf8');
+          const html=fs.readFileSync('js/app.js','utf8');
           const start=html.indexOf('let amfiLatestPromise=');
           const end=html.indexOf('async function liveGet(code)',start);
           assert.ok(start>=0 && end>start);
