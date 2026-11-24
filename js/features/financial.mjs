@@ -1,5 +1,5 @@
 import {calculatePortfolio} from '../engines/portfolio.mjs';
-import {calculateRiskSeries,calculateRiskStats,riskHistPrice} from '../engines/risk.mjs';
+import {calculateRiskSeries,calculateRiskStats,riskHistPrice,stressExposure} from '../engines/risk.mjs';
 import {calculateAttribution} from '../engines/attribution.mjs';
 import {calculateBenchmark} from '../engines/benchmark.mjs';
 import {projectPortfolio} from '../engines/planning.mjs';
@@ -18,3 +18,5 @@ export const realized=calculateRealized;
 export const tax=calculateTaxFY;
 export const remainingLots=calculateRemainingLots;
 export const performance=calculatePerformance;
+
+export const stressRisk=stressExposure;
