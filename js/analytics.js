@@ -1,3 +1,17 @@
+function allocationPlanner(C){return `<h2>Allocation & rebalancing planner</h2><div class='card pad' id='allocationPlanner'><p class='mut'>Set your own targets by holding type, not underlying equity/debt exposure. Mutual funds may hold multiple asset classes. Only recorded portfolio holdings are included.</p><label>Mutual funds target (%)<input id='allocMf' type='number' min='0' max='100' step='0.1'></label><label>Stocks target (%)<input id='allocStock' type='number' min='0' max='100' step='0.1'></label><label>Other target (%)<input id='allocOther' type='number' min='0' max='100' step='0.1' value='0'></label><label>New investment (₹)<input id='allocCash' type='number' min='0' value='0'></label><button type='button' class='btn' id='allocRun'>Calculate allocation plan</button><div id='allocResult' role='status'></div><p class='mut'>Contribution-only illustration; no sales, orders or transaction changes. Recorded prices may be stale. Targets are not investment recommendations.</p></div>`}
+document.addEventListener('click',async e=>{
+ if(!e.target.closest('#allocRun'))return;
+ const out=document.getElementById('allocResult');
+ try{
+ const read=id=>{const v=document.getElementById(id).value;return v.trim()===''?NaN:Number(v)};
+ const targets={mf:read('allocMf'),stock:read('allocStock'),other:read('allocOther')},cash=read('allocCash');
+ const {allocationPlan}=await import('./engines/allocation.mjs');
+ const p=allocationPlan(calc().open,targets,cash);
+ if(!p){out.textContent='Enter non-negative targets totaling 100% and a valid investment amount.';return}
+ const labels={mf:'Mutual funds',stock:'Stocks',other:'Other'},pct=v=>v===null?'N/A':v.toFixed(1)+'%';
+ out.innerHTML=p.rows.map(x=>`<div class='ur'><span>${labels[x.key]}</span><b>${pct(x.weight)} → ${pct(x.projected)}</b></div><p class='mut'>Target ${pct(x.target)} · Drift ${x.drift===null?'N/A':x.drift.toFixed(1)+' pp'} · Suggested contribution ${cr(x.add)}</p>`).join('');
+ }catch{out.textContent='Unable to calculate allocation plan.'}
+});
 function stressRiskTile(C){
  const a=financialFeatures.stressRisk(C.open);if(!a)return '';
  return `<h2>Portfolio stress testing</h2><div class='card pad'><div class='ur'><span>Largest holding</span><b>${esc(a.largest)} · ${a.largestWeight.toFixed(1)}%</b></div><div class='ur'><span>Top five weight</span><b>${a.top5.toFixed(1)}%</b></div><div class='ur'><span>Effective number of holdings</span><b>${a.effective.toFixed(1)}</b></div>${a.scenarios.map(x=>`<div class='ur'><span>${esc(x.label)}<small class='mut'> · remaining ${cr(x.remaining)}</small></span><b class='l'>−${cr(x.loss)}</b></div>`).join('')}<p class='mut note'>Hypothetical instantaneous shocks to recorded holding values, which may include stale or estimated prices. No probability, correlation, fund overlap, tax or recovery assumptions. Not a forecast.</p></div>`;
@@ -51,7 +65,7 @@ async function portfolioBenchmarkTile(){const a=paBuild(),b=PBMS.find(x=>x.id===
 
 function home(C){if(!C.open.length)return empty();const pg=portChg(C);
 return(S.sample?`<div class='warn'>You’re viewing sample data.<button data-a='clear'>Clear it and start with your own</button></div>`:'')+`<section class='hero'><div class='hl'><span class='lab'>Current value</span>${pill(C.pl,ap(C.plp))}</div><h1>${cr(C.tv)}</h1><p class='sub'>${pg?`${pg.abs>=0?'▲':'▼'} ${cr(Math.abs(pg.abs))} (${ap(pg.pct)}) since ${fd(pg.since)}`:`${C.pl>=0?'Up':'Down'} ${cr(Math.abs(C.pl))} overall`}</p><div class='kp'><div><small>Invested</small><strong>${cr(C.tc)}</strong></div><div><small>Returns</small><strong>${cr(C.pl)}</strong><small>${pc(C.plp)}</small></div><div><small>XIRR</small><strong>${pc(C.xirr)}</strong><small>a year</small></div></div></section>
-<div class='gap'>${priceCard(C)}</div>${perfTile(C)}${portfolioRiskTile()}${stressRiskTile(C)}${portfolioAttributionTile(C)}<div id="pbmw"><p class="mut">Loading benchmark comparison…</p></div><h2>If you redeemed today</h2><div class='card pad'>${redeemRows(redeemSim())}</div>${bmOverview(C)}<h2>Allocation</h2>${alloc(C)}${elssCard()}<h2>Worth a look</h2>${insights(C).map(([k,t])=>`<p class='ins ${k}'>${t}</p>`).join('')}<h2>Biggest holdings</h2><div class='list'>${[...C.open].sort((a,b)=>b.value-a.value).slice(0,5).map(h=>bar(h,C.tv)).join('')}</div><button class='btn ghost' data-t='list'>See all ${C.open.length} funds</button>`}
+<div class='gap'>${priceCard(C)}</div>${perfTile(C)}${portfolioRiskTile()}${stressRiskTile(C)}${portfolioAttributionTile(C)}<div id="pbmw"><p class="mut">Loading benchmark comparison…</p></div><h2>If you redeemed today</h2><div class='card pad'>${redeemRows(redeemSim())}</div>${bmOverview(C)}<h2>Allocation</h2>${alloc(C)}${allocationPlanner(C)}${elssCard()}<h2>Worth a look</h2>${insights(C).map(([k,t])=>`<p class='ins ${k}'>${t}</p>`).join('')}<h2>Biggest holdings</h2><div class='list'>${[...C.open].sort((a,b)=>b.value-a.value).slice(0,5).map(h=>bar(h,C.tv)).join('')}</div><button class='btn ghost' data-t='list'>See all ${C.open.length} funds</button>`}
 
 let lsort='value';
 function list(C){const key={value:h=>h.value,ret:h=>h.plp==null?-1e9:h.plp,gain:h=>h.pl,xirr:h=>h.xirr==null?-1e9:h.xirr}[lsort],L=C.open.filter(h=>flt==='all'||h.type===flt).sort((a,b)=>key(b)-key(a)),tot=L.reduce((s,h)=>s+h.value,0);
