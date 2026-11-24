@@ -7,11 +7,20 @@ export function normalizeDisclosure(raw,entry,name){
  for(const h of raw.holdings){if(h.kind!=='equity')continue;if(!/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(h.isin)||!Number.isFinite(h.pct)||h.pct<0)return null;if(h.pct===0)continue;const p=map.get(h.isin);if(p)p.weight+=h.pct;else map.set(h.isin,{isin:h.isin,name:h.name,weight:h.pct})}
  return {scheme:name,date:raw.asOf,source:raw.source.file,holdings:[...map.values()]};
 }
-export async function publicDisclosures(names,fetcher=fetch){
+async function aerieDisclosures(names,fetcher=fetch){
  const get=async path=>{const r=await fetcher(base+path,{cache:'no-store',credentials:'omit'});if(!r.ok)throw Error('Public disclosure HTTP '+r.status);return r.json()};
  const catalog=await get('data/index.json');const index=Array.isArray(catalog)?catalog:catalog?.schemes;if(!Array.isArray(index))throw Error('Unsupported catalog format');
  // Fetch the entire available catalog, independent of the personal portfolio.
  const records=new Map(),queue=[...index];let failures=0;
  await Promise.all(Array.from({length:3},async()=>{while(queue.length){const e=queue.shift();if(!/^(?:data\/)?[a-zA-Z0-9_./-]+\.json$/.test(e.path)||e.path.includes('..')){failures++;continue}try{records.set(e.id,await get(e.path.startsWith('data/')?e.path:'data/'+e.path))}catch{failures++}}}));
  return {rows:names.map(name=>{const e=matchDisclosure(name,index);return e&&records.has(e.id)?normalizeDisclosure(records.get(e.id),e,name):null}).filter(Boolean),failures};
+}
+
+export async function publicDisclosures(names,fetcher=fetch){
+ let rows=[],failures=0;
+ try{const r=await fetcher('./data/disclosures.json',{cache:'no-store',credentials:'omit'});if(!r.ok)throw Error('Catalog unavailable');const d=await r.json();if(!Array.isArray(d.rows))throw Error('Invalid catalog');
+ for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.sort((a,b)=>b.date.localeCompare(a.date))[0];if(latest)rows.push({...latest,scheme:name})}
+ }catch{failures++}
+ try{const fallback=await aerieDisclosures(names,fetcher);failures+=fallback.failures;for(const d of fallback.rows){if(!rows.some(x=>x.scheme===d.scheme&&x.date>=d.date)){rows=rows.filter(x=>x.scheme!==d.scheme);rows.push(d)}}}catch{failures++}
+ return {rows,failures};
 }
