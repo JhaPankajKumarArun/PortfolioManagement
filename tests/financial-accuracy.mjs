@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {xirr,calculatePortfolio} from '../js/engines/portfolio.mjs';
+import {calculateBenchmark} from '../js/engines/benchmark.mjs';
+import {calculatePerformance} from '../js/engines/performance.mjs';
+import {projectPortfolio,swpSim} from '../js/engines/planning.mjs';
+const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} != ${b}`);
+near(xirr([['2025-01-01',-1000],['2026-01-01',1100]]),10);
+near(xirr([['2025-01-01',-100],['2026-01-01',2100]]),2000);
+near(xirr([['2025-01-01',-100],['2026-01-01',50]]),-50);
+assert.equal(xirr([['2025-01-01',-100],['2025-01-01',100]]),null);
+assert.equal(xirr([['2025-01-01',100],['2026-01-01',100]]),null);
+const tx=[{name:'A',type:'mf',side:'buy',date:'2025-01-01',units:10,price:100,fee:10},{name:'A',type:'mf',side:'buy',date:'2025-02-01',units:5,price:120},{name:'A',type:'mf',side:'sell',date:'2025-03-01',units:12,price:150,fee:20}];
+const p=calculatePortfolio({tx,px:{A:160}},'2025-04-01');near(p.tc,360);near(p.tv,480);near(p.pl,120);
+const dnum=d=>Date.parse(d)/86400000;
+const q=calculatePerformance({S:{tx},ser:{},PWH:{},pxAt:(s,n,d)=>d==='2025-01-01'?100:160,navCovers:()=>true,dnum},'2025-01-01','2025-04-01');near(q.cf,-1180);near(q.vch,-520);near(q.gain,660);
+const bm=calculateBenchmark([['2025-01-01',100],['2026-01-01',110]],{points:[{d:'2025-01-01'},{d:'2026-01-01'}]},[tx[0]],dnum);assert.equal(bm.ready,true);near(bm.ret,10);
+near(projectPortfolio(0,{tv:1000,tc:1000},{sip:100,step:10,yrs:2})[2][1],3520);near(swpSim(1200,0,100,0,1).end,0);
