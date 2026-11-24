@@ -27,3 +27,5 @@ function calculateRiskStats(B){const p=B.points,rets=p.filter(x=>x.r!=null).map(
  const best=rets.length?Math.max(...rets):null,worst=rets.length?Math.min(...rets):null;
  return{...B,ready:true,vol:vol*100,sh,so,mdd:mdd*100,dd,roll,best:best*100,worst:worst*100,rf:PA_RF*100};
 }
+
+export { PA_RF, paMonthEnd, riskHistPrice, riskPortfolioAt, calculateRiskSeries, calculateRiskStats };

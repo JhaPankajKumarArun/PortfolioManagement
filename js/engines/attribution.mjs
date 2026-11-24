@@ -8,3 +8,5 @@ function calculateAttribution(C,gains){
  const live=rows.filter(x=>x.value>0).sort((a,b)=>b.value-a.value),top3=live.slice(0,3).reduce((a,x)=>a+x.weight,0),hhi=live.reduce((a,x)=>a+Math.pow(x.weight,2),0);
  return{rows:rows.sort((a,b)=>b.total-a.total),totalReal,totalUnreal,net,top3,hhi,largest:live[0]||null};
 }
+
+export { calculateAttribution };
