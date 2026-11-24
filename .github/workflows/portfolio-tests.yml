@@ -29,3 +29,5 @@ jobs:
       - run: node tests/refresh.mjs
 
       - run: node tests/financial-accuracy.mjs
+
+      - run: node tests/integrity.mjs

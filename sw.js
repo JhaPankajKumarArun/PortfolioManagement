@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v21-modular';
+const CACHE_NAME = 'my-portfolio-pwa-v22-modular';
 const APP_SHELL = [
   './',
   './index.html',
@@ -13,6 +13,7 @@ const APP_SHELL = [
   './js/engines/sip.mjs',
   './js/bootstrap.mjs',
   './js/core/errors.mjs',
+  './js/core/integrity.mjs',
   './js/services/http.mjs',
   './js/services/refresh.mjs',
   './js/features/financial.mjs',
