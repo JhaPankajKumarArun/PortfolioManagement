@@ -54,13 +54,19 @@ def collect_ppfas(source,end,report):
             data=get(url,source).content
             item["stage"]="scheme_identity"
             names=set()
+            title_samples=[]
             for title,rows in tables(data,urlparse(url).path):
                 for row in rows[:15]:
                     for cell in row:
                         v=value(cell)
-                        if isinstance(v,str) and re.fullmatch(r"Parag Parikh [A-Za-z0-9 &()/-]+ Fund",v.strip(),re.I):
-                            names.add(v.strip())
-            if len(names)!=1: raise ValueError("Missing or ambiguous scheme title")
+                        if isinstance(v,str):
+                            if len(title_samples)<25: title_samples.append(v[:200])
+                            match=re.search(r"\bParag Parikh [A-Za-z0-9 &()/-]+? Fund\b",v,re.I)
+                            if match: names.add(match.group(0).strip())
+            if len(names)!=1:
+                item["titleSamples"]=title_samples
+                item["candidateNames"]=sorted(names)
+                raise ValueError("Missing or ambiguous scheme title")
             item["stage"]="table_validation"
             found.append(parse(data,names.pop(),end.isoformat(),url))
             item["stage"]="accepted"
