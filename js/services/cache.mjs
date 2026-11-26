@@ -1,6 +1,18 @@
 const PWDB='pwa-wealth-cache-india-v2',PWSTORE='series',PWSTOCK='portfolio-stockh-v1',PWINDEX='portfolio-indexh-v1';
 let PWDBP=null;
-function pwDb(){if(PWDBP)return PWDBP;PWDBP=new Promise((resolve,reject)=>{if(!window.indexedDB)return reject(Error('IndexedDB unavailable'));const q=indexedDB.open(PWDB,1);q.onupgradeneeded=()=>{const db=q.result;if(!db.objectStoreNames.contains(PWSTORE))db.createObjectStore(PWSTORE,{keyPath:'id'})};q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)});return PWDBP}
+function pwDb(){
+ if(PWDBP)return PWDBP;
+ const pending=new Promise((resolve,reject)=>{
+ if(!globalThis.indexedDB){reject(Error('IndexedDB unavailable'));return}
+ const q=indexedDB.open(PWDB,1);let settled=false;
+ const fail=e=>{if(settled)return;settled=true;clearTimeout(timer);reject(e)};
+ const timer=setTimeout(()=>fail(Error('Market cache open timed out')),8000);
+ q.onupgradeneeded=()=>{const db=q.result;if(!db.objectStoreNames.contains(PWSTORE))db.createObjectStore(PWSTORE,{keyPath:'id'})};
+ q.onerror=()=>fail(q.error);q.onblocked=()=>fail(Error('Market cache upgrade blocked'));
+ q.onsuccess=()=>{const db=q.result;if(settled){db.close();return}settled=true;clearTimeout(timer);db.onversionchange=()=>{db.close();if(PWDBP===pending)PWDBP=null};resolve(db)};
+ });
+ PWDBP=pending;pending.catch(()=>{if(PWDBP===pending)PWDBP=null});return pending;
+}
 async function pwPut(id,kind,data,source){const db=await pwDb();return new Promise((resolve,reject)=>{const tx=db.transaction(PWSTORE,'readwrite');tx.objectStore(PWSTORE).put({id,kind,data,source,updated:Date.now()});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
 async function pwGet(id){try{const db=await pwDb();return await new Promise((resolve,reject)=>{const q=db.transaction(PWSTORE).objectStore(PWSTORE).get(id);q.onsuccess=()=>resolve(q.result||null);q.onerror=()=>reject(q.error)})}catch(e){return null}}
 async function pwAll(kind){try{const db=await pwDb();return await new Promise((resolve,reject)=>{const q=db.transaction(PWSTORE).objectStore(PWSTORE).getAll();q.onsuccess=()=>resolve(q.result.filter(x=>!kind||x.kind===kind));q.onerror=()=>reject(q.error)})}catch(e){return []}}
