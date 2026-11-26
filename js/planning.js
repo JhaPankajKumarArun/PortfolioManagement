@@ -1,7 +1,7 @@
 const goalFields=[['target','Target in today’s rupees',1000000],['saved','Savings earmarked today',0],['monthly','Monthly contribution',0],['years','Years remaining',5],['rate','Expected annual return (%)',8],['inflation','Annual inflation (%)',6]];
 const goalKey='portfolio-goals-v1';
 function readGoals(){try{const x=JSON.parse(localStorage.getItem(goalKey)||'[]');return Array.isArray(x)?x:[]}catch{return []}}
-function goalPlanner(){return `<h2>Financial goals</h2><div class='card pad'><p class='mut'>Allocate savings and contributions separately to each goal. Do not count the same money twice. Assumptions are illustrative, before taxes and fees.</p><label>Goal name<input id='goalName' maxlength='100' placeholder='Home, education, retirement'></label>${goalFields.map(([k,l,v])=>`<label>${l}<input id='goal-${k}' type='number' step='any' value='${v}'></label>`).join('')}<button type='button' class='btn' id='goalAdd'>Save new goal</button><p id='goalStatus' role='status' class='mut'></p><div id='goalRows'>${goalRows()}</div></div>`}
+function goalPlanner(){return `<h2>Financial goals</h2><div class='card pad'><p class='mut'>Allocate savings and contributions separately to each goal. Do not count the same money twice. Assumptions are illustrative, before taxes and fees.</p><label>Goal name<input id='goalName' maxlength='100' placeholder='Home, education, retirement'></label>${goalFields.map(([k,l,v])=>`<label>${l}<input id='goal-${k}' type='number' step='any' value='${v}'></label>`).join('')}<button type='button' class='btn' id='goalAdd'>Save new goal</button><p id='goalStatus' role='status' class='mut'></p><div id='goalRows'>${goalRows()}</div><h3>Combined funding plan</h3><p class='mut'>Enter total assets available for these goals and the total monthly budget. Exclude emergency reserves and other commitments.</p><label>Available assets (₹)<input id='goalAvailable' type='number' min='0' value='0'></label><label>Monthly budget (₹)<input id='goalBudget' type='number' min='0' value='0'></label><button type='button' class='btn' id='goalFundingRun'>Check combined funding</button><div id='goalFundingResult' role='status'></div></div>`}
 function goalRows(){return readGoals().map(g=>`<div class='ur'><b>${esc(String(g.name))}</b><button type='button' data-goal-delete='${esc(String(g.id))}'>Delete</button></div><div class='goal-result' data-goal-result='${esc(String(g.id))}'></div>`).join('')}
 async function updateGoals(){
  const {goalProjection}=await import('./engines/goals.mjs');
@@ -89,3 +89,15 @@ function tmMeta(T){const i=Math.max(0,T.pts.findIndex(p=>p.d>=tm.d)),left=Math.m
 function stopPlay(){clearInterval(tmp.t);tmp.t=null;tmp.on=false;const b=$('#tmplay');if(b)b.textContent='▶ Play'}
 function tmTick(){const sl=document.querySelector('[data-tm=i]');if(!sl){stopPlay();return}const T=tmData(calc()),i=Math.min(T.pts.length-1,Math.max(0,T.pts.findIndex(p=>p.d>=tm.d))+1);tm.d=T.pts[i].d;sl.value=i;sl.style.setProperty('--p',pcs(sl));updateTm();if(i>=T.pts.length-1)stopPlay()}
 function startPlay(){const T=tmData(calc()),i=T.pts.findIndex(p=>p.d>=tm.d);if(i<0||i>=T.pts.length-1)tm.d=T.pts[0].d;clearInterval(tmp.t);tmp.on=true;tmp.t=setInterval(tmTick,tmStep());render()}
+
+document.addEventListener('click',async e=>{
+ if(!e.target.closest('#goalFundingRun'))return;
+ const out=document.getElementById('goalFundingResult');
+ try{
+ const {fundingPlan}=await import('./engines/goals.mjs');
+ const read=id=>{const v=document.getElementById(id).value;return v.trim()===''?NaN:Number(v)};
+ const p=fundingPlan(readGoals(),read('goalAvailable'),read('goalBudget'));
+ if(!p){out.textContent='Enter valid budgets and review saved goals.';return}
+ out.innerHTML=[['Earmarked assets',p.saved],['Unallocated assets',p.unallocated],['Assets overallocated',p.overallocated],['Committed monthly SIP',p.committed],['Required monthly SIP (total)',p.required],['Additional monthly SIP',p.extra],['Monthly budget shortfall',p.budgetGap]].map(([k,v])=>`<div class='ur'><span>${k}</span><b>${cr(v)}</b></div>`).join('')+'<p class="mut">Independent goal projections, assuming flat month-end contributions. No automatic allocation, tax or probability estimates. Review whenever assumptions change.</p>';
+ }catch{out.textContent='Unable to calculate combined funding.'}
+});
