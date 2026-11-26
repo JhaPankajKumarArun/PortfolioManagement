@@ -39,3 +39,19 @@ async function readCatalog(url,fetcher){let last;for(let attempt=0;attempt<2;att
  }
  return result;
  }
+
+export function normalizeCharlie(raw,code,scheme,asOf){
+ if(String(raw?.amfi_code)!==String(code)||normalize(raw.scheme_name)!==normalize(scheme)||!Array.isArray(raw.holdings)||raw.total_holdings!==raw.holdings.length)return null;
+ const map=new Map();
+ for(const h of raw.holdings){
+ if(typeof h.holding_type!=='string')return null;
+ if(!/^(equity|equity shares|common stock)$/i.test(h.holding_type))continue;
+ if(typeof h.position_side!=='string')return null;
+ if(/^short$/i.test(h.position_side))continue;
+ if(!/^long$/i.test(h.position_side)||!Number.isFinite(h.holding_pct)||h.holding_pct<0)return null;
+ if(!h.holding_pct)continue;
+ const p=map.get(h.isin)||{isin:h.isin,name:h.name,weight:0};p.weight+=h.holding_pct;map.set(h.isin,p);
+ }
+ const d={code:String(code),scheme,date:raw.as_of,source:'https://api.charliealpha.in/v1/mf/holdings/'+code,provider:'charlie-alpha',holdings:[...map.values()]};
+ return validateDisclosure(d,asOf)?d:null;
+}
