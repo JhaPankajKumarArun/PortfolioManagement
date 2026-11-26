@@ -1,9 +1,6 @@
 name: Holdings provider audit
 on:
   workflow_dispatch:
-  push:
-    branches: [refactor/modular-architecture]
-    paths: ['scripts/audit-holdings-providers.mjs', '.github/workflows/holdings-provider-audit.yml']
 permissions:
   contents: read
 jobs:
