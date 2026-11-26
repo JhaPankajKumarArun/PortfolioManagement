@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v89-lifetime-accuracy';
+const CACHE_NAME = 'my-portfolio-pwa-v90-cas-request';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
