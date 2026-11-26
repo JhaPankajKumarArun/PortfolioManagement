@@ -1,1 +1,9 @@
-{"generatedAt":"2026-11-26T19:06:03.149Z","universe":14464,"providerSupported":8563,"unsupported":5901,"processed":15,"success":0,"failed":15,"errors":{"HTTP 404 DEPLOYMENT_NOT_FOUND":15},"stopReason":"HTTP 404 DEPLOYMENT_NOT_FOUND; consecutive failures 15","remaining":8349,"current":204}
+{
+  "generatedAt": "2026-11-26T19:15:27.258Z",
+  "provider": "charlie-alpha",
+  "status": "blocked",
+  "stage": "coverage",
+  "error": "HTTP 403 Non-JSON response",
+  "processed": 0,
+  "success": 0
+}
