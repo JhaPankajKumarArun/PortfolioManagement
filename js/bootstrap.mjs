@@ -30,9 +30,10 @@ function returnFromStartup(){throw new Error('Recovery required')}
 try {
 storage.trackPortfolioVersion(localStorage);
 if(localStorage.getItem(storage.K)===null){
+ let discoveryFailed=false;
  let hasBackup=[storage.RECOVERY_KEY,storage.REPLACEMENT_KEY].some(k=>localStorage.getItem(k)!==null);
- if(!hasBackup&&globalThis.indexedDB){try{const db=await openSnapshotDB(indexedDB);try{hasBackup=!!(await readSnapshot(db,'current'))||!!(await readSnapshot(db,'previous'))}finally{db.close()}}catch{}}
- if(hasBackup&&localStorage.getItem(storage.K)===null){showRecovery(document,localStorage,globalThis.indexedDB,()=>location.reload(),message=>confirm(message),true);returnFromStartup();}
+ if(!hasBackup&&globalThis.indexedDB){try{const db=await openSnapshotDB(indexedDB);try{hasBackup=!!(await readSnapshot(db,'current'))||!!(await readSnapshot(db,'previous'))}finally{db.close()}}catch{discoveryFailed=true}}
+ if((hasBackup||discoveryFailed)&&localStorage.getItem(storage.K)===null){showRecovery(document,localStorage,globalThis.indexedDB,()=>location.reload(),message=>confirm(message),true);returnFromStartup();}
 }
 const appState=createState(localStorage);
 function checkPortfolioConflict(){
