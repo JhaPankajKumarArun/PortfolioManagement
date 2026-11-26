@@ -215,3 +215,9 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 #holding-results .hc-compact .holding-compact-value{max-width:44%}
 #holding-results .holding-compact-value small{font-size:11px}
 @media(max-width:360px){.holding-tools{grid-template-columns:1fr}.holding-options>*{flex:1}.holding-options select{max-width:none}.holdings-actions>button,.holdings-actions #hoSelectBar button{font-size:10px}}
+
+/* Holdings controls without search: one full-width row at every viewport. */
+.holding-tools{display:block;margin:4px 0}
+.holding-tools .holding-options{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);gap:6px}
+.holding-tools .holding-options select{width:100%;max-width:none;min-width:0;font-size:16px}
+.holding-tools .holding-options button{min-width:0;font-size:12px}
