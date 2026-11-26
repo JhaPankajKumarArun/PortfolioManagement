@@ -5,18 +5,25 @@ export const RECOVERY_KEY=K+'-recovery';
 export const $=s=>document.querySelector(s);
 export function decodePortfolio(raw){const d=JSON.parse(raw);if(!d||!Array.isArray(d.tx)||typeof d!=='object')throw Error('Invalid portfolio format');return d}
 export function loadPortfolio(storage){const raw=storage.getItem(K);if(raw==null)return {tx:[],px:{}};return decodePortfolio(raw)}
+const baselines=new WeakMap();
+export function trackPortfolioVersion(storage){baselines.set(storage,storage.getItem(K))}
+export function portfolioVersionChanged(storage){return baselines.has(storage)&&baselines.get(storage)!==storage.getItem(K)}
+function assertCurrent(storage){if(portfolioVersionChanged(storage)){const e=new Error('Portfolio changed in another tab. Copy unsaved changes before reloading.');e.name='PortfolioConflictError';throw e}}
+function advanceVersion(storage,raw){if(baselines.has(storage))baselines.set(storage,raw)}
 export function persistPortfolio(storage,portfolio){
+ assertCurrent(storage);
  const next=JSON.stringify(portfolio);decodePortfolio(next);
  const old=storage.getItem(K);
  if(old===next)return true;
  if(old!=null){decodePortfolio(old);storage.setItem(RECOVERY_KEY,old)}
- storage.setItem(K,next);try{snapshotHook?.()}catch{}return true;
+ storage.setItem(K,next);advanceVersion(storage,next);try{snapshotHook?.()}catch{}return true;
 }
 export function readRecovery(storage){const raw=storage.getItem(RECOVERY_KEY);return raw==null?null:decodePortfolio(raw)}
 
 // Explicit recovery only. Preserve the damaged primary before replacing it.
 export const DAMAGED_KEY=K+'-damaged';
 export function restoreDamagedPortfolio(storage,candidate){
+ assertCurrent(storage);
  const next=JSON.stringify(candidate);decodePortfolio(next);
  const raw=storage.getItem(K);
  if(raw===null)throw Error('No damaged primary to recover');
@@ -36,6 +43,7 @@ export function withLegacyGoals(storage,portfolio){
 
 export const REPLACEMENT_KEY=K+'-before-replacement';
 export function persistReplacement(storage,candidate){
+ assertCurrent(storage);
  decodePortfolio(JSON.stringify(candidate));
  const old=storage.getItem(K);
  if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample)storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
