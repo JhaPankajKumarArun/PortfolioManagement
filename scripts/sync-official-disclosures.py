@@ -18,16 +18,37 @@ def get(url, source):
         r.raise_for_status()
         return r
     raise ValueError("Too many redirects")
+def reporting_dates(c):
+    if isinstance(c,dt.datetime): return {c.date()}
+    if isinstance(c,dt.date): return {c}
+    s=re.sub(r"(\d)(?:st|nd|rd|th)\b",r"\1",str(c),flags=re.I)
+    result=set()
+    for pattern,formats in [
+        (r"\b\d{4}[-/]\d{1,2}[-/]\d{1,2}\b",("%Y-%m-%d",)),
+        (r"\b\d{1,2}[-/.]\d{1,2}[-/.]\d{4}\b",("%d-%m-%Y",)),
+        (r"\b\d{1,2}[\s,./-]+[A-Za-z]{3,9}[\s,./-]+\d{4}\b",("%d %B %Y","%d %b %Y")),
+        (r"\b[A-Za-z]{3,9}[\s,./-]+\d{1,2}[\s,./-]+\d{4}\b",("%B %d %Y","%b %d %Y")),
+    ]:
+        for token in re.findall(pattern,s):
+            for fmt in formats:
+                normalized=re.sub(r"[\s,./-]+"," " if " " in fmt else "-",token)
+                try: result.add(dt.datetime.strptime(normalized,fmt).date()); break
+                except ValueError: pass
+    return result
+
 def parse(data, scheme, date, url):
     expected=dt.date.fromisoformat(date)
     def norm(s): return re.sub(r"[^a-z0-9]+"," ",str(s).lower()).strip()
     matches=[]
     identity_count=date_count=0
     errors=[]
+    date_samples=[]
     for title,rows in tables(data,urlparse(url).path):
         cells=[value(c) for row in rows[:25] for c in row]
         identity=any(norm(scheme) in norm(c) for c in [title,*cells] if c is not None)
-        date_ok=any((isinstance(c,dt.datetime) and c.date()==expected) or (isinstance(c,dt.date) and c==expected) or any(expected.strftime(fmt).lower() in str(c).lower() for fmt in ("%d %B %Y","%d-%b-%Y","%d/%m/%Y","%Y-%m-%d","%d-%m-%Y")) for c in cells)
+        dates=set().union(*(reporting_dates(c) for c in cells if c is not None))
+        date_ok=expected in dates
+        if identity: date_samples.extend(sorted(d.isoformat() for d in dates))
         if identity: identity_count+=1
         if identity and date_ok: date_count+=1
         if not identity or not date_ok: continue
@@ -35,7 +56,7 @@ def parse(data, scheme, date, url):
         except ValueError as e:
             errors.append(str(e)); continue
         matches.append(dict(scheme=scheme,date=date,source=url,holdings=holdings))
-    if len(matches)!=1: raise ValueError(f"Matching identity sheets={identity_count}, matching date sheets={date_count}, valid tables={len(matches)}, parser errors={errors}")
+    if len(matches)!=1: raise ValueError(f"Matching identity sheets={identity_count}, matching date sheets={date_count}, valid tables={len(matches)}, observed dates={date_samples}, parser errors={errors}")
     return matches[0]
 def collect_ppfas(source,end,report):
     page=source["page"]
