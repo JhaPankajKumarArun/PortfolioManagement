@@ -1,10 +1,16 @@
 import fs from 'node:fs/promises';
+import {parseAmfiRegistry} from './amfi-registry.mjs';
 import {publicDisclosures} from '../js/services/providers/disclosures.mjs';
 import {validateDisclosure} from '../js/engines/overlap.mjs';
 const get=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(String(r.status));return r};
 const nav=await (await get('https://portal.amfiindia.com/spages/NAVAll.txt')).text();
-const universe=nav.split(/\r?\n/).map(x=>x.split(';')).filter(x=>/^\d{6}$/.test(x[0])&&x[3]).map(x=>({code:x[0],name:x[3]}));
+const registry=parseAmfiRegistry(nav);
+const universe=registry.schemes;
+if(registry.amcs.length<10)throw Error('Incomplete AMC registry');
 if(universe.length<1000)throw Error('Incomplete AMFI universe');
+await fs.mkdir('data',{recursive:true});
+await fs.writeFile('data/amfi-registry.json.tmp',JSON.stringify({generatedAt:new Date().toISOString(),...registry}));
+await fs.rename('data/amfi-registry.json.tmp','data/amfi-registry.json');
 const path='data/disclosures.json';let previous=[];try{previous=JSON.parse(await fs.readFile(path,'utf8')).rows}catch{}
 const rows=new Map(previous.map(x=>[x.code,x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
 const queue=[...new Map(universe.map(x=>[x.code,x])).values()].filter(x=>!rows.has(x.code)||rows.get(x.code).date<cutoff);const total=queue.length;let success=0,failed=0,consecutive=0,stop=false;const deadline=Date.now()+20*60*1000;console.log({universe:universe.length,queued:total,cached:rows.size});
