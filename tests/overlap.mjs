@@ -20,3 +20,12 @@ assert.equal(selected.total,100000);
 assert.equal(selected.exposure[0].value,20000);
 
 for(const bad of [{isin:'TREP02112026',name:'TREPS',weight:2},{isin:'GSECREPO1125',name:'Reverse Repo',weight:1},{...h,isin:'INE040A01035'},{...h,name:'Reverse Repo'}])assert.equal(validateDisclosure({...a,holdings:[bad]},'2026-11-24'),false);
+
+const zero={...a,holdings:[],equityStatus:'verified-zero'};
+assert.equal(validateDisclosure(zero,'2026-11-24'),true);
+assert.equal(validateDisclosure({...zero,equityStatus:undefined},'2026-11-24'),false);
+assert.equal(validateDisclosure({...a,equityStatus:'verified-zero'},'2026-11-24'),false);
+const zp=overlapAnalysis(positions,[zero,b],'2026-11-24');
+assert.equal(zp.zeroEquity[0],'A');
+assert.equal(zp.covered,300000);
+assert.equal(zp.pairs[0].weight,0);
