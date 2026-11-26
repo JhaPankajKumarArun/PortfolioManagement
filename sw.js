@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v117-holding-triangles';
+const CACHE_NAME = 'my-portfolio-pwa-v118-mf-holding-layout';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
