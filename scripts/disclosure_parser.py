@@ -61,10 +61,10 @@ def parse_equity(rows):
             if len(r)<=max(ic,nc,wc): continue
             code=str(value(r[ic]) or "").strip()
             name=str(value(r[nc]) or "").strip()
-            heading=" ".join(label(c) for c in r[:max(ic,nc)+1])
+            heading=" ".join(filter(None,(label(c) for c in r[:max(ic,nc)+1])))
             if not re.fullmatch(r"[A-Z]{2}[A-Z0-9]{9}[0-9]",code):
-                if re.fullmatch(r"(?:[a-z]\.\s*)?(?:listed\s+)?equity(?:\s+(?:shares|and equity related instruments|instruments))?",heading.strip()): equity=True
-                elif heading.strip() and not re.fullmatch(r"(?:listed|unlisted|listed/awaiting listing on stock exchange)",heading.strip()): equity=False
+                if re.fullmatch(r"(?:[a-z]\.\s*)?(?:listed\s+)?equity(?:\s+(?:shares|(?:and|&) equity related(?: instruments)?|instruments))?",heading.strip()): equity=True
+                elif heading.strip() and not re.fullmatch(r"(?:\(?[a-z]\)?[.)]?\s*)?(?:listed|unlisted|listed\s*/\s*awaiting listing on stock exchanges?)",heading.strip()): equity=False
                 continue
             if not equity: continue
             w=allocation(r[wc])
