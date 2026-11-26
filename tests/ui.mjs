@@ -1,5 +1,10 @@
 import assert from 'node:assert/strict';
 import {renderView,showSheet,hideSheet} from '../js/ui/views.mjs';
+const children=[],listeners=new Map(),dialog={focus(){this.focused=true}};
 const nodes=Object.fromEntries(['#app','#ttl','#rfb','#sheet'].map(k=>[k,{classList:{toggle(){}}}]));
-const document={querySelector:k=>nodes[k],querySelectorAll:()=>[]};
-renderView({document,tab:'tax',html:'test',busy:false});assert.equal(nodes['#app'].innerHTML,'test');assert.equal(nodes['#ttl'].textContent,'Tax');showSheet(document,'hello');assert.match(nodes['#sheet'].innerHTML,/hello/);hideSheet(document);assert.equal(nodes['#sheet'].innerHTML,'');
+nodes['#app'].prepend=x=>children.push(x);
+nodes['#sheet'].querySelector=()=>dialog;
+const previous={isConnected:true,focus(){this.focused=true}};
+const document={activeElement:previous,querySelector:k=>nodes[k],querySelectorAll:()=>[],createElement:()=>({dataset:{}}),addEventListener:(k,v)=>listeners.set(k,v),removeEventListener:k=>listeners.delete(k)};
+renderView({document,tab:'tax',html:'test',busy:false});assert.equal(nodes['#app'].innerHTML,'test');assert.equal(nodes['#ttl'].textContent,'Tax');assert.equal(children[0].dataset.t,'more');
+showSheet(document,'hello');assert.match(nodes['#sheet'].innerHTML,/hello/);assert.equal(dialog.focused,true);assert.ok(listeners.has('keydown'));hideSheet(document);assert.equal(nodes['#sheet'].innerHTML,'');assert.equal(previous.focused,true);assert.equal(listeners.size,0);
