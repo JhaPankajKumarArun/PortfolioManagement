@@ -24,3 +24,9 @@ assert.deepEqual(withLegacyGoals(storage,first).goals,[{id:'home',name:'Home'}])
 assert.deepEqual(withLegacyGoals(storage,{...first,goals:[]}).goals,[]);
 assert.throws(()=>withLegacyGoals(storage,{...first,goals:null}),/Invalid/);
 m.set(LEGACY_GOALS_KEY,'broken');assert.throws(()=>withLegacyGoals(storage,first));
+
+const {persistReplacement,readReplacement,REPLACEMENT_KEY}=await import('../js/core/storage.mjs');
+m.delete(LEGACY_GOALS_KEY);persistPortfolio(storage,second);fail=REPLACEMENT_KEY;
+assert.throws(()=>persistReplacement(storage,{tx:[],px:{},sample:true}),/Quota/);assert.deepEqual(loadPortfolio(storage),second);
+fail=null;persistReplacement(storage,{tx:[],px:{},sample:true});assert.deepEqual(readReplacement(storage),second);
+persistReplacement(storage,{tx:[],px:{},goals:[]});assert.deepEqual(readReplacement(storage),second);
