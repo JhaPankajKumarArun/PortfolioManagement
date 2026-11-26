@@ -56,3 +56,15 @@ test('holdings preferences, search and insight navigation',async({page})=>{
  await nav(page,'insights','Insights');await page.locator('[data-insight-jump="risk"]').click();await expect(page.locator('#insight-risk')).toBeVisible();await expect(page.locator('#insight-performance')).toHaveCount(0);
  await nav(page,'plan','Plan','planning');await page.locator('.context-back').click();await expect(page.locator('#ttl')).toHaveText('Planning');
 });
+
+for(const missing of [false,true])test('explicit recovery '+(missing?'missing':'corrupt'),async({page})=>{
+ await page.addInitScript(({fixture,missing})=>{if(sessionStorage.getItem('recovery-seeded'))return;sessionStorage.setItem('recovery-seeded','1');localStorage.setItem('portfolio-v1-recovery',JSON.stringify(fixture));if(missing)localStorage.removeItem('portfolio-v1');else localStorage.setItem('portfolio-v1','broken')},{fixture,missing});
+ await page.goto(base);await expect(page.getByRole('heading',{name:'Portfolio recovery'})).toBeVisible();
+ await page.getByRole('button',{name:'Last local backup'}).click();
+ const restore=page.getByRole('button',{name:'Restore selected backup'});await expect(restore).toBeEnabled();
+ page.once('dialog',d=>d.dismiss());await restore.click();
+ expect(await page.evaluate(()=>localStorage.getItem('portfolio-v1'))).toBe(missing?null:'broken');
+ page.once('dialog',d=>d.accept());await restore.click();await expect(page.locator('.overview-hero')).toBeVisible();
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual(fixture.tx);
+ if(!missing)expect(await page.evaluate(()=>localStorage.getItem('portfolio-v1-damaged'))).toBe('broken');
+});
