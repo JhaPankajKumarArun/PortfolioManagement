@@ -18,7 +18,7 @@ export function blockingIssues(issues){return issues.filter(x=>x.code!=='future-
 export function integrityNotice(issues){return issues.length?'Data quality warning: '+issues.length+' transaction issue(s). Review Import and backup before relying on calculated returns.':''}
 
  // Independent cash-flow reconciliation, using the same valuation date as Overview.
-export function reconcilePortfolio(S,C,asOf){
+export function reconcilePortfolio(S,C,asOf,comparisons={}){
  const issues=auditTransactions(S.tx,asOf), rows=[], ledger=new Map();
  if(blockingIssues(issues).length)return {ready:false,issues,rows};
  for(const t of S.tx){
@@ -47,7 +47,16 @@ export function reconcilePortfolio(S,C,asOf){
  for(const p of C.open)if(!ledger.has(p.name))issues.push({code:'unexpected-holding',name:p.name});
  const totals=rows.reduce((s,h)=>{for(const k of Object.keys(s))s[k]+=h[k];return s},{bought:0,sold:0,value:0,cost:0,realized:0,unrealized:0,totalGain:0});
  if(!near(totals.value,C.tv)||!near(totals.cost,C.tc)||!near(totals.unrealized,C.pl)||!near(totals.totalGain,totals.realized+totals.unrealized))issues.push({code:'portfolio-total-mismatch'});
- return {ready:!issues.some(x=>['asset-name-collision','unit-mismatch','unexpected-holding','portfolio-total-mismatch'].includes(x.code)),issues,rows,totals};
+ const checks=[];
+ const check=(label,expected,actual)=>{const passed=near(expected,actual);checks.push({label,expected,actual,passed});if(!passed)issues.push({code:'cross-screen-mismatch',name:label})};
+ if(Array.isArray(comparisons.realized)){
+  const realized=comparisons.realized.filter(g=>g.sell<=asOf);
+  check('Tax realized gain',totals.realized,realized.reduce((s,g)=>s+g.gain,0));
+  check('Tax sale proceeds',totals.sold,realized.reduce((s,g)=>s+g.pro,0));
+  check('Tax acquisition cost',totals.bought-totals.cost,realized.reduce((s,g)=>s+g.cost,0));
+ }
+ if(comparisons.snapshot){check('Time Machine remaining cost',totals.cost,comparisons.snapshot.cost);if(comparisons.snapshot.samePrices)check('Time Machine value',totals.value,comparisons.snapshot.val)}
+ return {checks,ready:!issues.some(x=>['asset-name-collision','unit-mismatch','unexpected-holding','portfolio-total-mismatch','cross-screen-mismatch'].includes(x.code)),issues,rows,totals};
 }
 
  // Coverage measures held month-end snapshots plus today, not trading-day completeness.
