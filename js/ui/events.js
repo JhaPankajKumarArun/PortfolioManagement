@@ -2,12 +2,12 @@ document.addEventListener('click',e=>{if(e.target.id==='bd')return closeSheet();
 if(d.t){tab=d.t;render();scrollTo(0,0)}else if(d.f){flt=d.f;render()}else if(d.h)histSheet(d.h);
 else if(d.a==='delh'){if(twice(el,'del','Tap again to remove')){S.tx=S.tx.filter(t=>t.name!==cur);['px','pxd','isin','sc','nf','ppx','elss','cls','ter'].forEach(k=>{if(S[k])delete S[k][cur]});save();closeSheet();render()}}
 else if(d.a==='swuse'){sw.wd=+d.v;render()}else if(d.a==='pwrefresh'){PW_LAST=0;pwSyncStocks(true)}
-else if(d.a==='sample'){if(!S.tx.length||S.sample||twice(el,'sm','Tap again to replace your data'))sample()}
-else if(d.a==='clear'){if(S.sample||twice(el,'cl','Tap again to erase everything')){S={tx:[],px:{}};save();render()}}
+else if(d.a==='sample'){if(S.sample||confirm('Replace the current portfolio with sample data? A local checkpoint will be retained.'))sample()}
+else if(d.a==='clear'){if(confirm('Erase the active portfolio and goals? A local checkpoint will be retained.')){const candidate={tx:[],px:{},goals:[]};try{persistReplacement(localStorage,candidate);S=candidate;render()}catch{alert('Erase failed. Existing portfolio retained.')}}}
 else if(d.a==='copy'){const ta=$('#bk');ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(x){}$('#msg').textContent=ok?'Backup copied.':'Select the text above and copy it manually.'}
 else if(d.a==='restore'){try{const o=JSON.parse($('#bk').value);if(!Array.isArray(o.tx)||!o.tx.every(t=>t&&t.name&&t.date&&t.units>0&&t.price>0&&['buy','sell'].includes(t.side)&&['mf','stock'].includes(t.type)))throw 0;
 if(integrity.blockingIssues(integrity.auditTransactions(o.tx,today())).length){$('#msg').textContent='Backup contains invalid transactions or excess redemptions. Existing data was not changed.';return}if(!confirm('Replace the current portfolio with '+o.tx.length+' transactions?'))return;
-const previous=S;try{const candidate=Object.hasOwn(o,'goals')?withLegacyGoals(localStorage,o):{...o,goals:withLegacyGoals(localStorage,S).goals||[]};persistPortfolio(localStorage,candidate);S=candidate}catch(error){S=previous;$('#msg').textContent='Restore could not be saved. Existing portfolio retained.';return}
+const previous=S;try{const candidate=Object.hasOwn(o,'goals')?withLegacyGoals(localStorage,o):{...o,goals:withLegacyGoals(localStorage,S).goals||[]};persistReplacement(localStorage,candidate);S=candidate}catch(error){S=previous;$('#msg').textContent='Restore could not be saved. Existing portfolio retained.';return}
 $('#msg').textContent='Restored '+S.tx.length+' transactions.'}catch(x){$('#msg').textContent='That text isn’t a valid backup. Paste the full text you copied earlier.'}}});
 document.addEventListener('input',e=>{const t=e.target;if(t.dataset.p){pl[t.dataset.p]=+t.value;t.closest('label').querySelector('b').textContent=lv(t.dataset.p);t.style.setProperty('--p',pcs(t));$('#res').innerHTML=planRes(calc())}
 else if(t.dataset.sw){const k=t.dataset.sw;sw[k]=t.value===''?(k==='wd'?null:0):+t.value;if(k==='yrs'){t.closest('label').querySelector('b').textContent=t.value+' years';t.style.setProperty('--p',pcs(t))}$('#swr').innerHTML=swpRes(calc())}});
