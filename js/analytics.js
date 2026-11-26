@@ -1,3 +1,14 @@
+
+const assetLabels={equity:'Domestic equity',debt:'Debt',gold:'Gold / commodities',international:'International equity',cash:'Cash',unclassified:'Unclassified / mixed'};
+function assetClassCard(){return `<h2>Asset-class allocation</h2><div class='card pad'><p class='mut'>Estimated whole-holding classification, not underlying exposure. Mixed funds remain unclassified unless you override them.</p><div id='assetClassOutput'></div><button class='btn ghost' id='assetClassRun'>View asset-class breakdown</button></div>`}
+document.addEventListener('click',async e=>{
+ if(!e.target.closest('#assetClassRun'))return;
+ const out=document.getElementById('assetClassOutput');
+ try{const {assetAllocation}=await import('./engines/allocation.mjs');const p=assetAllocation(calc().open,S.assetClasses||{});
+ out.innerHTML=p.rows.map(r=>`<div class='ur'><span>${assetLabels[r.key]}</span><b>${cr(r.value)} · ${r.weight.toFixed(1)}%</b></div>`).join('')+`<details><summary>Review classifications</summary>${p.items.map((h,i)=>`<label>${esc(h.name)}<select data-asset-index='${i}'><option value='' ${h.manual?'':'selected'}>Automatic: ${assetLabels[h.key]}</option>${Object.entries(assetLabels).map(([k,v])=>`<option value='${k}' ${h.manual&&h.key===k?'selected':''}>${v}</option>`).join('')}</select></label>`).join('')}</details>`;
+ out.onchange=ev=>{const el=ev.target.closest('[data-asset-index]');if(!el)return;const h=p.items[Number(el.dataset.assetIndex)];if(!h)return;const next={...(S.assetClasses||{})};if(el.value)Object.defineProperty(next,h.name,{value:el.value,enumerable:true,configurable:true,writable:true});else delete next[h.name];const candidate={...S,assetClasses:next};try{persistPortfolio(localStorage,candidate);S=candidate;document.getElementById('assetClassRun')?.click()}catch{alert('Classification could not be saved.')}}; 
+ }catch{out.textContent='Unable to calculate asset classes.'}
+});
 let overlapSelection=null,overlapRevision=0,overlapSection='overview';
 function holdingOverlap(C){
  const funds=C.open.filter(h=>h.type==='mf');if(!funds.length)return '';
@@ -131,7 +142,7 @@ async function portfolioBenchmarkTile(){const a=paBuild(),b=PBMS.find(x=>x.id===
 
 function home(C){if(!C.open.length)return empty();const pg=portChg(C);
 return(S.sample?`<div class='warn'>You’re viewing sample data.<button data-a='clear'>Clear it and start with your own</button></div>`:'')+`<section class='hero'><div class='hl'><span class='lab'>Current value</span>${pill(C.pl,ap(C.plp))}</div><h1>${cr(C.tv)}</h1><p class='sub'>${pg?`${pg.abs>=0?'▲':'▼'} ${cr(Math.abs(pg.abs))} (${ap(pg.pct)}) since ${fd(pg.since)}`:`${C.pl>=0?'Up':'Down'} ${cr(Math.abs(C.pl))} overall`}</p><div class='kp'><div><small>Invested</small><strong>${cr(C.tc)}</strong></div><div><small>Returns</small><strong>${cr(C.pl)}</strong><small>${pc(C.plp)}</small></div><div><small>XIRR</small><strong>${pc(C.xirr)}</strong><small>a year</small></div></div></section>
-<div class='gap'>${priceCard(C)}</div>${perfTile(C)}${portfolioRiskTile()}${stressRiskTile(C)}${portfolioAttributionTile(C)}<div id="pbmw"><p class="mut">Loading benchmark comparison…</p></div><h2>If you redeemed today</h2><div class='card pad'>${redeemRows(redeemSim())}</div>${bmOverview(C)}<h2>Allocation</h2>${alloc(C)}${allocationPlanner(C)}${overlapCard()}${elssCard()}<h2>Worth a look</h2>${insights(C).map(([k,t])=>`<p class='ins ${k}'>${t}</p>`).join('')}<h2>Biggest holdings</h2><div class='list'>${[...C.open].sort((a,b)=>b.value-a.value).slice(0,5).map(h=>bar(h,C.tv)).join('')}</div><button class='btn ghost' data-t='list'>See all ${C.open.length} funds</button>`}
+<div class='gap'>${priceCard(C)}</div>${perfTile(C)}${portfolioRiskTile()}${stressRiskTile(C)}${portfolioAttributionTile(C)}<div id="pbmw"><p class="mut">Loading benchmark comparison…</p></div><h2>If you redeemed today</h2><div class='card pad'>${redeemRows(redeemSim())}</div>${bmOverview(C)}<h2>Allocation</h2>${alloc(C)}${assetClassCard()}${allocationPlanner(C)}${overlapCard()}${elssCard()}<h2>Worth a look</h2>${insights(C).map(([k,t])=>`<p class='ins ${k}'>${t}</p>`).join('')}<h2>Biggest holdings</h2><div class='list'>${[...C.open].sort((a,b)=>b.value-a.value).slice(0,5).map(h=>bar(h,C.tv)).join('')}</div><button class='btn ghost' data-t='list'>See all ${C.open.length} funds</button>`}
 
 let lsort='value';
 function list(C){const key={value:h=>h.value,ret:h=>h.plp==null?-1e9:h.plp,gain:h=>h.pl,xirr:h=>h.xirr==null?-1e9:h.xirr}[lsort],L=C.open.filter(h=>flt==='all'||h.type===flt).sort((a,b)=>key(b)-key(a)),tot=L.reduce((s,h)=>s+h.value,0);
