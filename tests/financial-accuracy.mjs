@@ -52,3 +52,9 @@ assert.equal(riskResult.months,12);assert.equal(riskResult.roll.length,1);assert
 // Same display name in different asset types must not share transaction prices.
 const distinct=calculatePortfolio({tx:[{name:'Same',type:'mf',side:'buy',units:2,price:100,date:'2025-01-01'},{name:'Same',type:'stock',side:'buy',units:3,price:200,date:'2025-01-02'}]},'2025-01-03');
 near(distinct.tv,800);assert.equal(distinct.open.length,2);
+
+near(p.realized,530);near(p.lifetimeGain,650);near(p.netInvested,-170);near(p.reconciliationDifference,0);
+const firstFee=calculatePortfolio({tx:[tx[0]],px:{A:100},pxd:{A:'2025-01-01'}},'2025-01-01');
+near(firstFee.lifetimeGain,-10);near(firstFee.realized,0);near(firstFee.reconciliationDifference,0);
+const closed=calculatePortfolio({tx:[tx[0],{...tx[0],side:'sell',date:'2025-02-01',price:120,fee:5}]},'2025-02-01');
+near(closed.lifetimeGain,185);near(closed.realized,185);near(closed.pl,0);near(closed.reconciliationDifference,0);
