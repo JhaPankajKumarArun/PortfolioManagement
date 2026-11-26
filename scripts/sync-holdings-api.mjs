@@ -5,7 +5,13 @@ const get=async (url,accept='application/json')=>{console.log('Fetching',url);co
 const registry=parseAmfiRegistry(await (await get('https://portal.amfiindia.com/spages/NAVAll.txt','*/*')).text());
 if(registry.schemes.length<1000)throw Error('Incomplete AMFI registry');
 const base='https://api.charliealpha.in/v1/mf/';
-const coverage=await (await get(base+'holdings-periods')).json();
+let coverage;
+try { coverage=await (await get(base+'holdings-periods')).json(); }
+catch(e) {
+ await fs.mkdir('data',{recursive:true});
+ await fs.writeFile('data/api-sync-report.json',JSON.stringify({generatedAt:new Date().toISOString(),provider:'charlie-alpha',status:'blocked',stage:'coverage',error:e.message,processed:0,success:0},null,2));
+ throw e;
+}
 if(!Array.isArray(coverage.periods)||!coverage.periods.length)throw Error('Invalid Charlie coverage');
 console.log('Charlie coverage',coverage.latest_as_of,coverage.periods.slice(0,3));
 const supported=registry.schemes;
