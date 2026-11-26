@@ -82,3 +82,9 @@ test('application health and concurrent portfolio change',async({page})=>{
  await expect(page.locator('#portfolio-conflict')).toBeVisible();
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).qaExternalChange)).toBe(true);
 });
+
+test('overview displays dated one-day market change independently of selected period',async({page})=>{
+ await seed(page);await page.goto(base);
+ const daily=page.locator('#overview-day-change');await expect(daily).toBeVisible();await expect(daily).toContainText('1-day market change');
+ await page.locator('#pfw [data-pp="1M"]').click();await expect(daily).toContainText('1-day market change');
+});
