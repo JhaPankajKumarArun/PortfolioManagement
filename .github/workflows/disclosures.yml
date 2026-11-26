@@ -5,6 +5,7 @@ on:
     branches: [refactor/modular-architecture]
     paths:
       - 'scripts/sync-disclosures.mjs'
+      - 'scripts/sync-official-disclosures.py'
       - 'js/services/providers/disclosures.mjs'
       - '.github/workflows/disclosures.yml'
   schedule:
@@ -25,11 +26,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/sync-disclosures.mjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 openpyxl
+      - name: Collect official AMC spreadsheets
+        continue-on-error: true
+        run: python scripts/sync-official-disclosures.py
+      - name: Collect supplemental public catalog
+        continue-on-error: true
+        run: node scripts/sync-disclosures.mjs
       - run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          if [ ! -f data/disclosures.json ]; then exit 0; fi
+          if [ ! -s data/disclosures.json ]; then echo 'No disclosure catalog generated'; exit 1; fi
           git add data/disclosures.json
           git diff --cached --quiet || git commit -m 'Refresh public mutual fund disclosures'
           git pull --rebase origin refactor/modular-architecture
