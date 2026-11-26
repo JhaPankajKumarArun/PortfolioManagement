@@ -1,5 +1,6 @@
+import {validateDisclosure} from '../../engines/overlap.mjs';
 const base='https://raw.githubusercontent.com/Garuda8887/aerie-data/main/';
-const normalize=s=>String(s).toLowerCase().replace(/\b(direct|regular)\s+(plan|growth)\b/g,' ').replace(/\b(direct|regular|growth|plan)\b/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
+const normalize=s=>String(s).toLowerCase().replace(/\b(direct|regular)\s+(plan|growth)\b/g,' ').replace(/\b(direct|regular|growth|plan|option)\b/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
 export function matchDisclosure(name,index){const matches=index.filter(x=>normalize(x.name)===normalize(name));return matches.length===1?matches[0]:null}
 export function normalizeDisclosure(raw,entry,name){
  if(raw.id!==entry.id||raw.name!==entry.name||raw.asOf!==entry.asOf||!Array.isArray(raw.holdings)||!raw.source?.file)return null;
@@ -8,7 +9,7 @@ export function normalizeDisclosure(raw,entry,name){
  return {scheme:name,date:raw.asOf,source:raw.source.file,holdings:[...map.values()]};
 }
 async function aerieDisclosures(names,fetcher=fetch){
- const get=async path=>{const r=await fetcher(base+path,{cache:'no-store',credentials:'omit'});if(!r.ok)throw Error('Public disclosure HTTP '+r.status);return r.json()};
+ const get=path=>readCatalog(base+path,fetcher);
  const catalog=await get('data/index.json');const index=Array.isArray(catalog)?catalog:catalog?.schemes;if(!Array.isArray(index))throw Error('Unsupported catalog format');
  // Fetch the entire available catalog, independent of the personal portfolio.
  const records=new Map(),queue=[...index];let failures=0;
@@ -18,9 +19,11 @@ async function aerieDisclosures(names,fetcher=fetch){
 
 export async function publicDisclosures(names,fetcher=fetch){
  let rows=[],failures=0;
- try{const r=await fetcher('./data/disclosures.json',{cache:'no-store',credentials:'omit'});if(!r.ok)throw Error('Catalog unavailable');const d=await r.json();if(!Array.isArray(d.rows))throw Error('Invalid catalog');
- for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.sort((a,b)=>b.date.localeCompare(a.date))[0];if(latest)rows.push({...latest,scheme:name})}
+ try{const d=await readCatalog('./data/disclosures.json',fetcher);if(!Array.isArray(d.rows))throw Error('Invalid catalog');
+ for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.sort((a,b)=>b.date.localeCompare(a.date))[0];if(latest&&validateDisclosure({...latest,scheme:name},new Date().toISOString().slice(0,10)))rows.push({...latest,scheme:name})}
  }catch{failures++}
- try{const fallback=await aerieDisclosures(names,fetcher);failures+=fallback.failures;for(const d of fallback.rows){if(!rows.some(x=>x.scheme===d.scheme&&x.date>=d.date)){rows=rows.filter(x=>x.scheme!==d.scheme);rows.push(d)}}}catch{failures++}
- return {rows,failures};
+ try{const fallback=await aerieDisclosures(names,fetcher);failures+=fallback.failures;for(const d of fallback.rows){if(!validateDisclosure(d,new Date().toISOString().slice(0,10)))continue;if(!rows.some(x=>x.scheme===d.scheme&&x.date>=d.date)){rows=rows.filter(x=>x.scheme!==d.scheme);rows.push(d)}}}catch{failures++}
+ return {rows,failures,missing:names.filter(n=>!rows.some(r=>r.scheme===n))};
 }
+
+async function readCatalog(url,fetcher){let last;for(let attempt=0;attempt<2;attempt++){const controller=new AbortController();let timer;try{return await Promise.race([ (async()=>{const r=await fetcher(url,{cache:'no-store',credentials:'omit',signal:controller.signal});if(!r.ok)throw Error('Disclosure HTTP '+r.status);return await r.json()})(),new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(Error('Disclosure timeout'))},12000)})])}catch(e){last=e;if(String(e.message).includes('HTTP 404'))break}finally{clearTimeout(timer)}}throw last}
