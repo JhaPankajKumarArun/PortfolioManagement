@@ -18,14 +18,14 @@ async function aerieDisclosures(names,fetcher=fetch){
 }
 
 export async function publicDisclosures(names,fetcher=fetch){
- let rows=[],failures=0;
- try{const p=await charlieCatalog(names,fetcher);rows=p.rows;failures+=p.failures;}catch(e){failures++;console.warn('Charlie catalog',e.message)}
+ let rows=[],failures=0,diagnostics=null;
+ try{const p=await charlieCatalog(names,fetcher);rows=p.rows;failures+=p.failures;diagnostics=p.diagnostics;}catch(e){failures++;console.warn('Charlie catalog',e.message)}
  try{const d=await readCatalog('./data/disclosures.json',fetcher);if(!Array.isArray(d.rows))throw Error('Invalid catalog');
  for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.filter(x=>validateDisclosure({...x,scheme:name},new Date().toISOString().slice(0,10))).sort((a,b)=>b.date.localeCompare(a.date)||Number(!b.code)-Number(!a.code))[0];if(latest&&validateDisclosure({...latest,scheme:name},new Date().toISOString().slice(0,10))){if(!rows.some(x=>x.scheme===name&&x.date>=latest.date)){rows=rows.filter(x=>x.scheme!==name);rows.push({...latest,scheme:name})}}}
  }catch{failures++}
- if(rows.length===names.length&&rows.every(x=>Date.now()-Date.parse(x.date)<=45*864e5))return {rows,failures,missing:[]};
+ if(rows.length===names.length&&rows.every(x=>Date.now()-Date.parse(x.date)<=45*864e5))return {rows,failures,diagnostics,missing:[]};
  try{const fallback=await aerieDisclosures(names,fetcher);failures+=fallback.failures;for(const d of fallback.rows){if(!validateDisclosure(d,new Date().toISOString().slice(0,10)))continue;if(!rows.some(x=>x.scheme===d.scheme&&x.date>=d.date)){rows=rows.filter(x=>x.scheme!==d.scheme);rows.push(d)}}}catch{failures++}
- return {rows,failures,missing:names.filter(n=>!rows.some(r=>r.scheme===n))};
+ return {rows,failures,diagnostics,missing:names.filter(n=>!rows.some(r=>r.scheme===n))};
 }
 
 async function readCatalog(url,fetcher){let last;for(let attempt=0;attempt<2;attempt++){const controller=new AbortController();let timer;try{return await Promise.race([ (async()=>{const r=await fetcher(url,{cache:'no-store',credentials:'omit',signal:controller.signal});if(!r.ok)throw Error('Disclosure HTTP '+r.status);return await r.json()})(),new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(Error('Disclosure timeout'))},12000)})])}catch(e){last=e;if(String(e.message).includes('HTTP 404'))break}finally{clearTimeout(timer)}}throw last}
@@ -35,7 +35,7 @@ async function readCatalog(url,fetcher){let last;for(let attempt=0;attempt<2;att
  const base='https://api.charliealpha.in/v1/mf/';
  const result={};
  for(const [key,path] of [['coverage','holdings-periods'],['sample','holdings/122639']]){
- try{const d=await readCatalog(base+path,fetcher);result[key]={ok:true,fields:Object.keys(d),sampleFields:Array.isArray(d.holdings)&&d.holdings.length?Object.keys(d.holdings[0]):[]};}
+ try{const d=await readCatalog(base+path,fetcher);result[key]={ok:true,fields:Object.keys(d),sampleFields:Array.isArray(d.holdings)&&d.holdings.length?Object.keys(d.holdings[0]):[],example:key==='sample'?{scheme:d.scheme_name,asOf:d.as_of,total:d.total_holdings,types:[...new Set(d.holdings?.map(h=>h.holding_type))],sides:[...new Set(d.holdings?.map(h=>h.position_side))],first:d.holdings?.[0],allocation:d.asset_allocation}:d.periods?.[0]};}
  catch(e){result[key]={ok:false,error:String(e.message)};}
  }
  return result;
@@ -63,32 +63,32 @@ function cacheOp(db,mode,key,value){return new Promise((resolve,reject)=>{const 
 let catalogJob;
 async function charlieCatalog(names,fetcher){
  if(!catalogJob)catalogJob=syncCharlie(fetcher).finally(()=>{catalogJob=null});
- const {records,failures}=await catalogJob;
+ const {records,failures,diagnostics}=await catalogJob;
  const today=new Date().toISOString().slice(0,10);
- return {failures,rows:names.flatMap(name=>{const candidates=records.filter(x=>normalize(x.scheme)===normalize(name)&&validateDisclosure(x,today));const dates=[...new Set(candidates.map(x=>x.date))].sort();const latest=candidates.filter(x=>x.date===dates.at(-1));if(!latest.length)return [];const signatures=new Set(latest.map(x=>JSON.stringify(x.holdings.map(h=>[h.isin,h.weight]).sort())));return signatures.size===1?[{...latest[0],scheme:name}]:[]})};
+ return {failures,diagnostics,rows:names.flatMap(name=>{const candidates=records.filter(x=>normalize(x.scheme)===normalize(name)&&validateDisclosure(x,today));const dates=[...new Set(candidates.map(x=>x.date))].sort();const latest=candidates.filter(x=>x.date===dates.at(-1));if(!latest.length)return [];const signatures=new Set(latest.map(x=>JSON.stringify(x.holdings.map(h=>[h.isin,h.weight]).sort())));return signatures.size===1?[{...latest[0],scheme:name}]:[]})};
 }
 async function syncCharlie(fetcher){
  const db=await openCharlieCache();
  try{
  const state=await cacheOp(db,'readonly','state')||{records:[],cursor:0,period:null,last:0};
  const records=new Map(state.records.map(x=>[x.code,x]));
- if(Date.now()-state.last<3600000)return {records:[...records.values()],failures:0};
+ if(Date.now()-state.last<3600000)return {records:[...records.values()],failures:0,diagnostics:state.diagnostics};
  const coverage=await readCatalog(charlieBase+'holdings-periods',fetcher);
  if(!/^\d{4}-\d{2}-\d{2}$/.test(coverage.latest_as_of))throw Error('Invalid disclosure period');
  const registry=await readCatalog('./data/amfi-registry.json',fetcher);
  if(!Array.isArray(registry.schemes)||registry.schemes.length<1000)throw Error('Incomplete public registry');
  const queue=registry.schemes.filter(s=>/^\d+$/.test(String(s.code))&&typeof s.name==='string').sort((a,b)=>Number(a.code)-Number(b.code));
- let cursor=state.period===coverage.latest_as_of?state.cursor:0,failures=0,consecutive=0;
+ let cursor=state.period===coverage.latest_as_of?state.cursor:0,failures=0,consecutive=0;const diagnostics={period:coverage.latest_as_of,universe:queue.length,accepted:0,rejected:0,errors:{},examples:[]};
  const today=new Date().toISOString().slice(0,10),deadline=Date.now()+45000;
  // Fixed public order and bounded batches, independent of portfolio membership.
  for(let n=0;n<30&&cursor<queue.length&&Date.now()<deadline;n++){
  const s=queue[cursor];
- try{const raw=await readCatalog(charlieBase+'holdings/'+s.code,fetcher);const d=normalizeCharlie(raw,s.code,s.name,today);if(d){if(!records.has(d.code)||records.get(d.code).date<=d.date)records.set(d.code,d);consecutive=0}else{failures++;consecutive++}cursor++}
- catch(e){failures++;if(/HTTP (403|429)/.test(e.message))break;cursor++;consecutive++}
+ try{const raw=await readCatalog(charlieBase+'holdings/'+s.code,fetcher);const d=normalizeCharlie(raw,s.code,s.name,today);if(d){if(!records.has(d.code)||records.get(d.code).date<=d.date)records.set(d.code,d);consecutive=0;diagnostics.accepted++}else{failures++;consecutive++;diagnostics.rejected++;if(diagnostics.examples.length<3)diagnostics.examples.push({code:s.code,expected:s.name,actual:raw.scheme_name,types:[...new Set(raw.holdings?.map(h=>h.holding_type))],sides:[...new Set(raw.holdings?.map(h=>h.position_side))],first:raw.holdings?.[0]})}cursor++}
+ catch(e){failures++;diagnostics.errors[e.message]=(diagnostics.errors[e.message]||0)+1;if(/HTTP (403|429)/.test(e.message))break;cursor++;consecutive++}
  if(consecutive>=10)break;
  await new Promise(r=>setTimeout(r,1100));
  }
- await cacheOp(db,'readwrite','state',{records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
- return {records:[...records.values()],failures};
+ diagnostics.cursor=cursor;diagnostics.cached=records.size;await cacheOp(db,'readwrite','state',{diagnostics,records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
+ return {records:[...records.values()],failures,diagnostics};
  }finally{db.close()}
 }
