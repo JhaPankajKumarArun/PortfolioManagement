@@ -8,6 +8,8 @@ on:
       - 'scripts/amfi-registry.mjs'
       - 'scripts/amc-sources.mjs'
       - 'scripts/scheme-identity.mjs'
+      - 'scripts/disclosure_parser.py'
+      - 'scripts/test_disclosure_parser.py'
       - 'scripts/sync-official-disclosures.py'
       - 'js/services/providers/disclosures.mjs'
       - '.github/workflows/disclosures.yml'
@@ -32,7 +34,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install requests beautifulsoup4 openpyxl
+      - run: pip install requests beautifulsoup4 openpyxl xlrd
+      - run: python scripts/test_disclosure_parser.py
       - name: Collect official AMC spreadsheets
         continue-on-error: true
         run: python scripts/sync-official-disclosures.py
