@@ -1,11 +1,14 @@
 import {decodePortfolio,K} from './storage.mjs';
-export function openSnapshotDB(factory){
+export function openSnapshotDB(factory,timeoutMs=8000){
  return new Promise((resolve,reject)=>{
   if(!factory){reject(Error('IndexedDB unavailable'));return}
   const r=factory.open('portfolio-local-snapshots',1);
   r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains('snapshots'))r.result.createObjectStore('snapshots')};
-  r.onerror=()=>reject(r.error);r.onblocked=()=>reject(Error('Database upgrade blocked'));
-  r.onsuccess=()=>{r.result.onversionchange=()=>r.result.close();resolve(r.result)};
+  let settled=false;
+  const fail=e=>{if(settled)return;settled=true;clearTimeout(timer);reject(e)};
+  const timer=setTimeout(()=>fail(Error('Snapshot database open timed out')),timeoutMs);
+  r.onerror=()=>fail(r.error);r.onblocked=()=>fail(Error('Database upgrade blocked'));
+  r.onsuccess=()=>{if(settled){r.result.close();return}settled=true;clearTimeout(timer);r.result.onversionchange=()=>r.result.close();resolve(r.result)};
  });
 }
 export function writeSnapshot(db,raw){
@@ -17,9 +20,9 @@ export function writeSnapshot(db,raw){
   tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error||Error('Snapshot aborted'));tx.onerror=()=>reject(tx.error);
  });
 }
-export function readSnapshot(db,key='current'){
+export function readSnapshot(db,key='current',timeoutMs=8000){
  if(!['current','previous'].includes(key))return Promise.reject(Error('Invalid snapshot key'));
- return new Promise((resolve,reject)=>{const r=db.transaction('snapshots','readonly').objectStore('snapshots').get(key);r.onsuccess=()=>{try{resolve(r.result?decodePortfolio(r.result.raw):null)}catch(e){reject(e)}};r.onerror=()=>reject(r.error)});
+ return new Promise((resolve,reject)=>{const r=db.transaction('snapshots','readonly').objectStore('snapshots').get(key);const timer=setTimeout(()=>reject(Error('Snapshot read timed out')),timeoutMs);r.onsuccess=()=>{clearTimeout(timer);try{resolve(r.result?decodePortfolio(r.result.raw):null)}catch(e){reject(e)}};r.onerror=()=>{clearTimeout(timer);reject(r.error)}});
 }
 export function createSnapshotMirror(storage,factory){
  let db,tail=Promise.resolve(),status='pending',error=null;
