@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {buildIdentityCandidates,resolveVerifiedPlan,underlyingName} from '../scripts/scheme-identity.mjs';
+const schemes=[{code:'1',amc:'A',category:'Equity',name:'Example Growth Fund Direct Plan Growth',isins:['INF000000001']},{code:'2',amc:'A',category:'Equity',name:'Example Growth Fund Regular Plan IDCW Reinvestment',isins:['INF000000002']},{code:'3',amc:'B',category:'Equity',name:'Example Growth Fund Direct Growth',isins:[]}];
+const registry={schemes};
+assert.equal(underlyingName(schemes[0].name),'example growth fund');
+assert.equal(buildIdentityCandidates(registry).length,2);
+assert.equal(resolveVerifiedPlan(registry,[],{code:'1'}),null);
+const m={amc:'A',verified:true,source:'https://example.com/disclosure.xlsx',planCodes:['1','2']};
+assert.equal(resolveVerifiedPlan(registry,[m],{code:'2'}),m);
+assert.equal(resolveVerifiedPlan(registry,[m],{code:'1',isin:'INF000000002'}),null);
+assert.equal(resolveVerifiedPlan(registry,[m,m],{code:'1'}),null);
+assert.equal(resolveVerifiedPlan(registry,[m],{code:'3'}),null);
+console.log('Scheme identity tests passed');
