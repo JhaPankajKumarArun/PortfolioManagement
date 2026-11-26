@@ -4,8 +4,6 @@ on:
   push:
     branches: [refactor/modular-architecture]
     paths: ['scripts/sync-holdings-api.mjs', '.github/workflows/holdings-api-sync.yml']
-  schedule:
-    - cron: '20 3 * * *'
 permissions:
   contents: write
 concurrency:
