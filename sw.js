@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v111-charlie-direct';
+const CACHE_NAME = 'my-portfolio-pwa-v112-overlap-drilldown';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
