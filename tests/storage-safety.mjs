@@ -58,3 +58,10 @@ persistReplacement(storage,{tx:[],px:{},goals:[]});assert.deepEqual(readReplacem
  assert.deepEqual(records,before);
  trackPortfolioVersion(b);persistPortfolio(b,{tx:[],px:{B:2}});assert.equal(portfolioVersionChanged(a),true);
 }
+
+{
+ const {openSnapshotDB,readSnapshot}=await import('../js/core/indexed-storage.mjs');
+ const request={};await assert.rejects(openSnapshotDB({open:()=>request},5),/timed out/);
+ let closed=false;request.result={close(){closed=true}};request.onsuccess();assert.equal(closed,true);
+ await assert.rejects(readSnapshot({transaction:()=>({objectStore:()=>({get:()=>({})})})},'current',5),/timed out/);
+}
