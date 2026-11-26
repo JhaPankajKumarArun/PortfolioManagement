@@ -232,3 +232,9 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 .holding-tools .holding-options{gap:4px}
 .holding-tools .holding-options button,.holding-tools .holding-options select{background:var(--tint);border:1px solid var(--line);border-radius:6px}
 .holding-tools .holding-options button[aria-pressed=true]{background:var(--hero1);color:white}
+
+/* v96: persistent three-column asset tabs with an active underline. */
+.holdings-filter.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding:0;margin:5px 0;background:var(--card);border:0;border-bottom:1px solid var(--line);border-radius:0;overflow:visible}
+.holdings-filter.seg button,.holdings-filter.seg button.on{min-width:0;min-height:44px;margin:0;padding:8px 3px;border:0;border-bottom:3px solid transparent;border-radius:0;background:transparent;color:var(--mut);box-shadow:none;font-size:13px;white-space:nowrap;text-align:center}
+.holdings-filter.seg button.on{border-bottom-color:var(--tabon);color:var(--tabon);font-weight:750}
+.holdings-filter.seg button:focus-visible{outline-offset:-3px}
