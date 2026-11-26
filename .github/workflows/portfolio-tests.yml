@@ -1,5 +1,6 @@
 name: Portfolio integration tests
 on:
+  workflow_dispatch:
   push:
     branches: [phase-4.3, refactor/modular-architecture]
   pull_request:
@@ -9,6 +10,7 @@ permissions:
 jobs:
   engine-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
