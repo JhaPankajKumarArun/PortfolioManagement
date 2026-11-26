@@ -24,7 +24,7 @@ console.log('Identity candidates',{groups:candidates.length,plans:universe.lengt
 if(process.argv.includes('--registry-only'))process.exit(0);
 const path='data/disclosures.json';let previous=[];try{previous=JSON.parse(await fs.readFile(path,'utf8')).rows}catch{}
 const official=previous.filter(x=>!x.code&&validateDisclosure(x,new Date().toISOString().slice(0,10)));
-const rows=new Map(previous.filter(x=>x.code).map(x=>[String(x.code),x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
+const rows=new Map(previous.filter(x=>x.code&&validateDisclosure(x,new Date().toISOString().slice(0,10))).map(x=>[String(x.code),x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
 const queue=[...new Map(universe.map(x=>[x.code,x])).values()].filter(x=>!rows.has(x.code)||rows.get(x.code).date<cutoff);const total=queue.length;let success=0,failed=0,consecutive=0,stop=false;const deadline=Date.now()+20*60*1000;console.log({universe:universe.length,queued:total,cached:rows.size});
 await Promise.all(Array.from({length:3},async()=>{while(queue.length&&!stop&&Date.now()<deadline){const {code,name}=queue.shift();try{
  const url='https://fund-holdings-browser.vercel.app/api/amfi/'+code;
@@ -33,7 +33,8 @@ await Promise.all(Array.from({length:3},async()=>{while(queue.length&&!stop&&Dat
  const m=new Map();for(const h of d.holdings){if(h.holding_type!=='equity')continue;if(!Number.isFinite(h.pct_nav)||h.pct_nav<0||! /^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(h.isin))throw Error('Invalid equity');if(!h.pct_nav)continue;const p=m.get(h.isin)||{isin:h.isin,name:h.instrument,weight:0};p.weight+=h.pct_nav;m.set(h.isin,p)}
  const holdings=[...m.values()];if(!holdings.length||holdings.reduce((s,h)=>s+h.weight,0)>100.05)throw Error('Invalid weights');
  const date=d.meta.as_of;if(date>new Date().toISOString().slice(0,10))throw Error('Future disclosure');
- if(!rows.has(code)||rows.get(code).date<=date)rows.set(code,{code,scheme:name,date,source:d.meta.source_file,holdings});success++;consecutive=0;
+ const record={code,scheme:name,date,source:d.meta.source_file,holdings};if(!validateDisclosure(record,new Date().toISOString().slice(0,10)))throw Error('Invalid equity disclosure');
+ if(!rows.has(code)||rows.get(code).date<=date)rows.set(code,record);success++;consecutive=0;
  }catch(e){failed++;consecutive++;if(failed<=10)console.log('Failed',code,String(e.message));if(consecutive>=30){stop=true;console.warn('Stopping after 30 consecutive unusable responses')}}if((success+failed)%25===0)console.log({processed:success+failed,total,success,failed,remaining:queue.length});await new Promise(r=>setTimeout(r,250))}}));
 if(!total){console.log('Catalog already fresh');process.exit(0)}
 if(!success||queue.length){
