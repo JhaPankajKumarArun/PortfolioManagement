@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v52-asset-classes';
+const CACHE_NAME = 'my-portfolio-pwa-v53-modular-allocation';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -26,6 +26,7 @@ const APP_SHELL = [
   './js/services/http.mjs',
   './js/services/refresh.mjs',
   './js/features/financial.mjs',
+  './js/features/allocation-ui.mjs',
   './js/core/state.mjs',
   './js/core/storage.mjs',
   './js/core/format.mjs',
