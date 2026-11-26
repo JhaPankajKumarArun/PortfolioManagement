@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import {parseAmfiRegistry} from './amfi-registry.mjs';
+import {buildSourceRegistry} from './amc-sources.mjs';
 import {publicDisclosures} from '../js/services/providers/disclosures.mjs';
 import {validateDisclosure} from '../js/engines/overlap.mjs';
 const get=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(String(r.status));return r};
@@ -11,6 +12,10 @@ if(universe.length<1000)throw Error('Incomplete AMFI universe');
 await fs.mkdir('data',{recursive:true});
 await fs.writeFile('data/amfi-registry.json.tmp',JSON.stringify({generatedAt:new Date().toISOString(),...registry}));
 await fs.rename('data/amfi-registry.json.tmp','data/amfi-registry.json');
+const sources=buildSourceRegistry(registry);
+await fs.writeFile('data/amc-sources.json.tmp',JSON.stringify({generatedAt:new Date().toISOString(),sources}));
+await fs.rename('data/amc-sources.json.tmp','data/amc-sources.json');
+console.log('AMC source coverage',{total:sources.length,configured:sources.filter(x=>x.source).length,unconfigured:sources.filter(x=>!x.source).map(x=>x.amc)});
 const path='data/disclosures.json';let previous=[];try{previous=JSON.parse(await fs.readFile(path,'utf8')).rows}catch{}
 const rows=new Map(previous.map(x=>[x.code,x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
 const queue=[...new Map(universe.map(x=>[x.code,x])).values()].filter(x=>!rows.has(x.code)||rows.get(x.code).date<cutoff);const total=queue.length;let success=0,failed=0,consecutive=0,stop=false;const deadline=Date.now()+20*60*1000;console.log({universe:universe.length,queued:total,cached:rows.size});
