@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v53-modular-allocation';
+const CACHE_NAME = 'my-portfolio-pwa-v54-indexed-snapshots';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -29,6 +29,7 @@ const APP_SHELL = [
   './js/features/allocation-ui.mjs',
   './js/core/state.mjs',
   './js/core/storage.mjs',
+  './js/core/indexed-storage.mjs',
   './js/core/format.mjs',
   './js/services/cache.mjs',
   './js/services/providers/amfi.mjs',
