@@ -36,6 +36,8 @@ jobs:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4 openpyxl xlrd
       - run: python scripts/test_disclosure_parser.py
+      - name: Generate current public source registry
+        run: node scripts/sync-disclosures.mjs --registry-only
       - name: Collect official AMC spreadsheets
         continue-on-error: true
         run: python scripts/sync-official-disclosures.py
