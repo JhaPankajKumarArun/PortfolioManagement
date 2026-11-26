@@ -221,3 +221,14 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 .holding-tools .holding-options{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);gap:6px}
 .holding-tools .holding-options select{width:100%;max-width:none;min-width:0;font-size:16px}
 .holding-tools .holding-options button{min-width:0;font-size:12px}
+
+/* v94: visually distinct compact holdings toolbars. */
+.holdings-actions.chips{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--c1);border-radius:10px;padding:2px 4px;margin:5px 0;gap:3px}
+.holdings-actions>button,.holdings-actions #hoSelectBar button{background:var(--tint);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:none;min-height:44px}
+.holdings-actions #hoAnalyze{background:var(--c1);color:white}
+.holdings-filter.seg{background:var(--tint);border:1px solid var(--line);border-radius:10px;margin:5px 0;padding:2px}
+.holdings-filter.seg button.on{background:var(--hero1);color:#fff;box-shadow:none}
+.holding-tools{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:3px;margin:5px 0}
+.holding-tools .holding-options{gap:4px}
+.holding-tools .holding-options button,.holding-tools .holding-options select{background:var(--tint);border:1px solid var(--line);border-radius:6px}
+.holding-tools .holding-options button[aria-pressed=true]{background:var(--hero1);color:white}
