@@ -53,6 +53,7 @@ export function normalizeCharlie(raw,code,scheme,asOf){
  if(!h.holding_pct)continue;
  const p=map.get(h.isin)||{isin:h.isin,name:h.name,weight:0};p.weight+=h.holding_pct;map.set(h.isin,p);
  }
+ const physical=raw.asset_allocation?.physical?.equity_pct;const sum=[...map.values()].reduce((s,h)=>s+h.weight,0);if(!Number.isFinite(physical)||physical<0||physical>100||Math.abs(sum-physical)>0.6)return null;
  const d={code:String(code),scheme,date:raw.as_of,source:'https://api.charliealpha.in/v1/mf/holdings/'+code,provider:'charlie-alpha',holdings:[...map.values()]};
  return validateDisclosure(d,asOf)?d:null;
 }
@@ -72,23 +73,23 @@ async function syncCharlie(fetcher){
  try{
  const state=await cacheOp(db,'readonly','state')||{records:[],cursor:0,period:null,last:0};
  const records=new Map(state.records.map(x=>[x.code,x]));
- if(Date.now()-state.last<3600000)return {records:[...records.values()],failures:0,diagnostics:state.diagnostics};
+ if(Date.now()-state.last<60000)return {records:[...records.values()],failures:0,diagnostics:state.diagnostics};
  const coverage=await readCatalog(charlieBase+'holdings-periods',fetcher);
  if(!/^\d{4}-\d{2}-\d{2}$/.test(coverage.latest_as_of))throw Error('Invalid disclosure period');
  const registry=await readCatalog('./data/amfi-registry.json',fetcher);
  if(!Array.isArray(registry.schemes)||registry.schemes.length<1000)throw Error('Incomplete public registry');
- const queue=registry.schemes.filter(s=>/^\d+$/.test(String(s.code))&&typeof s.name==='string').sort((a,b)=>Number(a.code)-Number(b.code));
- let cursor=state.period===coverage.latest_as_of?state.cursor:0,failures=0,consecutive=0;const diagnostics={period:coverage.latest_as_of,universe:queue.length,accepted:0,rejected:0,errors:{},examples:[]};
+ const queue=registry.schemes.filter(s=>/^\d+$/.test(String(s.code))&&typeof s.name==='string').sort((a,b)=>Number(/direct.*growth/i.test(b.name))-Number(/direct.*growth/i.test(a.name))||Number(a.code)-Number(b.code));
+ let cursor=state.period===coverage.latest_as_of&&state.order===2?state.cursor:0,failures=0,consecutive=0;const diagnostics={period:coverage.latest_as_of,universe:queue.length,accepted:0,rejected:0,errors:{},examples:[]};
  const today=new Date().toISOString().slice(0,10),deadline=Date.now()+45000;
  // Fixed public order and bounded batches, independent of portfolio membership.
  for(let n=0;n<30&&cursor<queue.length&&Date.now()<deadline;n++){
  const s=queue[cursor];
  try{const raw=await readCatalog(charlieBase+'holdings/'+s.code,fetcher);const d=normalizeCharlie(raw,s.code,s.name,today);if(d){if(!records.has(d.code)||records.get(d.code).date<=d.date)records.set(d.code,d);consecutive=0;diagnostics.accepted++}else{failures++;consecutive++;diagnostics.rejected++;if(diagnostics.examples.length<3)diagnostics.examples.push({code:s.code,expected:s.name,actual:raw.scheme_name,types:[...new Set(raw.holdings?.map(h=>h.holding_type))],sides:[...new Set(raw.holdings?.map(h=>h.position_side))],first:raw.holdings?.[0]})}cursor++}
  catch(e){failures++;diagnostics.errors[e.message]=(diagnostics.errors[e.message]||0)+1;if(/HTTP (403|429)/.test(e.message))break;cursor++;consecutive++}
- if(consecutive>=10)break;
+ if(consecutive>=10&&Object.keys(diagnostics.errors).some(e=>!/HTTP 404/.test(e)))break;
  await new Promise(r=>setTimeout(r,1100));
  }
- diagnostics.cursor=cursor;diagnostics.cached=records.size;await cacheOp(db,'readwrite','state',{diagnostics,records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
+ diagnostics.cursor=cursor;diagnostics.cached=records.size;await cacheOp(db,'readwrite','state',{order:2,diagnostics,records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
  return {records:[...records.values()],failures,diagnostics};
  }finally{db.close()}
 }
