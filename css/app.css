@@ -289,3 +289,10 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 .ho-summary{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:white;border-radius:12px;padding:12px;margin:8px 0}.ho-summary>small,.ho-summary>strong{display:block}.ho-summary>strong{font-size:24px}.ho-summary small{font-size:11px;color:#d1e8dd}.ho-summary-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px solid #ffffff40;margin-top:6px;padding-top:6px}.ho-summary-metrics small,.ho-summary-metrics b{display:block}.ho-summary-metrics b{font-size:17px}
 .ho-quality{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--ink);margin:8px 0}.ho-quality summary{cursor:pointer;font-weight:600;min-height:28px}.ho-quality p{overflow-wrap:anywhere}
 #holdingOverlap #hoResult .ur{padding:8px 0;font-size:13px;gap:8px}#holdingOverlap #hoResult .ur b{flex:none;text-align:right}
+
+/* v101: viewport-bound modal; only content scrolls, header remains reachable. */
+#holdingOverlap[open]{position:fixed;inset:0;margin:0 auto;width:100%;max-width:560px;height:100%;height:100dvh;max-height:100%;max-height:100dvh;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;transform:none;border-radius:0}
+#holdingOverlap .ho-head{position:relative;top:auto;flex:0 0 auto;padding:calc(8px + env(safe-area-inset-top,0px)) 12px 8px}
+#holdingOverlap .ho-body{flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:10px 12px calc(16px + env(safe-area-inset-bottom,0px))}
+html:has(#holdingOverlap[open]),body:has(#holdingOverlap[open]){overflow:hidden;overscroll-behavior:none}
+#holdingOverlap::backdrop{background:var(--bg)}
