@@ -36,7 +36,7 @@ def reporting_dates(c):
                 except ValueError: pass
     return result
 
-def parse(data, scheme, date, url):
+def parse(data, scheme, date, url, diagnostic=None):
     expected=dt.date.fromisoformat(date)
     def norm(s): return re.sub(r"[^a-z0-9]+"," ",str(s).lower()).strip()
     matches=[]
@@ -54,7 +54,13 @@ def parse(data, scheme, date, url):
         if not identity or not date_ok: continue
         try: holdings=parse_equity(rows)
         except ValueError as e:
-            errors.append(str(e)); continue
+            errors.append(str(e))
+            if diagnostic is not None:
+                diagnostic["layoutSamples"]=[
+                    {"row":i+1,"cells":[{"column":j+1,"text":str(value(c))[:160]} for j,c in enumerate(row) if value(c) is not None]}
+                    for i,row in enumerate(rows[:35])
+                ]
+            continue
         matches.append(dict(scheme=scheme,date=date,source=url,holdings=holdings))
     if len(matches)!=1: raise ValueError(f"Matching identity sheets={identity_count}, matching date sheets={date_count}, valid tables={len(matches)}, observed dates={date_samples}, parser errors={errors}")
     return matches[0]
@@ -89,7 +95,7 @@ def collect_ppfas(source,end,report):
                 item["candidateNames"]=sorted(names)
                 raise ValueError("Missing or ambiguous scheme title")
             item["stage"]="table_validation"
-            found.append(parse(data,names.pop(),end.isoformat(),url))
+            found.append(parse(data,names.pop(),end.isoformat(),url,item))
             item["stage"]="accepted"
             item["scheme"]=found[-1]["scheme"]
             item["holdings"]=len(found[-1]["holdings"])
