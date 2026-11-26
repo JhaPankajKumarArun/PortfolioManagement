@@ -2,9 +2,9 @@ const perfEnd=()=>{const ds=[...Object.values(S.pxd||{}),...Object.values(NH).ma
 const dayAdd=(s,n)=>new Date(dnum(s)*864e5+n*864e5).toISOString().slice(0,10);
 function perfStart(k,end,first){const m={'1M':1,'3M':3,'6M':6,'1Y':12,'3Y':36,'5Y':60}[k];if(k==='1D')return dayAdd(end,-1);if(k==='1W')return dayAdd(end,-7);if(m)return addMD(end,-m);if(k==='YTD')return(+end.slice(0,4)-1)+'-12-31';if(k==='All')return first;return k}
 const navCovers=(n,d)=>{const a=NH[n]&&NH[n].d;if(!a||!a.length)return false;let last='';for(const r of a){if(r[0]>d)break;last=r[0]}return !!last&&dnum(d)-dnum(last)<=7};
-function perfCalc(C,start,end){return financialFeatures.performance({S,ser:pxSeries(C),PWH,pxAt,navCovers,dnum},start,end)}
+function perfCalc(C,start,end,ser=pxSeries(C)){return financialFeatures.performance({S,ser,PWH,pxAt,navCovers,dnum},start,end)}
 const sg=v=>(v>=0?'+':'−')+cr(Math.abs(v)),PK2=['1D','1W','1M','3M','6M','YTD','1Y','3Y','5Y','All'];
-function perfGet(C,k){const end=perfEnd(),first=S.tx.reduce((a,t)=>t.date<a?t.date:a,'9999-12-31'),start=perfStart(k,end,first);if(k!=='All'&&start<=first)return null;if(start>=end)return null;const r=perfCalc(C,start,end);if(!r.hist&&r.v0<=0&&k!=='All'&&r.cf===0)return null;return r}
+function perfGet(C,k,ser){const end=perfEnd(),first=S.tx.reduce((a,t)=>t.date<a?t.date:a,'9999-12-31'),start=perfStart(k,end,first);if(k!=='All'&&start<=first)return null;if(start>=end)return null;const r=perfCalc(C,start,end,ser);if(!r.hist&&r.v0<=0&&k!=='All'&&r.cf===0)return null;return r}
 function perfBody(C){if(!C.open.length)return '';const end=perfEnd(),first=S.tx.reduce((a,t)=>t.date<a?t.date:a,'9999-12-31'),g=pf.mode==='gain',R={};PK2.forEach(k=>{R[k]=perfGet(C,k)});
 let cust=null;if(pf.from&&pf.from>=first&&pf.from<end)cust=perfCalc(C,pf.from,end);
 const sel=pf.sel==='custom'&&cust&&!cust.hist?cust:(R[pf.sel]&&!R[pf.sel].hist?R[pf.sel]:null),amt=r=>g?r.gain:r.vch,pt=r=>g?r.pct:r.vpct,
@@ -25,13 +25,13 @@ document.addEventListener('click',e=>{const el=e.target.closest('[data-pbm],[dat
 async function updatePbmUi(){const w=document.getElementById('pbmw');if(w)w.innerHTML=await portfolioBenchmarkTile()}
 document.addEventListener('change',e=>{const t=e.target;if(t.files&&t.files[0]){if(t.dataset.indiaBm)indiaImport('benchmark',t.dataset.indiaBm,t.files[0]);else if(t.dataset.indiaStock)indiaImport('stock',t.dataset.indiaStock,t.files[0])}});
 
-function overviewPerformance(C){
+function overviewPerformance(C){const chartSeries=pxSeries(C);
  const periods=['1D','1W','1M','3M','1Y','All'],k=periods.includes(pf.sel)?pf.sel:'1M',r=perfGet(C,k),gain=pf.mode==='gain',valid=r&&!r.hist;
  const amount=valid?(gain?r.gain:r.vch):null,pct=valid?(gain?r.pct:r.vpct):null;
  let chart='';
  if(valid){
   const span=dnum(r.end||perfEnd())-dnum(r.start),steps=Math.min(10,span),points=[];
-  if(steps>0){points.push([0,r.v0]);for(let i=1;i<=steps;i++){const offset=Math.round(span*i/steps),p=i===steps?r:perfCalc(C,r.start,dayAdd(r.start,offset));points.push([offset,p&&!p.hist&&Number.isFinite(p.v1)?p.v1:null]);}
+  if(steps>0){points.push([0,r.v0]);for(let i=1;i<=steps;i++){const offset=Math.round(span*i/steps),p=i===steps?r:perfCalc(C,r.start,dayAdd(r.start,offset),chartSeries);points.push([offset,p&&!p.hist&&Number.isFinite(p.v1)?p.v1:null]);}
   const usable=points.filter(p=>Number.isFinite(p[1]));
   if(usable.length>=2){const max=Math.max(1,...usable.map(p=>p[1]));let path='',connected=false;for(const [x,y] of points){if(!Number.isFinite(y)){connected=false;continue}path+=(connected?' L':' M')+(8+304*x/span).toFixed(2)+' '+(100-88*y/max).toFixed(2);connected=true}
   chart=`<div class="overview-chart"><p class="mut">Portfolio value history (includes cash flows; may use estimated prices)</p><svg viewBox="0 0 320 108" role="img" aria-label="Historical portfolio value, sampled dates; gaps indicate missing valuations"><path d="M8 100H312" stroke="var(--line)" fill="none"/><path d="${path}" stroke="var(--c1)" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg><div class="overview-heading"><small>${fd(r.start)}</small><small>${fd(r.end||perfEnd())}</small></div>${usable.length<points.length?'<p class="mut">Some chart dates have missing valuations.</p>':''}</div>`;}
