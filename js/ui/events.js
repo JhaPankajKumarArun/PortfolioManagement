@@ -1,5 +1,7 @@
+const portfolioScroll=new Map();
+function navigatePortfolio(next){if(next===tab)return;portfolioScroll.set(tab,window.scrollY);tab=next;render();window.scrollTo(0,portfolioScroll.get(next)||0)}
 document.addEventListener('click',e=>{if(e.target.id==='bd')return closeSheet();const el=e.target.closest('[data-t],[data-f],[data-h],[data-a]');if(!el)return;const d=el.dataset;
-if(d.t){tab=d.t;render();scrollTo(0,0)}else if(d.f){flt=d.f;render()}else if(d.h)histSheet(d.h);
+if(d.t){navigatePortfolio(d.t)}else if(d.f){flt=d.f;render()}else if(d.h)histSheet(d.h);
 else if(d.a==='delh'){if(twice(el,'del','Tap again to remove')){S.tx=S.tx.filter(t=>t.name!==cur);['px','pxd','isin','sc','nf','ppx','elss','cls','ter'].forEach(k=>{if(S[k])delete S[k][cur]});save();closeSheet();render()}}
 else if(d.a==='swuse'){sw.wd=+d.v;render()}else if(d.a==='pwrefresh'){PW_LAST=0;pwSyncStocks(true)}
 else if(d.a==='sample'){if(S.sample||confirm('Replace the current portfolio with sample data? A local checkpoint will be retained.'))sample()}
