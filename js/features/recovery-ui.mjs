@@ -1,4 +1,4 @@
-import {K,decodePortfolio,readRecovery,restoreDamagedPortfolio} from '../core/storage.mjs';
+import {K,decodePortfolio,readRecovery,readReplacement,restoreDamagedPortfolio} from '../core/storage.mjs';
 import {openSnapshotDB,readSnapshot} from '../core/indexed-storage.mjs';
 import {auditTransactions,blockingIssues} from '../core/integrity.mjs';
 export function showRecovery(doc,storage,factory,reload,confirmRestore){
@@ -20,6 +20,7 @@ export function showRecovery(doc,storage,factory,reload,confirmRestore){
  }
  function button(label,load){const b=add('button',label);b.onclick=()=>select(label,load)}
  button('Last local backup',()=>readRecovery(storage));
+ button('Before last replacement',()=>readReplacement(storage));
  for(const key of ['current','previous'])button('IndexedDB '+key,async()=>{const db=await openSnapshotDB(factory);try{return await readSnapshot(db,key)}finally{db.close()}});
  add('p','Or select a portfolio JSON backup from your device.');
  const file=add('input','');file.type='file';file.accept='.json,application/json';file.onchange=()=>{const f=file.files[0];if(f)select('JSON file',async()=>decodePortfolio(await f.text()))};
