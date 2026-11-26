@@ -1,7 +1,15 @@
+// ISO 6166 checksum plus explicit rejection of known non-equity instruments.
+export function equityIdentifier(h){
+ if(!h||typeof h.isin!=='string'||typeof h.name!=='string'||!h.name.trim()||!/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(h.isin))return false;
+ if(/^(?:TREP|GSECREPO|IN[AF])/i.test(h.isin)||/\b(?:reverse repo|repo|treps?|treasury bills?|cash equivalents?|commercial paper|certificate of deposit)\b/i.test(h.name))return false;
+ const digits=h.isin.replace(/[A-Z]/g,c=>String(c.charCodeAt(0)-55));
+ let sum=0;for(let i=digits.length-1,j=0;i>=0;i--,j++){const n=Number(digits[i])*(j%2?2:1);sum+=n>9?n-9:n}
+ return sum%10===0;
+}
 export function validateDisclosure(d,asOf){
  if(!d||typeof d.scheme!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(d.date)||!Number.isFinite(Date.parse(d.date))||new Date(d.date).toISOString().slice(0,10)!==d.date||d.date>asOf||typeof d.source!=='string'||!d.source.trim()||!Array.isArray(d.holdings)||!d.holdings.length)return false;
  const seen=new Set();let sum=0;
- for(const h of d.holdings){if(!/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(h.isin)||seen.has(h.isin)||typeof h.name!=='string'||!Number.isFinite(h.weight)||h.weight<=0||h.weight>100)return false;seen.add(h.isin);sum+=h.weight}
+ for(const h of d.holdings){if(!equityIdentifier(h)||seen.has(h.isin)||typeof h.name!=='string'||!Number.isFinite(h.weight)||h.weight<=0||h.weight>100)return false;seen.add(h.isin);sum+=h.weight}
  return sum<=100.05;
 }
 export function overlapAnalysis(positions,disclosures,asOf){
