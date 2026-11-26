@@ -19,8 +19,9 @@ async function aerieDisclosures(names,fetcher=fetch){
 
 export async function publicDisclosures(names,fetcher=fetch){
  let rows=[],failures=0;
+ try{const p=await charlieCatalog(names,fetcher);rows=p.rows;failures+=p.failures;}catch(e){failures++;console.warn('Charlie catalog',e.message)}
  try{const d=await readCatalog('./data/disclosures.json',fetcher);if(!Array.isArray(d.rows))throw Error('Invalid catalog');
- for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.filter(x=>validateDisclosure({...x,scheme:name},new Date().toISOString().slice(0,10))).sort((a,b)=>b.date.localeCompare(a.date)||Number(!b.code)-Number(!a.code))[0];if(latest&&validateDisclosure({...latest,scheme:name},new Date().toISOString().slice(0,10)))rows.push({...latest,scheme:name})}
+ for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.filter(x=>validateDisclosure({...x,scheme:name},new Date().toISOString().slice(0,10))).sort((a,b)=>b.date.localeCompare(a.date)||Number(!b.code)-Number(!a.code))[0];if(latest&&validateDisclosure({...latest,scheme:name},new Date().toISOString().slice(0,10))){if(!rows.some(x=>x.scheme===name&&x.date>=latest.date)){rows=rows.filter(x=>x.scheme!==name);rows.push({...latest,scheme:name})}}}
  }catch{failures++}
  if(rows.length===names.length&&rows.every(x=>Date.now()-Date.parse(x.date)<=45*864e5))return {rows,failures,missing:[]};
  try{const fallback=await aerieDisclosures(names,fetcher);failures+=fallback.failures;for(const d of fallback.rows){if(!validateDisclosure(d,new Date().toISOString().slice(0,10)))continue;if(!rows.some(x=>x.scheme===d.scheme&&x.date>=d.date)){rows=rows.filter(x=>x.scheme!==d.scheme);rows.push(d)}}}catch{failures++}
@@ -54,4 +55,40 @@ export function normalizeCharlie(raw,code,scheme,asOf){
  }
  const d={code:String(code),scheme,date:raw.as_of,source:'https://api.charliealpha.in/v1/mf/holdings/'+code,provider:'charlie-alpha',holdings:[...map.values()]};
  return validateDisclosure(d,asOf)?d:null;
+}
+
+const charlieBase='https://api.charliealpha.in/v1/mf/';
+function openCharlieCache(){return new Promise((resolve,reject)=>{const q=indexedDB.open('public-charlie-holdings-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('catalog');q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error);q.onblocked=()=>reject(Error('Cache blocked'))})}
+function cacheOp(db,mode,key,value){return new Promise((resolve,reject)=>{const tx=db.transaction('catalog',mode),s=tx.objectStore('catalog'),q=mode==='readonly'?s.get(key):s.put(value,key);tx.oncomplete=()=>resolve(q.result);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)})}
+let catalogJob;
+async function charlieCatalog(names,fetcher){
+ if(!catalogJob)catalogJob=syncCharlie(fetcher).finally(()=>{catalogJob=null});
+ const {records,failures}=await catalogJob;
+ const today=new Date().toISOString().slice(0,10);
+ return {failures,rows:names.flatMap(name=>{const candidates=records.filter(x=>normalize(x.scheme)===normalize(name)&&validateDisclosure(x,today));const dates=[...new Set(candidates.map(x=>x.date))].sort();const latest=candidates.filter(x=>x.date===dates.at(-1));if(!latest.length)return [];const signatures=new Set(latest.map(x=>JSON.stringify(x.holdings.map(h=>[h.isin,h.weight]).sort())));return signatures.size===1?[{...latest[0],scheme:name}]:[]})};
+}
+async function syncCharlie(fetcher){
+ const db=await openCharlieCache();
+ try{
+ const state=await cacheOp(db,'readonly','state')||{records:[],cursor:0,period:null,last:0};
+ const records=new Map(state.records.map(x=>[x.code,x]));
+ if(Date.now()-state.last<3600000)return {records:[...records.values()],failures:0};
+ const coverage=await readCatalog(charlieBase+'holdings-periods',fetcher);
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(coverage.latest_as_of))throw Error('Invalid disclosure period');
+ const registry=await readCatalog('./data/amfi-registry.json',fetcher);
+ if(!Array.isArray(registry.schemes)||registry.schemes.length<1000)throw Error('Incomplete public registry');
+ const queue=registry.schemes.filter(s=>/^\d+$/.test(String(s.code))&&typeof s.name==='string').sort((a,b)=>Number(a.code)-Number(b.code));
+ let cursor=state.period===coverage.latest_as_of?state.cursor:0,failures=0,consecutive=0;
+ const today=new Date().toISOString().slice(0,10),deadline=Date.now()+45000;
+ // Fixed public order and bounded batches, independent of portfolio membership.
+ for(let n=0;n<30&&cursor<queue.length&&Date.now()<deadline;n++){
+ const s=queue[cursor];
+ try{const raw=await readCatalog(charlieBase+'holdings/'+s.code,fetcher);const d=normalizeCharlie(raw,s.code,s.name,today);if(d){if(!records.has(d.code)||records.get(d.code).date<=d.date)records.set(d.code,d);consecutive=0}else{failures++;consecutive++}cursor++}
+ catch(e){failures++;if(/HTTP (403|429)/.test(e.message))break;cursor++;consecutive++}
+ if(consecutive>=10)break;
+ await new Promise(r=>setTimeout(r,1100));
+ }
+ await cacheOp(db,'readwrite','state',{records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
+ return {records:[...records.values()],failures};
+ }finally{db.close()}
 }
