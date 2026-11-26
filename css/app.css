@@ -195,3 +195,23 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 .overview{gap:9px}.overview-hero{padding:14px}.overview-kpis{margin-top:10px;padding-top:9px}
 .insight-dashboard{gap:10px}.insight-section{gap:7px}.hub{gap:8px}
 @media(max-width:360px){.holding-tools{grid-template-columns:minmax(0,1fr) auto}.holding-options button{padding-inline:5px}.holdings-actions button{padding-inline:6px}}
+
+/* v92: compact structural layout, not just smaller cards. */
+.holdings-summary-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.holdings-summary-top small{font-size:11px;color:#c6e4d6}
+.holdings-summary.hub-hero{padding:10px 12px}
+.holdings-summary .hub-metrics{margin-top:4px;padding-top:5px}
+.holdings-actions.chips{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:2px 0;padding:0}
+.holdings-actions>button,.holdings-actions #hoSelectBar button{flex:1;min-width:0;padding:4px 6px;font-size:11px;white-space:nowrap;border-radius:9px}
+.holdings-actions #hoSelectBar{display:contents}
+.holdings-actions #hoSelectBar:has(#hoAnalyze){display:flex;position:static;flex-basis:100%;padding:0}
+.holdings-actions #hoHint{display:none}
+.holdings-filter.seg{margin:2px 0;padding:2px}
+.holding-tools{margin:3px 0;gap:4px}
+.holding-options select{width:auto;max-width:95px;min-height:44px;margin:0;padding:5px;font-size:13px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink)}
+.holding-options button{padding:4px 6px;font-size:11px}
+#holding-results .hc-compact .hct{flex-wrap:wrap}
+#holding-results .hc-compact .hct .pill{margin-left:36px}
+#holding-results .hc-compact .holding-compact-value{max-width:44%}
+#holding-results .holding-compact-value small{font-size:11px}
+@media(max-width:360px){.holding-tools{grid-template-columns:1fr}.holding-options>*{flex:1}.holding-options select{max-width:none}.holdings-actions>button,.holdings-actions #hoSelectBar button{font-size:10px}}
