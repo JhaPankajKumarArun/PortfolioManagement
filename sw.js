@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v58-goal-funding';
+const CACHE_NAME = 'my-portfolio-pwa-v59-wealth-dashboard';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -13,6 +13,8 @@ const APP_SHELL = [
   './js/services/providers/disclosures.mjs',
   './js/engines/planning.mjs',
   './js/engines/goals.mjs',
+  './js/engines/wealth.mjs',
+  './js/features/wealth-ui.mjs',
   './js/engines/attribution.mjs',
   './js/engines/performance.mjs',
   './js/engines/risk.mjs',
