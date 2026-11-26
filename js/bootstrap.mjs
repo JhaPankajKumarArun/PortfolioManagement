@@ -27,7 +27,22 @@ import * as e7 from './engines/sip.mjs';
 Object.assign(globalThis,{resolvePrice,fifoLedger,amfiProvider,marketProviders,financialFeatures,uiViews,refreshService,integrity},storage,format,cache,{xirr:e0.xirr,swpSim:e1.swpSim,safeW:e1.safeW,paMonthEnd:e4.paMonthEnd,pbmPrice:e5.pbmPrice,addM:e6.addM,fyOf:e6.fyOf,srt:e6.srt,mk:e6.mk,PA_RF:e4.PA_RF});
 installErrorHandlers(globalThis);
 try {
+storage.trackPortfolioVersion(localStorage);
 const appState=createState(localStorage);
+function checkPortfolioConflict(){
+ if(!storage.portfolioVersionChanged(localStorage))return;
+ if(document.getElementById('portfolio-conflict'))return;
+ const banner=document.createElement('div');banner.id='portfolio-conflict';banner.setAttribute('role','alert');
+ banner.textContent='Portfolio changed in another tab. Saving here is blocked. Copy any unsaved changes before reloading.';
+ const copy=document.createElement('button');copy.type='button';copy.textContent='Copy this tab’s backup';
+ copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(JSON.stringify(storage.withLegacyGoals(localStorage,appState.state.S)));copy.textContent='Copied'}catch{alert('Copy failed. Use Data management → Backup to copy manually.')}});
+ const reload=document.createElement('button');reload.type='button';reload.textContent='Reload latest';
+ reload.addEventListener('click',()=>{if(confirm('Reload saved portfolio? Unsaved changes in this tab will be lost.'))location.reload()});
+ banner.append(copy,reload);document.body.prepend(banner);
+}
+window.addEventListener('storage',e=>{if(e.storageArea===localStorage&&(e.key===storage.K||e.key===null))checkPortfolioConflict()});
+window.addEventListener('focus',checkPortfolioConflict);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkPortfolioConflict()});
 const mirror=createSnapshotMirror(localStorage,globalThis.indexedDB);
 storage.setSnapshotHook(()=>mirror.sync());
 globalThis.portfolioSnapshotStatus=mirror.status;
