@@ -12,3 +12,14 @@ await assert.rejects(m.run('y',async()=>{throw Error('test')}));assert.equal(m.s
  for(let i=0;i<5;i++)await bounded.run('other:'+i,async()=>i);
  assert.equal(bounded.status('active').busy,true);release(42);assert.equal(await pending,42);assert.equal(bounded.size(),2);
 }
+
+{
+ const {installRefreshTriggers}=await import('../js/services/refresh.mjs');
+ const target=()=>({handlers:new Map(),addEventListener(k,f){this.handlers.set(k,f)},removeEventListener(k){this.handlers.delete(k)}});
+ const document=target(),window=Object.assign(target(),{navigator:{onLine:true},setInterval:()=>1,clearInterval:()=>{}});
+ let calls=0;const stop=installRefreshTriggers({document,window,refresh:()=>calls++});
+ window.handlers.get('pageshow')({persisted:false});await Promise.resolve();assert.equal(calls,0);
+ window.handlers.get('pageshow')({persisted:true});await Promise.resolve();assert.equal(calls,1);
+ document.hidden=true;window.handlers.get('pageshow')({persisted:true});await Promise.resolve();assert.equal(calls,1);
+ stop();assert.equal(window.handlers.size,0);assert.equal(document.handlers.size,0);
+}
