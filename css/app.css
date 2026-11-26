@@ -165,3 +165,33 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .overview-day-change small{flex-basis:100%;opacity:.85}
 .overview-day-change .day-change-up{color:#a8f5c6}
 .overview-day-change .day-change-down{color:#ffb9b9}
+
+/* Data-first mobile holdings density; retain 44px interactive targets. */
+.holdings-summary.hub-hero{padding:12px 14px;margin:0 0 6px;border-radius:16px;box-shadow:none}
+.holdings-summary h1{font-size:clamp(25px,7vw,32px);margin:3px 0}
+.holdings-summary .hub-metrics{margin-top:7px;padding-top:7px;gap:8px}
+.holdings-summary .hub-metrics strong{margin-top:2px;font-size:clamp(16px,4.4vw,21px)}
+.holdings-actions.chips,.holdings-filter.seg,.holdings-sort.srt{margin:4px 0;gap:4px}
+.holdings-actions button,.holdings-sort button,#hoSelectBar button{padding:6px 9px;font-size:12px;box-shadow:none}
+#hoSelectBar.ho-launch{margin:2px 0;gap:4px}
+#hoSelectBar:has(#hoStart) + #hoHint{display:none}
+.holding-tools{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px;margin:4px 0}
+.holding-tools label{min-width:0;margin:0}
+.holding-tools input{margin:0;padding:8px;min-width:0}
+.holding-options{gap:4px}
+.holding-options button{padding:5px 8px;white-space:nowrap}
+.holding-options button[data-holding-direction]{min-width:44px}
+#holding-results{gap:6px}
+#holding-results .hc{padding:9px 10px;border-radius:14px;box-shadow:none}
+#holding-results .hc .hct{margin-bottom:6px;gap:6px}
+#holding-results .hc-compact .hct{margin:0}
+#holding-results .holding-value{padding:6px 0;gap:6px}
+#holding-results .holding-weight{margin-top:5px}
+#holding-results .holding-meta{gap:5px}
+.bt{padding-block:6px}
+#tabs{padding:3px;border-radius:17px;bottom:calc(4px + env(safe-area-inset-bottom,0px))}
+#tabs button{min-height:48px;padding:3px 0;gap:2px}
+main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
+.overview{gap:9px}.overview-hero{padding:14px}.overview-kpis{margin-top:10px;padding-top:9px}
+.insight-dashboard{gap:10px}.insight-section{gap:7px}.hub{gap:8px}
+@media(max-width:360px){.holding-tools{grid-template-columns:minmax(0,1fr) auto}.holding-options button{padding-inline:5px}.holdings-actions button{padding-inline:6px}}
