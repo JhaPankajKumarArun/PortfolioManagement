@@ -5,6 +5,7 @@ on:
     branches: [refactor/modular-architecture]
     paths:
       - 'scripts/sync-disclosures.mjs'
+      - 'scripts/amfi-registry.mjs'
       - 'scripts/sync-official-disclosures.py'
       - 'js/services/providers/disclosures.mjs'
       - '.github/workflows/disclosures.yml'
@@ -41,6 +42,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           if [ ! -s data/disclosures.json ]; then echo 'No disclosure catalog generated'; exit 1; fi
           git add data/disclosures.json
+          if [ -s data/amfi-registry.json ]; then git add data/amfi-registry.json; fi
           git diff --cached --quiet || git commit -m 'Refresh public mutual fund disclosures'
           git pull --rebase origin refactor/modular-architecture
           git push origin HEAD:refactor/modular-architecture
