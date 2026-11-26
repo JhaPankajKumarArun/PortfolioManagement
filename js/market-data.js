@@ -1,7 +1,7 @@
 const NHK='portfolio-navh-v1';let NH={},NHBUSY=false,NHMSG='',NHFAIL=0,NHPROG='',pf={mode:'gain',sel:'1M',from:''};try{NH=JSON.parse(localStorage.getItem(NHK))||{}}catch(e){}
 const saveNH=()=>{try{localStorage.setItem(NHK,JSON.stringify(NH))}catch(e){NHMSG='Couldn’t save NAV history on this device.'}};
 const mfHeld=C=>C.open.filter(h=>{const t=S.tx.find(x=>x.name===h.name);return t&&t.type==='mf'&&S.isin&&S.isin[h.name]});
-function updatePerfUi(){const w=$('#pfw');if(w)w.innerHTML=perfBody(calc())}
+function updatePerfUi(){const w=$('#pfw');if(w)w.innerHTML=tab==='home'?overviewPerformance(calc()):perfBody(calc())}
 // Recover missing history per fund; successful downloads survive other failures.
 const historyTargets=()=>[...new Set(S.tx.filter(t=>t.type==='mf'&&t.date<=today()).map(t=>t.name))].map(name=>({name})).filter(h=>S.isin?.[h.name]||S.sc?.[h.name]);
 const historyDue=h=>!NH[h.name]?.d?.length||Date.now()-(NH[h.name].t||0)>432e5;
