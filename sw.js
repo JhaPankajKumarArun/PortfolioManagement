@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v60-valuation-index';
+const CACHE_NAME = 'my-portfolio-pwa-v61-recovery';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -23,6 +23,7 @@ const APP_SHELL = [
   './js/engines/sip.mjs',
   './js/engines/sip-optimization.mjs',
   './js/bootstrap.mjs',
+  './js/features/recovery-ui.mjs',
   './js/core/errors.mjs',
   './js/core/integrity.mjs',
   './js/services/http.mjs',
