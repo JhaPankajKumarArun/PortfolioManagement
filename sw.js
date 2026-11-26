@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v85-safari';
+const CACHE_NAME = 'my-portfolio-pwa-v86-safe-update';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -61,6 +61,7 @@ const APP_SHELL = [
 ];
 
 const prefix='my-portfolio-pwa-';
+const MARKET_CACHE='portfolio-public-market-v1';
 const scope=self.registration.scope;
 const shell=new Set(APP_SHELL.map(p=>new URL(p,scope).href));
 self.addEventListener('install',event=>{
@@ -77,9 +78,12 @@ self.addEventListener('fetch',event=>{
  const req=event.request;if(req.method!=='GET')return;
  const url=new URL(req.url);
  if(shell.has(url.href)||(req.mode==='navigate'&&url.href.startsWith(scope))){
-  event.respondWith(caches.open(CACHE_NAME).then(async cache=>(await cache.match(req))||(req.mode==='navigate'?await cache.match(new URL('./index.html',scope).href):null)||fetch(req)));
+  event.respondWith(caches.open(CACHE_NAME).then(async cache=>(await cache.match(req))||(req.mode==='navigate'?await cache.match(new URL('./index.html',scope).href):null)||Response.error()));
   return;
  }
+ // Cache only explicitly public market endpoints; never arbitrary requests.
+ const publicMarket=(url.origin===new URL(scope).origin&&['data/amfi-nav.txt','data/disclosures.json'].some(p=>url.href===new URL(p,scope).href))||(url.origin==='https://api.mfapi.in'&&/^\/mf(?:\/latest|\/\d+(?:\/latest)?)?$/.test(url.pathname))||(url.href==='https://portal.amfiindia.com/spages/NAVAll.txt');
+ if(!publicMarket)return;
  // Market data is independent of the versioned application shell.
- event.respondWith((async()=>{const cache=await caches.open(CACHE_NAME);try{const res=await fetch(req);if(res.ok&&res.type!=='opaque'){try{await cache.put(req,res.clone())}catch{}}return res}catch(e){return (await cache.match(req))||Response.error()}})());
+ event.respondWith((async()=>{const cache=await caches.open(MARKET_CACHE);try{const res=await fetch(req);if(res.ok&&res.type!=='opaque'){try{await cache.put(req,res.clone())}catch{}}return res}catch(e){return (await cache.match(req))||Response.error()}})());
 });
