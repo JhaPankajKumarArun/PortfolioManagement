@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v114-overlap-charts';
+const CACHE_NAME = 'my-portfolio-pwa-v115-overlap-summary';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
