@@ -1,11 +1,9 @@
+import {resolvePrice} from './valuation.mjs';
 const PA_RF=0.065;
 function paMonthEnd(s){const y=+s.slice(0,4),m=+s.slice(5,7)-1;return new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)}
 function riskHistPrice(S,PWH,NH,asOf,dnum,name,type,d){
- if(d===asOf&&S.px&&S.px[name]>0&&S.pxd&&S.pxd[name]&&S.pxd[name]<=d&&dnum(d)-dnum(S.pxd[name])<=7)return S.px[name];
- let rows=type==='stock'?(PWH&&PWH[name]||[]):(NH&&NH[name]&&NH[name].d||[]);
- if(!rows.length)return null;
- let v=null,dt='';for(const r of rows){if(r[0]<=d&&r[0]>=dt&&Number.isFinite(r[1])&&r[1]>0){v=r[1];dt=r[0]}}
- return v>0&&dt&&dnum(d)-dnum(dt)<=7?v:null;
+ const p=resolvePrice(d,[{rows:type==='stock'?PWH?.[name]:NH?.[name]?.d,source:'history'},{rows:d===asOf?[[S.pxd?.[name],S.px?.[name]]]:[],source:'cached market'}]);
+ return p.status==='market'?p.price:null;
 }
 function riskPortfolioAt(S,price,d){const pos=Object.create(null);S.tx.filter(t=>t.date<=d).forEach(t=>{const p=pos[t.name]||(pos[t.name]={u:0,type:t.type});p.u+=(t.side==='buy'?1:-1)*t.units});let value=0,missing=[];
  Object.entries(pos).forEach(([n,p])=>{if(p.u>1e-6){const q=price(n,p.type,d);if(q==null)missing.push(n);else value+=p.u*q}});
