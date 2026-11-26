@@ -1,6 +1,10 @@
 import fs from 'node:fs/promises';
 import {validateDisclosure} from '../js/engines/overlap.mjs';
-const registry=JSON.parse(await fs.readFile('data/amfi-registry.json','utf8'));
+import {parseAmfiRegistry} from './amfi-registry.mjs';
+const nav=await fetch('https://portal.amfiindia.com/spages/NAVAll.txt',{signal:AbortSignal.timeout(30000)});
+if(!nav.ok)throw Error('AMFI HTTP '+nav.status);
+const registry=parseAmfiRegistry(await nav.text());
+await fs.mkdir('data',{recursive:true});
 const today=new Date().toISOString().slice(0,10);
 const cutoff=new Date(Date.now()-45*864e5).toISOString().slice(0,10);
 const schemes=[...new Map(registry.schemes.map(s=>[String(s.code),s])).values()];
