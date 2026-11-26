@@ -3,7 +3,7 @@ import calendar, datetime as dt, io, json, re, pathlib, math
 from urllib.parse import urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
-from openpyxl import load_workbook
+from disclosure_parser import tables, parse_equity, value
 
 PAGE="https://amc.ppfas.com/downloads/portfolio-disclosure/"
 def get(url):
@@ -12,37 +12,19 @@ def get(url):
     if urlparse(r.url).hostname!="amc.ppfas.com": raise ValueError("Unexpected source host")
     return r
 def parse(data, scheme, date, url):
-    book=load_workbook(io.BytesIO(data),read_only=True,data_only=True)
-    for sheet in book:
-        rows=list(sheet.iter_rows())
-        for i,row in enumerate(rows):
-            labels=[str(c.value or "").lower().strip() for c in row]
-            isin=[j for j,x in enumerate(labels) if x=="isin"]
-            weight=[j for j,x in enumerate(labels) if "%" in x and ("nav" in x or "net asset" in x)]
-            name=[j for j,x in enumerate(labels) if "instrument" in x or "security name" in x]
-            if not (len(isin)==len(weight)==len(name)==1): continue
-            result={}
-            equity=False
-            for r in rows[i+1:]:
-                code=str(r[isin[0]].value or "").strip()
-                # Indian equity ISINs alone do not identify asset class; require an equity section.
-                label=" ".join(str(c.value or "") for c in r[:2]).lower()
-                if not re.fullmatch(r"[A-Z]{2}[A-Z0-9]{9}[0-9]",code):
-                    if "equity" in label and "derivative" not in label: equity=True
-                    elif any(x in label for x in ("debt","money market","treasury","cash","derivative","mutual fund","repo","government","total")): equity=False
-                    continue
-                if not equity: continue
-                c=r[weight[0]]
-                if not isinstance(c.value,(float,int)): raise ValueError("Non-numeric allocation")
-                w=float(c.value)*(100 if "%" in c.number_format else 1)
-                if not math.isfinite(w) or not 0<=w<=100: raise ValueError("Invalid weight")
-                n=str(r[name[0]].value or "").strip()
-                if w and n:
-                    item=result.setdefault(code,{"isin":code,"name":n,"weight":0})
-                    item["weight"]+=w
-            if result and sum(x["weight"] for x in result.values())<=100.05:
-                return dict(scheme=scheme,date=date,source=url,holdings=list(result.values()))
-    raise ValueError("No recognized equity portfolio")
+    expected=dt.date.fromisoformat(date)
+    def norm(s): return re.sub(r"[^a-z0-9]+"," ",str(s).lower()).strip()
+    matches=[]
+    for title,rows in tables(data,urlparse(url).path):
+        cells=[value(c) for row in rows[:25] for c in row]
+        identity=any(norm(scheme) in norm(c) for c in [title,*cells] if c is not None)
+        date_ok=any((isinstance(c,dt.datetime) and c.date()==expected) or (isinstance(c,dt.date) and c==expected) or any(expected.strftime(fmt).lower() in str(c).lower() for fmt in ("%d %B %Y","%d-%b-%Y","%d/%m/%Y","%Y-%m-%d","%d-%m-%Y")) for c in cells)
+        if not identity or not date_ok: continue
+        try: holdings=parse_equity(rows)
+        except ValueError: continue
+        matches.append(dict(scheme=scheme,date=date,source=url,holdings=holdings))
+    if len(matches)!=1: raise ValueError("Missing or ambiguous verified scheme/date table")
+    return matches[0]
 def main():
     now=dt.date.today()
     end=now.replace(day=1)-dt.timedelta(days=1)
