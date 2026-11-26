@@ -1,6 +1,6 @@
 import io, unittest, zipfile
 from openpyxl import Workbook
-from disclosure_parser import tables, parse_equity
+from disclosure_parser import tables, parse_equity, allocation
 class ParserTests(unittest.TestCase):
     def test_csv(self):
         raw=b"Name of Instrument,ISIN,% of NAV\nEquity,,\nExample,INE040A01034,8.5%\nDebt,,\nBond,INE000000001,30\n"
@@ -22,6 +22,9 @@ class ParserTests(unittest.TestCase):
         holdings=parse_equity(rows)
         self.assertEqual(len(holdings),1)
         self.assertAlmostEqual(holdings[0]["weight"],7.49)
+    def test_currency_zero(self):
+        self.assertEqual(allocation('$0.00'),0)
+        with self.assertRaises(ValueError): allocation('$1.00')
     def test_invalid(self):
         with self.assertRaises(ValueError):
             parse_equity([["Name of Instrument","ISIN","% of NAV"],["Equity","",""],["Example","INE040A01034",101]])
