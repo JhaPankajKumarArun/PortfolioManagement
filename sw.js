@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v107-charlie-catalog';
+const CACHE_NAME = 'my-portfolio-pwa-v108-charlie-diagnostics';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
