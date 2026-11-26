@@ -13,3 +13,11 @@ assert.deepEqual(diagnosticSummary().counts,{storage:2,conflict:1});
 assert.equal(diagnosticSummary().events[0].category,'storage');
 const copy=diagnosticSummary();copy.events[0].category='private';assert.equal(getDiagnostics().at(-1).category,'storage');
 clearDiagnostics();assert.equal(diagnosticSummary().count,0);
+
+{
+ const {fetchJsonWithTimeout}=await import('../js/services/http.mjs');
+ globalThis.fetch=async(url,{signal})=>({ok:true,json:()=>new Promise((resolve,reject)=>{signal.addEventListener('abort',()=>reject(Error('aborted')),{once:true})})});
+ await assert.rejects(fetchJsonWithTimeout('/test',{},5),/aborted/);
+ globalThis.fetch=async()=>({ok:true,json:async()=>({ok:true})});
+ assert.deepEqual(await fetchJsonWithTimeout('/test'),{ok:true});
+}
