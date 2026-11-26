@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v46-public-catalog';
+const CACHE_NAME = 'my-portfolio-pwa-v47-unified-ledger';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -6,6 +6,7 @@ const APP_SHELL = [
   './index.html',
   './css/app.css',
   './js/engines/portfolio.mjs',
+  './js/engines/ledger.mjs',
   './js/engines/allocation.mjs',
   './js/engines/overlap.mjs',
   './js/services/providers/disclosures.mjs',
