@@ -30,7 +30,7 @@ export function restoreDamagedPortfolio(storage,candidate){
  let damaged=false;try{decodePortfolio(raw)}catch{damaged=true}
  if(!damaged)throw Error('Primary portfolio is valid; use normal restore');
  storage.setItem(DAMAGED_KEY,raw);
- storage.setItem(K,next);try{snapshotHook?.()}catch{}return true;
+ storage.setItem(K,next);advanceVersion(storage,next);try{snapshotHook?.()}catch{}return true;
 }
 
 export const LEGACY_GOALS_KEY='portfolio-goals-v1';
@@ -46,7 +46,7 @@ export function persistReplacement(storage,candidate){
  assertCurrent(storage);
  decodePortfolio(JSON.stringify(candidate));
  const old=storage.getItem(K);
- if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample)storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
+ if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample&&(previous.tx.length||previous.goals?.length||previous.wealth||storage.getItem(REPLACEMENT_KEY)===null))storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
  return persistPortfolio(storage,candidate);
 }
 export function readReplacement(storage){const raw=storage.getItem(REPLACEMENT_KEY);return raw===null?null:decodePortfolio(raw)}
@@ -59,4 +59,10 @@ export function quotaSummary(estimate){
  const {usage,quota}=estimate||{};
  if(!Number.isFinite(usage)||!Number.isFinite(quota)||usage<0||quota<=0)return null;
  return {usage,quota,percent:100*usage/quota,remaining:Math.max(0,quota-usage),warning:usage/quota>=0.8};
+}
+
+export function restoreMissingPortfolio(storage,candidate){
+ assertCurrent(storage);
+ if(storage.getItem(K)!==null)throw Error('Primary already exists');
+ return persistPortfolio(storage,candidate);
 }
