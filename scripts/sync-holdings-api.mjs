@@ -4,13 +4,18 @@ import {validateDisclosure} from '../js/engines/overlap.mjs';
 const get=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);return r};
 const registry=parseAmfiRegistry(await (await get('https://portal.amfiindia.com/spages/NAVAll.txt')).text());
 if(registry.schemes.length<1000)throw Error('Incomplete AMFI registry');
+const lookup=await (await get('https://raw.githubusercontent.com/subscriptionmanager26-png/fund-disclosures/main/holdings-browser/api/amfi-lookup.json')).json();
+if(!lookup||Array.isArray(lookup)||typeof lookup!=='object')throw Error('Invalid provider lookup');
+const supported=registry.schemes.filter(s=>lookup[s.code]?.has_holdings===true&&typeof lookup[s.code]?.b2_key==='string'&&lookup[s.code].b2_key.length>0);
+console.log({universe:registry.schemes.length,providerSupported:supported.length});
+if(!supported.length)throw Error('Provider has no mapped holdings');
 const today=new Date().toISOString().slice(0,10), cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
 const path='data/disclosures.json', statePath='data/api-sync-state.json';
 const read=async(p,f)=>{try{return JSON.parse(await fs.readFile(p,'utf8'))}catch{return f}};
 const old=await read(path,{rows:[]}), state=await read(statePath,{attempts:{}});
 const rows=new Map(old.rows.filter(x=>validateDisclosure(x,today)).map(x=>[x.code?'code:'+x.code:'name:'+x.scheme,x]));
 const attempts=state.attempts||{};
-const queue=registry.schemes.filter(s=>!rows.has('code:'+s.code)||rows.get('code:'+s.code).date<cutoff).sort((a,b)=>(attempts[a.code]||'').localeCompare(attempts[b.code]||''));
+const queue=supported.filter(s=>!rows.has('code:'+s.code)||rows.get('code:'+s.code).date<cutoff).sort((a,b)=>(attempts[a.code]||'').localeCompare(attempts[b.code]||''));
 let success=0,failed=0,processed=0,stop=false,consecutive=0;const errors={};let stopReason=null;
 const deadline=Date.now()+18*60*1000;
 while(queue.length&&!stop&&processed<500&&Date.now()<deadline){
@@ -30,7 +35,7 @@ while(queue.length&&!stop&&processed<500&&Date.now()<deadline){
 await fs.mkdir('data',{recursive:true});
 const write=async(p,d)=>{await fs.writeFile(p+'.tmp',JSON.stringify(d));await fs.rename(p+'.tmp',p)};
 await write(statePath,{attempts});
-const summary={generatedAt:new Date().toISOString(),universe:registry.schemes.length,processed,success,failed,errors,stopReason,remaining:queue.length,current:[...rows.values()].filter(x=>x.code&&x.date>=cutoff).length};
+const summary={generatedAt:new Date().toISOString(),universe:registry.schemes.length,providerSupported:supported.length,unsupported:registry.schemes.length-supported.length,processed,success,failed,errors,stopReason,remaining:queue.length,current:[...rows.values()].filter(x=>x.code&&x.date>=cutoff).length};
 await write('data/api-sync-report.json',summary);
 if(success)await write(path,{...summary,rows:[...rows.values()]});
 console.log(summary);
