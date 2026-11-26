@@ -40,7 +40,10 @@ def allocation(cell):
     v=value(cell)
     if isinstance(v,bool): raise ValueError("Invalid allocation")
     if isinstance(v,str):
-        v=float(v.strip().rstrip("%").replace(",",""))
+        raw=v.strip()
+        # Explicit currency-formatted zero is harmless; nonzero currency is not a NAV percentage.
+        if re.fullmatch(r"\$0(?:\.0+)?",raw): return 0.0
+        v=float(raw.rstrip("%").replace(",",""))
     elif isinstance(v,(int,float)):
         v=float(v)*(100 if isinstance(cell,tuple) and "%" in cell[1] else 1)
     else: raise ValueError("Missing allocation")
