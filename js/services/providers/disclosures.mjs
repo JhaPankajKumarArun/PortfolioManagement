@@ -28,3 +28,14 @@ export async function publicDisclosures(names,fetcher=fetch){
 }
 
 async function readCatalog(url,fetcher){let last;for(let attempt=0;attempt<2;attempt++){const controller=new AbortController();let timer;try{return await Promise.race([ (async()=>{const r=await fetcher(url,{cache:'no-store',credentials:'omit',signal:controller.signal});if(!r.ok)throw Error('Disclosure HTTP '+r.status);return await r.json()})(),new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(Error('Disclosure timeout'))},12000)})])}catch(e){last=e;if(String(e.message).includes('HTTP 404'))break}finally{clearTimeout(timer)}}throw last}
+
+ // Fixed public probes: never send a user's portfolio or selected scheme codes.
+ export async function probeCharlie(fetcher=fetch){
+ const base='https://api.charliealpha.in/v1/mf/';
+ const result={};
+ for(const [key,path] of [['coverage','holdings-periods'],['sample','holdings/122639']]){
+ try{const d=await readCatalog(base+path,fetcher);result[key]={ok:true,fields:Object.keys(d),sampleFields:Array.isArray(d.holdings)&&d.holdings.length?Object.keys(d.holdings[0]):[]};}
+ catch(e){result[key]={ok:false,error:String(e.message)};}
+ }
+ return result;
+ }
