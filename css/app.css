@@ -238,3 +238,17 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 .holdings-filter.seg button,.holdings-filter.seg button.on{min-width:0;min-height:44px;margin:0;padding:8px 3px;border:0;border-bottom:3px solid transparent;border-radius:0;background:transparent;color:var(--mut);box-shadow:none;font-size:13px;white-space:nowrap;text-align:center}
 .holdings-filter.seg button.on{border-bottom-color:var(--tabon);color:var(--tabon);font-weight:750}
 .holdings-filter.seg button:focus-visible{outline-offset:-3px}
+
+/* v97: contextual selection toolbar and readable holding rows. */
+.holdings-actions:has(#hoAnalyze)>button{display:none}
+.holdings-actions #hoSelectBar:has(#hoAnalyze){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;width:100%;flex-basis:100%}
+.holdings-actions #hoSelectBar:has(#hoAnalyze) .ho-selected-count{grid-column:1/-1;padding:4px 6px;font-size:13px}
+.holdings-actions #hoAnalyze{background:var(--hero1);color:white}
+#holding-results .hc.hc-compact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,40%);gap:8px;position:relative;text-align:left}
+#holding-results .hc-compact .hct{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;align-items:start}
+#holding-results .hc-compact .hct .av{display:none}
+#holding-results .hc-compact .hm b{display:block;white-space:normal;overflow:visible;text-overflow:clip;-webkit-line-clamp:unset;font-size:13px;line-height:1.35}
+#holding-results .hc-compact .hct .pill{margin:0;justify-self:start}
+#holding-results .hc-compact .holding-compact-value{max-width:none;min-width:0}
+#holding-results .hc-compact.ho-selected .hct::after{position:absolute;bottom:8px;left:calc(60% - 24px);width:20px;height:20px}
+#holding-results .hc-compact.ho-selected .hct .pill{max-width:calc(100% - 26px)}
