@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v86-safe-update';
+const CACHE_NAME = 'my-portfolio-pwa-v87-regression';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
