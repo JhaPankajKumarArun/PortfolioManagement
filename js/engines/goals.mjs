@@ -5,3 +5,12 @@ export function goalProjection(g){
  const futureTarget=target*Math.pow(1+inflation/100,months/12),projected=saved*growth+monthly*factor;
  return {months,futureTarget,projected,shortfall:Math.max(0,futureTarget-projected),requiredMonthly:Math.max(0,(futureTarget-saved*growth)/factor),funded:100*projected/futureTarget,currentProgress:100*saved/target};
 }
+
+export function fundingPlan(goals,available,monthlyBudget){
+ if(!Array.isArray(goals)||![available,monthlyBudget].every(x=>Number.isFinite(x)&&x>=0))return null;
+ const rows=goals.map(g=>({goal:g,projection:g&&goalProjection(g)}));
+ if(rows.some(r=>!r.projection))return null;
+ const saved=rows.reduce((s,r)=>s+r.goal.saved,0),committed=rows.reduce((s,r)=>s+r.goal.monthly,0),required=rows.reduce((s,r)=>s+r.projection.requiredMonthly,0);
+ const extra=rows.reduce((s,r)=>s+Math.max(0,r.projection.requiredMonthly-r.goal.monthly),0);
+ return {saved,committed,required,extra,unallocated:Math.max(0,available-saved),overallocated:Math.max(0,saved-available),budgetGap:Math.max(0,committed+extra-monthlyBudget),rows};
+}
