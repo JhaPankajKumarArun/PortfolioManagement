@@ -10,6 +10,6 @@
   const ready=()=>{if(reg.waiting&&navigator.serviceWorker.controller)show('New application version ready. Save your work before updating.',true)};
   button.onclick=()=>{if(!reg.waiting)return;if(!confirm('Reload now? Unsaved form changes will be lost. Saved portfolio data will remain.'))return;requested=true;button.disabled=true;reg.waiting.postMessage({type:'ACTIVATE_UPDATE'});show('Applying update…')};
   reg.addEventListener('updatefound',()=>{const worker=reg.installing;worker?.addEventListener('statechange',ready)});ready();
-  const check=()=>reg.update().catch(()=>{});check();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')check()});
+  let checking=null;const check=()=>{if(!checking)checking=reg.update().catch(()=>{}).finally(()=>{checking=null});return checking};check();window.addEventListener('pageshow',e=>{if(e.persisted)check()});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')check()});
  }).catch(()=>show('Offline installation unavailable. Saved portfolio storage is unchanged.'));
 })();
