@@ -25,7 +25,7 @@ if(process.argv.includes('--registry-only'))process.exit(0);
 const path='data/disclosures.json';let previous=[];try{previous=JSON.parse(await fs.readFile(path,'utf8')).rows}catch{}
 const official=previous.filter(x=>!x.code&&validateDisclosure(x,new Date().toISOString().slice(0,10)));
 const rows=new Map(previous.filter(x=>x.code&&validateDisclosure(x,new Date().toISOString().slice(0,10))).map(x=>[String(x.code),x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
-const queue=[...new Map(universe.map(x=>[x.code,x])).values()].filter(x=>!rows.has(x.code)||rows.get(x.code).date<cutoff);const total=queue.length;let success=0,failed=0,consecutive=0,stop=false;const deadline=Date.now()+20*60*1000;console.log({universe:universe.length,queued:total,cached:rows.size});
+const queue=[...new Map(universe.map(x=>[x.code,x])).values()].filter(x=>!rows.has(x.code)||rows.get(x.code).date<cutoff);let cursor=0;try{cursor=JSON.parse(await fs.readFile('data/disclosure-cursor.json','utf8')).cursor||0}catch{};if(queue.length){cursor=cursor%queue.length;queue.push(...queue.splice(0,cursor))}const total=queue.length;let success=0,failed=0,consecutive=0,stop=false;const deadline=Date.now()+20*60*1000;console.log({universe:universe.length,queued:total,cached:rows.size});
 await Promise.all(Array.from({length:3},async()=>{while(queue.length&&!stop&&Date.now()<deadline){const {code,name}=queue.shift();try{
  const url='https://fund-holdings-browser.vercel.app/api/amfi/'+code;
  const d=await (await get(url)).json();
@@ -36,6 +36,7 @@ await Promise.all(Array.from({length:3},async()=>{while(queue.length&&!stop&&Dat
  const record={code,scheme:name,date,source:d.meta.source_file,holdings};if(!validateDisclosure(record,new Date().toISOString().slice(0,10)))throw Error('Invalid equity disclosure');
  if(!rows.has(code)||rows.get(code).date<=date)rows.set(code,record);success++;consecutive=0;
  }catch(e){failed++;consecutive++;if(failed<=10)console.log('Failed',code,String(e.message));if(consecutive>=30){stop=true;console.warn('Stopping after 30 consecutive unusable responses')}}if((success+failed)%25===0)console.log({processed:success+failed,total,success,failed,remaining:queue.length});await new Promise(r=>setTimeout(r,250))}}));
+await fs.writeFile('data/disclosure-cursor.json',JSON.stringify({cursor:total?(cursor+success+failed)%total:0}));
 if(!total){console.log('Catalog already fresh');process.exit(0)}
 if(!success||queue.length){
  const fallback=await publicDisclosures([...new Set(universe.map(x=>x.name))]);
