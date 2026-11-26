@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import {parseAmfiRegistry} from './amfi-registry.mjs';
 import {validateDisclosure} from '../js/engines/overlap.mjs';
-const get=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('HTTP '+r.status);return r};
+const get=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});if(!r.ok){const body=(await r.text()).slice(0,500);let detail;try{detail=JSON.parse(body).error}catch{detail=body.includes('DEPLOYMENT_NOT_FOUND')?'DEPLOYMENT_NOT_FOUND':body.includes('NOT_FOUND')?'NOT_FOUND':'Non-JSON response'};throw Error('HTTP '+r.status+' '+String(detail||'Unknown error').slice(0,120));}return r};
 const registry=parseAmfiRegistry(await (await get('https://portal.amfiindia.com/spages/NAVAll.txt')).text());
 if(registry.schemes.length<1000)throw Error('Incomplete AMFI registry');
 const lookup=await (await get('https://raw.githubusercontent.com/subscriptionmanager26-png/fund-disclosures/main/holdings-browser/api/amfi-lookup.json')).json();
@@ -28,7 +28,7 @@ while(queue.length&&!stop&&processed<500&&Date.now()<deadline){
  const record={code:s.code,scheme:s.name,date:d.meta.as_of,source:d.meta.source_file,provider:'fund-disclosures',holdings:[...map.values()]};
  if(!validateDisclosure(record,today))throw Error('Invalid disclosure');
  const key='code:'+s.code;if(!rows.has(key)||rows.get(key).date<=record.date)rows.set(key,record);success++;consecutive=0;
- }catch(e){failed++;consecutive++;errors[e.message]=(errors[e.message]||0)+1;if(failed<=10)console.log(s.code,e.message);if(e.message==='HTTP 429'||e.message==='HTTP 403'||consecutive>=15){stop=true;stopReason=e.message+'; consecutive failures '+consecutive;console.warn('Stopping:',stopReason)}}
+ }catch(e){failed++;consecutive++;errors[e.message]=(errors[e.message]||0)+1;if(failed<=10)console.log(s.code,e.message);if(/^HTTP (429|403)\b/.test(e.message)||consecutive>=15){stop=true;stopReason=e.message+'; consecutive failures '+consecutive;console.warn('Stopping:',stopReason)}}
  if(processed%10===0)console.log({processed,success,failed,remaining:queue.length});
  if(!stop)await new Promise(r=>setTimeout(r,1100));
 }
