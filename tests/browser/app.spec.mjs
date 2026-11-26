@@ -68,3 +68,17 @@ for(const missing of [false,true])test('explicit recovery '+(missing?'missing':'
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual(fixture.tx);
  if(!missing)expect(await page.evaluate(()=>localStorage.getItem('portfolio-v1-damaged'))).toBe('broken');
 });
+
+test('application health and concurrent portfolio change',async({page})=>{
+ await seed(page);await page.goto(base);await expect(page.locator('.overview-hero')).toBeVisible();
+ await nav(page,'data','Import and backup','more');
+ await page.locator('[data-group="application"] summary').click();
+ await page.evaluate(()=>{globalThis.clearDiagnostics();globalThis.recordError('network')});
+ await page.locator('#app-health-refresh').click();
+ await expect(page.locator('#app-health-report')).toContainText('1 recent diagnostic events');
+ await page.locator('#app-health-clear').click();
+ await expect(page.locator('#app-health-report')).toContainText('0 recent diagnostic events');
+ await page.evaluate(()=>{const key='portfolio-v1',oldValue=localStorage.getItem(key),p=JSON.parse(oldValue);p.goals=[];p.qaExternalChange=true;const newValue=JSON.stringify(p);localStorage.setItem(key,newValue);window.dispatchEvent(new StorageEvent('storage',{key,oldValue,newValue,storageArea:localStorage}))});
+ await expect(page.locator('#portfolio-conflict')).toBeVisible();
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).qaExternalChange)).toBe(true);
+});
