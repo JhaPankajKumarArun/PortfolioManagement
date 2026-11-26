@@ -1,3 +1,4 @@
+import {installAppHealth} from './features/app-health.mjs';
 import {fetchJsonWithTimeout} from './services/http.mjs';
 import {showRecovery} from './features/recovery-ui.mjs';
 import {wealthView,installWealth} from './features/wealth-ui.mjs';
@@ -26,7 +27,7 @@ import * as e6 from './engines/tax.mjs';
 import * as e7 from './engines/sip.mjs';
 // Temporary compatibility bridge; remove when feature modules migrate.
 Object.assign(globalThis,{resolvePrice,fifoLedger,amfiProvider,marketProviders,financialFeatures,uiViews,refreshService,integrity},storage,format,cache,{xirr:e0.xirr,swpSim:e1.swpSim,safeW:e1.safeW,paMonthEnd:e4.paMonthEnd,pbmPrice:e5.pbmPrice,addM:e6.addM,fyOf:e6.fyOf,srt:e6.srt,mk:e6.mk,PA_RF:e4.PA_RF});
-Object.assign(globalThis,{recordError,diagnosticSummary,clearDiagnostics,fetchJsonWithTimeout});
+Object.assign(globalThis,{recordError,diagnosticSummary,clearDiagnostics,fetchJsonWithTimeout,installAppHealth});
 installErrorHandlers(globalThis);
 function returnFromStartup(){throw new Error('Recovery required')}
 try {
