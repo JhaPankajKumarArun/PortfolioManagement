@@ -14,20 +14,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node tests/core.mjs
-      - run: node tests/engines.mjs
-      - run: node tests/amfi.mjs
-
-      - run: node tests/providers.mjs
-
-      - run: node tests/state.mjs
-
-      - run: node tests/ui.mjs
-
-      - run: node tests/errors.mjs
-
-      - run: node tests/refresh.mjs
-
-      - run: node tests/financial-accuracy.mjs
-
-      - run: node tests/integrity.mjs
+      - name: Check all JavaScript syntax
+        run: find js -type f \( -name '*.js' -o -name '*.mjs' \) -print0 | xargs -0 -n1 node --check
+      - name: Run every regression fixture
+        shell: bash
+        run: |
+          failed=0
+          for test in tests/*.mjs; do
+            echo "::group::$test"
+            if node "$test"; then
+              echo "PASS $test"
+            else
+              echo "::error::FAIL $test"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "$failed"
