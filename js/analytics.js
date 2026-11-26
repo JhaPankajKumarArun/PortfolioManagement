@@ -38,14 +38,14 @@ async function refreshOverlap(force=false){
  overlapBusy=true;overlapAttempt=Date.now();overlapMessage='Refreshing public holdings catalog…';status();
  try{
  const {publicDisclosures}=await import('./services/providers/disclosures.mjs');
- const {validateDisclosure}=await import('./engines/overlap.mjs');
+ const {validateDisclosure,overlapAnalysis}=await import('./engines/overlap.mjs');
  const names=calc().open.filter(h=>h.type==='mf').map(h=>h.name);
  if(!names.length)return;
  const p=await publicDisclosures(names);
  let rows=JSON.parse(localStorage.getItem(overlapKey)||'[]'),count=0;
  for(const d of p.rows){if(!validateDisclosure(d,today())||!calc().open.some(h=>h.type==='mf'&&h.name===d.scheme)||rows.some(x=>x.scheme===d.scheme&&x.date>d.date))continue;rows=rows.filter(x=>x.scheme!==d.scheme).concat(d);count++}
  localStorage.setItem(overlapKey,JSON.stringify(rows));if(!p.failures&&count===names.length)localStorage.setItem('overlap-refresh-at',String(Date.now()));
- overlapMessage='Public catalog matched '+count+' of '+names.length+' funds; '+p.failures+' catalog downloads failed. Unmatched funds retain saved disclosures.';
+ const coverage=overlapAnalysis(calc().open.filter(h=>h.type==='mf'),rows,today());overlapMessage='Accepted '+count+' of '+names.length+' funds; '+p.failures+' catalog requests failed. '+coverage.missing.length+' funds still missing or stale. '+(p.missing?.length?'No valid catalog match: '+p.missing.join(' · ')+'. ':'')+'Saved disclosures retained.';
  }catch(e){overlapMessage='Public holdings refresh unavailable; saved disclosures retained. '+e.message}
  finally{overlapBusy=false;status();await showOverlap();await updateHoldingOverlap()}
 }
