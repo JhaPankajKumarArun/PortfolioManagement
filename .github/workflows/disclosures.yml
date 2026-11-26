@@ -7,6 +7,7 @@ on:
       - 'scripts/sync-disclosures.mjs'
       - 'scripts/amfi-registry.mjs'
       - 'scripts/amc-sources.mjs'
+      - 'scripts/scheme-identity.mjs'
       - 'scripts/sync-official-disclosures.py'
       - 'js/services/providers/disclosures.mjs'
       - '.github/workflows/disclosures.yml'
@@ -43,6 +44,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           if [ -s data/disclosures.json ]; then git add data/disclosures.json; fi
           if [ -s data/amc-sources.json ]; then git add data/amc-sources.json; fi
+          if [ -s data/scheme-identities.json ]; then git add data/scheme-identities.json; fi
           if [ -s data/amfi-registry.json ]; then git add data/amfi-registry.json; fi
           git diff --cached --quiet || git commit -m 'Refresh public mutual fund disclosures'
           git pull --rebase origin refactor/modular-architecture
