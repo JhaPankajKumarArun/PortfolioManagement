@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v49-cross-screen-reconciliation';
+const CACHE_NAME = 'my-portfolio-pwa-v50-storage-safety';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
