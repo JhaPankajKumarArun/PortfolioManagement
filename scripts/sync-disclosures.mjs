@@ -22,7 +22,8 @@ await fs.writeFile('data/scheme-identities.json.tmp',JSON.stringify({generatedAt
 await fs.rename('data/scheme-identities.json.tmp','data/scheme-identities.json');
 console.log('Identity candidates',{groups:candidates.length,plans:universe.length});
 const path='data/disclosures.json';let previous=[];try{previous=JSON.parse(await fs.readFile(path,'utf8')).rows}catch{}
-const rows=new Map(previous.map(x=>[x.code,x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
+const official=previous.filter(x=>!x.code&&validateDisclosure(x,new Date().toISOString().slice(0,10)));
+const rows=new Map(previous.filter(x=>x.code).map(x=>[String(x.code),x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
 const queue=[...new Map(universe.map(x=>[x.code,x])).values()].filter(x=>!rows.has(x.code)||rows.get(x.code).date<cutoff);const total=queue.length;let success=0,failed=0,consecutive=0,stop=false;const deadline=Date.now()+20*60*1000;console.log({universe:universe.length,queued:total,cached:rows.size});
 await Promise.all(Array.from({length:3},async()=>{while(queue.length&&!stop&&Date.now()<deadline){const {code,name}=queue.shift();try{
  const url='https://fund-holdings-browser.vercel.app/api/amfi/'+code;
@@ -41,4 +42,4 @@ if(!success||queue.length){
  console.log('Fallback catalog', {matched:byName.size,failures:fallback.failures});
 }
 if(!success)throw Error('No usable upstream disclosures; retaining previous catalog');
-await fs.mkdir('data',{recursive:true});await fs.writeFile(path+'.tmp',JSON.stringify({generatedAt:new Date().toISOString(),success,failed,remaining:queue.length,rows:[...rows.values()]}));await fs.rename(path+'.tmp',path);console.log({success,failed,remaining:queue.length});
+await fs.mkdir('data',{recursive:true});await fs.writeFile(path+'.tmp',JSON.stringify({generatedAt:new Date().toISOString(),success,failed,remaining:queue.length,rows:[...official,...rows.values()]}));await fs.rename(path+'.tmp',path);console.log({success,failed,remaining:queue.length});
