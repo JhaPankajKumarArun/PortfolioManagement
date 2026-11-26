@@ -186,7 +186,7 @@ function holdingDayChange(h,c){
  if(!c||!Number.isFinite(c.abs)||!Number.isFinite(c.pct)||!end||!start)return "<div class='ur' style='font-size:12px'><span class='mut'>1D change</span><span class='mut'>N/A</span></div>";
  const days=(Date.parse(end)-Date.parse(start))/86400000;
  const label=days===1?'1D change':'Price change';
- const sign=c.abs>0?'+':c.abs<0?'−':'',arrow=c.abs>0?'↑':c.abs<0?'↓':'—';
+ const sign=c.abs>0?'+':c.abs<0?'−':'',arrow=c.abs>0?'▲':c.abs<0?'▼':'—';
  const amount='₹'+Math.abs(c.abs).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
  return `<div style='display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(127,127,127,.15)'><div style='display:grid;gap:2px'><small class='mut'>${label}</small><small class='mut' style='font-size:10px'>${esc(fd(start))} → ${esc(fd(end))}</small></div><strong class='${cls(c.abs)}' style='font-size:13px;text-align:right;font-variant-numeric:tabular-nums'>${arrow} ${sign}${amount} (${sign}${Math.abs(c.pct).toFixed(2)}%)</strong></div>`;
 }
