@@ -33,7 +33,7 @@ async function navhLoad(force=true){
 /* Personal Wealth Analytics: local market-data cache and provider adapter. */
 function pwTicker(name){const m=S.symbols||S.tickers||S.sym||{};let x=m[name];if(!x&&S.stockSymbols)x=S.stockSymbols[name];return typeof x==='string'?x.trim().toUpperCase():''}
 function indiaCSV(text){return marketProviders.stocks.indiaCSV(text,pd,today())}
-async function indiaImport(kind,name,file){try{const rows=indiaCSV(await file.text()),id=kind+':'+name;await pwPut(id,kind,{rows},'User-imported official CSV');if(kind==='stock'){PWH[name]=rows;const last=rows[rows.length-1];if(!S.pxd[name]||last[0]>=S.pxd[name])setPx(name,last[1],last[0]);save();PWSTATUS='Imported '+rows.length+' observations for '+name}else PBMMSG='Imported '+rows.length+' observations; latest '+rows[rows.length-1][0];render();updatePbmUi()}catch(e){toast('Import failed: '+e.message)}}
+async function indiaImport(kind,name,file){try{const owner=S,rows=indiaCSV(await file.text()),id=kind+':'+name;if(S!==owner)throw Error('Portfolio changed; retry import');await pwPut(id,kind,{rows},'User-imported official CSV');if(S!==owner)throw Error('Portfolio changed; cached history retained, retry import');if(kind==='stock'){PWH[name]=rows;const last=rows[rows.length-1];if(!S.pxd?.[name]||last[0]>=S.pxd[name])setPx(name,last[1],last[0]);save();PWSTATUS='Imported '+rows.length+' observations for '+name}else PBMMSG='Imported '+rows.length+' observations; latest '+rows[rows.length-1][0];render();updatePbmUi()}catch(e){toast('Import failed: '+e.message)}}
 async function pwSyncStocks(force=false){PW_LAST=Date.now();if(force){PWSTATUS='Import exchange historical CSV for each stock below. Automatic exchange refresh is unavailable in this browser-only version.';render()}}
 async function indiaLatest(){return amfiProvider.indiaLatest(pd)}
 async function pwHydrate(){const a=await pwAll('stock');for(const x of a){const n=x.id.slice(6);if(x.data&&x.data.rows&&x.data.rows.length){PWH[n]=x.data.rows}}}
@@ -41,4 +41,4 @@ async function pwCacheNav(){for(const [n,h] of Object.entries(NH||{})){if(h&&h.d
 function pwAuto(){if(document.visibilityState==='hidden'||Date.now()-PW_LAST<6*60*60*1000)return;pwSyncStocks(false);pwCacheNav()}
 
 
-function navhEnsure(){if(NHBUSY||Date.now()-NHFAIL<6e5)return;const H=historyTargets();if(H.some(historyDue))navhLoad(false)}
+function navhEnsure(){if(NHBUSY||Date.now()-NHFAIL<6e5)return;const H=historyTargets();if(H.some(historyDue))navhLoad(false).catch(()=>recordError('promise'))}
