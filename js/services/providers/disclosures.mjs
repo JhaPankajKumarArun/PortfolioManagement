@@ -42,7 +42,7 @@ async function readCatalog(url,fetcher){let last;for(let attempt=0;attempt<2;att
  }
 
 export function normalizeCharlie(raw,code,scheme,asOf){
- if(String(raw?.amfi_code)!==String(code)||normalize(raw.scheme_name)!==normalize(scheme)||!Array.isArray(raw.holdings)||raw.total_holdings!==raw.holdings.length)return null;
+ if(String(raw?.amfi_code)!==String(code)||typeof raw.scheme_name!=='string'||!raw.scheme_name.trim()||!Array.isArray(raw.holdings)||raw.total_holdings!==raw.holdings.length)return null;
  const map=new Map();
  for(const h of raw.holdings){
  if(typeof h.holding_type!=='string')return null;
@@ -54,7 +54,7 @@ export function normalizeCharlie(raw,code,scheme,asOf){
  const p=map.get(h.isin)||{isin:h.isin,name:h.name,weight:0};p.weight+=h.holding_pct;map.set(h.isin,p);
  }
  const physical=raw.asset_allocation?.physical?.equity_pct;const sum=[...map.values()].reduce((s,h)=>s+h.weight,0);if(!Number.isFinite(physical)||physical<0||physical>100||Math.abs(sum-physical)>0.6)return null;
- const d={code:String(code),scheme,date:raw.as_of,source:'https://api.charliealpha.in/v1/mf/holdings/'+code,provider:'charlie-alpha',holdings:[...map.values()]};
+ const d={code:String(code),scheme,date:raw.as_of,source:'https://api.charliealpha.in/v1/mf/holdings/'+code,provider:'charlie-alpha',providerScheme:raw.scheme_name,holdings:[...map.values()],...(physical===0&&map.size===0?{equityStatus:'verified-zero'}:{})};
  return validateDisclosure(d,asOf)?d:null;
 }
 
@@ -66,20 +66,20 @@ async function charlieCatalog(names,fetcher){
  if(!catalogJob)catalogJob=syncCharlie(fetcher).finally(()=>{catalogJob=null});
  const {records,failures,diagnostics}=await catalogJob;
  const today=new Date().toISOString().slice(0,10);
- return {failures,diagnostics,rows:names.flatMap(name=>{const candidates=records.filter(x=>normalize(x.scheme)===normalize(name)&&validateDisclosure(x,today));const dates=[...new Set(candidates.map(x=>x.date))].sort();const latest=candidates.filter(x=>x.date===dates.at(-1));if(!latest.length)return [];const signatures=new Set(latest.map(x=>JSON.stringify(x.holdings.map(h=>[h.isin,h.weight]).sort())));return signatures.size===1?[{...latest[0],scheme:name}]:[]})};
+ return {failures,diagnostics,rows:names.flatMap(name=>{const candidates=records.filter(x=>(normalize(x.scheme)===normalize(name)||normalize(x.providerScheme||'')===normalize(name))&&validateDisclosure(x,today));const dates=[...new Set(candidates.map(x=>x.date))].sort();const latest=candidates.filter(x=>x.date===dates.at(-1));if(!latest.length)return [];const signatures=new Set(latest.map(x=>JSON.stringify(x.holdings.map(h=>[h.isin,h.weight]).sort())));return signatures.size===1?[{...latest[0],scheme:name}]:[]})};
 }
 async function syncCharlie(fetcher){
  const db=await openCharlieCache();
  try{
  const state=await cacheOp(db,'readonly','state')||{records:[],cursor:0,period:null,last:0};
  const records=new Map(state.records.map(x=>[x.code,x]));
- if(Date.now()-state.last<60000)return {records:[...records.values()],failures:0,diagnostics:state.diagnostics};
+ if(state.order===3&&Date.now()-state.last<60000)return {records:[...records.values()],failures:0,diagnostics:state.diagnostics};
  const coverage=await readCatalog(charlieBase+'holdings-periods',fetcher);
  if(!/^\d{4}-\d{2}-\d{2}$/.test(coverage.latest_as_of))throw Error('Invalid disclosure period');
  const registry=await readCatalog('./data/amfi-registry.json',fetcher);
  if(!Array.isArray(registry.schemes)||registry.schemes.length<1000)throw Error('Incomplete public registry');
  const queue=registry.schemes.filter(s=>/^\d+$/.test(String(s.code))&&typeof s.name==='string').sort((a,b)=>Number(/direct.*growth/i.test(b.name))-Number(/direct.*growth/i.test(a.name))||Number(a.code)-Number(b.code));
- let cursor=state.period===coverage.latest_as_of&&state.order===2?state.cursor:0,failures=0,consecutive=0;const diagnostics={period:coverage.latest_as_of,universe:queue.length,accepted:0,rejected:0,errors:{},examples:[]};
+ let cursor=state.period===coverage.latest_as_of&&state.order===3?state.cursor:0,failures=0,consecutive=0;const diagnostics={period:coverage.latest_as_of,universe:queue.length,accepted:0,rejected:0,errors:{},examples:[]};
  const today=new Date().toISOString().slice(0,10),deadline=Date.now()+45000;
  // Fixed public order and bounded batches, independent of portfolio membership.
  for(let n=0;n<30&&cursor<queue.length&&Date.now()<deadline;n++){
@@ -89,7 +89,7 @@ async function syncCharlie(fetcher){
  if(consecutive>=10&&Object.keys(diagnostics.errors).some(e=>!/HTTP 404/.test(e)))break;
  await new Promise(r=>setTimeout(r,1100));
  }
- diagnostics.cursor=cursor;diagnostics.cached=records.size;await cacheOp(db,'readwrite','state',{order:2,diagnostics,records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
+ diagnostics.cursor=cursor;diagnostics.cached=records.size;await cacheOp(db,'readwrite','state',{order:3,diagnostics,records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
  return {records:[...records.values()],failures,diagnostics};
  }finally{db.close()}
 }
