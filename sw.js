@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v76-storage-health';
+const CACHE_NAME = 'my-portfolio-pwa-v77-safe-storage';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
