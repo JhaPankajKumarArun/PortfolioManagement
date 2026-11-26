@@ -51,6 +51,7 @@ function checkPortfolioConflict(){
 }
 window.addEventListener('storage',e=>{if(e.storageArea===localStorage&&(e.key===storage.K||e.key===null))checkPortfolioConflict()});
 window.addEventListener('focus',checkPortfolioConflict);
+window.addEventListener('pageshow',checkPortfolioConflict);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkPortfolioConflict()});
 const mirror=createSnapshotMirror(localStorage,globalThis.indexedDB);
 storage.setSnapshotHook(()=>mirror.sync());
