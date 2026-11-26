@@ -11,7 +11,7 @@ const old=await read(path,{rows:[]}), state=await read(statePath,{attempts:{}});
 const rows=new Map(old.rows.filter(x=>validateDisclosure(x,today)).map(x=>[x.code?'code:'+x.code:'name:'+x.scheme,x]));
 const attempts=state.attempts||{};
 const queue=registry.schemes.filter(s=>!rows.has('code:'+s.code)||rows.get('code:'+s.code).date<cutoff).sort((a,b)=>(attempts[a.code]||'').localeCompare(attempts[b.code]||''));
-let success=0,failed=0,processed=0,stop=false;
+let success=0,failed=0,processed=0,stop=false,consecutive=0;const errors={};let stopReason=null;
 const deadline=Date.now()+18*60*1000;
 while(queue.length&&!stop&&processed<500&&Date.now()<deadline){
  const s=queue.shift();attempts[s.code]=new Date().toISOString();processed++;
@@ -22,14 +22,15 @@ while(queue.length&&!stop&&processed<500&&Date.now()<deadline){
  for(const h of d.holdings){if(h.holding_type!=='equity')continue;if(!Number.isFinite(h.pct_nav)||h.pct_nav<0)throw Error('Invalid weight');if(!h.pct_nav)continue;const p=map.get(h.isin)||{isin:h.isin,name:h.instrument,weight:0};p.weight+=h.pct_nav;map.set(h.isin,p)}
  const record={code:s.code,scheme:s.name,date:d.meta.as_of,source:d.meta.source_file,provider:'fund-disclosures',holdings:[...map.values()]};
  if(!validateDisclosure(record,today))throw Error('Invalid disclosure');
- const key='code:'+s.code;if(!rows.has(key)||rows.get(key).date<=record.date)rows.set(key,record);success++;
- }catch(e){failed++;if(failed<=10)console.log(s.code,e.message);if(e.message==='HTTP 429'||e.message==='HTTP 403')stop=true}
- await new Promise(r=>setTimeout(r,1100));
+ const key='code:'+s.code;if(!rows.has(key)||rows.get(key).date<=record.date)rows.set(key,record);success++;consecutive=0;
+ }catch(e){failed++;consecutive++;errors[e.message]=(errors[e.message]||0)+1;if(failed<=10)console.log(s.code,e.message);if(e.message==='HTTP 429'||e.message==='HTTP 403'||consecutive>=15){stop=true;stopReason=e.message+'; consecutive failures '+consecutive;console.warn('Stopping:',stopReason)}}
+ if(processed%10===0)console.log({processed,success,failed,remaining:queue.length});
+ if(!stop)await new Promise(r=>setTimeout(r,1100));
 }
 await fs.mkdir('data',{recursive:true});
 const write=async(p,d)=>{await fs.writeFile(p+'.tmp',JSON.stringify(d));await fs.rename(p+'.tmp',p)};
 await write(statePath,{attempts});
-const summary={generatedAt:new Date().toISOString(),universe:registry.schemes.length,processed,success,failed,remaining:queue.length,current:[...rows.values()].filter(x=>x.code&&x.date>=cutoff).length};
+const summary={generatedAt:new Date().toISOString(),universe:registry.schemes.length,processed,success,failed,errors,stopReason,remaining:queue.length,current:[...rows.values()].filter(x=>x.code&&x.date>=cutoff).length};
 await write('data/api-sync-report.json',summary);
 if(success)await write(path,{...summary,rows:[...rows.values()]});
 console.log(summary);
