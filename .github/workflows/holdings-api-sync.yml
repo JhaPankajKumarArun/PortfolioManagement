@@ -1,9 +1,6 @@
 name: Holdings API sync
 on:
   workflow_dispatch:
-  push:
-    branches: [refactor/modular-architecture]
-    paths: ['scripts/sync-holdings-api.mjs', '.github/workflows/holdings-api-sync.yml']
 permissions:
   contents: write
 concurrency:
