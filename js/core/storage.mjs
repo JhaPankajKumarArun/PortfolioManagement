@@ -1,3 +1,5 @@
+let snapshotHook=null;
+export function setSnapshotHook(fn){snapshotHook=fn}
 export const K='portfolio-v1';
 export const RECOVERY_KEY=K+'-recovery';
 export const $=s=>document.querySelector(s);
@@ -8,6 +10,6 @@ export function persistPortfolio(storage,portfolio){
  const old=storage.getItem(K);
  if(old===next)return true;
  if(old!=null){decodePortfolio(old);storage.setItem(RECOVERY_KEY,old)}
- storage.setItem(K,next);return true;
+ storage.setItem(K,next);try{snapshotHook?.()}catch{}return true;
 }
 export function readRecovery(storage){const raw=storage.getItem(RECOVERY_KEY);return raw==null?null:decodePortfolio(raw)}
