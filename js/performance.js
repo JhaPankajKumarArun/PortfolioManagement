@@ -24,3 +24,18 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
 document.addEventListener('click',e=>{const el=e.target.closest('[data-pbm],[data-a=pbmrefresh]');if(!el)return;if(el.dataset.pbm){PBMSEL=el.dataset.pbm;PBMMSG='';render();pbmLoad(PBMSEL);pbmRows(PBMSEL).then(()=>portfolioBenchmarkTile()).then(h=>{const w=document.getElementById('pbmw');if(w)w.innerHTML=h})}else pbmLoad(PBMSEL,true)});
 async function updatePbmUi(){const w=document.getElementById('pbmw');if(w)w.innerHTML=await portfolioBenchmarkTile()}
 document.addEventListener('change',e=>{const t=e.target;if(t.files&&t.files[0]){if(t.dataset.indiaBm)indiaImport('benchmark',t.dataset.indiaBm,t.files[0]);else if(t.dataset.indiaStock)indiaImport('stock',t.dataset.indiaStock,t.files[0])}});
+
+function overviewPerformance(C){
+ const periods=['1D','1W','1M','3M','1Y','All'],k=periods.includes(pf.sel)?pf.sel:'1M',r=perfGet(C,k),gain=pf.mode==='gain',valid=r&&!r.hist;
+ const amount=valid?(gain?r.gain:r.vch):null,pct=valid?(gain?r.pct:r.vpct):null;
+ let chart='';
+ if(valid){
+  const span=dnum(r.end||perfEnd())-dnum(r.start),steps=Math.min(10,span),points=[];
+  if(steps>0){points.push([0,r.v0]);for(let i=1;i<=steps;i++){const offset=Math.round(span*i/steps),p=i===steps?r:perfCalc(C,r.start,dayAdd(r.start,offset));points.push([offset,p&&!p.hist&&Number.isFinite(p.v1)?p.v1:null]);}
+  const usable=points.filter(p=>Number.isFinite(p[1]));
+  if(usable.length>=2){const max=Math.max(1,...usable.map(p=>p[1]));let path='',connected=false;for(const [x,y] of points){if(!Number.isFinite(y)){connected=false;continue}path+=(connected?' L':' M')+(8+304*x/span).toFixed(2)+' '+(100-88*y/max).toFixed(2);connected=true}
+  chart=`<div class="overview-chart"><p class="mut">Portfolio value history (includes cash flows; may use estimated prices)</p><svg viewBox="0 0 320 108" role="img" aria-label="Historical portfolio value, sampled dates; gaps indicate missing valuations"><path d="M8 100H312" stroke="var(--line)" fill="none"/><path d="${path}" stroke="var(--c1)" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg><div class="overview-heading"><small>${fd(r.start)}</small><small>${fd(r.end||perfEnd())}</small></div>${usable.length<points.length?'<p class="mut">Some chart dates have missing valuations.</p>':''}</div>`;}
+  }
+ }
+ return `<div class="seg"><button data-pm="gain" aria-pressed="${gain}" class="${gain?'on':''}">Market gain</button><button data-pm="value" aria-pressed="${!gain}" class="${gain?'':'on'}">Value change</button></div><div class="overview-periods">${periods.map(p=>`<button data-pp="${p}" aria-pressed="${p===k}" class="${p===k?'on':''}">${p}</button>`).join('')}</div><p class="mut">${gain?'Excludes net investment cash flows.':'Includes net investment cash flows.'} End date: ${fd(perfEnd())}.</p>${valid?`<p class="overview-return ${cls(amount)}">${sg(amount)} <small>${pct==null?'':pc(pct)}</small></p><p class="mut">${fd(r.start)} – ${fd(r.end||perfEnd())}${r.est?' · Estimated return':''}</p>${chart}`:`<p role="status" class="mut">${r?.hist?'Required historical prices are missing.':'Selected period is unavailable for this portfolio.'}</p>`}<button class="btn ghost" data-t="insights">Detailed performance & history ›</button>`;
+}
