@@ -7,5 +7,14 @@ export function renderView({document,tab,html,busy}){
  document.querySelectorAll('#tabs button').forEach(b=>{const active=b.dataset.t===parent;b.classList.toggle('on',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
  document.querySelector('#rfb').classList.toggle('spin',!!busy);
 }
-export function showSheet(document,h){document.querySelector('#sheet').innerHTML=`<div id="bd"><div class="sh" role="dialog" aria-modal="true">${h}</div></div>`}
-export function hideSheet(document){document.querySelector('#sheet').innerHTML=''}
+const sheetState=new WeakMap();
+export function showSheet(document,h){
+ const root=document.querySelector('#sheet');if(!sheetState.has(document)){
+ const previous=document.activeElement;
+ const key=e=>{const dialog=root.querySelector('[role=dialog]');if(!dialog)return;if(e.key==='Escape'){e.preventDefault();hideSheet(document);return}if(e.key!=='Tab')return;const items=[...dialog.querySelectorAll('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href],[tabindex="0"]')].filter(x=>x.getClientRects().length);if(!items.length){e.preventDefault();dialog.focus();return}const first=items[0],last=items[items.length-1];if(e.shiftKey&&(document.activeElement===first||!items.includes(document.activeElement))){e.preventDefault();last.focus()}else if(!e.shiftKey&&(document.activeElement===last||!items.includes(document.activeElement))){e.preventDefault();first.focus()}};
+ sheetState.set(document,{previous,key});document.addEventListener('keydown',key);
+ }
+ root.innerHTML=`<div id="bd"><div class="sh" role="dialog" aria-modal="true" aria-label="Portfolio details" tabindex="-1">${h}</div></div>`;
+ root.querySelector('[role=dialog]').focus({preventScroll:true});
+}
+export function hideSheet(document){document.querySelector('#sheet').innerHTML='';const state=sheetState.get(document);if(state){document.removeEventListener('keydown',state.key);sheetState.delete(document);if(state.previous?.isConnected)state.previous.focus({preventScroll:true})}}
