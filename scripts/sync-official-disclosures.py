@@ -40,7 +40,7 @@ def collect_ppfas(source,end):
     for a in soup.select("a[href]"):
         url=urljoin(page,a["href"])
         if urlparse(url).scheme!="https" or urlparse(url).hostname not in source["hosts"]: continue
-        if end.strftime("%B").lower() in url.lower() and str(end.year) in url and url.lower().endswith(".xlsx"): links.add(url)
+        if end.strftime("%B").lower() in url.lower() and str(end.year) in url and urlparse(url).path.lower().endswith(".xlsx") and a.get_text(strip=True).lower()!="consolidated": links.add(url)
     for url in sorted(links):
         try:
             data=get(url,source).content
