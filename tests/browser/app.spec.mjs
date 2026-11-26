@@ -2,6 +2,7 @@ import {test,expect} from '@playwright/test';
 const base='http://127.0.0.1:8000/';
 const nav=async(page,tab,title,parent=tab)=>{
  await page.locator('#tabs button[data-t="'+parent+'"]').click();
+ if(tab==='time')await page.locator('[data-insight-jump="performance"]').click();
  if(tab!==parent)await page.locator('#app button[data-t="'+tab+'"]').first().click();
  await expect(page.locator('#ttl')).toHaveText(title);
  await expect(page.locator('#tabs button[data-t="'+parent+'"]')).toHaveAttribute('aria-current','page');
@@ -31,7 +32,7 @@ for(const [width,height] of [[320,568],[390,844],[844,390],[1280,800]])for(const
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(base);
   await expect(page.locator('.overview-hero')).toBeVisible();
   const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx);
-  for(const [tab,title,selector] of [['home','Overview','.overview-hero'],['list','Holdings','.holdings-summary'],['insights','Insights','.insight-hero'],['planning','Planning','.hub-hero'],['more','More','.hub-hero']]){
+  for(const [tab,title,selector] of [['home','Overview','.overview-hero'],['list','Holdings','.holdings-summary'],['insights','Insights','.insight-hero'],['planning','Planning','#planning-goals'],['more','More','.hub-list']]){
    await nav(page,tab,title);await expect(page.locator(selector)).toBeVisible();
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
    const bounds=await page.locator('#tabs').boundingBox();expect(bounds.x).toBeGreaterThanOrEqual(0);expect(bounds.x+bounds.width).toBeLessThanOrEqual(width+1);
@@ -44,3 +45,14 @@ for(const [width,height] of [[320,568],[390,844],[844,390],[1280,800]])for(const
   expect(errors).toEqual([]);
  });
 }
+
+test('holdings preferences, search and insight navigation',async({page})=>{
+ await seed(page);await page.goto(base);await nav(page,'list','Holdings');
+ await page.locator('#holdingSearch').fill('not present');await expect(page.locator('.hc')).toHaveCount(0);
+ await page.locator('#holdingSearch').fill('QA');await expect(page.locator('.hc')).toHaveCount(1);
+ await page.locator('[data-holding-layout]').click();await expect(page.locator('.hc-compact')).toHaveCount(0);
+ await page.locator('[data-holding-direction]').click();
+ await page.reload();await nav(page,'list','Holdings');await expect(page.locator('.hc-compact')).toHaveCount(0);await expect(page.locator('[data-holding-direction]')).toContainText('Ascending');
+ await nav(page,'insights','Insights');await page.locator('[data-insight-jump="risk"]').click();await expect(page.locator('#insight-risk')).toBeVisible();await expect(page.locator('#insight-performance')).toHaveCount(0);
+ await nav(page,'plan','Plan','planning');await page.locator('.context-back').click();await expect(page.locator('#ttl')).toHaveText('Planning');
+});
