@@ -1,6 +1,6 @@
 const goalFields=[['target','Target in today’s rupees',1000000],['saved','Savings earmarked today',0],['monthly','Monthly contribution',0],['years','Years remaining',5],['rate','Expected annual return (%)',8],['inflation','Annual inflation (%)',6]];
 const goalKey='portfolio-goals-v1';
-function readGoals(){try{const x=JSON.parse(localStorage.getItem(goalKey)||'[]');return Array.isArray(x)?x:[]}catch{return []}}
+function readGoals(){return withLegacyGoals(localStorage,S).goals||[]}
 function goalPlanner(){return `<h2>Financial goals</h2><div class='card pad'><p class='mut'>Allocate savings and contributions separately to each goal. Do not count the same money twice. Assumptions are illustrative, before taxes and fees.</p><label>Goal name<input id='goalName' maxlength='100' placeholder='Home, education, retirement'></label>${goalFields.map(([k,l,v])=>`<label>${l}<input id='goal-${k}' type='number' step='any' value='${v}'></label>`).join('')}<button type='button' class='btn' id='goalAdd'>Save new goal</button><p id='goalStatus' role='status' class='mut'></p><div id='goalRows'>${goalRows()}</div><h3>Combined funding plan</h3><p class='mut'>Enter total assets available for these goals and the total monthly budget. Exclude emergency reserves and other commitments.</p><label>Available assets (₹)<input id='goalAvailable' type='number' min='0' value='0'></label><label>Monthly budget (₹)<input id='goalBudget' type='number' min='0' value='0'></label><button type='button' class='btn' id='goalFundingRun'>Check combined funding</button><div id='goalFundingResult' role='status'></div></div>`}
 function goalRows(){return readGoals().map(g=>`<div class='ur'><b>${esc(String(g.name))}</b><button type='button' data-goal-delete='${esc(String(g.id))}'>Delete</button></div><div class='goal-result' data-goal-result='${esc(String(g.id))}'></div>`).join('')}
 async function updateGoals(){
@@ -21,7 +21,7 @@ document.addEventListener('click',async e=>{
  for(const [k] of goalFields){const v=document.getElementById('goal-'+k).value;g[k]=v.trim()===''?NaN:Number(v)}
  const {goalProjection}=await import('./engines/goals.mjs');if(!name||!goalProjection(g))throw Error('Enter a valid name and assumptions: 1 month–50 years, return −50% to 40%, inflation 0–30%, positive target and non-negative savings.');
  goals.push(g)}
- localStorage.setItem(goalKey,JSON.stringify(goals));status.textContent=del?'Goal deleted.':'Goal saved locally.';await updateGoals();
+ const candidate={...S,goals};persistPortfolio(localStorage,candidate);S=candidate;status.textContent=del?'Goal deleted.':'Goal saved locally.';await updateGoals();
  }catch(err){status.textContent=err.message||'Unable to save goal.'}
 });
 const SL=[['sip','Monthly SIP',0,200000,500],['step','Raise SIP every year by',0,25,1],['yrs','Years',1,40,1],['ret','Expected return a year',4,20,.5],['inf','Inflation a year',0,10,.5]],UL={sip:'',step:'%',yrs:' years',ret:'%',inf:'%'};
