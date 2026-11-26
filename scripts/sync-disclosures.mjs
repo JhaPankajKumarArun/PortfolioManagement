@@ -21,6 +21,7 @@ const candidates=buildIdentityCandidates(registry);
 await fs.writeFile('data/scheme-identities.json.tmp',JSON.stringify({generatedAt:new Date().toISOString(),candidates}));
 await fs.rename('data/scheme-identities.json.tmp','data/scheme-identities.json');
 console.log('Identity candidates',{groups:candidates.length,plans:universe.length});
+if(process.argv.includes('--registry-only'))process.exit(0);
 const path='data/disclosures.json';let previous=[];try{previous=JSON.parse(await fs.readFile(path,'utf8')).rows}catch{}
 const official=previous.filter(x=>!x.code&&validateDisclosure(x,new Date().toISOString().slice(0,10)));
 const rows=new Map(previous.filter(x=>x.code).map(x=>[String(x.code),x]));const cutoff=new Date(Date.now()-35*864e5).toISOString().slice(0,10);
