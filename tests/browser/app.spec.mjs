@@ -48,8 +48,8 @@ for(const [width,height] of [[320,568],[390,844],[844,390],[1280,800]])for(const
 
 test('holdings preferences, search and insight navigation',async({page})=>{
  await seed(page);await page.goto(base);await nav(page,'list','Holdings');
- await page.locator('#holdingSearch').fill('not present');await expect(page.locator('.hc')).toHaveCount(0);
- await page.locator('#holdingSearch').fill('QA');await expect(page.locator('.hc')).toHaveCount(1);
+ await page.locator('#holdingSearch').fill('not present');await expect(page.locator('.hc:visible')).toHaveCount(0);
+ await page.locator('#holdingSearch').fill('QA');await expect(page.locator('.hc:visible')).toHaveCount(1);await expect(page.locator('#holdingSearch')).toBeFocused();
  await page.locator('[data-holding-layout]').click();await expect(page.locator('.hc-compact')).toHaveCount(0);
  await page.locator('[data-holding-direction]').click();
  await page.reload();await nav(page,'list','Holdings');await expect(page.locator('.hc-compact')).toHaveCount(0);await expect(page.locator('[data-holding-direction]')).toContainText('Ascending');
