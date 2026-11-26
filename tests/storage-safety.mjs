@@ -38,3 +38,10 @@ persistReplacement(storage,{tx:[],px:{},goals:[]});assert.deepEqual(readReplacem
  if(rows[0].bytes!==3||rows[1].present)throw Error('Incorrect footprint');
  if(!quotaSummary({usage:80,quota:100}).warning||quotaSummary({usage:79,quota:100}).warning||quotaSummary({usage:1,quota:0})!==null)throw Error('Incorrect quota classification');
 }
+
+{
+ const {isDisposableNav}=await import('../js/services/cache.mjs');
+ assert.equal(isDisposableNav({kind:'nav',id:'nav:A',source:'MFAPI.in'}),true);
+ for(const r of [{kind:'stock',id:'stock:A',source:'User-imported official CSV'},{kind:'index',id:'index:A',source:'User-imported official CSV'},{kind:'nav',id:'nav:A',source:'manual'},null])assert.equal(isDisposableNav(r),false);
+ fail=RECOVERY_KEY;const before=m.get(K);assert.throws(()=>persistPortfolio(storage,{tx:[],px:{B:300}}),/Quota/);assert.equal(m.get(K),before);fail=null;
+}
