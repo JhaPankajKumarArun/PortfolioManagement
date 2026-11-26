@@ -1,4 +1,6 @@
 import fs from 'node:fs/promises';
+import {publicDisclosures} from '../js/services/providers/disclosures.mjs';
+import {validateDisclosure} from '../js/engines/overlap.mjs';
 const get=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(String(r.status));return r};
 const nav=await (await get('https://portal.amfiindia.com/spages/NAVAll.txt')).text();
 const universe=nav.split(/\r?\n/).map(x=>x.split(';')).filter(x=>/^\d{6}$/.test(x[0])&&x[3]).map(x=>({code:x[0],name:x[3]}));
@@ -16,5 +18,11 @@ await Promise.all(Array.from({length:3},async()=>{while(queue.length&&!stop&&Dat
  if(!rows.has(code)||rows.get(code).date<=date)rows.set(code,{code,scheme:name,date,source:d.meta.source_file,holdings});success++;consecutive=0;
  }catch(e){failed++;consecutive++;if(failed<=10)console.log('Failed',code,String(e.message));if(consecutive>=30){stop=true;console.warn('Stopping after 30 consecutive unusable responses')}}if((success+failed)%25===0)console.log({processed:success+failed,total,success,failed,remaining:queue.length});await new Promise(r=>setTimeout(r,250))}}));
 if(!total){console.log('Catalog already fresh');process.exit(0)}
+if(!success||queue.length){
+ const fallback=await publicDisclosures([...new Set(universe.map(x=>x.name))]);
+ const byName=new Map(fallback.rows.map(x=>[x.scheme,x]));
+ for(const {code,name} of universe){const d=byName.get(name);if(d&&validateDisclosure(d,new Date().toISOString().slice(0,10))&&(!rows.has(code)||rows.get(code).date<d.date)){rows.set(code,{...d,code});success++}}
+ console.log('Fallback catalog', {matched:byName.size,failures:fallback.failures});
+}
 if(!success)throw Error('No usable upstream disclosures; retaining previous catalog');
 await fs.mkdir('data',{recursive:true});await fs.writeFile(path+'.tmp',JSON.stringify({generatedAt:new Date().toISOString(),success,failed,remaining:queue.length,rows:[...rows.values()]}));await fs.rename(path+'.tmp',path);console.log({success,failed,remaining:queue.length});
