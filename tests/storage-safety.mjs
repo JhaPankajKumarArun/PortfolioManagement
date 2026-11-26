@@ -45,3 +45,16 @@ persistReplacement(storage,{tx:[],px:{},goals:[]});assert.deepEqual(readReplacem
  for(const r of [{kind:'stock',id:'stock:A',source:'User-imported official CSV'},{kind:'index',id:'index:A',source:'User-imported official CSV'},{kind:'nav',id:'nav:A',source:'manual'},null])assert.equal(isDisposableNav(r),false);
  fail=RECOVERY_KEY;const before=m.get(K);assert.throws(()=>persistPortfolio(storage,{tx:[],px:{B:300}}),/Quota/);assert.equal(m.get(K),before);fail=null;
 }
+
+{
+ const {trackPortfolioVersion,portfolioVersionChanged}=await import('../js/core/storage.mjs');
+ const records=new Map(),tab=()=>({getItem:k=>records.get(k)??null,setItem:(k,v)=>records.set(k,v)});
+ const a=tab(),b=tab();trackPortfolioVersion(a);trackPortfolioVersion(b);
+ persistPortfolio(a,{tx:[],px:{A:1}});
+ assert.equal(portfolioVersionChanged(a),false);assert.equal(portfolioVersionChanged(b),true);
+ const before=new Map(records);
+ assert.throws(()=>persistPortfolio(b,{tx:[],px:{B:2}}),/another tab/);
+ assert.throws(()=>persistReplacement(b,{tx:[],px:{}}),/another tab/);
+ assert.deepEqual(records,before);
+ trackPortfolioVersion(b);persistPortfolio(b,{tx:[],px:{B:2}});assert.equal(portfolioVersionChanged(a),true);
+}
