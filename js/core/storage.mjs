@@ -25,3 +25,11 @@ export function restoreDamagedPortfolio(storage,candidate){
  storage.setItem(DAMAGED_KEY,raw);
  storage.setItem(K,next);try{snapshotHook?.()}catch{}return true;
 }
+
+export const LEGACY_GOALS_KEY='portfolio-goals-v1';
+export function withLegacyGoals(storage,portfolio){
+ if(Object.hasOwn(portfolio,'goals')){if(!Array.isArray(portfolio.goals))throw Error('Invalid saved goals');return portfolio}
+ const raw=storage.getItem(LEGACY_GOALS_KEY);if(raw===null)return portfolio;
+ const goals=JSON.parse(raw);if(!Array.isArray(goals))throw Error('Invalid legacy goals');
+ return {...portfolio,goals};
+}
