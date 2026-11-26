@@ -6,7 +6,7 @@ for(const p of paths)new vm.Script(fs.readFileSync('js/'+p,'utf8'),{filename:p})
 const c=vm.createContext({});
 for(const p of fs.readdirSync('js/engines').filter(p=>p.endsWith('.mjs')))Object.assign(c,await import('../js/engines/'+p));
 const run=s=>vm.runInContext(s,c);
-assert.equal(run("calculatePortfolio({tx:[{name:'A',type:'mf',side:'buy',units:10,price:100,date:'2025-01-01'}],px:{A:120}},'2026-01-01').pl"),200);
+assert.equal(run("calculatePortfolio({tx:[{name:'A',type:'mf',side:'buy',units:10,price:100,date:'2025-01-01'}],px:{A:120},pxd:{A:'2026-01-01'}},'2026-01-01').pl"),200);
 assert.equal(run("projectPortfolio(0,{tv:1000,tc:1000},{sip:100,yrs:1,step:0})[1][1]"),2200);
 assert.equal(run("swpSim(1200,0,100,0,1).end"),0);
 assert.equal(run("calculateAttribution({open:[{name:'A',pl:200,value:1200,cost:1000}],tv:1200},[{name:'A',gain:50}]).net"),250);
