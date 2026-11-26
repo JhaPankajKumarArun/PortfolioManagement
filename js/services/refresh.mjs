@@ -16,7 +16,8 @@ export function createRefreshManager({now=Date.now,online=()=>globalThis.navigat
 export const refreshManager=createRefreshManager();
 export function installRefreshTriggers({document,window,refresh,interval=1800000}){
  const trigger=()=>{if(!document.hidden&&window.navigator?.onLine!==false)Promise.resolve().then(refresh).catch(()=>{})};
- document.addEventListener('visibilitychange',trigger);window.addEventListener('online',trigger);
+ const restored=e=>{if(e.persisted)trigger()};
+ document.addEventListener('visibilitychange',trigger);window.addEventListener('online',trigger);window.addEventListener('pageshow',restored);
  const timer=window.setInterval(trigger,interval);
- return ()=>{document.removeEventListener('visibilitychange',trigger);window.removeEventListener('online',trigger);window.clearInterval(timer)};
+ return ()=>{document.removeEventListener('visibilitychange',trigger);window.removeEventListener('online',trigger);window.removeEventListener('pageshow',restored);window.clearInterval(timer)};
 }
