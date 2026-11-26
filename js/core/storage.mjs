@@ -33,3 +33,12 @@ export function withLegacyGoals(storage,portfolio){
  const goals=JSON.parse(raw);if(!Array.isArray(goals))throw Error('Invalid legacy goals');
  return {...portfolio,goals};
 }
+
+export const REPLACEMENT_KEY=K+'-before-replacement';
+export function persistReplacement(storage,candidate){
+ decodePortfolio(JSON.stringify(candidate));
+ const old=storage.getItem(K);
+ if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample)storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
+ return persistPortfolio(storage,candidate);
+}
+export function readReplacement(storage){const raw=storage.getItem(REPLACEMENT_KEY);return raw===null?null:decodePortfolio(raw)}
