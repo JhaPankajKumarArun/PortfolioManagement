@@ -1,3 +1,4 @@
+import {resolvePrice} from './valuation.mjs';
 import {fifoLedger} from './ledger.mjs';
 function xirr(f){
  if(!Array.isArray(f)||f.length<2||f.some(x=>!Number.isFinite(Date.parse(x[0]))||!Number.isFinite(x[1])))return null;
@@ -13,7 +14,7 @@ function xirr(f){
  return Math.expm1((lo+hi)/2)*100;
 }
 function calculatePortfolio(S,asOf){
-const all=fifoLedger(S.tx,asOf).map(h=>{h.L=h.lots;h.price=S.px[h.name]>0?S.px[h.name]:h.last;h.value=Math.max(h.units,0)*h.price;h.pl=h.value-h.cost;h.plp=h.cost>0?h.pl/h.cost*100:null;h.xirr=xirr(h.flows.concat([[asOf,h.value]]));return h});
+const all=fifoLedger(S.tx,asOf).map(h=>{h.L=h.lots;const trades=S.tx.filter(t=>t.name===h.name&&t.type===h.type).map(t=>[t.date,t.price]);h.valuation=resolvePrice(asOf,[{rows:trades,source:'transaction',estimated:true},{rows:[[S.pxd?.[h.name],S.px?.[h.name]]],source:'cached market'}]);if(!S.pxd?.[h.name]&&S.px?.[h.name]>0&&asOf===new Date().toISOString().slice(0,10))h.valuation={price:S.px[h.name],date:null,source:'undated cache',estimated:true,age:null,status:'estimated'};h.price=h.valuation.price??h.last;h.value=Math.max(h.units,0)*h.price;h.pl=h.value-h.cost;h.plp=h.cost>0?h.pl/h.cost*100:null;h.xirr=xirr(h.flows.concat([[asOf,h.value]]));return h});
 const open=all.filter(h=>h.units>1e-4),tv=open.reduce((s,h)=>s+h.value,0),tc=open.reduce((s,h)=>s+h.cost,0);
 return{open,tv,tc,pl:tv-tc,plp:tc>0?(tv-tc)/tc*100:null,xirr:xirr(all.flatMap(h=>h.flows).concat([[asOf,tv]]))}}
 
