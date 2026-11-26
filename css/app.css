@@ -265,3 +265,9 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 .holdings-actions #hoSelectBar:has(#hoAnalyze) .ho-selected-count{grid-column:auto;padding:2px;font-size:12px;line-height:1.2}
 .holdings-actions #hoAnalyze:disabled{background:var(--tint);color:var(--mut)}
 @media(max-width:350px){.holdings-actions #hoSelectBar:has(#hoAnalyze){grid-template-columns:repeat(3,minmax(0,1fr))}.holdings-actions #hoSelectBar:has(#hoAnalyze) .ho-selected-count{grid-column:1/-1}}
+
+/* v99: pill-shaped contextual action chips. */
+.holdings-actions.chips{background:transparent;border:0;border-radius:0;padding:2px 0;gap:6px}
+.holdings-actions>button,.holdings-actions #hoSelectBar button{border-radius:999px;padding:6px 8px;min-height:44px;background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:600}
+.holdings-actions #hoAnalyze{background:var(--hero1);border-color:var(--hero1);color:white}
+.holdings-actions #hoAnalyze:disabled{background:var(--tint);border-color:var(--line);color:var(--mut)}
