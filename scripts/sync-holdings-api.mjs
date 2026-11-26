@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises';
 import {parseAmfiRegistry} from './amfi-registry.mjs';
 import {validateDisclosure} from '../js/engines/overlap.mjs';
-const get=async url=>{const r=await fetch(url,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15000)});if(!r.ok){const body=(await r.text()).slice(0,500);let detail;try{detail=JSON.parse(body).error}catch{detail=body.includes('DEPLOYMENT_NOT_FOUND')?'DEPLOYMENT_NOT_FOUND':body.includes('NOT_FOUND')?'NOT_FOUND':'Non-JSON response'};throw Error('HTTP '+r.status+' '+String(detail||'Unknown error').slice(0,120));}return r};
-const registry=parseAmfiRegistry(await (await get('https://portal.amfiindia.com/spages/NAVAll.txt')).text());
+const get=async (url,accept='application/json')=>{console.log('Fetching',url);const r=await fetch(url,{headers:{Accept:accept},signal:AbortSignal.timeout(15000)});if(!r.ok){const body=(await r.text()).slice(0,500);let detail;try{detail=JSON.parse(body).error}catch{detail=body.includes('DEPLOYMENT_NOT_FOUND')?'DEPLOYMENT_NOT_FOUND':body.includes('NOT_FOUND')?'NOT_FOUND':'Non-JSON response'};throw Error('HTTP '+r.status+' '+String(detail||'Unknown error').slice(0,120));}return r};
+const registry=parseAmfiRegistry(await (await get('https://portal.amfiindia.com/spages/NAVAll.txt','*/*')).text());
 if(registry.schemes.length<1000)throw Error('Incomplete AMFI registry');
 const base='https://api.charliealpha.in/v1/mf/';
 const coverage=await (await get(base+'holdings-periods')).json();
