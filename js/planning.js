@@ -57,7 +57,7 @@ return `<div id='swr'>${swpRes(C)}</div><h2>Where the numbers come from</h2><lab
 const dnum=s=>Date.parse(s+'T00:00:00Z')/864e5,MSL=[[1e5,'₹1 L'],[5e5,'₹5 L'],[1e6,'₹10 L'],[2.5e6,'₹25 L'],[5e6,'₹50 L'],[1e7,'₹1 Cr']],mEnd=(y,m)=>new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10);
 let tm={d:'',rate:7},tmc={k:'',ser:null,pts:null,first:''};
 function pxSeries(C){const m=Object.create(null);S.tx.forEach(t=>{if(t.date<=today()&&t.price>0)(m[t.name]=m[t.name]||[]).push([t.date,t.price])});C.open.forEach(h=>{const d=S.pxd?.[h.name],p=S.px?.[h.name];if(d&&d<=today()&&p>0)(m[h.name]=m[h.name]||[]).push([d,p])});Object.values(m).forEach(a=>a.sort((x,y)=>x[0].localeCompare(y[0])));return m}
-function pxAt(ser,n,d){let best=null;for(const rows of [ser[n],PWH?.[n],NH[n]?.d]){for(const r of rows||[]){if(r[0]<=d&&Number.isFinite(r[1])&&r[1]>0&&(!best||r[0]>=best[0]))best=r}}return best?best[1]:null}
+function pxAt(ser,n,d){return resolvePrice(d,[{rows:ser[n],source:'transaction or dated cache',estimated:true},{rows:PWH?.[n],source:'stock history'},{rows:NH?.[n]?.d,source:'NAV history'}]).price}
 function snapAt(d,ser,wx){const hs=fifoLedger(S.tx,d).map(h=>({...h,u:h.units,fl:h.flows,L:h.lots})),fl=hs.flatMap(h=>h.fl);
 const rows=hs.filter(h=>h.u>1e-4).map(h=>{h.price=pxAt(ser,h.name,d);h.value=h.u*h.price;h.xirr=wx&&h.value>0?xirr(h.fl.concat([[d,h.value]])):null;return h}),val=rows.reduce((s,h)=>s+h.value,0),cost=rows.reduce((s,h)=>s+h.cost,0);
 return{rows,val,cost,xirr:fl.length&&val>0?xirr(fl.concat([[d,val]])):null}}
