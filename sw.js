@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v59-wealth-dashboard';
+const CACHE_NAME = 'my-portfolio-pwa-v60-valuation-index';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
