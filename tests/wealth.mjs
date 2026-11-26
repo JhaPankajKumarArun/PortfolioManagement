@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {wealthSummary} from '../js/engines/wealth.mjs';
+const p={property:5000000,cash:600000,otherAssets:100000,loans:2000000,income:100000,expenses:30000,emi:20000,emergency:300000};
+const r=wealthSummary(1000000,p);
+assert.equal(r.netWorth,4700000);
+assert.equal(r.surplus,50000);
+assert.equal(r.emergencyMonths,6);
+assert.equal(r.emiRatio,20);
+assert.equal(r.emergencyGap,0);
+assert.equal(wealthSummary(0,{...p,emergency:700000}),null);
+assert.equal(wealthSummary(0,{...p,income:0}).emiRatio,null);
