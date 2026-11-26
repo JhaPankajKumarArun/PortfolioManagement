@@ -37,7 +37,7 @@ async function indiaImport(kind,name,file){try{const owner=S,rows=indiaCSV(await
 async function pwSyncStocks(force=false){PW_LAST=Date.now();if(force){PWSTATUS='Import exchange historical CSV for each stock below. Automatic exchange refresh is unavailable in this browser-only version.';render()}}
 async function indiaLatest(){return amfiProvider.indiaLatest(pd)}
 async function pwHydrate(){const a=await pwAll('stock');for(const x of a){const n=x.id.slice(6);if(x.data&&x.data.rows&&x.data.rows.length){PWH[n]=x.data.rows}}}
-async function pwCacheNav(){for(const [n,h] of Object.entries(NH||{})){if(h&&h.d&&h.d.length)try{await pwPut('nav:'+n,'nav',h,'MFAPI.in')}catch(e){}}}
+async function pwCacheNav(){if(PWBUSY)return;PWBUSY=true;try{for(const n of Object.keys(NH||{})){const h=NH[n];if(h&&h.d&&h.d.length)try{await pwPut('nav:'+n,'nav',h,'MFAPI.in')}catch(e){recordError('cache')}}}finally{PWBUSY=false}}
 function pwAuto(){if(document.visibilityState==='hidden'||Date.now()-PW_LAST<6*60*60*1000)return;pwSyncStocks(false);pwCacheNav()}
 
 
