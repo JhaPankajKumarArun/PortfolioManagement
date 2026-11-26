@@ -48,7 +48,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           if [ -s data/disclosures.json ]; then git add data/disclosures.json; fi
-          if [ -s data/disclosure-diagnostics.json ]; then git add data/disclosure-diagnostics.json; fi
+          if [ -s data/disclosure-cursor.json data/disclosure-diagnostics.json ]; then git add data/disclosure-diagnostics.json; fi
           if [ -s data/amc-sources.json ]; then git add data/amc-sources.json; fi
           if [ -s data/scheme-identities.json ]; then git add data/scheme-identities.json; fi
           if [ -s data/amfi-registry.json ]; then git add data/amfi-registry.json; fi
