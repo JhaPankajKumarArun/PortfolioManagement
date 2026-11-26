@@ -20,8 +20,9 @@ async function aerieDisclosures(names,fetcher=fetch){
 export async function publicDisclosures(names,fetcher=fetch){
  let rows=[],failures=0;
  try{const d=await readCatalog('./data/disclosures.json',fetcher);if(!Array.isArray(d.rows))throw Error('Invalid catalog');
- for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.sort((a,b)=>b.date.localeCompare(a.date))[0];if(latest&&validateDisclosure({...latest,scheme:name},new Date().toISOString().slice(0,10)))rows.push({...latest,scheme:name})}
+ for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.filter(x=>validateDisclosure({...x,scheme:name},new Date().toISOString().slice(0,10))).sort((a,b)=>b.date.localeCompare(a.date)||Number(!b.code)-Number(!a.code))[0];if(latest&&validateDisclosure({...latest,scheme:name},new Date().toISOString().slice(0,10)))rows.push({...latest,scheme:name})}
  }catch{failures++}
+ if(rows.length===names.length&&rows.every(x=>Date.now()-Date.parse(x.date)<=45*864e5))return {rows,failures,missing:[]};
  try{const fallback=await aerieDisclosures(names,fetcher);failures+=fallback.failures;for(const d of fallback.rows){if(!validateDisclosure(d,new Date().toISOString().slice(0,10)))continue;if(!rows.some(x=>x.scheme===d.scheme&&x.date>=d.date)){rows=rows.filter(x=>x.scheme!==d.scheme);rows.push(d)}}}catch{failures++}
  return {rows,failures,missing:names.filter(n=>!rows.some(r=>r.scheme===n))};
 }
