@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {validateDisclosure,overlapAnalysis} from '../js/engines/overlap.mjs';
-const date='2026-10-31',source='fixture',h={isin:'INE000A01010',name:'Example',weight:20},a={scheme:'A',date,source,holdings:[h]},b={scheme:'B',date,source,holdings:[{...h,weight:10}]};
+const date='2026-10-31',source='fixture',h={isin:'INE040A01034',name:'Example',weight:20},a={scheme:'A',date,source,holdings:[h]},b={scheme:'B',date,source,holdings:[{...h,weight:10}]};
 const positions=[{type:'mf',name:'A',value:100000},{type:'mf',name:'B',value:200000}];
 const p=overlapAnalysis(positions,[a,b],'2026-11-24');
 assert.equal(p.pairs[0].weight,10);
@@ -18,3 +18,5 @@ const selected=overlapAnalysis(positions.slice(0,1),[a,b],'2026-11-24');
 assert.equal(selected.pairs.length,0);
 assert.equal(selected.total,100000);
 assert.equal(selected.exposure[0].value,20000);
+
+for(const bad of [{isin:'TREP02112026',name:'TREPS',weight:2},{isin:'GSECREPO1125',name:'Reverse Repo',weight:1},{...h,isin:'INE040A01035'},{...h,name:'Reverse Repo'}])assert.equal(validateDisclosure({...a,holdings:[bad]},'2026-11-24'),false);
