@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v54-indexed-snapshots';
+const CACHE_NAME = 'my-portfolio-pwa-v55-safe-updates';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -57,58 +57,26 @@ const APP_SHELL = [
   './icon-512-maskable.png'
 ];
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(APP_SHELL))
-      .then(() => self.skipWaiting())
-  );
+const prefix='my-portfolio-pwa-';
+const scope=self.registration.scope;
+const shell=new Set(APP_SHELL.map(p=>new URL(p,scope).href));
+self.addEventListener('install',event=>{
+ event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(APP_SHELL.map(p=>new Request(new URL(p,scope),{cache:'reload'})))));
 });
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
+self.addEventListener('message',event=>{
+ if(event.data?.type==='ACTIVATE_UPDATE')event.waitUntil(self.skipWaiting());
+ if(event.data?.type==='GET_VERSION')event.ports[0]?.postMessage(CACHE_NAME);
 });
-
-self.addEventListener('fetch', (event) => {
-  const req = event.request;
-  if (req.method !== 'GET') return;
-
-  const url = new URL(req.url);
-
-  // Network-first for external NAV / mutual fund API calls so live prices stay fresh
-  if (url.origin !== self.location.origin) {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          if (res && res.status === 200) {
-            const copy = res.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => caches.match(req))
-    );
-    return;
-  }
-
-  // Cache-first with background revalidation for local app shell & assets
-  event.respondWith(
-    caches.match(req).then((cached) => {
-      const networkFetch = fetch(req)
-        .then((res) => {
-          if (res && res.status === 200) {
-            const copy = res.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => cached);
-
-      return cached || networkFetch;
-    })
-  );
+self.addEventListener('activate',event=>{
+ event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(prefix)&&k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));
+});
+self.addEventListener('fetch',event=>{
+ const req=event.request;if(req.method!=='GET')return;
+ const url=new URL(req.url);
+ if(shell.has(url.href)||(req.mode==='navigate'&&url.href.startsWith(scope))){
+  event.respondWith(caches.open(CACHE_NAME).then(async cache=>(await cache.match(req))||(req.mode==='navigate'?await cache.match(new URL('./index.html',scope).href):null)||fetch(req)));
+  return;
+ }
+ // Market data is independent of the versioned application shell.
+ event.respondWith((async()=>{const cache=await caches.open(CACHE_NAME);try{const res=await fetch(req);if(res.ok&&res.type!=='opaque'){try{await cache.put(req,res.clone())}catch{}}return res}catch(e){return (await cache.match(req))||Response.error()}})());
 });
