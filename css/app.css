@@ -252,3 +252,16 @@ main{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
 #holding-results .hc-compact .holding-compact-value{max-width:none;min-width:0}
 #holding-results .hc-compact.ho-selected .hct::after{position:absolute;bottom:8px;left:calc(60% - 24px);width:20px;height:20px}
 #holding-results .hc-compact.ho-selected .hct .pill{max-width:calc(100% - 26px)}
+
+/* v98: explicit selection column, independent of financial metrics. */
+.ho-check{display:none}
+#holding-results .hc.ho-selectable{position:relative;padding-left:40px}
+#holding-results .hc.ho-selectable .ho-check{display:grid;place-items:center;position:absolute;left:10px;top:50%;transform:translateY(-50%);width:22px;height:22px;border:2px solid var(--mut);border-radius:5px;background:var(--card);box-sizing:border-box}
+#holding-results .hc.ho-selected .ho-check{background:var(--hero1);border-color:var(--hero1);color:white}
+#holding-results .hc.ho-selected .ho-check::after{content:'✓';font-weight:700}
+#holding-results .hc.ho-selected .hct::after{display:none;content:none}
+#holding-results .hc-compact.ho-selected .hct .pill{max-width:none}
+.holdings-actions #hoSelectBar:has(#hoAnalyze){grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,1fr));align-items:center}
+.holdings-actions #hoSelectBar:has(#hoAnalyze) .ho-selected-count{grid-column:auto;padding:2px;font-size:12px;line-height:1.2}
+.holdings-actions #hoAnalyze:disabled{background:var(--tint);color:var(--mut)}
+@media(max-width:350px){.holdings-actions #hoSelectBar:has(#hoAnalyze){grid-template-columns:repeat(3,minmax(0,1fr))}.holdings-actions #hoSelectBar:has(#hoAnalyze) .ho-selected-count{grid-column:1/-1}}
