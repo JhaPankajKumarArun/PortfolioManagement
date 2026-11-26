@@ -48,3 +48,7 @@ assert.equal(riskHistPrice({}, {}, {A:{d:[['2025-01-31',100],['2025-02-01',999],
 const riskPoints=Array.from({length:13},(_,i)=>({d:new Date(Date.UTC(2025,i+1,0)).toISOString().slice(0,10),r:i?0.01:null,index:100*1.01**i}));
 const riskResult=calculateRiskStats({points:[...riskPoints,{d:'2026-02-10',r:-.1,index:riskPoints[12].index*.9}],missing:[]});
 assert.equal(riskResult.months,12);assert.equal(riskResult.roll.length,1);assert.equal(riskResult.negativeMonths,0);
+
+// Same display name in different asset types must not share transaction prices.
+const distinct=calculatePortfolio({tx:[{name:'Same',type:'mf',side:'buy',units:2,price:100,date:'2025-01-01'},{name:'Same',type:'stock',side:'buy',units:3,price:200,date:'2025-01-02'}]},'2025-01-03');
+near(distinct.tv,800);assert.equal(distinct.open.length,2);
