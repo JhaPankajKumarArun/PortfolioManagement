@@ -19,7 +19,7 @@ async function aerieDisclosures(names,fetcher=fetch){
 
 export async function publicDisclosures(names,fetcher=fetch){
  let rows=[],failures=0,diagnostics=null;
- try{const p=await charlieCatalog(names,fetcher);rows=p.rows;failures+=p.failures;diagnostics=p.diagnostics;}catch(e){failures++;console.warn('Charlie catalog',e.message)}
+ try{const p=await directCharlie(names,fetcher);rows=p.rows;failures+=p.failures;diagnostics=p.diagnostics;}catch(e){failures++;console.warn('Charlie catalog',e.message)}
  try{const d=await readCatalog('./data/disclosures.json',fetcher);if(!Array.isArray(d.rows))throw Error('Invalid catalog');
  for(const name of names){const exact=d.rows.filter(x=>x.scheme===name);const candidates=exact.length?exact:d.rows.filter(x=>normalize(x.scheme)===normalize(name));const latest=candidates.filter(x=>validateDisclosure({...x,scheme:name},new Date().toISOString().slice(0,10))).sort((a,b)=>b.date.localeCompare(a.date)||Number(!b.code)-Number(!a.code))[0];if(latest&&validateDisclosure({...latest,scheme:name},new Date().toISOString().slice(0,10))){if(!rows.some(x=>x.scheme===name&&x.date>=latest.date)){rows=rows.filter(x=>x.scheme!==name);rows.push({...latest,scheme:name})}}}
  }catch{failures++}
@@ -91,5 +91,35 @@ async function syncCharlie(fetcher){
  }
  diagnostics.cursor=cursor;diagnostics.cached=records.size;await cacheOp(db,'readwrite','state',{order:3,diagnostics,records:[...records.values()],cursor,period:coverage.latest_as_of,last:Date.now()});
  return {records:[...records.values()],failures,diagnostics};
+ }finally{db.close()}
+}
+
+async function directCharlie(names,fetcher){
+ const registry=await readCatalog('./data/amfi-registry.json',fetcher);
+ if(!Array.isArray(registry.schemes))throw Error('Invalid AMFI registry');
+ const db=await openCharlieCache(),rows=[],diagnostics={accepted:0,errors:{},unmatched:[]};let failures=0;
+ try{
+ const state=await cacheOp(db,'readonly','state')||{records:[]};
+ const records=new Map(state.records.map(x=>[x.code,x]));
+ const today=new Date().toISOString().slice(0,10);
+ for(const name of [...new Set(names)]){
+ const exact=registry.schemes.filter(s=>s.name.trim().toLowerCase()===name.trim().toLowerCase());
+ const matches=exact.length?exact:registry.schemes.filter(s=>normalize(s.name)===normalize(name));
+ // Prefer direct growth when explicitly requested; never guess between different normalized schemes.
+ const preferred=matches.filter(s=>/direct/i.test(s.name)&&/growth/i.test(s.name));
+ const candidates=preferred.length?preferred:matches;
+ const cached=[...records.values()].filter(x=>normalize(x.providerScheme||x.scheme)===normalize(name)&&validateDisclosure(x,today)).sort((a,b)=>b.date.localeCompare(a.date));
+ let found=cached[0];
+ if(!found||Date.now()-Date.parse(found.date)>35*864e5){
+ for(const s of candidates.slice(0,3)){
+ try{const raw=await readCatalog(charlieBase+'holdings/'+s.code,fetcher);const d=normalizeCharlie(raw,s.code,s.name,today);if(!d)throw Error('Invalid disclosure');if(!found||d.date>=found.date)found=d;records.set(d.code,d);break}
+ catch(e){failures++;diagnostics.errors[e.message]=(diagnostics.errors[e.message]||0)+1;if(/HTTP (403|429)/.test(e.message))break}
+ finally{await new Promise(r=>setTimeout(r,350))}
+ }
+ }
+ if(found){rows.push({...found,scheme:name});diagnostics.accepted++}else diagnostics.unmatched.push(name);
+ }
+ await cacheOp(db,'readwrite','state',{...state,records:[...records.values()]});
+ return {rows,failures,diagnostics};
  }finally{db.close()}
 }
