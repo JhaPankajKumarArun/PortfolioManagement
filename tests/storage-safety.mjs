@@ -17,3 +17,10 @@ fail=DAMAGED_KEY;assert.throws(()=>restoreDamagedPortfolio(storage,second),/Quot
 fail=K;assert.throws(()=>restoreDamagedPortfolio(storage,second),/Quota/);assert.equal(m.get(K),'corrupt');
 fail=null;restoreDamagedPortfolio(storage,second);assert.deepEqual(loadPortfolio(storage),second);assert.equal(m.get(DAMAGED_KEY),'corrupt');
 assert.throws(()=>restoreDamagedPortfolio(storage,first),/valid/);assert.deepEqual(loadPortfolio(storage),second);
+
+const {withLegacyGoals,LEGACY_GOALS_KEY}=await import('../js/core/storage.mjs');
+m.set(LEGACY_GOALS_KEY,JSON.stringify([{id:'home',name:'Home'}]));
+assert.deepEqual(withLegacyGoals(storage,first).goals,[{id:'home',name:'Home'}]);
+assert.deepEqual(withLegacyGoals(storage,{...first,goals:[]}).goals,[]);
+assert.throws(()=>withLegacyGoals(storage,{...first,goals:null}),/Invalid/);
+m.set(LEGACY_GOALS_KEY,'broken');assert.throws(()=>withLegacyGoals(storage,first));
