@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v121-mf-period-filter';
+const CACHE_NAME = 'my-portfolio-pwa-v122-compact-period-filter';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
