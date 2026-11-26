@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v98-selection-column';
+const CACHE_NAME = 'my-portfolio-pwa-v99-action-chips';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
