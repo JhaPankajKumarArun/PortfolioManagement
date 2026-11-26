@@ -1,3 +1,4 @@
+import {wealthView,installWealth} from './features/wealth-ui.mjs';
 import {createSnapshotMirror} from './core/indexed-storage.mjs';
 import {assetClassCard,allocationPlanner,installAllocation} from './features/allocation-ui.mjs';
 import {resolvePrice} from './engines/valuation.mjs';
@@ -33,6 +34,8 @@ mirror.sync();
 exposeLegacyState(appState,globalThis);
 Object.assign(globalThis,{assetClassCard,allocationPlanner});
 installAllocation({doc:document,getPortfolio:()=>globalThis.calc?globalThis.calc():calc(),getState:()=>appState.state.S,commit:c=>{storage.persistPortfolio(localStorage,c);appState.state.S=c},cr:format.cr,esc:format.esc});
+Object.assign(globalThis,{wealthView});
+installWealth({doc:document,getState:()=>appState.state.S,getPortfolio:()=>calc(),commit:c=>{storage.persistPortfolio(localStorage,c);appState.state.S=c},render:()=>render()});
 const scripts=["./services/cache.js","./core.js","./analytics.js","./planning.js","./controller.js","./ui/events.js","./tax-prices.js","./fund-analysis.js","./market-data.js","./performance.js","./app.js","./register-sw.js"];
 for(const path of scripts){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=new URL(path,import.meta.url).href;s.onload=resolve;s.onerror=()=>reject(new Error('Failed to load '+path));document.body.appendChild(s)})}
 
