@@ -13,3 +13,15 @@ export function persistPortfolio(storage,portfolio){
  storage.setItem(K,next);try{snapshotHook?.()}catch{}return true;
 }
 export function readRecovery(storage){const raw=storage.getItem(RECOVERY_KEY);return raw==null?null:decodePortfolio(raw)}
+
+// Explicit recovery only. Preserve the damaged primary before replacing it.
+export const DAMAGED_KEY=K+'-damaged';
+export function restoreDamagedPortfolio(storage,candidate){
+ const next=JSON.stringify(candidate);decodePortfolio(next);
+ const raw=storage.getItem(K);
+ if(raw===null)throw Error('No damaged primary to recover');
+ let damaged=false;try{decodePortfolio(raw)}catch{damaged=true}
+ if(!damaged)throw Error('Primary portfolio is valid; use normal restore');
+ storage.setItem(DAMAGED_KEY,raw);
+ storage.setItem(K,next);try{snapshotHook?.()}catch{}return true;
+}
