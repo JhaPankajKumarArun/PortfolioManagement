@@ -30,3 +30,11 @@ m.delete(LEGACY_GOALS_KEY);persistPortfolio(storage,second);fail=REPLACEMENT_KEY
 assert.throws(()=>persistReplacement(storage,{tx:[],px:{},sample:true}),/Quota/);assert.deepEqual(loadPortfolio(storage),second);
 fail=null;persistReplacement(storage,{tx:[],px:{},sample:true});assert.deepEqual(readReplacement(storage),second);
 persistReplacement(storage,{tx:[],px:{},goals:[]});assert.deepEqual(readReplacement(storage),second);
+
+{
+ const {storageFootprint,quotaSummary}=await import('../js/core/storage.mjs');
+ const fake={getItem:k=>k==='portfolio-v1'?'₹':null};
+ const rows=storageFootprint(fake);
+ if(rows[0].bytes!==3||rows[1].present)throw Error('Incorrect footprint');
+ if(!quotaSummary({usage:80,quota:100}).warning||quotaSummary({usage:79,quota:100}).warning||quotaSummary({usage:1,quota:0})!==null)throw Error('Incorrect quota classification');
+}
