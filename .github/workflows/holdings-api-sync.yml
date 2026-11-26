@@ -1,6 +1,9 @@
 name: Holdings API sync
 on:
   workflow_dispatch:
+  push:
+    branches: [refactor/modular-architecture]
+    paths: ['.github/workflows/holdings-api-sync.yml', 'scripts/sync-holdings-api.mjs']
 permissions:
   contents: write
 concurrency:
@@ -22,7 +25,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          for f in data/disclosures.json data/api-sync-state.json data/api-sync-report.json; do
+          for f in data/disclosures.json data/charlie-sync-state.json data/api-sync-report.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           git diff --cached --quiet || git commit -m 'Refresh public API holdings'
