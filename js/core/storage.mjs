@@ -42,3 +42,13 @@ export function persistReplacement(storage,candidate){
  return persistPortfolio(storage,candidate);
 }
 export function readReplacement(storage){const raw=storage.getItem(REPLACEMENT_KEY);return raw===null?null:decodePortfolio(raw)}
+
+export function storageFootprint(storage){
+ const keys=[K,RECOVERY_KEY,DAMAGED_KEY,REPLACEMENT_KEY,LEGACY_GOALS_KEY];
+ return keys.map(key=>{const raw=storage.getItem(key);return {key,present:raw!==null,bytes:raw===null?0:new TextEncoder().encode(raw).length}});
+}
+export function quotaSummary(estimate){
+ const {usage,quota}=estimate||{};
+ if(!Number.isFinite(usage)||!Number.isFinite(quota)||usage<0||quota<=0)return null;
+ return {usage,quota,percent:100*usage/quota,remaining:Math.max(0,quota-usage),warning:usage/quota>=0.8};
+}
