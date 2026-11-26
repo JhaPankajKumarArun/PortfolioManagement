@@ -1,3 +1,4 @@
+import {showRecovery} from './features/recovery-ui.mjs';
 import {wealthView,installWealth} from './features/wealth-ui.mjs';
 import {createSnapshotMirror} from './core/indexed-storage.mjs';
 import {assetClassCard,allocationPlanner,installAllocation} from './features/allocation-ui.mjs';
@@ -39,4 +40,4 @@ installWealth({doc:document,getState:()=>appState.state.S,getPortfolio:()=>calc(
 const scripts=["./services/cache.js","./core.js","./analytics.js","./planning.js","./controller.js","./ui/events.js","./tax-prices.js","./fund-analysis.js","./market-data.js","./performance.js","./app.js","./register-sw.js"];
 for(const path of scripts){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=new URL(path,import.meta.url).href;s.onload=resolve;s.onerror=()=>reject(new Error('Failed to load '+path));document.body.appendChild(s)})}
 
-} catch(error){recordError('startup');showStartupFailure(document);}
+} catch(error){recordError('startup');showStartupFailure(document);try{showRecovery(document,localStorage,globalThis.indexedDB,()=>location.reload(),message=>confirm(message))}catch{}}
