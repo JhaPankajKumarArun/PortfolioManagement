@@ -1,3 +1,4 @@
+import {createSnapshotMirror} from './core/indexed-storage.mjs';
 import {assetClassCard,allocationPlanner,installAllocation} from './features/allocation-ui.mjs';
 import {resolvePrice} from './engines/valuation.mjs';
 import {fifoLedger} from './engines/ledger.mjs';
@@ -25,6 +26,10 @@ Object.assign(globalThis,{resolvePrice,fifoLedger,amfiProvider,marketProviders,f
 installErrorHandlers(globalThis);
 try {
 const appState=createState(localStorage);
+const mirror=createSnapshotMirror(localStorage,globalThis.indexedDB);
+storage.setSnapshotHook(()=>mirror.sync());
+globalThis.portfolioSnapshotStatus=mirror.status;
+mirror.sync();
 exposeLegacyState(appState,globalThis);
 Object.assign(globalThis,{assetClassCard,allocationPlanner});
 installAllocation({doc:document,getPortfolio:()=>globalThis.calc?globalThis.calc():calc(),getState:()=>appState.state.S,commit:c=>{storage.persistPortfolio(localStorage,c);appState.state.S=c},cr:format.cr,esc:format.esc});
