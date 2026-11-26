@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from disclosure_parser import tables, parse_equity, value
 
 PAGE="https://amc.ppfas.com/downloads/portfolio-disclosure/"
+# Discover scheme names from the official workbook rather than a user portfolio.
 def get(url):
     r=requests.get(url,timeout=40)
     r.raise_for_status()
@@ -29,19 +30,25 @@ def main():
     now=dt.date.today()
     end=now.replace(day=1)-dt.timedelta(days=1)
     soup=BeautifulSoup(get(PAGE).text,"html.parser")
-    schemes={"PPFCF":"Parag Parikh Flexi Cap Fund","PPLCF":"Parag Parikh Large Cap Fund","PPCHF":"Parag Parikh Conservative Hybrid Fund","PPDAAF":"Parag Parikh Dynamic Asset Allocation Fund","PPAF":"Parag Parikh Arbitrage Fund","PPLF":"Parag Parikh Liquid Fund","PPTSF":"Parag Parikh ELSS Tax Saver Fund"}
     found=[]
-    for key,scheme in schemes.items():
-        links=set()
-        for a in soup.select("a[href]"):
-            url=urljoin(PAGE,a["href"])
-            if urlparse(url).hostname!="amc.ppfas.com": continue
-            if re.search(r"/"+key+r"_",url,re.I) and end.strftime("%B").lower() in url.lower() and str(end.year) in url and url.lower().endswith(".xlsx"): links.add(url)
-        if len(links)!=1:
-            print(scheme,"ambiguous or missing monthly file",len(links)); continue
-        url=links.pop()
-        try: found.append(parse(get(url).content,scheme,end.isoformat(),url))
-        except Exception as e: print(scheme,str(e))
+    links=set()
+    for a in soup.select("a[href]"):
+        url=urljoin(PAGE,a["href"])
+        if urlparse(url).scheme!="https" or urlparse(url).hostname!="amc.ppfas.com": continue
+        if end.strftime("%B").lower() in url.lower() and str(end.year) in url and url.lower().endswith(".xlsx"): links.add(url)
+    for url in sorted(links):
+        try:
+            data=get(url).content
+            names=set()
+            for title,rows in tables(data,urlparse(url).path):
+                for row in rows[:15]:
+                    for cell in row:
+                        v=value(cell)
+                        if isinstance(v,str) and re.fullmatch(r"Parag Parikh [A-Za-z0-9 &()/-]+ Fund",v.strip(),re.I):
+                            names.add(v.strip())
+            if len(names)!=1: raise ValueError("Missing or ambiguous scheme title")
+            found.append(parse(data,names.pop(),end.isoformat(),url))
+        except Exception as e: print(url,str(e))
     if not found: raise RuntimeError("No verified official records")
     path=pathlib.Path("data/disclosures.json")
     old=json.loads(path.read_text()) if path.exists() else {"rows":[]}
