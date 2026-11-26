@@ -32,7 +32,7 @@ let overlapBusy=false,overlapAttempt=0,overlapMessage='';
 async function refreshOverlap(force=false){
  if(!document.getElementById('overlapOutput')&&!document.getElementById('holdingOverlap'))return;
  await showOverlap();
- const status=()=>{for(const id of ['overlapSyncStatus','hoSync']){const e=document.getElementById(id);if(e)e.textContent=overlapMessage}};
+ const status=()=>{for(const id of ['overlapSyncStatus','hoSync','charlieSyncStatus']){const e=document.getElementById(id);if(e)e.textContent=overlapMessage}};
  status();if(overlapBusy)return;
  if(!force&&(Date.now()-overlapAttempt<3600000||Date.now()-Number(localStorage.getItem('overlap-refresh-at')||0)<86400000))return;
  overlapBusy=true;overlapAttempt=Date.now();overlapMessage='Refreshing public holdings catalog…';status();
@@ -44,12 +44,12 @@ async function refreshOverlap(force=false){
  const p=await publicDisclosures(names);
  let rows=JSON.parse(localStorage.getItem(overlapKey)||'[]'),count=0;
  for(const d of p.rows){if(!validateDisclosure(d,today())||!calc().open.some(h=>h.type==='mf'&&h.name===d.scheme)||rows.some(x=>x.scheme===d.scheme&&x.date>d.date))continue;rows=rows.filter(x=>x.scheme!==d.scheme).concat(d);count++}
- localStorage.setItem(overlapKey,JSON.stringify(rows));if(!p.failures&&count===names.length)localStorage.setItem('overlap-refresh-at',String(Date.now()));
+ localStorage.setItem(overlapKey,JSON.stringify(rows));if(!p.failures&&count===names.length&&names.every(n=>rows.some(x=>x.scheme===n&&Date.now()-Date.parse(x.date)<=45*864e5)))localStorage.setItem('overlap-refresh-at',String(Date.now()));
  const coverage=overlapAnalysis(calc().open.filter(h=>h.type==='mf'),rows,today());overlapMessage='Accepted '+count+' of '+names.length+' funds; '+p.failures+' catalog requests failed. '+coverage.missing.length+' funds still missing or stale. '+(p.missing?.length?'No valid catalog match: '+p.missing.join(' · ')+'. ':'')+'Saved disclosures retained.';
  }catch(e){overlapMessage='Public holdings refresh unavailable; saved disclosures retained. '+e.message}
  finally{overlapBusy=false;status();await showOverlap();await updateHoldingOverlap()}
 }
-document.addEventListener('click',e=>{if(e.target.closest('#overlapRefresh'))refreshOverlap(true)});
+document.addEventListener('click',e=>{if(e.target.closest('#overlapRefresh,#charlieRefresh'))refreshOverlap(true)});
 document.addEventListener('click',async e=>{const b=e.target.closest('#charlieProbe');if(!b)return;b.disabled=true;const out=document.getElementById('charlieProbeStatus');try{out.textContent='Testing browser connectivity…';const {probeCharlie}=await import('./services/providers/disclosures.mjs');const p=await probeCharlie();out.textContent=JSON.stringify(p,null,2)}catch(err){out.textContent=String(err.message)}finally{b.disabled=false}});
 function overlapCard(){return `<details class='card pad'><summary>Advanced mutual fund disclosure management</summary><p class='mut'>Import official AMC equity disclosures as normalized JSON. Weights are percentages of entire scheme NAV.</p><a href='https://www.amfiindia.com/' target='_blank' rel='noopener noreferrer'>AMFI disclosures</a><button type='button' class='btn' id='overlapRefresh'>Refresh public holdings</button><p id='overlapSyncStatus' role='status'></p><label>Manual disclosure JSON<input type='file' id='overlapFile' accept='.json,application/json'></label><div id='overlapOutput' role='status'></div><p class='mut'>For overlap analysis, open Holdings and long-press funds.</p></details>`}
 const overlapKey='portfolio-overlap-v1';
