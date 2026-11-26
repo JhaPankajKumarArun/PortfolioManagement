@@ -1,4 +1,13 @@
 export const K='portfolio-v1';
+export const RECOVERY_KEY=K+'-recovery';
 export const $=s=>document.querySelector(s);
-export function loadPortfolio(storage){try{const d=JSON.parse(storage.getItem(K));if(d&&Array.isArray(d.tx))return d}catch(e){}return {tx:[],px:{}}}
-export function persistPortfolio(storage,portfolio){try{storage.setItem(K,JSON.stringify(portfolio))}catch(e){}}
+export function decodePortfolio(raw){const d=JSON.parse(raw);if(!d||!Array.isArray(d.tx)||typeof d!=='object')throw Error('Invalid portfolio format');return d}
+export function loadPortfolio(storage){const raw=storage.getItem(K);if(raw==null)return {tx:[],px:{}};return decodePortfolio(raw)}
+export function persistPortfolio(storage,portfolio){
+ const next=JSON.stringify(portfolio);decodePortfolio(next);
+ const old=storage.getItem(K);
+ if(old===next)return true;
+ if(old!=null){decodePortfolio(old);storage.setItem(RECOVERY_KEY,old)}
+ storage.setItem(K,next);return true;
+}
+export function readRecovery(storage){const raw=storage.getItem(RECOVERY_KEY);return raw==null?null:decodePortfolio(raw)}
