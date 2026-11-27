@@ -7,13 +7,14 @@ export function auditTransactions(tx,asOf,actions=[]){
  tx.forEach((t,i)=>{
  const date=t?.date,parsed=typeof date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(date)?Date.parse(date):NaN;
  if(!t||typeof t.name!=='string'||!t.name.trim()||!['mf','stock'].includes(t.type)||!['buy','sell'].includes(t.side)||!Number.isFinite(t.units)||t.units<=0||!Number.isFinite(t.price)||t.price<=0||!Number.isFinite(t.fee??0)||(t.fee??0)<0||!Number.isFinite(parsed)||new Date(parsed).toISOString().slice(0,10)!==date){issues.push({code:'invalid-transaction',row:i+1});return}
- if(date>asOf)issues.push({code:'future-transaction',row:i+1});
- if(t.side==='sell'&&(t.fee??0)>t.units*t.price)issues.push({code:'fee-exceeds-proceeds',row:i+1});
+ if(date>asOf){issues.push({code:'future-transaction',row:i+1});return}
+ if(!Number.isFinite(t.units*t.price)||!Number.isFinite(t.units*t.price+(t.fee??0))){issues.push({code:'invalid-transaction',row:i+1});return}
+ if(t.side==='sell'&&(t.fee??0)>t.units*t.price){issues.push({code:'fee-exceeds-proceeds',row:i+1});return}
  valid.push({t,i});
  });
  for(const [i,a] of actions.entries()){if(a.date<=asOf)valid.push({t:{...a,side:'action'},i})}
  valid.sort((a,b)=>a.t.date.localeCompare(b.t.date)||(a.t.side==='action'?0:1)-(b.t.side==='action'?0:1)||a.i-b.i);
- for(const {t,i} of valid){const key=t.type+'\u0000'+t.name;const prior=balances.get(key)||0;if(t.side==='action'){if(prior<=0||!Number.isFinite(t.ratio)||t.ratio<=0||!['split','bonus'].includes(t.kind)){issues.push({code:'invalid-corporate-action',row:i+1});continue}balances.set(key,prior*(t.kind==='split'?t.ratio:1+t.ratio));continue}const u=prior+(t.side==='buy'?t.units:-t.units);if(u< -1e-6)issues.push({code:'oversold',row:i+1});balances.set(key,u)}
+ for(const {t,i} of valid){const key=t.type+'\u0000'+t.name;const prior=balances.get(key)||0;if(t.side==='action'){if(prior<=0||!Number.isFinite(t.ratio)||t.ratio<=0||!['split','bonus'].includes(t.kind)){issues.push({code:'invalid-corporate-action',row:i+1});continue}balances.set(key,prior*(t.kind==='split'?t.ratio:1+t.ratio));continue}const u=prior+(t.side==='buy'?t.units:-t.units);if(u< -1e-9){issues.push({code:'oversold',row:i+1});continue}balances.set(key,Math.max(0,u))}
  return issues;
 }
 export function blockingIssues(issues){return issues.filter(x=>x.code!=='future-transaction')}
@@ -22,6 +23,7 @@ export function integrityNotice(issues){return issues.length?'Data quality warni
  // Independent cash-flow reconciliation, using the same valuation date as Overview.
 export function reconcilePortfolio(S,C,asOf,comparisons={}){
  const issues=auditTransactions(S.tx,asOf,S.corporateActions??[]), rows=[], ledger=new Map();
+ if(C.ledgerValid===false)issues.push({code:'invalid-canonical-ledger'});
  if(blockingIssues(issues).length)return {ready:false,issues,rows};
  const events=[...S.tx,...(S.corporateActions??[]).map(a=>({...a,side:'action'}))].sort((a,b)=>a.date.localeCompare(b.date)||(a.side==='action'?0:1)-(b.side==='action'?0:1));
  for(const t of events){
@@ -37,7 +39,7 @@ export function reconcilePortfolio(S,C,asOf,comparisons={}){
  const near=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<=Math.max(.01,Math.abs(a)*1e-9);
  for(const h of ledger.values()){
   const p=holdings.get(JSON.stringify([h.type,h.name])),open=h.units>1e-9;
-  if(open&&(!p||Math.abs(p.units-h.units)>1e-6))issues.push({code:'unit-mismatch',name:h.name});
+  if(open&&(!p||Math.abs(p.units-h.units)>1e-9))issues.push({code:'unit-mismatch',name:h.name});
   if(!open&&p)issues.push({code:'unexpected-holding',name:h.name});
   if(open){
    if(!Number.isFinite(S.px?.[h.name])||S.px[h.name]<=0)issues.push({code:'missing-current-price',name:h.name});
