@@ -221,3 +221,10 @@ near(fractionalPerf.v0,50);near(fractionalPerf.v1,60);near(fractionalPerf.gain,1
 for(const [start,end] of [['2025-02-28','2025-01-31'],['2025-02-30','2025-03-01'],['invalid','2025-03-01']]){
  const bad=calculatePerformance(fractionalPerfArgs,start,end);assert.equal(bad.hist,true);assert.equal(bad.gain,null);assert.equal(bad.cf,null);
 }
+
+const dietzState={tx:[{name:'Dietz',type:'stock',side:'buy',date:'2025-01-01',units:10,price:100},{name:'Dietz',type:'stock',side:'buy',date:'2025-01-16',units:5,price:100,fee:10},{name:'Dietz',type:'stock',side:'sell',date:'2025-01-26',units:2,price:110,fee:5}]};
+const dietzArgs={S:dietzState,ser:{},PWH:{},pxAt:(_s,_n,d)=>d==='2025-01-01'?100:120,navCovers:()=>true,dnum};
+const mixedDietz=calculatePerformance(dietzArgs,'2025-01-01','2025-01-31');
+near(mixedDietz.v0,1000);near(mixedDietz.v1,1560);near(mixedDietz.cf,295);near(mixedDietz.gain,265);near(mixedDietz.pct,265/(1000+510*15/30-215*5/30)*100);
+const tinyDietz=calculatePerformance({...dietzArgs,S:{tx:[{name:'Tiny',type:'mf',side:'buy',date:'2025-01-01',units:0.005,price:100}]}},'2025-01-01','2025-01-31');
+near(tinyDietz.v0,.5);near(tinyDietz.v1,.6);near(tinyDietz.pct,20);near(tinyDietz.vpct,20);
