@@ -1,10 +1,10 @@
-const CACHE_NAME = 'my-portfolio-pwa-v145-overlap-explicit-detail-visibility';
+const CACHE_NAME = 'my-portfolio-pwa-v146-holdings-independent-summary';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
   './',
   './index.html',
-  './css/app.css?v=145',
+  './css/app.css?v=146',
   './js/engines/portfolio.mjs',
   './js/engines/ledger.mjs',
   './js/engines/valuation.mjs',

@@ -227,9 +227,9 @@ function holdingPeriodChange(history,end,price,units,period){
 function holdingChangeAmount(v){return (v<0?'−':v>0?'+':'')+'₹'+Math.abs(v).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}
 function holdingSummaryHero(C,L,tot,cost,gain){
  const all=flt==='all',label=all?'PORTFOLIO VALUE':flt==='mf'?'MUTUAL FUNDS':'STOCKS';
- const period=flt==='stock'?'1D':holdingPeriod;
- const targets=all&&period!=='1D'?L.filter(h=>h.type==='mf'):L;
- const scope=all&&period!=='1D'?'MF ':'';
+ const period='1D';
+ const targets=L;
+ const scope='';
  let daily;
  if(all&&period==='1D'){const r=perfGet(C,'1D');daily=r&&!r.hist&&Number.isFinite(r.gain)?`<span class='day-change-label'>1D market change${r.est?' (est.)':''}</span><strong class='day-change-${r.gain>0?'up':r.gain<0?'down':'flat'}'>${r.gain>0?'▲ ':r.gain<0?'▼ ':''}${holdingChangeAmount(r.gain)}${Number.isFinite(r.pct)?' ('+r.pct.toFixed(2)+'%)':''}</strong>`:'<span>1D · History unavailable</span>';}
  else{
