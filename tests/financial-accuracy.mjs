@@ -214,3 +214,10 @@ const coverage=splitCoverage(afterSale,{},adjustedRows,'2025-02-28');
 assert.equal(coverage.rows[0].open,true);assert.equal(coverage.required,2);
 assert.equal(JSON.stringify(riskSplitState),splitStateBefore);assert.equal(JSON.stringify(adjustedRows),splitRowsBefore);
 console.log('Corporate action price normalization fixtures passed');
+
+const fractionalPerfArgs={S:{tx:[{name:'Fractional',type:'mf',side:'buy',date:'2025-01-01',units:0.0000005,price:100000000}]},ser:{},PWH:{},pxAt:(_s,_n,d)=>d==='2025-01-31'?100000000:120000000,navCovers:()=>true,dnum};
+const fractionalPerf=calculatePerformance(fractionalPerfArgs,'2025-01-31','2025-02-28');
+near(fractionalPerf.v0,50);near(fractionalPerf.v1,60);near(fractionalPerf.gain,10);near(fractionalPerf.pct,20);
+for(const [start,end] of [['2025-02-28','2025-01-31'],['2025-02-30','2025-03-01'],['invalid','2025-03-01']]){
+ const bad=calculatePerformance(fractionalPerfArgs,start,end);assert.equal(bad.hist,true);assert.equal(bad.gain,null);assert.equal(bad.cf,null);
+}
