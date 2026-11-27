@@ -28,7 +28,10 @@ test('startup, navigation, backup and offline reload',async({page,context})=>{
  await page.unroute('**/*');
  await context.setOffline(true);
  try {
-  await page.reload({waitUntil:'domcontentloaded'});
+  // Navigate normally rather than using the browser's force-revalidation reload path.
+  // The server must remain unreachable throughout this offline launch.
+  await page.goto(base,{waitUntil:'domcontentloaded'});
+  await expect(page.locator('.overview-hero')).toBeVisible();
   await expect(page.locator('#app')).not.toBeEmpty();
   await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true);
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual([]);
