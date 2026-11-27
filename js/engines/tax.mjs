@@ -107,3 +107,14 @@ export function discoverTaxHarvest(S,{date,slab,quotes=[],maxAge=7,feeRate=0}){
    return applyHistoricalTaxBasis(l,matches[0]);
   });
  }
+
+ // Report evidence that no longer applies after ledger edits, without deleting it.
+ export function auditTaxBasisAdjustments(lots,adjustments=[]){
+  if(!Array.isArray(adjustments))return [];
+  return adjustments.map(a=>{
+   const matches=lots.filter(l=>taxLotKey(l)===a?.lotKey);
+   const duplicate=adjustments.filter(b=>b?.lotKey===a?.lotKey).length!==1;
+   const reason=duplicate?'duplicate evidence':matches.length===0?'unmatched sale lot':matches.length>1?'ambiguous sale lot':!a.source?.trim()||!Number.isFinite(applyHistoricalTaxBasis(matches[0],a).taxBasis)?'ineligible evidence':null;
+   return {lotKey:a?.lotKey,reason};
+  }).filter(a=>a.reason);
+ }
