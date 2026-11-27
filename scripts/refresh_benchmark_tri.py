@@ -2,7 +2,7 @@ import os, traceback, urllib.error, json, urllib.request, datetime as d, pathlib
 import http.cookiejar, re
 today=d.date.today()
 page="https://www.niftyindices.com/reports/historical-data"
-agent="PortfolioManagement TRI downloader/1.0"
+agent="PortfolioManagement TRI connectivity test/1.0"
 opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
 def warm_session():
     with opener.open(urllib.request.Request(page,headers={"User-Agent":agent,"Accept":"text/html"}),timeout=30) as response:
@@ -21,10 +21,12 @@ def fetch_endpoint(url,name,start,end):
         with opener.open(req,timeout=45) as response:
             print(f"HTTP {response.status}; content type {response.headers.get('Content-Type')}", flush=True)
             body=response.read()
-            if response.headers.get_content_type()!="application/json":
-                title=re.search(r"<title[^>]*>(.*?)</title>",body[:16384].decode("utf-8",errors="replace"),re.I|re.S)
-                raise RuntimeError(f"Expected JSON, received {response.headers.get_content_type()}; final URL {response.geturl()}; page title {title.group(1).strip() if title else 'unknown'}. Use permitted local retrieval if access is restricted.")
-            payload_response=json.loads(body)
+            if response.geturl()!=url:
+                raise RuntimeError("Unexpected redirect: "+response.geturl())
+            try:
+                payload_response=json.loads(body)
+            except (ValueError,UnicodeError) as exc:
+                raise RuntimeError("Response is not valid JSON; content type "+response.headers.get_content_type()) from exc
             raw=payload_response.get("d") if isinstance(payload_response,dict) else payload_response
     except urllib.error.HTTPError as exc:
         raise RuntimeError(f"{name}: HTTP {exc.code} {exc.reason}") from exc
@@ -36,7 +38,7 @@ def fetch_endpoint(url,name,start,end):
         value=float(row["TotalReturnsIndex"])
         if not start<=date<=end or not math.isfinite(value) or value<=0: raise ValueError("Invalid TRI")
         out[date.isoformat()]=value
-    if not out: raise ValueError("Empty TRI response")
+    if len(out)<2: raise ValueError("Insufficient TRI observations")
     return out
 def fetch(name,start,end):
     failures=[]
