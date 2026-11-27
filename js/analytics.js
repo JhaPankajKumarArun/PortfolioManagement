@@ -134,7 +134,7 @@ function insightsView(C){if(!C.open.length)return empty();
  ${insightView==='benchmark'?section('benchmark','02','Benchmark intelligence','Compare portfolio performance with market indices',`<div id="pbmw"><p class="mut">Loading benchmark comparison…</p></div>`+bmOverview(C)) : ''}
  ${insightView==='risk'?section('risk','03','Risk intelligence','Understand volatility, drawdowns and stress scenarios',`<details class="card pad insight-detail"><summary>Explore risk and stress analysis</summary>${portfolioRiskTile()}${stressRiskTile(C)}</details>`) : ''}
  ${insightView==='allocation'?section('allocation','04','Diversification','Review concentration and asset allocation',alloc(C)+`<details class="card pad insight-detail"><summary>Asset classes and rebalancing</summary>${assetClassCard()}${allocationPlanner(C)}</details><button class="btn ghost" data-t="list">Analyze mutual fund overlap in Holdings ›</button>`) : ''}
- ${insightView==='tax'?section('tax','05','Tax & redemption','Review estimated proceeds and lock-in periods',`<h2>If you redeemed today</h2><div class="card pad">${redeemRows(redeemSim())}</div>${elssCard()}`) : ''}
+ ${insightView==='tax'?section('tax','05','Tax & redemption','Review estimated proceeds and lock-in periods',`<h2>If you redeemed today</h2><div class="card pad">${redeemRows(redeemSim())}</div>${elssCard()}${harvestPanel()}`) : ''}
  <section class="insight-section"><h2>Worth a look</h2>${insights(C).map(([k,t])=>`<p class="ins ${k}">${t}</p>`).join('')}</section></div>`}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-insight-jump]');if(!b)return;insightView=b.dataset.insightJump;render();document.querySelector('[data-insight-jump="'+insightView+'"]')?.focus({preventScroll:true});});
 let holdingPeriod='1D';
@@ -290,3 +290,21 @@ function overlapViews(funds,p,pair){
  const comparisons=funds.filter(h=>h.name!==overlapFocus).map(h=>({h,x:pair(overlapFocus,h.name)})).sort((a,b)=>(b.x?.weight??-1)-(a.x?.weight??-1));const best=comparisons[0];
  return `<div class='ho-view-tabs'>${[['pairs','Pairs'],['fund','By fund'],['matrix','Matrix']].map(([k,l])=>`<button type='button' data-ho-view='${k}' aria-pressed='${overlapView===k}' class='${overlapView===k?'on':''}'>${l}</button>`).join('')}</div>`+(overlapView==='matrix'?'':overlapView==='fund'?`<div class='ho-focus-chips'>${funds.map((h,i)=>`<button type='button' data-ho-focus='${i}' title='${esc(h.name)}' aria-label='${esc(h.name)}' aria-pressed='${h.name===overlapFocus}' class='${h.name===overlapFocus?'on':''}'>F${i+1}</button>`).join('')}</div><div class='ho-best'><small>${esc(overlapFocus)} overlaps most with</small><strong>${best?.x?code(best.h.name)+' · '+best.x.weight.toFixed(1)+'%':'N/A'}</strong>${best?.x?`<small>${esc(best.h.name)}</small>`:''}</div><div class='ho-compare-list'>${comparisons.map(({h,x})=>row(code(h.name),x,h.name)).join('')}</div><p class='mut'>Tap a bar for common holdings. Bars use a 0–100% scale.</p>`:`<div class='ho-compare-list'>${[...p.pairs].sort((a,b)=>b.weight-a.weight).map(x=>row(code(x.a)+' ↔ '+code(x.b),x,x.a+' and '+x.b)).join('')||'<p>No comparable pairs.</p>'}</div><p class='mut'>Comparable pairs only, highest overlap first. See fund key for names.</p>`);
 }
+
+function harvestPanel(){
+ return `<h2>Tax harvesting opportunities</h2><div class="card pad"><p class="mut">Independent redemption scenarios, not sell recommendations. Uses dated local quotes only.</p><label>Marginal tax rate (%) <input id="harvestSlab" type="number" min="0" max="100" step="0.1" placeholder="Enter rate"></label><label>Estimated redemption charges (%) <input id="harvestFee" type="number" min="0" max="100" step="0.01" placeholder="Enter charges"></label><button type="button" class="btn" data-harvest-scan>Find opportunities</button><div id="harvestResults" role="status" aria-live="polite"></div></div>`;
+}
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('[data-harvest-scan]');if(!b)return;
+ const out=document.getElementById('harvestResults'),slab=document.getElementById('harvestSlab'),fee=document.getElementById('harvestFee');
+ if(!out||!slab||!fee)return;
+ if(!slab.value.trim()||!fee.value.trim()||!slab.checkValidity()||!fee.checkValidity()){out.textContent='Enter valid tax rate and redemption charges.';return}
+ b.disabled=true;out.textContent='Calculating…';
+ try{
+ const {discoverTaxHarvest}=await import('./engines/tax.mjs');
+ const holdings=calc().open,quotes=holdings.filter(h=>new Set(S.tx.filter(t=>t.name===h.name).map(t=>t.type)).size===1).map(h=>({name:h.name,type:h.type,price:S.px?.[h.name],date:S.pxd?.[h.name]}));
+ const rows=discoverTaxHarvest(S,{date:today(),slab:Number(slab.value),feeRate:Number(fee.value)/100,quotes});
+ if(!out.isConnected)return;
+ out.innerHTML=rows.length?rows.map(r=>`<details class="card pad"><summary>${esc(r.name)} · ${cr(r.netTaxBenefit)} estimated benefit</summary><div class="ur"><span>Redemption units</span><b>${r.units.toLocaleString('en-IN',{maximumFractionDigits:8})}</b></div><div class="ur"><span>Quote date</span><b>${esc(r.quoteDate)}</b></div><div class="ur"><span>Tax before</span><b>${cr(r.before.tax)}</b></div><div class="ur"><span>Tax after</span><b>${cr(r.after.tax)}</b></div><div class="ur"><span>Net proceeds</span><b>${cr(r.netProceeds)}</b></div><p class="mut">Estimate only. Review tax eligibility, actual exit charges and repurchase costs. Do not add savings across scenarios.</p></details>`).join(''):'<p class="mut">No positive estimated opportunity using eligible recent cached prices. Missing prices or uncertain tax rules may limit results.</p>';
+ }catch(err){if(out.isConnected)out.textContent='Unable to calculate opportunities.'}finally{b.disabled=false}
+});
