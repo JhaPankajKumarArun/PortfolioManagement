@@ -7,7 +7,7 @@ if(/liquid|overnight|money market|ultra short|low duration|short duration|medium
 if(/gold|silver|commodit|fund of fund|fof|international|overseas|global|nasdaq|s&p 500/.test(x))return 'other';return 'equity'}
 const taxClass=(n,S)=>(S.cls&&S.cls[n])||taxAutoCls(n,S);
 function mk(n,c,b,s,u,cost,pro){const specified=c==='debt'&&b>='2023-04-01';const months=c==='equity'?12:c==='listedOther'&&s>='2024-07-23'?12:s>='2024-07-23'?24:36;const lt=!specified&&addM(b,months)<s;return{name:n,cls:c,buy:b,sell:s,units:u,cost,pro,gain:pro-cost,lt,review:(c==='equity'&&b<'2018-02-01')||(lt&&c!=='equity'&&s<'2024-07-23')||c==='other'||c==='debt',fy:fyOf(s),bucket:c==='equity'?(lt?'eqLT':'eqST'):(lt?'otLT':'slab')}}
-function calculateRealized(S){return fifoLedger(S.tx).flatMap(h=>h.sales.map(l=>mk(h.name,taxClass(h.name,S),l.buy,l.sell,l.units,l.cost,l.proceeds)))}
+function calculateRealized(S){return fifoLedger(S.tx).flatMap(h=>h.sales.map(l=>({...mk(h.name,taxClass(h.name,S),l.buy,l.sell,l.units,l.cost,l.proceeds),type:h.type})))}
 function calculateTaxFY(L,fy,slab){const rt={eqST:0,eqLT:0,slab:0,otLT:0},pos={eqST:[0,0],eqLT:[0,0],otLT:[0,0]};
 L.filter(g=>g.fy===fy).forEach(g=>{rt[g.bucket]+=g.gain;if(g.gain>0&&pos[g.bucket])pos[g.bucket][g.sell>='2024-07-23'?1:0]+=g.gain});
 const x={...rt},off=(f,t)=>{if(x[f]<0&&x[t]>0){const u=Math.min(-x[f],x[t]);x[f]+=u;x[t]-=u}};
