@@ -2,11 +2,11 @@ import {resolvePrice} from './valuation.mjs';
 const PA_RF=0.065;
 function paMonthEnd(s){const y=+s.slice(0,4),m=+s.slice(5,7)-1;return new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)}
 function riskHistPrice(S,PWH,NH,asOf,dnum,name,type,d){
- const p=resolvePrice(d,[{rows:type==='stock'?PWH?.[name]:NH?.[name]?.d,source:'history'},{rows:d===asOf?[[S.pxd?.[name],S.px?.[name]]]:[],source:'cached market'}]);
+ const p=resolvePrice(d,[{rows:type==='stock'?PWH?.[name]:NH?.[name]?.d,source:'history'},{rows:d===asOf&&new Set((S.tx||[]).filter(t=>t.name===name).map(t=>t.type)).size<=1?[[S.pxd?.[name],S.px?.[name]]]:[],source:'cached market'}]);
  return p.status==='market'?p.price:null;
 }
-function riskPortfolioAt(S,price,d){const pos=Object.create(null);S.tx.filter(t=>t.date<=d).forEach(t=>{const p=pos[t.name]||(pos[t.name]={u:0,type:t.type});p.u+=(t.side==='buy'?1:-1)*t.units});let value=0,missing=[];
- Object.entries(pos).forEach(([n,p])=>{if(p.u>1e-6){const q=price(n,p.type,d);if(q==null)missing.push(n);else value+=p.u*q}});
+function riskPortfolioAt(S,price,d){const pos=Object.create(null);S.tx.filter(t=>t.date<=d).forEach(t=>{const key=JSON.stringify([t.type,t.name]);const p=pos[key]||(pos[key]={u:0,type:t.type,name:t.name});p.u+=(t.side==='buy'?1:-1)*t.units});let value=0,missing=[];
+ Object.values(pos).forEach(p=>{if(p.u>1e-6){const q=price(p.name,p.type,d);if(!Number.isFinite(q)||q<=0)missing.push(p.name);else value+=p.u*q}});
  return{value,missing};
 }
 function calculateRiskSeries(S,end,dnum,price){const tx=S.tx.filter(t=>t.date<=end).sort((a,b)=>a.date.localeCompare(b.date));if(!tx.length)return{points:[],missing:[]};const first=tx[0].date,start=paMonthEnd(first),dates=[];let y=+start.slice(0,4),m=+start.slice(5,7)-1;
