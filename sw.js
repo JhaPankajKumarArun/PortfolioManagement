@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v125-holdings-width-fix';
+const CACHE_NAME = 'my-portfolio-pwa-v126-exposure-dashboard';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
