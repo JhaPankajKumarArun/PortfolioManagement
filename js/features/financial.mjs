@@ -7,7 +7,7 @@ import {calculateSips} from '../engines/sip.mjs';
 import {taxClass,calculateRealized,calculateTaxFY,calculateRemainingLots} from '../engines/tax.mjs';
 import {calculatePerformance} from '../engines/performance.mjs';
 export const portfolio=(state,asOf)=>calculatePortfolio(state,asOf);
-export const riskSeries=(state,end,dnum,stocks,nav,asOf)=>calculateRiskSeries(state,end,dnum,(n,t,d)=>riskHistPrice(state,stocks,nav,asOf,dnum,n,t,d));
+export const riskSeries=(state,end,dnum,stocks,nav,asOf,bases)=>calculateRiskSeries(state,end,dnum,(n,t,d)=>riskHistPrice(state,stocks,nav,asOf,dnum,n,t,d,bases));
 export const riskStats=calculateRiskStats;
 export const attribution=calculateAttribution;
 export const benchmark=calculateBenchmark;
