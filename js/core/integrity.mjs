@@ -23,16 +23,16 @@ export function reconcilePortfolio(S,C,asOf,comparisons={}){
  if(blockingIssues(issues).length)return {ready:false,issues,rows};
  for(const t of S.tx){
   if(t.date>asOf)continue;
-  const h=ledger.get(t.name)||{name:t.name,type:t.type,units:0,bought:0,sold:0};
+  const key=JSON.stringify([t.type,t.name]);const h=ledger.get(key)||{name:t.name,type:t.type,units:0,bought:0,sold:0};
   if(h.type!==t.type){issues.push({code:'asset-name-collision',name:t.name});continue}
   const gross=t.units*t.price,fee=t.fee||0;
   if(t.side==='buy'){h.units+=t.units;h.bought+=gross+fee}else{h.units-=t.units;h.sold+=gross-fee}
-  ledger.set(t.name,h);
+  ledger.set(key,h);
  }
- const holdings=new Map(C.open.map(h=>[h.name,h]));
+ const holdings=new Map(C.open.map(h=>[JSON.stringify([h.type,h.name]),h]));
  const near=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<=Math.max(.01,Math.abs(a)*1e-9);
  for(const h of ledger.values()){
-  const p=holdings.get(h.name),open=h.units>1e-4;
+  const p=holdings.get(JSON.stringify([h.type,h.name])),open=h.units>1e-9;
   if(open&&(!p||Math.abs(p.units-h.units)>1e-6))issues.push({code:'unit-mismatch',name:h.name});
   if(!open&&p)issues.push({code:'unexpected-holding',name:h.name});
   if(open){
@@ -44,7 +44,7 @@ export function reconcilePortfolio(S,C,asOf,comparisons={}){
   const value=p?.value??0,cost=p?.cost??0,realized=h.sold-(h.bought-cost),unrealized=value-cost;
   rows.push({...h,value,cost,realized,unrealized,totalGain:value+h.sold-h.bought});
  }
- for(const p of C.open)if(!ledger.has(p.name))issues.push({code:'unexpected-holding',name:p.name});
+ for(const p of C.open)if(!ledger.has(JSON.stringify([p.type,p.name])))issues.push({code:'unexpected-holding',name:p.name});
  const totals=rows.reduce((s,h)=>{for(const k of Object.keys(s))s[k]+=h[k];return s},{bought:0,sold:0,value:0,cost:0,realized:0,unrealized:0,totalGain:0});
  if(!near(totals.value,C.tv)||!near(totals.cost,C.tc)||!near(totals.unrealized,C.pl)||!near(totals.totalGain,totals.realized+totals.unrealized))issues.push({code:'portfolio-total-mismatch'});
  const checks=[];
