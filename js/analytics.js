@@ -74,7 +74,7 @@ function stressRiskTile(C){
  return `<h2>Portfolio stress testing</h2><div class='card pad'><div class='ur'><span>Largest holding</span><b>${esc(a.largest)} · ${a.largestWeight.toFixed(1)}%</b></div><div class='ur'><span>Top five weight</span><b>${a.top5.toFixed(1)}%</b></div><div class='ur'><span>Effective number of holdings</span><b>${a.effective.toFixed(1)}</b></div>${a.scenarios.map(x=>`<div class='ur'><span>${esc(x.label)}<small class='mut'> · remaining ${cr(x.remaining)}</small></span><b class='l'>−${cr(x.loss)}</b></div>`).join('')}<p class='mut note'>Hypothetical instantaneous shocks to recorded holding values, which may include stale or estimated prices. No probability, correlation, fund overlap, tax or recovery assumptions. Not a forecast.</p></div>`;
 }
 // Phase 2: cash-flow-adjusted portfolio risk analytics. All portfolio calculations run locally.
-function paBuild(){return financialFeatures.riskSeries(S,perfEnd(),dnum,PWH,NH,today())}
+function paBuild(){return financialFeatures.riskSeries(S,perfEnd(),dnum,PWH,NH,today(),stockPriceBasis)}
 function paStats(){return financialFeatures.riskStats(paBuild())}
 function portfolioRiskTile(){const a=paStats(),months=a.months;
  if(!a.ready)return `<h2>Portfolio risk & rolling returns</h2><div class='card pad'><p class='mut'>Not enough complete monthly history yet. At least 4 complete monthly return periods are needed to show preliminary risk statistics. Annualised metrics become more meaningful with 12 or more periods.</p>${a.missing.length?`<p class='mut'>Missing or stale history: ${a.missing.slice(0,5).map(esc).join(', ')}${a.missing.length>5?' and '+(a.missing.length-5)+' more':''}. Load NAV history and import stock history to build a reliable series.</p>`:''}</div>`;
