@@ -23,7 +23,7 @@ document.addEventListener('change',e=>{if(e.target.dataset.pf==='from'){pf.from=
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
 document.addEventListener('click',e=>{const el=e.target.closest('[data-pbm],[data-a=pbmrefresh]');if(!el)return;if(el.dataset.pbm){PBMSEL=el.dataset.pbm;PBMMSG='';render();pbmLoad(PBMSEL);pbmRows(PBMSEL).then(()=>portfolioBenchmarkTile()).then(h=>{const w=document.getElementById('pbmw');if(w)w.innerHTML=h})}else pbmLoad(PBMSEL,true)});
 async function updatePbmUi(){const w=document.getElementById('pbmw');if(w)w.innerHTML=await portfolioBenchmarkTile()}
-document.addEventListener('change',e=>{const t=e.target;if(t.files&&t.files[0]){if(t.dataset.indiaBm)indiaImport('benchmark',t.dataset.indiaBm,t.files[0]);else if(t.dataset.indiaStock)indiaImport('stock',t.dataset.indiaStock,t.files[0])}});
+document.addEventListener('change',e=>{const t=e.target;if(t.files&&t.files[0]){if(t.dataset.indiaBm)indiaImport('benchmark',t.dataset.indiaBm,t.files[0]);else if(t.dataset.indiaStock){const box=t.closest('label');indiaImport('stock',t.dataset.indiaStock,t.files[0],box?.querySelector('[data-stock-basis]')?.value,box?.querySelector('[data-stock-cutoff]')?.value);t.value=''}}});
 
 function overviewPerformance(C){const chartSeries=pxSeries(C);
  const periods=['1D','1W','1M','3M','1Y','All'],k=periods.includes(pf.sel)?pf.sel:'1M',r=perfGet(C,k),gain=pf.mode==='gain',valid=r&&!r.hist;
