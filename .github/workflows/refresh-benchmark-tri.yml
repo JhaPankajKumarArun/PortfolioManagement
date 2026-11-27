@@ -21,9 +21,9 @@ jobs:
           ref: refactor/modular-architecture
       - name: Retrieve and validate official series
         id: retrieve
-        run: python3 scripts/refresh_benchmark_tri.py
-        continue-on-error: true
+        run: python3 -u scripts/refresh_benchmark_tri.py
       - name: Publish validated public data
+        if: success() || failure()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -33,6 +33,3 @@ jobs:
             git pull --rebase origin refactor/modular-architecture
             git push origin HEAD:refactor/modular-architecture
           fi
-      - name: Report retrieval failures
-        if: steps.retrieve.outcome == 'failure'
-        run: exit 1
