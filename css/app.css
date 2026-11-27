@@ -309,3 +309,14 @@ html:has(#holdingOverlap[open]),body:has(#holdingOverlap[open]){overflow:hidden;
 #holding-results .mf-holding-row.ho-selectable .ho-check{position:static;transform:none;flex:0 0 22px;margin:0}
 #holding-results .mf-holding-row .mf-holding-head{min-width:0;flex-wrap:nowrap}
 #holding-results .mf-holding-row .mf-holding-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal;max-width:100%}
+
+/* Bound intrinsic grid sizing; keep all MF values inside the viewport. */
+#holding-results{grid-template-columns:minmax(0,1fr);min-width:0;width:100%;max-width:100%}
+#holding-results .hc{min-width:0;max-width:100%}
+#holding-results .mf-holding-row{width:100%;min-width:0;max-width:100%;padding:10px!important;text-align:left}
+#holding-results .mf-holding-head{width:100%;max-width:100%;min-width:0}
+#holding-results .mf-holding-head>div{flex:1 1 0%;min-width:0;width:0}
+#holding-results .mf-holding-name{width:100%;min-width:0}
+#holding-results .mf-holding-values{width:100%;min-width:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:8px}
+#holding-results .mf-holding-values strong{font-size:clamp(10px,3.1vw,13px);overflow-wrap:anywhere;white-space:normal}
+#holding-results .mf-holding-values small{font-size:clamp(9px,2.6vw,11px);white-space:normal}
