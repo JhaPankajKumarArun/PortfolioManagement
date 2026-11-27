@@ -51,3 +51,17 @@ export function applyHistoricalTaxBasis(lot,adjustment){
  if(!Number.isFinite(basis))return lot;
  return {...lot,taxBasis:basis,taxableGain:lot.pro-basis,taxBasisKind:adjustment.kind};
 }
+
+// Read-only hypothetical redemption. No transaction or storage mutation.
+export function simulateTaxHarvest(S,{name,type,date,units,price,fee=0,slab}){
+ if(!['mf','stock'].includes(type)||typeof name!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(Date.parse(date)).toISOString().slice(0,10)!==date||![units,price,fee,slab].every(Number.isFinite)||units<=0||price<=0||fee<0||fee>units*price||slab<0||slab>100)return {ready:false,reason:'Invalid redemption inputs'};
+ const tx=S.tx.filter(t=>t.date<=date);
+ const ledger=fifoLedger(tx);
+ if(ledger.some(h=>h.unmatched>1e-9))return {ready:false,reason:'Unmatched sales in ledger'};
+ const holding=ledger.find(h=>h.name===name&&h.type===type);
+ if(!holding||units>holding.units+1e-9)return {ready:false,reason:'Insufficient units'};
+ const fy=fyOf(date),before=calculateTaxFY(calculateRealized({...S,tx}),fy,slab);
+ const proposed={name,type,date,units,price,fee,side:'sell'};
+ const after=calculateTaxFY(calculateRealized({...S,tx:[...tx,proposed]}),fy,slab);
+ return {ready:true,estimateOnly:true,requiresReview:true,fy,before,after,netProceeds:units*price-fee,taxReduction:before.tax-after.tax,netTaxBenefit:before.tax-after.tax-fee,remainingEquityExemption:Math.max(0,after.lim-Math.max(0,after.net.eqLT))};
+}
