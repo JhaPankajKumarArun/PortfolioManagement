@@ -264,3 +264,24 @@ assert.equal(verifyProfile({...profile,fy:'2024-25',domesticEquity:35.01},'2025-
 assert.equal(verifyProfile({...profile,verified:false},'2025-04-01'),null);
 assert.equal(verifyProfile(profile,'2026-04-01'),null);
 assert.equal(verifyProfile({...profile,debtMoneyMarket:101},'2025-04-01'),null);
+
+import {calculateRealized as historicalRealized,taxLotKey as historicalKey,applyRecordedTaxBasis as historicalApply,calculateTaxFY as historicalTax} from '../js/engines/tax.mjs';
+const historicalState={tx:[{name:'Historical Equity',type:'stock',side:'buy',date:'2017-01-01',units:100,price:2000},{name:'Historical Equity',type:'stock',side:'sell',date:'2025-05-01',units:100,price:5000}]};
+const historicalBase=historicalRealized(historicalState);
+const historicalAdjustment={lotKey:historicalKey(historicalBase[0]),kind:'grandfathering',verified:true,source:'Synthetic FMV fixture',fairMarketValue:350000};
+const historicalAdjustedState={...historicalState,taxBasisAdjustments:[historicalAdjustment]};
+const historicalBefore=JSON.stringify(historicalAdjustedState);
+const historicalAdjusted=historicalRealized(historicalAdjustedState);
+assert.equal(historicalAdjusted[0].gain,300000);
+assert.equal(historicalAdjusted[0].taxableGain,150000);
+assert.equal(historicalTax(historicalAdjusted,'2025-26',30).tax,3250);
+assert.equal(historicalTax(historicalBase,'2025-26',30).tax,22750);
+assert.equal(historicalAdjusted.ledgerValid,true);
+assert.equal(JSON.stringify(historicalAdjustedState),historicalBefore);
+for(const adjustments of [[{...historicalAdjustment,verified:false}],[{...historicalAdjustment,source:''}],[historicalAdjustment,historicalAdjustment],[{...historicalAdjustment,lotKey:'wrong'}]])assert.equal(historicalApply(historicalBase,adjustments)[0].taxableGain,undefined);
+assert.ok(historicalApply([historicalBase[0],historicalBase[0]],[historicalAdjustment]).every(l=>l.taxableGain===undefined));
+const historicalDebt={tx:[{name:'Historical Debt Fund',type:'mf',side:'buy',date:'2019-01-01',units:100,price:1000},{name:'Historical Debt Fund',type:'mf',side:'sell',date:'2024-07-01',units:100,price:1600}]};
+const debtBase=historicalRealized(historicalDebt);
+const debtAdjusted=historicalRealized({...historicalDebt,taxBasisAdjustments:[{lotKey:historicalKey(debtBase[0]),kind:'indexation',verified:true,source:'Synthetic CII fixture',buyCII:200,sellCII:300}]});
+assert.equal(debtAdjusted[0].gain,60000);assert.equal(debtAdjusted[0].taxableGain,10000);
+assert.equal(historicalTax(debtAdjusted,'2024-25',30).tax,2080);
