@@ -27,3 +27,14 @@ return{rulesReview:revised.requiresReview||L.some(g=>g.fy===fy&&g.review)||Objec
 function calculateRemainingLots(n,S){return fifoLedger(S.tx).filter(h=>h.name===n).flatMap(h=>h.lots).filter(l=>l.u>1e-6)}
 
 export { addM, fyOf, srt, taxAutoCls, taxClass, mk, calculateRealized, calculateTaxFY, calculateRemainingLots };
+
+// Explicit per-lot tax basis helpers. Never mutate the accounting ledger.
+// Caller must establish statutory eligibility and supply verified historical inputs.
+export function grandfatheredEquityBasis(cost,proceeds,fairMarketValue){
+ if(![cost,proceeds,fairMarketValue].every(v=>Number.isFinite(v)&&v>=0))return null;
+ return Math.max(cost,Math.min(fairMarketValue,proceeds));
+}
+export function indexedAcquisitionBasis(cost,buyCII,sellCII){
+ if(!Number.isFinite(cost)||cost<0||!Number.isInteger(buyCII)||buyCII<=0||!Number.isInteger(sellCII)||sellCII<buyCII)return null;
+ return cost*sellCII/buyCII;
+}
