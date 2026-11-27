@@ -5,6 +5,9 @@ function xirr(f){
  const grouped=new Map();for(const [d,v] of f){const t=Date.parse(d);grouped.set(t,(grouped.get(t)||0)+v)}
  const flows=[...grouped].filter(x=>x[1]!==0).sort((a,b)=>a[0]-b[0]);
  if(flows.length<2||!flows.some(x=>x[1]<0)||!flows.some(x=>x[1]>0))return null;
+ // Non-conventional flows can have multiple roots; do not silently select one.
+ const signChanges=flows.slice(1).reduce((n,f,i)=>n+(Math.sign(f[1])!==Math.sign(flows[i][1])?1:0),0);
+ if(signChanges>1)return null;
  const t0=flows[0][0],scale=Math.max(...flows.map(x=>Math.abs(x[1])));
  const npv=z=>flows.reduce((s,[t,v])=>s+v/scale*Math.exp(-z*(t-t0)/31536000000),0);
  let lo=Math.log(0.000001),hi=Math.log(11),a=npv(lo),c=npv(hi);
@@ -19,9 +22,9 @@ for(const t of S.tx){const key=JSON.stringify([t.type,t.name]);if(!tradeIndex.ha
 // Legacy market caches are keyed by display name, not asset identity.
 const typesByName=new Map();
 for(const t of S.tx){if(!typesByName.has(t.name))typesByName.set(t.name,new Set());typesByName.get(t.name).add(t.type);}
-const all=fifoLedger(S.tx,asOf).map(h=>{h.L=h.lots;const trades=tradeIndex.get(JSON.stringify([h.type,h.name]))||[];const unambiguous=typesByName.get(h.name).size===1;h.valuation=resolvePrice(asOf,[{rows:trades,source:'transaction',estimated:true},{rows:unambiguous?[[S.pxd?.[h.name],S.px?.[h.name]]]:[],source:'cached market'}]);if(unambiguous&&!S.pxd?.[h.name]&&Number.isFinite(S.px?.[h.name])&&S.px?.[h.name]>0&&asOf===new Date().toISOString().slice(0,10))h.valuation={price:S.px[h.name],date:null,source:'undated cache',estimated:true,age:null,status:'estimated'};h.price=h.valuation.price??h.last;h.value=Math.max(h.units,0)*h.price;h.pl=h.value-h.cost;h.plp=h.cost>0?h.pl/h.cost*100:null;h.xirr=xirr(h.flows.concat([[asOf,h.value]]));return h});
-const open=all.filter(h=>h.units>1e-4),tv=open.reduce((s,h)=>s+h.value,0),tc=open.reduce((s,h)=>s+h.cost,0);
+const all=fifoLedger(S.tx,asOf).map(h=>{h.L=h.lots;const trades=tradeIndex.get(JSON.stringify([h.type,h.name]))||[];const unambiguous=typesByName.get(h.name).size===1;h.valuation=resolvePrice(asOf,[{rows:trades,source:'transaction',estimated:true},{rows:unambiguous?[[S.pxd?.[h.name],S.px?.[h.name]]]:[],source:'cached market'}]);if(unambiguous&&!S.pxd?.[h.name]&&Number.isFinite(S.px?.[h.name])&&S.px?.[h.name]>0&&asOf===new Date().toISOString().slice(0,10))h.valuation={price:S.px[h.name],date:null,source:'undated cache',estimated:true,age:null,status:'estimated'};h.price=h.valuation.price??h.last;h.value=Math.max(h.units,0)*h.price;h.pl=h.value-h.cost;h.plp=h.cost>0?h.pl/h.cost*100:null;h.xirr=h.unmatched>1e-9?null:xirr(h.flows.concat([[asOf,h.value]]));return h});
+const open=all.filter(h=>h.units>1e-9),tv=open.reduce((s,h)=>s+h.value,0),tc=open.reduce((s,h)=>s+h.cost,0);
 const realized=all.reduce((sum,h)=>sum+h.sales.reduce((n,s)=>n+s.proceeds-s.cost,0),0),netInvested=-all.flatMap(h=>h.flows).reduce((sum,f)=>sum+f[1],0),lifetimeGain=tv-netInvested;
-return{open,tv,tc,realized,netInvested,lifetimeGain,reconciliationDifference:lifetimeGain-realized-(tv-tc),pl:tv-tc,plp:tc>0?(tv-tc)/tc*100:null,xirr:xirr(all.flatMap(h=>h.flows).concat([[asOf,tv]]))}}
+return{open,tv,tc,ledgerValid:all.every(h=>h.unmatched<=1e-9),realized,netInvested,lifetimeGain,reconciliationDifference:lifetimeGain-realized-(tv-tc),pl:tv-tc,plp:tc>0?(tv-tc)/tc*100:null,xirr:all.some(h=>h.unmatched>1e-9)?null:xirr(all.flatMap(h=>h.flows).concat([[asOf,tv]]))}}
 
 export { xirr, calculatePortfolio };
