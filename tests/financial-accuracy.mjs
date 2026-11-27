@@ -103,3 +103,12 @@ const taxCollision=calculateRealized({tx:taxCollisionTx,cls:{'Liquid Fund':'debt
 assert.equal(taxCollision.find(g=>g.type==='stock').bucket,'eqST');
 assert.equal(taxCollision.find(g=>g.type==='mf').bucket,'slab');
 for(const g of taxCollision){near(g.cost,101);near(g.pro,119);near(g.gain,18);}
+
+import {capitalGainRules} from '../js/engines/tax.mjs';
+near(capitalGainRules('2024-07-22').eqST,.15);
+near(capitalGainRules('2024-07-23').eqST,.20);
+near(capitalGainRules('2024-07-23').eqLT,.125);
+near(capitalGainRules('2024-07-22').exemption,125000);
+near(capitalGainRules('2024-03-31').exemption,100000);
+assert.equal(capitalGainRules('2026-04-01').requiresReview,true);
+assert.equal(tax.estimateOnly,true);
