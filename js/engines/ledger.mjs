@@ -1,7 +1,21 @@
 // Canonical FIFO matching. Preserve input order within each trading date.
 export function fifoLedger(transactions,asOf='9999-12-31',actions=[]){
  const groups=new Map();
- const events=[...transactions,...actions.map(a=>({...a,side:'corporate-action'}))];
+ const validDate=d=>typeof d==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(d)&&Number.isFinite(Date.parse(d))&&new Date(Date.parse(d)).toISOString().slice(0,10)===d;
+ const events=[];
+ for(const [i,t] of transactions.entries()){
+  if(validDate(t?.date)&&t.date>asOf)continue;
+  const fee=t?.fee??0,gross=t?.units*t?.price;
+  if(!t||!validDate(t.date)||typeof t.name!=='string'||!t.name.trim()||!['mf','stock'].includes(t.type)||!['buy','sell'].includes(t.side)||!Number.isFinite(t.units)||t.units<=0||!Number.isFinite(t.price)||t.price<=0||!Number.isFinite(fee)||fee<0||!Number.isFinite(gross)||!Number.isFinite(gross+fee)||(t.side==='sell'&&fee>gross)){
+   const key=JSON.stringify([t?.type,t?.name]);
+   let h=groups.get(key);
+   if(!h){h={name:t?.name,type:t?.type,units:0,cost:0,flows:[],lots:[],sales:[],unmatched:0,rejectedSales:[],last:null};groups.set(key,h)}
+   h.rejectedTransactions=(h.rejectedTransactions||[]).concat([{row:i+1,reason:'invalid-transaction'}]);
+   continue;
+  }
+  events.push(t);
+ }
+ events.push(...actions.map(a=>({...a,side:'corporate-action'})));
  for(const t of events.filter(t=>t.date<=asOf).sort((a,b)=>a.date.localeCompare(b.date)||(a.side==='corporate-action'?0:1)-(b.side==='corporate-action'?0:1))){
   const key=JSON.stringify([t.type,t.name]);
   let h=groups.get(key);
