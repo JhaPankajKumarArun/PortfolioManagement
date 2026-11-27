@@ -1,10 +1,17 @@
 // Canonical FIFO matching. Preserve input order within each trading date.
-export function fifoLedger(transactions,asOf='9999-12-31'){
+export function fifoLedger(transactions,asOf='9999-12-31',actions=[]){
  const groups=new Map();
- for(const t of transactions.filter(t=>t.date<=asOf).sort((a,b)=>a.date.localeCompare(b.date))){
+ const events=[...transactions,...actions.map(a=>({...a,side:'corporate-action'}))];
+ for(const t of events.filter(t=>t.date<=asOf).sort((a,b)=>a.date.localeCompare(b.date)||(a.side==='corporate-action'?0:1)-(b.side==='corporate-action'?0:1))){
   const key=JSON.stringify([t.type,t.name]);
   let h=groups.get(key);
   if(!h){h={name:t.name,type:t.type,units:0,cost:0,flows:[],lots:[],sales:[],unmatched:0,rejectedSales:[],last:t.price};groups.set(key,h)}
+  if(t.side==='corporate-action'){
+   const adjusted=applyCorporateAction(h,t);
+   if(adjusted)groups.set(key,adjusted);
+   else {h.rejectedActions=(h.rejectedActions||[]).concat([{date:t.date,kind:t.kind,ratio:t.ratio}]);}
+   continue;
+  }
   const fee=t.fee||0;
   if(t.side==='buy'){
    h.last=t.price;
