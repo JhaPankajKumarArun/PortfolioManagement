@@ -10,8 +10,8 @@ const nav=async(page,tab,title,parent=tab)=>{
  await expect(page.locator('#tabs button[data-t="'+parent+'"]')).toHaveAttribute('aria-current','page');
 };
 const fixture={tx:[{type:'stock',side:'buy',name:'QA Stock',date:'2024-01-01',units:10,price:100}],px:{'QA Stock':120},pxd:{'QA Stock':'2024-02-01'},goals:[]};
-async function seed(page,origin=base){
- await page.addInitScript(p=>{if(!localStorage.getItem('portfolio-v1'))localStorage.setItem('portfolio-v1',JSON.stringify(p))},fixture);
+async function seed(page,origin=base,data=fixture){
+ await page.addInitScript(p=>{if(!localStorage.getItem('portfolio-v1'))localStorage.setItem('portfolio-v1',JSON.stringify(p))},data);
  await page.route('**/*',route=>route.request().url().startsWith(origin)?route.continue():route.abort());
 }
 test('startup, navigation, backup and offline reload',async({page,context})=>{
@@ -177,8 +177,7 @@ test('all supported holding periods preserve valuation and ledger',async({page})
 test('mobile overlap dialog closes and reopens without stale state',async({page})=>{
  await page.setViewportSize({width:390,height:844});
  const mf={tx:[{type:'mf',side:'buy',name:'QA Mutual Fund',date:'2024-01-01',units:10,price:100}],px:{'QA Mutual Fund':120},pxd:{'QA Mutual Fund':'2024-02-01'},goals:[]};
- await page.addInitScript(p=>{if(!localStorage.getItem('portfolio-v1'))localStorage.setItem('portfolio-v1',JSON.stringify(p))},mf);
- await seed(page);await page.goto(base);await nav(page,'list','Holdings');
+ await seed(page,base,mf);await page.goto(base);await nav(page,'list','Holdings');
  for(let i=0;i<2;i++){
   await page.locator('#hoOpen').click();
   const dialog=page.locator('#holdingOverlap');
