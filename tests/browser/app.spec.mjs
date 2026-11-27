@@ -34,7 +34,7 @@ for(const [width,height] of [[320,568],[390,844],[844,390],[1280,800]])for(const
   const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx);
   for(const [tab,title,selector] of [['home','Overview','.overview-hero'],['list','Holdings','.holdings-summary'],['insights','Insights','.insight-hero'],['planning','Planning','#planning-goals'],['more','More','.hub-list']]){
    await nav(page,tab,title);await expect(page.locator(selector)).toBeVisible();
-   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Horizontal overflow on '+tab).toBe(true);
    const bounds=await page.locator('#tabs').boundingBox();expect(bounds.x).toBeGreaterThanOrEqual(0);expect(bounds.x+bounds.width).toBeLessThanOrEqual(width+1);
    await test.info().attach(tab,{body:await page.screenshot(),contentType:'image/png'});
   }
@@ -50,9 +50,9 @@ test('holdings preferences, search and insight navigation',async({page})=>{
  await seed(page);await page.goto(base);await nav(page,'list','Holdings');
  await page.locator('#holdingSearch').fill('not present');await expect(page.locator('.hc:visible')).toHaveCount(0);
  await page.locator('#holdingSearch').fill('QA');await expect(page.locator('.hc:visible')).toHaveCount(1);await expect(page.locator('#holdingSearch')).toBeFocused();
- await page.locator('[data-holding-layout]').click();await expect(page.locator('.hc-compact')).toHaveCount(0);
- await page.locator('[data-holding-direction]').click();
- await page.reload();await nav(page,'list','Holdings');await expect(page.locator('.hc-compact')).toHaveCount(0);await expect(page.locator('[data-holding-direction]')).toContainText('Ascending');
+ await page.locator('.ho-filter-menu summary').click();await page.locator('[data-holding-layout]').click();await expect(page.locator('.hc-compact')).toHaveCount(0);
+ await page.locator('.ho-filter-menu summary').click();await page.locator('[data-holding-direction]').click();
+ await page.reload();await nav(page,'list','Holdings');await expect(page.locator('.hc-compact')).toHaveCount(0);await page.locator('.ho-filter-menu summary').click();await expect(page.locator('[data-holding-direction]')).toContainText('↑');
  await nav(page,'insights','Insights');await page.locator('[data-insight-jump="risk"]').click();await expect(page.locator('#insight-risk')).toBeVisible();await expect(page.locator('#insight-performance')).toHaveCount(0);
  await nav(page,'plan','Plan','planning');await page.locator('.context-back').click();await expect(page.locator('#ttl')).toHaveText('Planning');
 });
