@@ -87,3 +87,13 @@ assert.equal(pbmPrice([['2025-01-03',110],['2025-01-01',100],['2025-01-04',0]],'
 assert.equal(pbmPrice([['2025-01-01',Infinity]],'2025-01-01'),null);
 const gapBm=calculateBenchmark([['2025-01-01',100],['2025-03-01',120],['2025-04-01',132]],{points:['2025-01-01','2025-02-01','2025-03-01','2025-04-01'].map(d=>({d}))},[tx[0]],dnum);
 assert.equal(gapBm.ready,true);assert.equal(gapBm.points[0].d,'2025-03-01');near(gapBm.ret,10);
+
+ // Non-conventional cash flows with two mathematical roots: 10% and 20%.
+assert.equal(xirr([['2023-01-01',-100],['2024-01-01',230],['2024-12-31',-132]]),null);
+const fractional=calculatePortfolio({tx:[{name:'Fraction',type:'mf',side:'buy',date:'2025-01-01',units:0.00005,price:1000000}]},'2025-01-02');
+near(fractional.tv,50);near(fractional.tc,50);near(fractional.reconciliationDifference,0);
+const oversold=calculatePortfolio({tx:[tx[0],{...tx[0],side:'sell',units:11,date:'2025-02-01'}]},'2025-02-01');
+assert.equal(oversold.ledgerValid,false);assert.equal(oversold.xirr,null);
+import {reconcilePortfolio} from '../js/core/integrity.mjs';
+const reconciledCollision=reconcilePortfolio({tx:collisionTx},collision,'2025-01-03');
+assert.equal(reconciledCollision.ready,true);near(reconciledCollision.totals.value,800);
