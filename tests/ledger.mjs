@@ -92,3 +92,13 @@ for(const bad of [null,{...tx[0],type:'unknown'},{...tx[0],name:''}]){
  assert.equal(rejected.flows.length,0);assert.equal(rejected.rejectedTransactions.length,1);
 }
 assert.equal(fifoLedger([tx[0],{...tx[0],date:'2026-01-01',units:-1}],'2025-12-31')[0].rejectedTransactions,undefined);
+
+const annualProfile={fy:'2025-26',verified:true,source:'Synthetic evidence',listed:false,equityOriented:false,domesticEquity:0,debtMoneyMarket:100,qualifyingDebtFundUnits:0};
+const profileState={...actionState,taxProfiles:{mf:{Example:{'2025-26':annualProfile}}}};
+persistPortfolio(localStore,profileState);
+assert.deepEqual(loadPortfolio(localStore),profileState);
+assert.deepEqual(decodePortfolio(JSON.stringify(profileState)),profileState);
+for(const taxProfiles of [null,[],{unknown:{}},{mf:{Example:{'2025-27':annualProfile}}},{mf:{Example:{'2025-26':{...annualProfile,verified:false}}}},{mf:{Example:{'2025-26':{...annualProfile,debtMoneyMarket:101}}}}]){
+ assert.throws(()=>persistPortfolio(localStore,{...actionState,taxProfiles}));
+ assert.deepEqual(loadPortfolio(localStore),profileState);
+}
