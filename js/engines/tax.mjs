@@ -2,7 +2,7 @@ import {fifoLedger} from './ledger.mjs';
 const addM=(s,m)=>{const [y,mo,day]=s.split('-').map(Number),first=new Date(Date.UTC(y,mo-1+m,1)),yy=first.getUTCFullYear(),mm=first.getUTCMonth(),last=new Date(Date.UTC(yy,mm+1,0)).getUTCDate();return new Date(Date.UTC(yy,mm,Math.min(day,last))).toISOString().slice(0,10)};
 const fyOf=d=>{const y=+d.slice(0,4),s=+d.slice(5,7)>=4?y:y-1;return s+'-'+String((s+1)%100).padStart(2,'0')};
 const srt=(a,b)=>a.date.localeCompare(b.date)||(a.side===b.side?0:a.side==='buy'?-1:1);
-function taxAutoCls(n,S,type){const t=S.tx.find(x=>x.name===n);const x=n.toLowerCase();if((type??t?.type)==='stock'){if(/gold|silver|commodit|international|overseas|nasdaq|s&p 500|\b(?:gilt|bond|liquid|debt)\b/.test(x)&&/etf|bees|fund/.test(x))return 'listedOther';return 'equity'}
+function taxAutoCls(n,S,type){const t=S.tx.find(x=>x.name===n);const x=n.toLowerCase();if((type??t?.type)==='stock'){if(/gold|silver|commodit|international|overseas|nasdaq|s&p 500|\b(?:gilt|bond|liquid|debt)\b/.test(x)&&/etf|bees/.test(x))return 'listedOther';return 'equity'}
 if(/liquid|overnight|money market|ultra short|low duration|short duration|medium duration|long duration|corporate bond|gilt|credit risk|banking and psu|banking & psu|floater|dynamic bond|bond fund|debt/.test(x))return 'debt';
 if(/gold|silver|commodit|fund of fund|fof|international|overseas|global|nasdaq|s&p 500/.test(x))return 'other';return 'equity'}
 const taxClass=(n,S,type)=>{const ambiguous=new Set(S.tx.filter(t=>t.name===n).map(t=>t.type)).size>1;return (!ambiguous&&S.cls?.[n])||taxAutoCls(n,S,type)};
@@ -64,4 +64,23 @@ export function simulateTaxHarvest(S,{name,type,date,units,price,fee=0,slab}){
  const proposed={name,type,date,units,price,fee,side:'sell'};
  const after=calculateTaxFY(calculateRealized({...S,tx:[...tx,proposed]}),fy,slab);
  return {ready:true,estimateOnly:true,requiresReview:true,fy,before,after,netProceeds:units*price-fee,taxReduction:before.tax-after.tax,netTaxBenefit:before.tax-after.tax-fee,remainingEquityExemption:Math.max(0,after.lim-Math.max(0,after.net.eqLT))};
+}
+
+// Scan independently supplied dated market quotes; never use transaction prices as live quotes.
+export function discoverTaxHarvest(S,{date,slab,quotes=[],maxAge=7,feeRate=0}){
+ if(!Number.isFinite(feeRate)||feeRate<0||feeRate>1||!Number.isFinite(maxAge)||maxAge<0)return [];
+ const results=[];
+ for(const h of fifoLedger(S.tx,date)){
+  if(h.units<=1e-9)continue;
+  const q=quotes.filter(q=>q.name===h.name&&q.type===h.type&&Number.isFinite(q.price)&&q.price>0&&Number.isFinite(Date.parse(q.date))&&q.date<=date&&(Date.parse(date)-Date.parse(q.date))/864e5<=maxAge).sort((a,b)=>b.date.localeCompare(a.date))[0];
+  if(!q)continue;
+  let units=0,best=null;
+  for(const lot of h.lots){
+   units+=lot.u;
+   const sim=simulateTaxHarvest(S,{name:h.name,type:h.type,date,units,price:q.price,fee:units*q.price*feeRate,slab});
+   if(sim.ready&&sim.netTaxBenefit>0&&(!best||sim.netTaxBenefit>best.netTaxBenefit))best={...sim,name:h.name,type:h.type,units,price:q.price,quoteDate:q.date};
+  }
+  if(best)results.push(best);
+ }
+ return results.sort((a,b)=>b.netTaxBenefit-a.netTaxBenefit);
 }
