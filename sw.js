@@ -1,10 +1,10 @@
-const CACHE_NAME = 'my-portfolio-pwa-v141-exposure-filter-polish';
+const CACHE_NAME = 'my-portfolio-pwa-v142-overlap-three-views';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
   './',
   './index.html',
-  './css/app.css?v=141',
+  './css/app.css?v=142',
   './js/engines/portfolio.mjs',
   './js/engines/ledger.mjs',
   './js/engines/valuation.mjs',
