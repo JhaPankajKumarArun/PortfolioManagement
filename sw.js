@@ -1,10 +1,10 @@
-const CACHE_NAME = 'my-portfolio-pwa-v139-exposure-inline-controls';
+const CACHE_NAME = 'my-portfolio-pwa-v140-exposure-flex-controls';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
   './',
   './index.html',
-  './css/app.css',
+  './css/app.css?v=140',
   './js/engines/portfolio.mjs',
   './js/engines/ledger.mjs',
   './js/engines/valuation.mjs',
