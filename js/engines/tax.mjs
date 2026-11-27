@@ -2,12 +2,12 @@ import {fifoLedger} from './ledger.mjs';
 const addM=(s,m)=>{const [y,mo,day]=s.split('-').map(Number),first=new Date(Date.UTC(y,mo-1+m,1)),yy=first.getUTCFullYear(),mm=first.getUTCMonth(),last=new Date(Date.UTC(yy,mm+1,0)).getUTCDate();return new Date(Date.UTC(yy,mm,Math.min(day,last))).toISOString().slice(0,10)};
 const fyOf=d=>{const y=+d.slice(0,4),s=+d.slice(5,7)>=4?y:y-1;return s+'-'+String((s+1)%100).padStart(2,'0')};
 const srt=(a,b)=>a.date.localeCompare(b.date)||(a.side===b.side?0:a.side==='buy'?-1:1);
-function taxAutoCls(n,S,type){const t=S.tx.find(x=>x.name===n);if((type??t?.type)==='stock')return 'equity';const x=n.toLowerCase();
+function taxAutoCls(n,S,type){const t=S.tx.find(x=>x.name===n);const x=n.toLowerCase();if((type??t?.type)==='stock'){if(/gold|silver|commodit|international|overseas|nasdaq|s&p 500|\b(?:gilt|bond|liquid|debt)\b/.test(x)&&/etf|bees|fund/.test(x))return 'listedOther';return 'equity'}
 if(/liquid|overnight|money market|ultra short|low duration|short duration|medium duration|long duration|corporate bond|gilt|credit risk|banking and psu|banking & psu|floater|dynamic bond|bond fund|debt/.test(x))return 'debt';
 if(/gold|silver|commodit|fund of fund|fof|international|overseas|global|nasdaq|s&p 500/.test(x))return 'other';return 'equity'}
 const taxClass=(n,S,type)=>{const ambiguous=new Set(S.tx.filter(t=>t.name===n).map(t=>t.type)).size>1;return (!ambiguous&&S.cls?.[n])||taxAutoCls(n,S,type)};
 function mk(n,c,b,s,u,cost,pro){const specified=c==='debt'&&b>='2023-04-01';const months=c==='equity'?12:c==='listedOther'&&s>='2024-07-23'?12:s>='2024-07-23'?24:36;const lt=!specified&&addM(b,months)<s;return{name:n,cls:c,buy:b,sell:s,units:u,cost,pro,gain:pro-cost,lt,review:(c==='equity'&&b<'2018-02-01')||(lt&&c!=='equity'&&s<'2024-07-23')||c==='other'||c==='debt',fy:fyOf(s),bucket:c==='equity'?(lt?'eqLT':'eqST'):(lt?'otLT':'slab')}}
-function calculateRealized(S){return fifoLedger(S.tx).flatMap(h=>h.sales.map(l=>({...mk(h.name,taxClass(h.name,S,h.type),l.buy,l.sell,l.units,l.cost,l.proceeds),type:h.type})))}
+function calculateRealized(S){return fifoLedger(S.tx).flatMap(h=>h.sales.map(l=>({...mk(h.name,taxClass(h.name,S,h.type),l.buy,l.sell,l.units,l.cost,l.proceeds),type:h.type,classificationSource: S.cls?.[h.name]===taxClass(h.name,S,h.type)&&new Set(S.tx.filter(t=>t.name===h.name).map(t=>t.type)).size===1?'manual':'inferred',review:true})))}
 // Rate assumptions for eligible capital gains; not a complete income-tax computation.
 export function capitalGainRules(saleDate,fy=fyOf(saleDate)){
  const revised=saleDate>='2024-07-23';
