@@ -175,3 +175,19 @@ const riskSplit=calculateRiskSeries(riskSplitState,'2025-02-28',dnum,(_n,_t,d)=>
 assert.equal(riskSplit.points.length,2);near(riskSplit.points[1].value,1000);near(riskSplit.points[1].r,0);
 const splitBenchmark=calculateBenchmark([['2025-01-01',100],['2025-01-31',100],['2025-02-28',100]],riskSplit,riskSplitState.tx,dnum,riskSplitState.corporateActions);
 assert.equal(splitBenchmark.ready,true);near(splitBenchmark.ret,0);
+
+ // Independent cross-engine fixture: valid purchase plus rejected negative quantity.
+const rejectedState={tx:[{name:'Validation fixture',type:'stock',side:'buy',date:'2025-01-01',units:10,price:100},{name:'Validation fixture',type:'stock',side:'buy',date:'2025-02-01',units:-5,price:200}],px:{'Validation fixture':120},pxd:{'Validation fixture':'2025-03-01'}};
+const rejectedBefore=JSON.stringify(rejectedState);
+const rejectedPortfolio=calculatePortfolio(rejectedState,'2025-03-01');
+assert.equal(rejectedPortfolio.tv,1200);assert.equal(rejectedPortfolio.tc,1000);
+assert.equal(rejectedPortfolio.ledgerValid,false);assert.equal(rejectedPortfolio.xirr,null);
+assert.equal(rejectedPortfolio.open[0].xirr,null);assert.equal(rejectedPortfolio.rejectedTransactions[0].row,2);
+const rejectedPerf=calculatePerformance({S:rejectedState,ser:{},PWH:{},pxAt:()=>120,navCovers:()=>true,dnum},'2025-01-31','2025-03-01');
+assert.equal(rejectedPerf.hist,true);assert.equal(rejectedPerf.gain,null);assert.equal(rejectedPerf.pct,null);
+const rejectedRisk=calculateRiskSeries(rejectedState,'2025-03-01',dnum,()=>120);
+assert.deepEqual(rejectedRisk.points,[]);assert.ok(rejectedRisk.missing.includes('Validation fixture'));
+assert.equal(calculateBenchmark([['2025-01-01',100],['2025-03-01',120]],{points:[{d:'2025-01-01'},{d:'2025-03-01'}]},rejectedState.tx,dnum).ready,false);
+assert.equal(simulateTaxHarvest(rejectedState,{name:'Validation fixture',type:'stock',date:'2025-03-01',units:1,price:120,slab:30}).ready,false);
+assert.equal(calculatePortfolio(rejectedState,'2025-01-31').ledgerValid,true);
+assert.equal(JSON.stringify(rejectedState),rejectedBefore);
