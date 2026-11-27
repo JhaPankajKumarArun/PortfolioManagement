@@ -1,10 +1,10 @@
-const CACHE_NAME = 'my-portfolio-pwa-v142-overlap-three-views';
+const CACHE_NAME = 'my-portfolio-pwa-v143-overlap-exclusive-views';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
   './',
   './index.html',
-  './css/app.css?v=142',
+  './css/app.css?v=143',
   './js/engines/portfolio.mjs',
   './js/engines/ledger.mjs',
   './js/engines/valuation.mjs',
