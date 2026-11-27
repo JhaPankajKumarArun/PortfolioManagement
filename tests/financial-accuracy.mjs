@@ -121,3 +121,11 @@ assert.equal(addM('2024-02-29',12),'2025-02-28');
 assert.equal(mk('A','equity','2024-08-01','2025-08-01',1,100,120).lt,false);
 assert.equal(mk('A','equity','2024-08-01','2025-08-02',1,100,120).lt,true);
 assert.ok(taxCollision.every(g=>g.review&&g.classificationSource==='inferred'));
+
+const lossFixture=(entries)=>calculateTaxFY(entries.map(([bucket,gain])=>({bucket,gain,fy:'2025-26',sell:'2025-06-01'})),'2025-26',30);
+const restricted=lossFixture([['eqST',-10000],['eqLT',20000],['otLT',-20000]]);
+near(restricted.carryShort,10000);near(restricted.carryLong,0);near(restricted.carry,10000);
+assert.deepEqual(restricted.offsets,[{from:'otLT',to:'eqLT',amount:20000}]);
+const noLongToShort=lossFixture([['eqLT',-10000],['eqST',20000]]);
+near(noLongToShort.tax,4160);near(noLongToShort.carryLong,10000);
+assert.equal(noLongToShort.carryEligibilityVerified,false);
