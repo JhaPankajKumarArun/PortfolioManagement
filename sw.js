@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v158-verified-registry';
+const CACHE_NAME = 'my-portfolio-pwa-v159-official-tri';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',

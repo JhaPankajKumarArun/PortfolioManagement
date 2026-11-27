@@ -1,11 +1,11 @@
 import {fetchWithTimeout} from '../http.mjs';
-export async function loadBenchmark(id,asOf,cached){
- const r=await fetchWithTimeout('./data/benchmarks/'+id+'.json',{cache:'no-cache'},15000);
- if(!r.ok)throw Error('Provider HTTP '+r.status);
- const j=await r.json();if(j.id!==id||j.series!=='TRI'||!Array.isArray(j.rows))throw Error('Unexpected benchmark series');
- const rows=j.rows.filter(x=>Array.isArray(x)&&/^\d{4}-\d{2}-\d{2}$/.test(x[0])&&x[0]<=asOf&&typeof x[1]==='number'&&Number.isFinite(x[1])&&x[1]>0);
- if(rows.length!==j.rows.length||rows.length<2||rows.some((x,i)=>i&&x[0]<=rows[i-1][0]))throw Error('Invalid benchmark history');
- if(cached?.data?.rows?.length&&rows[rows.length-1][0]<cached.data.rows[cached.data.rows.length-1][0])throw Error('Provider history is older than local cache');
-
-return rows;
-}
+const names=Object.freeze({nifty50:'NIFTY 50',nifty500:'NIFTY 500',midcap150:'NIFTY MIDCAP 150',smallcap250:'NIFTY SMALLCAP 250'});
+const endpoint='https://www.niftyindices.com/Backpage.aspx/getTotalReturnIndexString';
+const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function iso(d){const m=/^(\d{2})[ -]([A-Za-z]{3})[ -](\d{4})$/.exec(d);if(!m)return null;const i=months.findIndex(x=>x.toLowerCase()===m[2].toLowerCase());if(i<0)return null;const v=m[3]+'-'+String(i+1).padStart(2,'0')+'-'+m[1];return validDate(v)?v:null}
+function validDate(d){return typeof d==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(d)&&Number.isFinite(Date.parse(d))&&new Date(d).toISOString().slice(0,10)===d}
+function wire(d){return d.slice(8)+'-'+months[Number(d.slice(5,7))-1]+'-'+d.slice(0,4)}
+export function validateRows(rows,asOf){if(!Array.isArray(rows)||rows.length<2||rows.some((x,i)=>!Array.isArray(x)||!validDate(x[0])||x[0]>asOf||typeof x[1]!=='number'||!Number.isFinite(x[1])||x[1]<=0||i&&x[0]<=rows[i-1][0]))throw Error('Invalid index history');return rows}
+export function parseOfficialTri(payload,id,asOf){const name=names[id];if(!name)throw Error('Unsupported official index');const raw=typeof payload.d==='string'?JSON.parse(payload.d):payload.d;if(!Array.isArray(raw))throw Error('Unexpected NSE response');const rows=raw.map(r=>{if(String(r['Index Name']).trim().toUpperCase()!==name)throw Error('Index identity mismatch');const v=r.TotalReturnsIndex;if(typeof v!=='string'&&typeof v!=='number'||String(v).trim()==='')throw Error('Missing gross TRI');return [iso(r.Date),Number(v)]}).sort((a,b)=>String(a[0]).localeCompare(String(b[0])));return validateRows(rows,asOf)}
+export async function loadOfficialBenchmark(id,asOf){if(!names[id]||!validDate(asOf))throw Error('Official series not supported');const name=names[id],start='1995-01-01';const body=JSON.stringify({cinfo:"{'name':'"+name+"','startDate':'"+wire(start)+"','endDate':'"+wire(asOf)+"','indexName':'"+name+"'}"});const r=await fetchWithTimeout(endpoint,{method:'POST',headers:{'Content-Type':'application/json; charset=UTF-8'},body,cache:'no-store'},30000);if(!r.ok)throw Error('Official endpoint HTTP '+r.status);return parseOfficialTri(await r.json(),id,asOf)}
+export async function loadBenchmark(id,asOf,cached){if(names[id]){try{const rows=await loadOfficialBenchmark(id,asOf);if(cached?.data?.rows?.at(-1)?.[0]>rows.at(-1)[0])throw Error('Older history');return rows}catch(e){/* existing public bundle fallback */}}if(!/^[a-z0-9-]+$/.test(id))throw Error('Invalid index id');const r=await fetchWithTimeout('./data/benchmarks/'+id+'.json',{cache:'no-cache'},15000);if(!r.ok)throw Error('Provider HTTP '+r.status);const j=await r.json();if(j.id!==id||j.series!=='TRI')throw Error('Unexpected benchmark series');const rows=validateRows(j.rows,asOf);if(cached?.data?.rows?.at(-1)?.[0]>rows.at(-1)[0])throw Error('Older history');return rows}
