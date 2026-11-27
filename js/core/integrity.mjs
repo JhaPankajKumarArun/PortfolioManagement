@@ -1,5 +1,5 @@
 // Read-only validation; never changes or deletes portfolio records.
-export function auditTransactions(tx,asOf){
+export function auditTransactions(tx,asOf,actions=[]){
  const issues=[],balances=new Map();
  if(!Array.isArray(tx))return [{code:'invalid-ledger'}];
  const valid=[];
@@ -10,8 +10,9 @@ export function auditTransactions(tx,asOf){
  if(t.side==='sell'&&(t.fee??0)>t.units*t.price)issues.push({code:'fee-exceeds-proceeds',row:i+1});
  valid.push({t,i});
  });
- valid.sort((a,b)=>a.t.date.localeCompare(b.t.date)||a.i-b.i);
- for(const {t,i} of valid){const key=t.type+'\u0000'+t.name;const u=(balances.get(key)||0)+(t.side==='buy'?t.units:-t.units);if(u< -1e-6)issues.push({code:'oversold',row:i+1});balances.set(key,u)}
+ for(const [i,a] of actions.entries()){if(a.date<=asOf)valid.push({t:{...a,side:'action'},i})}
+ valid.sort((a,b)=>a.t.date.localeCompare(b.t.date)||(a.t.side==='action'?0:1)-(b.t.side==='action'?0:1)||a.i-b.i);
+ for(const {t,i} of valid){const key=t.type+'\u0000'+t.name;const prior=balances.get(key)||0;if(t.side==='action'){if(prior<=0||!Number.isFinite(t.ratio)||t.ratio<=0||!['split','bonus'].includes(t.kind)){issues.push({code:'invalid-corporate-action',row:i+1});continue}balances.set(key,prior*(t.kind==='split'?t.ratio:1+t.ratio));continue}const u=prior+(t.side==='buy'?t.units:-t.units);if(u< -1e-6)issues.push({code:'oversold',row:i+1});balances.set(key,u)}
  return issues;
 }
 export function blockingIssues(issues){return issues.filter(x=>x.code!=='future-transaction')}
@@ -19,12 +20,14 @@ export function integrityNotice(issues){return issues.length?'Data quality warni
 
  // Independent cash-flow reconciliation, using the same valuation date as Overview.
 export function reconcilePortfolio(S,C,asOf,comparisons={}){
- const issues=auditTransactions(S.tx,asOf), rows=[], ledger=new Map();
+ const issues=auditTransactions(S.tx,asOf,S.corporateActions??[]), rows=[], ledger=new Map();
  if(blockingIssues(issues).length)return {ready:false,issues,rows};
- for(const t of S.tx){
+ const events=[...S.tx,...(S.corporateActions??[]).map(a=>({...a,side:'action'}))].sort((a,b)=>a.date.localeCompare(b.date)||(a.side==='action'?0:1)-(b.side==='action'?0:1));
+ for(const t of events){
   if(t.date>asOf)continue;
   const key=JSON.stringify([t.type,t.name]);const h=ledger.get(key)||{name:t.name,type:t.type,units:0,bought:0,sold:0};
   if(h.type!==t.type){issues.push({code:'asset-name-collision',name:t.name});continue}
+  if(t.side==='action'){h.units*=t.kind==='split'?t.ratio:1+t.ratio;ledger.set(key,h);continue}
   const gross=t.units*t.price,fee=t.fee||0;
   if(t.side==='buy'){h.units+=t.units;h.bought+=gross+fee}else{h.units-=t.units;h.sold+=gross-fee}
   ledger.set(key,h);
