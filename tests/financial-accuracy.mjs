@@ -235,3 +235,9 @@ const reversedBenchmark=calculateBenchmark([['2025-01-01',100],['2025-03-01',120
 assert.equal(reversedBenchmark.ready,false);
 const excessRedemption=[{name:'Index test',type:'stock',side:'buy',date:'2025-01-01',units:10,price:100},{name:'Index test',type:'stock',side:'sell',date:'2025-02-01',units:10,price:200}];
 assert.equal(calculateBenchmark([['2025-01-01',100],['2025-02-01',100]],{points:[{d:'2025-01-01'},{d:'2025-02-01'}]},excessRedemption,dnum).ready,false);
+
+import {calculateRealized as safeTaxLots,calculateTaxFY as safeTaxFY} from '../js/engines/tax.mjs';
+const incompleteTax=safeTaxLots(rejectedState);
+assert.equal(incompleteTax.ledgerValid,false);
+const incompleteEstimate=safeTaxFY(incompleteTax,'2024-25',30);
+assert.equal(incompleteEstimate.ready,false);assert.equal(incompleteEstimate.tax,null);assert.equal(incompleteEstimate.rulesReview,true);
