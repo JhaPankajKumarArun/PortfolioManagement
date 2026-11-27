@@ -28,3 +28,12 @@ assert.equal(quarantined.flows.length,2);
 assert.equal(quarantined.rejectedSales.length,1);
 assert.equal(calculatePortfolio({tx:invalid},'2025-04-01').ledgerValid,false);
 assert.equal(calculateRealized({tx:invalid}).length,0);
+
+import {applyCorporateAction} from '../js/engines/ledger.mjs';
+const originalHolding=fifoLedger([tx[0]])[0],snapshot=JSON.stringify(originalHolding);
+const split=applyCorporateAction(originalHolding,{kind:'split',ratio:2,date:'2025-02-01'});
+assert.equal(split.units,20);assert.equal(split.cost,1010);assert.equal(split.lots[0].p,50.5);assert.equal(split.lots[0].d,'2025-01-01');assert.deepEqual(split.flows,originalHolding.flows);
+const bonus=applyCorporateAction(originalHolding,{kind:'bonus',ratio:.5,date:'2025-02-01'});
+assert.equal(bonus.units,15);assert.equal(bonus.cost,1010);assert.deepEqual(bonus.lots[1],{d:'2025-02-01',u:5,p:0});assert.deepEqual(bonus.flows,originalHolding.flows);
+assert.equal(applyCorporateAction(originalHolding,{kind:'split',ratio:0,date:'2025-02-01'}),null);
+assert.equal(JSON.stringify(originalHolding),snapshot);
