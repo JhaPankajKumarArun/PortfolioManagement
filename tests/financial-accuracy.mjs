@@ -78,3 +78,12 @@ near(riskCollision.value,880);assert.deepEqual(riskCollision.missing,[]);
 const riskInvalid=riskPortfolioAt({tx:collisionTx},()=>Infinity,'2025-01-03');assert.equal(riskInvalid.missing.length,2);
 const perfCollision=calculatePerformance({S:{tx:collisionTx},ser:{},PWH:{},pxAt:()=>500,navCovers:()=>true,dnum},'2025-01-02','2025-01-03');
 assert.equal(perfCollision.hist,true);assert.equal(perfCollision.gain,null);assert.equal(perfCollision.rows.length,2);
+
+import {calculateAttribution} from '../js/engines/attribution.mjs';
+import {pbmPrice} from '../js/engines/benchmark.mjs';
+const attr=calculateAttribution({tv:880,open:[{name:'Same',type:'mf',pl:20,value:220,cost:200},{name:'Same',type:'stock',pl:60,value:660,cost:600}]},[{name:'Same',type:'mf',gain:30},{name:'Same',type:'stock',gain:40}]);
+assert.equal(attr.rows.length,2);near(attr.totalReal,70);near(attr.totalUnreal,80);near(attr.net,150);near(attr.rows.reduce((s,r)=>s+r.weight,0),100);
+assert.equal(pbmPrice([['2025-01-03',110],['2025-01-01',100],['2025-01-04',0]],'2025-01-04'),110);
+assert.equal(pbmPrice([['2025-01-01',Infinity]],'2025-01-01'),null);
+const gapBm=calculateBenchmark([['2025-01-01',100],['2025-03-01',120],['2025-04-01',132]],{points:['2025-01-01','2025-02-01','2025-03-01','2025-04-01'].map(d=>({d}))},[tx[0]],dnum);
+assert.equal(gapBm.ready,true);assert.equal(gapBm.points[0].d,'2025-03-01');near(gapBm.ret,10);
