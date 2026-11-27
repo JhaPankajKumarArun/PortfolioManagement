@@ -97,3 +97,9 @@ assert.equal(oversold.ledgerValid,false);assert.equal(oversold.xirr,null);
 import {reconcilePortfolio} from '../js/core/integrity.mjs';
 const reconciledCollision=reconcilePortfolio({tx:collisionTx},collision,'2025-01-03');
 assert.equal(reconciledCollision.ready,true);near(reconciledCollision.totals.value,800);
+
+const taxCollisionTx=['mf','stock'].flatMap(type=>[{name:'Liquid Fund',type,side:'buy',units:2,price:100,date:'2025-01-01',fee:2},{name:'Liquid Fund',type,side:'sell',units:1,price:120,date:'2025-06-01',fee:1}]);
+const taxCollision=calculateRealized({tx:taxCollisionTx,cls:{'Liquid Fund':'debt'}});
+assert.equal(taxCollision.find(g=>g.type==='stock').bucket,'eqST');
+assert.equal(taxCollision.find(g=>g.type==='mf').bucket,'slab');
+for(const g of taxCollision){near(g.cost,101);near(g.pro,119);near(g.gain,18);}
