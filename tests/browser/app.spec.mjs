@@ -24,7 +24,16 @@ test('startup, navigation, backup and offline reload',async({page,context})=>{
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual([]);
  await page.evaluate(async()=>{await navigator.serviceWorker.ready});
  await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true);
- await context.setOffline(true);await page.reload();await expect(page.locator('#app')).not.toBeEmpty();expect(errors).toEqual([]);
+ // Remove Playwright interception before exercising native offline navigation.
+ await page.unroute('**/*');
+ await context.setOffline(true);
+ try {
+  await page.reload({waitUntil:'domcontentloaded'});
+  await expect(page.locator('#app')).not.toBeEmpty();
+  await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true);
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual([]);
+  expect(errors).toEqual([]);
+ } finally {await context.setOffline(false);}
 });
 for(const [width,height] of [[320,568],[390,844],[844,390],[1280,800]])for(const theme of ['light','dark']){
  test('premium layout '+width+'x'+height+' '+theme,async({page})=>{
