@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v171-peer-average-hidden';
+const CACHE_NAME = 'my-portfolio-pwa-v172-benchmark-row';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
