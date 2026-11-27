@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v137-overlap-bottom-navigation';
+const CACHE_NAME = 'my-portfolio-pwa-v138-exposure-organized-cards';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
