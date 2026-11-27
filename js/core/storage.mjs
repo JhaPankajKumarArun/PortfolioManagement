@@ -3,7 +3,7 @@ export function setSnapshotHook(fn){snapshotHook=fn}
 export const K='portfolio-v1';
 export const RECOVERY_KEY=K+'-recovery';
 export const $=s=>document.querySelector(s);
-export function decodePortfolio(raw){const d=JSON.parse(raw);if(!d||!Array.isArray(d.tx)||typeof d!=='object')throw Error('Invalid portfolio format');return d}
+export function decodePortfolio(raw){const d=JSON.parse(raw);if(!d||!Array.isArray(d.tx)||typeof d!=='object')throw Error('Invalid portfolio format');if(Object.hasOwn(d,'corporateActions')){if(!Array.isArray(d.corporateActions))throw Error('Invalid corporate actions');const seen=new Set();for(const a of d.corporateActions){if(!a||typeof a.name!=='string'||!a.name.trim()||!['stock','mf'].includes(a.type)||!['split','bonus'].includes(a.kind)||!Number.isFinite(a.ratio)||a.ratio<=0||typeof a.date!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(a.date)||!Number.isFinite(Date.parse(a.date))||new Date(Date.parse(a.date)).toISOString().slice(0,10)!==a.date)throw Error('Invalid corporate action');const key=JSON.stringify([a.type,a.name,a.date,a.kind]);if(seen.has(key))throw Error('Duplicate corporate action');seen.add(key)}}return d}
 export function loadPortfolio(storage){const raw=storage.getItem(K);if(raw==null)return {tx:[],px:{}};return decodePortfolio(raw)}
 const baselines=new WeakMap();
 export function trackPortfolioVersion(storage){baselines.set(storage,storage.getItem(K))}
@@ -46,7 +46,7 @@ export function persistReplacement(storage,candidate){
  assertCurrent(storage);
  decodePortfolio(JSON.stringify(candidate));
  const old=storage.getItem(K);
- if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample&&(previous.tx.length||previous.goals?.length||previous.wealth||storage.getItem(REPLACEMENT_KEY)===null))storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
+ if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample&&(previous.tx.length||previous.corporateActions?.length||previous.goals?.length||previous.wealth||storage.getItem(REPLACEMENT_KEY)===null))storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
  return persistPortfolio(storage,candidate);
 }
 export function readReplacement(storage){const raw=storage.getItem(REPLACEMENT_KEY);return raw===null?null:decodePortfolio(raw)}
