@@ -4,13 +4,17 @@ export function fifoLedger(transactions,asOf='9999-12-31'){
  for(const t of transactions.filter(t=>t.date<=asOf).sort((a,b)=>a.date.localeCompare(b.date))){
   const key=JSON.stringify([t.type,t.name]);
   let h=groups.get(key);
-  if(!h){h={name:t.name,type:t.type,units:0,cost:0,flows:[],lots:[],sales:[],unmatched:0,last:t.price};groups.set(key,h)}
-  const fee=t.fee||0;h.last=t.price;
+  if(!h){h={name:t.name,type:t.type,units:0,cost:0,flows:[],lots:[],sales:[],unmatched:0,rejectedSales:[],last:t.price};groups.set(key,h)}
+  const fee=t.fee||0;
   if(t.side==='buy'){
+   h.last=t.price;
    const cost=t.units*t.price+fee;
    h.units+=t.units;h.lots.push({d:t.date,u:t.units,p:cost/t.units});h.flows.push([t.date,-cost]);
   }else if(t.side==='sell'){
-   let remaining=t.units;h.units-=t.units;h.flows.push([t.date,t.units*t.price-fee]);
+   // Reject the entire impossible sale; do not create phantom proceeds or negative inventory.
+   if(t.units>h.units+1e-9){h.unmatched+=t.units-Math.max(0,h.units);h.rejectedSales.push({date:t.date,units:t.units,available:h.units});continue}
+   h.last=t.price;
+   let remaining=Math.min(t.units,h.units);h.units=Math.max(0,h.units-t.units);h.flows.push([t.date,t.units*t.price-fee]);
    for(const l of h.lots){
     if(remaining<=1e-9)break;
     const u=Math.min(l.u,remaining);if(u<=0)continue;
