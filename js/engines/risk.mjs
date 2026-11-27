@@ -7,10 +7,10 @@ function riskHistPrice(S,PWH,NH,asOf,dnum,name,type,d){
  return p.status==='market'?p.price:null;
 }
 function riskPortfolioAt(S,price,d){const holdings=fifoLedger(S.tx,d,S.corporateActions??[]);let value=0,missing=[];
- for(const h of holdings){if(h.unmatched>1e-9||h.rejectedActions?.length){missing.push(h.name);continue}if(h.units>1e-9){const q=price(h.name,h.type,d);if(!Number.isFinite(q)||q<=0)missing.push(h.name);else value+=h.units*q}}
+ for(const h of holdings){if(h.unmatched>1e-9||h.rejectedActions?.length||h.rejectedTransactions?.length){missing.push(h.name);continue}if(h.units>1e-9){const q=price(h.name,h.type,d);if(!Number.isFinite(q)||q<=0)missing.push(h.name);else value+=h.units*q}}
  return{value,missing};
 }
-function calculateRiskSeries(S,end,dnum,price){const tx=S.tx.filter(t=>t.date<=end).sort((a,b)=>a.date.localeCompare(b.date));if(!tx.length)return{points:[],missing:[]};const first=tx[0].date,start=paMonthEnd(first),dates=[];let y=+start.slice(0,4),m=+start.slice(5,7)-1;
+function calculateRiskSeries(S,end,dnum,price){const invalid=fifoLedger(S.tx,end,S.corporateActions??[]).filter(h=>h.rejectedTransactions?.length);if(invalid.length)return {points:[],missing:invalid.map(h=>h.name??'Invalid transaction')};const tx=S.tx.filter(t=>t&&t.date<=end).sort((a,b)=>a.date.localeCompare(b.date));if(!tx.length)return{points:[],missing:[]};const first=tx[0].date,start=paMonthEnd(first),dates=[];let y=+start.slice(0,4),m=+start.slice(5,7)-1;
  for(let guard=0;guard<1200;guard++){let d=paMonthEnd(`${y}-${String(m+1).padStart(2,'0')}-01`);if(d>end)d=end;if(!dates.length||dates[dates.length-1]!==d)dates.push(d);if(d===end)break;m++;if(m>11){m=0;y++}}
  const points=[],missingSet=new Set();let prev=null,index=100;
  dates.forEach(d=>{const v=riskPortfolioAt(S,price,d);v.missing.forEach(n=>missingSet.add(n));if(v.missing.length){prev=null;points.length=0;index=100;return}
