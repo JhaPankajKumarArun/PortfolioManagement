@@ -227,12 +227,12 @@ function holdingSummaryHero(C,L,tot,cost,gain){
  const targets=all&&period!=='1D'?L.filter(h=>h.type==='mf'):L;
  const scope=all&&period!=='1D'?'MF ':'';
  let daily;
- if(all&&period==='1D')daily=overviewDayChange(C);
+ if(all&&period==='1D')daily=overviewDayChange(C).replace(/<small>[^<]*<\/small>/g,'');
  else{
  const changes=targets.map(h=>({h,c:holdingPeriodChange(h.type==='mf'?(NH[h.name]?.d||[]):(PWH[h.name]||[]),S.pxd?.[h.name],h.price,h.units,period)}));
  const valid=changes.filter(x=>x.c),aligned=valid.length&&new Set(valid.map(x=>x.c.since)).size===1&&new Set(valid.map(x=>S.pxd?.[x.h.name])).size===1;
  const delta=valid.reduce((s,x)=>s+x.c.abs,0),base=valid.reduce((s,x)=>s+x.h.value-x.c.abs,0);
- daily=aligned?`<span class='day-change-label'>${scope}${period} price change${valid.length<targets.length?' · partial':''}</span><strong class='day-change-${delta>0?'up':delta<0?'down':'flat'}'>${delta>0?'▲ ':delta<0?'▼ ':''}${sg(delta)}${base>0?' ('+pc(delta/base*100)+')':''}</strong><small>${valid.length}/${targets.length} holdings · ${fd(valid[0].c.since)} – ${fd(S.pxd[valid[0].h.name])}</small>`:`<span>${scope}${period} · ${valid.length?'NAV/price dates differ':'History unavailable'}</span>`;
+ daily=aligned?`<span class='day-change-label'>${scope}${period} price change${valid.length<targets.length?' · partial':''}</span><strong class='day-change-${delta>0?'up':delta<0?'down':'flat'}'>${delta>0?'▲ ':delta<0?'▼ ':''}${sg(delta)}${base>0?' ('+pc(delta/base*100)+')':''}</strong>${valid.length<targets.length?`<small>${valid.length}/${targets.length} holdings</small>`:''}`:`<span>${scope}${period} · ${valid.length?'NAV/price dates differ':'History unavailable'}</span>`;
  }
  const rate=all?C.xirr:xirr(fifoLedger(S.tx.filter(t=>t.type===flt),today()).flatMap(h=>h.flows).concat([[today(),tot]]));
  const warning=L.some(h=>!h.valuation||h.valuation.estimated||!h.valuation.date||['missing','stale'].includes(h.valuation.status));
