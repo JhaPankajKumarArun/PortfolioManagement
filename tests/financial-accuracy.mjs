@@ -64,3 +64,10 @@ const periodTx=[{name:'Fixture',type:'mf',side:'buy',date:'2025-01-01',units:10,
 const period=(price)=>calculatePerformance({S:{tx:periodTx},ser:{},PWH:{},pxAt:(s,n,d)=>d==='2025-01-01'?100:price,navCovers:()=>true,dnum},'2025-01-01','2025-01-31');
 const complete=period(110);near(complete.gain,150);near(complete.vch,650);near(complete.pct,12);
 for(const price of [null,undefined,0,-1,NaN,Infinity]){const incomplete=period(price);assert.equal(incomplete.hist,true);assert.equal(incomplete.gain,null);assert.equal(incomplete.pct,null);assert.equal(incomplete.vch,null);assert.equal(incomplete.rows[0].gain,null);near(incomplete.cf,500);}
+
+ // A name-only market cache cannot safely identify two different asset types.
+const collisionTx=[{name:'Collision',type:'mf',side:'buy',units:2,price:100,date:'2025-01-01'},{name:'Collision',type:'stock',side:'buy',units:3,price:200,date:'2025-01-02'}];
+const collision=calculatePortfolio({tx:collisionTx,px:{Collision:500},pxd:{Collision:'2025-01-03'}},'2025-01-03');
+near(collision.tv,800);assert.ok(collision.open.every(h=>h.valuation.estimated));
+const unique=calculatePortfolio({tx:[collisionTx[0]],px:{Collision:500},pxd:{Collision:'2025-01-03'}},'2025-01-03');
+near(unique.tv,1000);assert.equal(unique.open[0].valuation.estimated,false);
