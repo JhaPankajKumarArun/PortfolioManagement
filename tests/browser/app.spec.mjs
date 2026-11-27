@@ -108,3 +108,21 @@ test('overview and holdings period controls preserve current valuation and local
  await page.locator('.ho-filter-menu summary').click();
  await expect(page.locator('#holdingPeriod')).toHaveValue('3M');
 });
+
+test('custom theme extreme colors preserve contrast and portfolio storage',async({page})=>{
+ await seed(page);
+ await page.addInitScript(()=>localStorage.setItem('portfolio-appearance-v1',JSON.stringify({base:'#FFFFFF',mode:'light'})));
+ await page.goto(base);
+ const before=await page.evaluate(()=>localStorage.getItem('portfolio-v1'));
+ await page.evaluate(()=>{const host=document.createElement('div');host.innerHTML=globalThis.appearanceCard();document.body.append(host)});
+ for(const mode of ['light','dark']){
+  await page.locator('#appearance-mode').selectOption(mode);
+  for(const color of ['#ffffff','#000000','#ffff00','#000080','#ff0000']){
+   await page.locator('#appearance-color').fill(color);
+   const ratios=await page.evaluate(()=>{const s=getComputedStyle(document.documentElement),v=k=>s.getPropertyValue('--'+k).trim(),lum=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((a,x,i)=>a+x*[.2126,.7152,.0722][i],0),ratio=(a,b)=>(Math.max(lum(a),lum(b))+.05)/(Math.min(lum(a),lum(b))+.05);return [ratio(v('theme-primary'),'#ffffff'),ratio(v('theme-accent'),v('card')),ratio(v('theme-chart'),v('card')),ratio(v('mut'),v('card'))]});
+   expect(Math.min(...ratios)).toBeGreaterThanOrEqual(4.5);
+  }
+ }
+ expect(await page.evaluate(()=>localStorage.getItem('portfolio-v1'))).toBe(before);
+ await page.reload();await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
+});
