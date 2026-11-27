@@ -45,3 +45,11 @@ assert.equal(splitSale.units,8);assert.equal(splitSale.cost,404);assert.equal(sp
 assert.equal(fifoLedger(splitTrades,'2025-01-31',splitEvents)[0].units,10);
 const [invalidAction]=fifoLedger([tx[0]],'2025-03-01',[{...splitEvents[0],ratio:0}]);
 assert.equal(invalidAction.rejectedActions.length,1);assert.equal(invalidAction.units,10);
+
+const actionState={tx:splitTrades,corporateActions:splitEvents,px:{Example:80},pxd:{Example:'2025-03-01'}};
+const actionPortfolio=calculatePortfolio(actionState,'2025-03-01');
+assert.equal(actionPortfolio.tv,640);assert.equal(actionPortfolio.tc,404);assert.equal(actionPortfolio.realized,294);assert.equal(actionPortfolio.pl,236);assert.equal(actionPortfolio.lifetimeGain,530);assert.equal(actionPortfolio.reconciliationDifference,0);
+assert.equal(calculateRealized(actionState)[0].gain,294);
+assert.equal(calculateRemainingLots('Example',actionState)[0].u,8);
+const staleActionState={tx:[tx[0]],corporateActions:splitEvents,px:{Example:100},pxd:{Example:'2025-01-01'}};
+assert.equal(calculatePortfolio(staleActionState,'2025-02-01').tv,1000);
