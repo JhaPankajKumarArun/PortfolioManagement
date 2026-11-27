@@ -228,3 +228,10 @@ const mixedDietz=calculatePerformance(dietzArgs,'2025-01-01','2025-01-31');
 near(mixedDietz.v0,1000);near(mixedDietz.v1,1560);near(mixedDietz.cf,295);near(mixedDietz.gain,265);near(mixedDietz.pct,265/(1000+510*15/30-215*5/30)*100);
 const tinyDietz=calculatePerformance({...dietzArgs,S:{tx:[{name:'Tiny',type:'mf',side:'buy',date:'2025-01-01',units:0.005,price:100}]}},'2025-01-01','2025-01-31');
 near(tinyDietz.v0,.5);near(tinyDietz.v1,.6);near(tinyDietz.pct,20);near(tinyDietz.vpct,20);
+
+const rejectedFallback=calculatePortfolio({tx:rejectedState.tx},'2025-03-01');
+near(rejectedFallback.tv,1000);assert.equal(rejectedFallback.ledgerValid,false);
+const reversedBenchmark=calculateBenchmark([['2025-01-01',100],['2025-03-01',120]],{points:[{d:'2025-03-01'},{d:'2025-01-01'}]},[tx[0]],dnum);
+assert.equal(reversedBenchmark.ready,false);
+const excessRedemption=[{name:'Index test',type:'stock',side:'buy',date:'2025-01-01',units:10,price:100},{name:'Index test',type:'stock',side:'sell',date:'2025-02-01',units:10,price:200}];
+assert.equal(calculateBenchmark([['2025-01-01',100],['2025-02-01',100]],{points:[{d:'2025-01-01'},{d:'2025-02-01'}]},excessRedemption,dnum).ready,false);
