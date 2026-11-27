@@ -166,3 +166,6 @@ assert.equal(JSON.stringify(harvestState),harvestOriginal);
  near(xirr([['2021-01-01',-100],['2022-01-01',50],['2023-01-01',-100],['2024-01-01',150]]),0);
  assert.equal(xirr([['2021-01-01',-100],['2022-01-01',230],['2023-01-01',-132]]),null);
  near(xirr([['2021-01-01',-100],['2022-01-01',200],['2023-01-01',-100]]),0);
+
+const splitPerf=calculatePerformance({S:{tx:[{name:'Split test',type:'stock',side:'buy',date:'2025-01-01',units:10,price:100}],corporateActions:[{name:'Split test',type:'stock',kind:'split',ratio:2,date:'2025-02-01'}]},ser:{},PWH:{},pxAt:(_s,_n,d)=>d<'2025-02-01'?100:50,navCovers:()=>true,dnum:d=>Date.parse(d)/864e5},'2025-01-31','2025-02-01');
+assert.equal(splitPerf.v0,1000);assert.equal(splitPerf.v1,1000);assert.equal(splitPerf.cf,0);assert.equal(splitPerf.gain,0);
