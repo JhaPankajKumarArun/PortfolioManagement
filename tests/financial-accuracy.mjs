@@ -245,3 +245,11 @@ assert.equal(incompleteEstimate.ready,false);assert.equal(incompleteEstimate.tax
 for(const slab of [-1,101,NaN,Infinity,null,'30']){const invalid=safeTaxFY([],'2025-26',slab);assert.equal(invalid.ready,false);assert.equal(invalid.tax,null);}
 for(const lot of [{bucket:'unknown',gain:100},{bucket:'eqST',gain:Infinity},{bucket:'eqST',gain:100,taxableGain:NaN}]){const invalid=safeTaxFY([{...lot,fy:'2025-26',sell:'2025-05-01'}],'2025-26',30);assert.equal(invalid.ready,false);assert.equal(invalid.tax,null);}
 assert.equal(safeTaxFY([],'2025-26',0).tax,0);
+
+import {mk as transitionLot} from '../js/engines/tax.mjs';
+for(const cls of ['listedOther','other','debt','listedDebt'])assert.equal(transitionLot('Fund',cls,'2023-04-01','2025-03-31',1,100,200).bucket,'slab');
+assert.equal(transitionLot('Gold ETF','listedOther','2023-04-01','2025-04-01',1,100,200).bucket,'otLT');
+assert.equal(transitionLot('Gold fund','other','2023-04-01','2025-04-01',1,100,200).bucket,'slab');
+assert.equal(transitionLot('Gold fund','other','2023-04-01','2025-04-02',1,100,200).bucket,'otLT');
+assert.equal(transitionLot('Debt ETF','listedDebt','2023-04-01','2025-04-02',1,100,200).bucket,'slab');
+assert.equal(transitionLot('Debt ETF','listedDebt','2023-03-31','2025-04-02',1,100,200).bucket,'otLT');
