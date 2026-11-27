@@ -6,8 +6,19 @@ function taxAutoCls(n,S,type){const t=S.tx.find(x=>x?.name===n);const x=n.toLowe
 if(/liquid|overnight|money market|ultra short|low duration|short duration|medium duration|long duration|corporate bond|gilt|credit risk|banking and psu|banking & psu|floater|dynamic bond|bond fund|debt/.test(x))return 'debt';
 if(/gold|silver|commodit|fund of fund|fof|international|overseas|global|nasdaq|s&p 500/.test(x))return 'other';return 'equity'}
 const taxClass=(n,S,type)=>{const ambiguous=new Set(S.tx.filter(t=>t?.name===n).map(t=>t.type)).size>1;return (!ambiguous&&S.cls?.[n])||taxAutoCls(n,S,type)};
-function mk(n,c,b,s,u,cost,pro){const specified=b>='2023-04-01'&&(c==='debt'||c==='listedDebt'||(s<'2025-04-01'&&['listedOther','other'].includes(c)));const months=c==='equity'?12:['listedOther','listedDebt'].includes(c)&&s>='2024-07-23'?12:s>='2024-07-23'?24:36;const lt=!specified&&addM(b,months)<s;return{name:n,cls:c,buy:b,sell:s,units:u,cost,pro,gain:pro-cost,lt,specified,review:(c==='equity'&&b<'2018-02-01')||(lt&&c!=='equity'&&s<'2024-07-23')||c==='other'||c==='debt',fy:fyOf(s),bucket:c==='equity'?(lt?'eqLT':'eqST'):(lt?'otLT':'slab')}}
-function calculateRealized(S){const ledger=fifoLedger(S.tx,'9999-12-31',S.corporateActions??[]),ledgerValid=ledger.every(h=>h.unmatched<=1e-9&&!h.rejectedActions?.length&&!h.rejectedTransactions?.length);const result=ledger.flatMap(h=>h.sales.map(l=>({...mk(h.name,taxClass(h.name,S,h.type),l.buy,l.sell,l.units,l.cost,l.proceeds),type:h.type,classificationSource: S.cls?.[h.name]===taxClass(h.name,S,h.type)&&new Set(S.tx.filter(t=>t?.name===h.name).map(t=>t.type)).size===1?'manual':'inferred',review:true,ledgerValid})));Object.defineProperty(result,'ledgerValid',{value:ledgerValid,enumerable:false});return result}
+
+ // Explicit annual scheme evidence; no inference from a monthly portfolio snapshot.
+ export function verifiedFundTaxProfile(profile,saleDate){
+  if(!profile||profile.verified!==true||profile.fy!==fyOf(saleDate)||typeof profile.source!=='string'||!profile.source.trim()||typeof profile.listed!=='boolean')return null;
+  const fields=['domesticEquity','debtMoneyMarket','qualifyingDebtFundUnits'];
+  if(!fields.every(k=>Number.isFinite(profile[k])&&profile[k]>=0&&profile[k]<=100))return null;
+  const specified=saleDate<'2025-04-01'?profile.domesticEquity<=35:profile.debtMoneyMarket>65||profile.qualifyingDebtFundUnits>=65;
+  if(typeof profile.equityOriented!=='boolean'||(specified&&profile.equityOriented))return null;
+  return {specified,cls:profile.equityOriented?'equity':profile.listed?'listedOther':'other',source:profile.source};
+ }
+
+function mk(n,c,b,s,u,cost,pro,profile=null){const specified=profile?b>='2023-04-01'&&profile.specified:b>='2023-04-01'&&(c==='debt'||c==='listedDebt'||(s<'2025-04-01'&&['listedOther','other'].includes(c)));const months=c==='equity'?12:['listedOther','listedDebt'].includes(c)&&s>='2024-07-23'?12:s>='2024-07-23'?24:36;const lt=!specified&&addM(b,months)<s;return{name:n,cls:c,buy:b,sell:s,units:u,cost,pro,gain:pro-cost,lt,specified,review:(c==='equity'&&b<'2018-02-01')||(lt&&c!=='equity'&&s<'2024-07-23')||c==='other'||c==='debt',fy:fyOf(s),bucket:c==='equity'?(lt?'eqLT':'eqST'):(lt?'otLT':'slab')}}
+function calculateRealized(S){const ledger=fifoLedger(S.tx,'9999-12-31',S.corporateActions??[]),ledgerValid=ledger.every(h=>h.unmatched<=1e-9&&!h.rejectedActions?.length&&!h.rejectedTransactions?.length);const result=ledger.flatMap(h=>h.sales.map(l=>({...mk(h.name,verifiedFundTaxProfile(S.taxProfiles?.[h.type]?.[h.name]?.[fyOf(l.sell)],l.sell)?.cls??taxClass(h.name,S,h.type),l.buy,l.sell,l.units,l.cost,l.proceeds,verifiedFundTaxProfile(S.taxProfiles?.[h.type]?.[h.name]?.[fyOf(l.sell)],l.sell)),type:h.type,classificationSource: verifiedFundTaxProfile(S.taxProfiles?.[h.type]?.[h.name]?.[fyOf(l.sell)],l.sell)?'verified-profile':S.cls?.[h.name]===taxClass(h.name,S,h.type)&&new Set(S.tx.filter(t=>t?.name===h.name).map(t=>t.type)).size===1?'manual':'inferred',review:true,ledgerValid})));Object.defineProperty(result,'ledgerValid',{value:ledgerValid,enumerable:false});return result}
 // Rate assumptions for eligible capital gains; not a complete income-tax computation.
 export function capitalGainRules(saleDate,fy=fyOf(saleDate)){
  const revised=saleDate>='2024-07-23';
