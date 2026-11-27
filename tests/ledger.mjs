@@ -61,3 +61,10 @@ assert.deepEqual(loadPortfolio(localStore),actionState);
 assert.deepEqual(decodePortfolio('{"tx":[]}'),{tx:[]});
 for(const corporateActions of [null,[{...splitEvents[0],ratio:0}],[{...splitEvents[0],date:'2025-02-30'}],[...splitEvents,...splitEvents]])assert.throws(()=>persistPortfolio(localStore,{tx:[],corporateActions}));
 assert.deepEqual(loadPortfolio(localStore),actionState);
+
+import {auditTransactions,reconcilePortfolio} from '../js/core/integrity.mjs';
+assert.deepEqual(auditTransactions(splitTrades,'2025-03-01',splitEvents),[]);
+const independentSplit=reconcilePortfolio(actionState,actionPortfolio,'2025-03-01',{realized:calculateRealized(actionState)});
+assert.equal(independentSplit.ready,true);
+assert.equal(independentSplit.totals.totalGain,530);
+assert.ok(independentSplit.checks.every(c=>c.passed));
