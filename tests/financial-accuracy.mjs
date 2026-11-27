@@ -147,3 +147,11 @@ near(calculateTaxFY([adjustedLot],'2025-26',30).tax,3250);
 near(calculateTaxFY([historicalLot],'2025-26',30).tax,16250);
 assert.equal(applyHistoricalTaxBasis(historicalLot,{kind:'grandfathering',fairMarketValue:200000}),historicalLot);
 assert.equal(applyHistoricalTaxBasis({...historicalLot,buy:'2019-01-01'},{kind:'grandfathering',verified:true,fairMarketValue:200000}).taxableGain,undefined);
+
+import {simulateTaxHarvest} from '../js/engines/tax.mjs';
+const harvestState={tx:[{name:'Gain',type:'stock',date:'2025-04-01',side:'buy',units:100,price:100},{name:'Gain',type:'stock',date:'2025-05-01',side:'sell',units:100,price:200},{name:'Loss',type:'stock',date:'2025-04-01',side:'buy',units:100,price:100}]};
+const harvestOriginal=JSON.stringify(harvestState);
+const harvest=simulateTaxHarvest(harvestState,{name:'Loss',type:'stock',date:'2025-06-01',units:100,price:50,fee:10,slab:30});
+assert.equal(harvest.ready,true);near(harvest.before.tax,2080);near(harvest.after.tax,1037.92);near(harvest.taxReduction,1042.08);near(harvest.netTaxBenefit,1032.08);near(harvest.netProceeds,4990);
+assert.equal(JSON.stringify(harvestState),harvestOriginal);
+assert.equal(simulateTaxHarvest(harvestState,{name:'Loss',type:'stock',date:'2025-06-01',units:101,price:50,slab:30}).ready,false);
