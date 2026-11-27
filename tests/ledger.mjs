@@ -68,3 +68,27 @@ const independentSplit=reconcilePortfolio(actionState,actionPortfolio,'2025-03-0
 assert.equal(independentSplit.ready,true);
 assert.equal(independentSplit.totals.totalGain,530);
 assert.ok(independentSplit.checks.every(c=>c.passed));
+
+ // Malformed trades must never create units, costs, proceeds or cash flows.
+const malformedTrades=[
+ {...tx[0],units:0},{...tx[0],units:-1},{...tx[0],units:Infinity},
+ {...tx[0],price:0},{...tx[0],price:NaN},{...tx[0],price:-1},
+ {...tx[0],fee:-1},{...tx[0],fee:Infinity},
+ {...tx[0],date:'2025-02-30'},{...tx[0],date:null},
+ {...tx[0],side:'transfer'},{...tx[0],units:Number.MAX_VALUE,price:2},
+ {...tx[2],units:1,price:100,fee:101}
+];
+const malformedInput=[tx[0],...malformedTrades],malformedBefore=JSON.stringify(malformedInput);
+const [cleanLedger]=fifoLedger(malformedInput);
+assert.equal(cleanLedger.units,10);
+assert.equal(cleanLedger.cost,1010);
+assert.deepEqual(cleanLedger.flows,[['2025-01-01',-1010]]);
+assert.equal(cleanLedger.sales.length,0);
+assert.deepEqual(cleanLedger.rejectedTransactions.map(r=>r.row),malformedTrades.map((_,i)=>i+2));
+assert.equal(JSON.stringify(malformedInput),malformedBefore);
+for(const bad of [null,{...tx[0],type:'unknown'},{...tx[0],name:''}]){
+ const [rejected]=fifoLedger([bad]);
+ assert.equal(rejected.units,0);assert.equal(rejected.cost,0);
+ assert.equal(rejected.flows.length,0);assert.equal(rejected.rejectedTransactions.length,1);
+}
+assert.equal(fifoLedger([tx[0],{...tx[0],date:'2026-01-01',units:-1}],'2025-12-31')[0].rejectedTransactions,undefined);
