@@ -253,3 +253,14 @@ assert.equal(transitionLot('Gold fund','other','2023-04-01','2025-04-01',1,100,2
 assert.equal(transitionLot('Gold fund','other','2023-04-01','2025-04-02',1,100,200).bucket,'otLT');
 assert.equal(transitionLot('Debt ETF','listedDebt','2023-04-01','2025-04-02',1,100,200).bucket,'slab');
 assert.equal(transitionLot('Debt ETF','listedDebt','2023-03-31','2025-04-02',1,100,200).bucket,'otLT');
+
+import {verifiedFundTaxProfile as verifyProfile} from '../js/engines/tax.mjs';
+const profile={verified:true,fy:'2025-26',source:'Synthetic annual evidence',listed:false,equityOriented:false,domesticEquity:35,debtMoneyMarket:65,qualifyingDebtFundUnits:0};
+assert.equal(verifyProfile(profile,'2025-04-01').specified,false);
+assert.equal(verifyProfile({...profile,debtMoneyMarket:65.01},'2025-04-01').specified,true);
+assert.equal(verifyProfile({...profile,qualifyingDebtFundUnits:65},'2025-04-01').specified,true);
+assert.equal(verifyProfile({...profile,fy:'2024-25'},'2025-03-31').specified,true);
+assert.equal(verifyProfile({...profile,fy:'2024-25',domesticEquity:35.01},'2025-03-31').specified,false);
+assert.equal(verifyProfile({...profile,verified:false},'2025-04-01'),null);
+assert.equal(verifyProfile(profile,'2026-04-01'),null);
+assert.equal(verifyProfile({...profile,debtMoneyMarket:101},'2025-04-01'),null);
