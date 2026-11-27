@@ -169,3 +169,9 @@ assert.equal(JSON.stringify(harvestState),harvestOriginal);
 
 const splitPerf=calculatePerformance({S:{tx:[{name:'Split test',type:'stock',side:'buy',date:'2025-01-01',units:10,price:100}],corporateActions:[{name:'Split test',type:'stock',kind:'split',ratio:2,date:'2025-02-01'}]},ser:{},PWH:{},pxAt:(_s,_n,d)=>d<'2025-02-01'?100:50,navCovers:()=>true,dnum:d=>Date.parse(d)/864e5},'2025-01-31','2025-02-01');
 assert.equal(splitPerf.v0,1000);assert.equal(splitPerf.v1,1000);assert.equal(splitPerf.cf,0);assert.equal(splitPerf.gain,0);
+
+const riskSplitState={tx:[{name:'Risk split',type:'stock',side:'buy',date:'2025-01-01',units:10,price:100}],corporateActions:[{name:'Risk split',type:'stock',kind:'split',ratio:2,date:'2025-02-01'}]};
+const riskSplit=calculateRiskSeries(riskSplitState,'2025-02-28',dnum,(_n,_t,d)=>d<'2025-02-01'?100:50);
+assert.equal(riskSplit.points.length,2);near(riskSplit.points[1].value,1000);near(riskSplit.points[1].r,0);
+const splitBenchmark=calculateBenchmark([['2025-01-01',100],['2025-01-31',100],['2025-02-28',100]],riskSplit,riskSplitState.tx,dnum,riskSplitState.corporateActions);
+assert.equal(splitBenchmark.ready,true);near(splitBenchmark.ret,0);
