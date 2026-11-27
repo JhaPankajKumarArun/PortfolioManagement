@@ -144,3 +144,17 @@ test('custom theme extreme colors preserve contrast and portfolio storage',async
  expect(await page.evaluate(()=>localStorage.getItem('portfolio-v1'))).toBe(before);
  await page.reload();await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
 });
+
+test('split-adjusted stock CSV requires verified cutoff and preserves transactions',async({page})=>{
+ await seed(page);await page.goto(base);await nav(page,'data','Import and backup','more');
+ await page.locator('[data-group="market"] summary').first().click();
+ const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx);
+ const csv={name:'prices.csv',mimeType:'text/csv',buffer:Buffer.from('Date,Close\n2024-02-01,60\n2024-02-02,61\n')};
+ await page.locator('[data-stock-basis]').selectOption('split-adjusted');
+ await page.locator('[data-india-stock]').setInputFiles(csv);
+ await expect(page.locator('#toast')).toContainText('verified adjustment cutoff');
+ await page.locator('[data-stock-cutoff]').fill('2024-02-02');
+ await page.locator('[data-india-stock]').setInputFiles(csv);
+ await expect(page.locator('#pwstatus')).toContainText('Imported 2 observations');
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual(before);
+});
