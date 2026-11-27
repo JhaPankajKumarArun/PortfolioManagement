@@ -37,3 +37,11 @@ const bonus=applyCorporateAction(originalHolding,{kind:'bonus',ratio:.5,date:'20
 assert.equal(bonus.units,15);assert.equal(bonus.cost,1010);assert.deepEqual(bonus.lots[1],{d:'2025-02-01',u:5,p:0});assert.deepEqual(bonus.flows,originalHolding.flows);
 assert.equal(applyCorporateAction(originalHolding,{kind:'split',ratio:0,date:'2025-02-01'}),null);
 assert.equal(JSON.stringify(originalHolding),snapshot);
+
+const splitEvents=[{name:'Example',type:'stock',kind:'split',ratio:2,date:'2025-02-01'}];
+const splitTrades=[tx[0],{...tx[2],units:12,price:75,fee:0}];
+const [splitSale]=fifoLedger(splitTrades,'2025-03-01',splitEvents);
+assert.equal(splitSale.units,8);assert.equal(splitSale.cost,404);assert.equal(splitSale.sales[0].cost,606);assert.equal(splitSale.sales[0].proceeds,900);assert.equal(splitSale.flows.length,2);assert.equal(splitSale.unmatched,0);
+assert.equal(fifoLedger(splitTrades,'2025-01-31',splitEvents)[0].units,10);
+const [invalidAction]=fifoLedger([tx[0]],'2025-03-01',[{...splitEvents[0],ratio:0}]);
+assert.equal(invalidAction.rejectedActions.length,1);assert.equal(invalidAction.units,10);
