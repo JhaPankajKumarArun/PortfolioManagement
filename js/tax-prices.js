@@ -17,7 +17,7 @@ ${rows.length?`<div class='card' style='margin-top:12px'>${row('','Gain','Tax')}
 ${T.mixedRateApproximation?`<p class='ins w' role='status'>This financial year includes gains before and from 23 July 2024. The estimate uses blended rates; statutory exemption and loss allocation may produce a different liability. Verify before filing.</p>`:''}<p class='mut note'>Includes 4% cess. ${T.review?'Review required for '+T.review+' matched sale lots (classification, historical cost or indexation). ':''} ${T.carry>0?'Subject to filing and eligibility, an unused loss of '+cr(T.carry)+' can be carried forward for 8 years. ':''}${isFinite(T.lim)?'Equity long-term gains up to '+cr(T.lim)+' a year are exempt.':'Equity long-term gains were exempt before April 2018.'}</p>
 <label style='margin-top:12px'>Your income tax slab, used for debt funds<select id='slab'>${[0,5,10,15,20,25,30].map(v=>`<option value='${v}' ${v===slabR()?'selected':''}>${v}%</option>`).join('')}</select></label>
 ${hv?`<h2>Planning for this year</h2>${hv}`:''}<h2>Sales in FY ${txfy}</h2>${L.length?`<div class='card'>${L.slice(0,txlim).map(gl).join('')}</div>${L.length>txlim?`<button class='btn ghost' data-a='txmore'>Show more (${L.length-txlim} left)</button>`:''}<button class='btn ghost' data-a='taxcsv'>Export this year as CSV</button>`:`<p class='mut'>No sales recorded in this year.</p>`}
-${taxProfilePanel(txfy)}<h2>How each holding is taxed</h2><div class='card'>${names.map(x=>`<div class='gl'><div><b>${esc(x)}</b></div><select data-cls='${esc(x)}'>${[['equity','Equity'],['debt','Specified debt fund (verify eligibility)'],['other','Other unlisted fund'],['listedOther','Listed non-equity ETF (verify eligibility)'],['listedDebt','Listed debt ETF (verify eligibility)']].map(([v,t])=>`<option value='${v}' ${clsOf(x)===v?'selected':''}>${t}</option>`).join('')}</select></div>`).join('')}</div>
+${historicalBasisPanel(L)}${taxProfilePanel(txfy)}<h2>How each holding is taxed</h2><div class='card'>${names.map(x=>`<div class='gl'><div><b>${esc(x)}</b></div><select data-cls='${esc(x)}'>${[['equity','Equity'],['debt','Specified debt fund (verify eligibility)'],['other','Other unlisted fund'],['listedOther','Listed non-equity ETF (verify eligibility)'],['listedDebt','Listed debt ETF (verify eligibility)']].map(([v,t])=>`<option value='${v}' ${clsOf(x)===v?'selected':''}>${t}</option>`).join('')}</select></div>`).join('')}</div>
 <p class='mut note'>This is an estimate for planning, not tax advice. It leaves out surcharge, grandfathering for purchases before Feb 2018, indexation on older debt fund purchases and losses carried from earlier years. Gains are matched oldest units first. Scheme classifications are provisional; verify applicable debt-fund definition, STT eligibility and current tax-year law. Check with a chartered accountant before filing.</p>`}
 function csvSheet(){if(realized().ledgerValid===false||calc().ledgerValid===false){toast('Capital gains export unavailable: correct the portfolio ledger first.');return}const q=v=>DQ+String(v).split(DQ).join(DQ+DQ)+DQ,L=realized().filter(g=>g.fy===txfy).sort((a,b)=>a.sell<b.sell?-1:1);
 sheet(`<h3>Capital gains, FY ${txfy}</h3><textarea id='csvo' rows='8' spellcheck='false'>${esc(['Fund,Treatment,Buy date,Sell date,Units,Cost,Sale value,Gain,Term'].concat(L.map(g=>[q(g.name),g.cls,g.buy,g.sell,+g.units.toFixed(3),g.cost.toFixed(2),g.pro.toFixed(2),g.gain.toFixed(2),g.bucket==='slab'?'Slab':g.lt?'Long-term':'Short-term'].join(','))).join(NL))}</textarea><button class='btn' data-a='taxcopy'>Copy</button><p class='msg' id='cpm' role='status'></p>`)}
@@ -76,4 +76,28 @@ document.addEventListener('click',async e=>{
  const {type,name,year}=box.dataset;
  S.taxProfiles={...S.taxProfiles,[type]:{...S.taxProfiles?.[type],[name]:{...S.taxProfiles?.[type]?.[name],[year]:p}}};
  save();render();
+});
+
+function historicalBasisPanel(lots){
+ const eligible=lots.filter(l=>l.lt&&(l.cls==='equity'?l.buy<'2018-02-01'&&l.sell>='2018-04-01':l.bucket==='otLT'&&l.sell<'2024-07-23'));
+ if(!eligible.length)return '';
+ return '<h2>Historical tax cost evidence</h2><p class="mut">Use verified values for the entire matched sale lot, not per-unit values. Actual investment gain is unchanged.</p>'+eligible.map((l,i)=>{
+ const key=JSON.stringify([l.type,l.name,l.buy,l.sell,l.units,l.cost,l.pro]),p=(S.taxBasisAdjustments??[]).find(a=>a.lotKey===key)||{},kind=l.cls==='equity'?'grandfathering':'indexation';
+ return `<details class="card pad" data-basis-lot="${esc(key)}" data-kind="${kind}"><summary>${esc(l.name)} · ${esc(l.buy)} → ${esc(l.sell)}</summary><p>Units: ${l.units} · Actual gain: ${cr(l.gain)} · Taxable gain: ${cr(l.taxableGain??l.gain)}</p><label>Evidence source<input data-basis-field="source" value="${esc(p.source||'')}"></label>${(kind==='grandfathering'?[['fairMarketValue','Eligible total fair market value (₹)']]:[['buyCII','Acquisition year CII'],['sellCII','Sale year CII']]).map(([k,label])=>`<label>${label}<input type="number" min="0" step="any" data-basis-field="${k}" value="${esc(String(p[k]??''))}"></label>`).join('')}<label><input type="checkbox" data-basis-field="verified" ${p.verified?'checked':''}> I verified statutory eligibility and evidence</label><button class="btn" data-basis-save>Save adjustment</button><button class="btn ghost" data-basis-remove>Remove adjustment</button><p role="status" data-basis-status></p></details>`;
+ }).join('');
+}
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('[data-basis-save],[data-basis-remove]');if(!b)return;
+ const box=b.closest('[data-basis-lot]'),key=box.dataset.basisLot,status=box.querySelector('[data-basis-status]');
+ const {taxLotKey,applyHistoricalTaxBasis}=await import('./engines/tax.mjs');
+ const matches=realized().filter(l=>taxLotKey(l)===key);
+ if(matches.length!==1){status.textContent='Sale lot is missing or ambiguous.';return}
+ const old=S.taxBasisAdjustments??[],next=old.filter(a=>a.lotKey!==key);
+ if(b.hasAttribute('data-basis-save')){
+ const get=k=>box.querySelector('[data-basis-field="'+k+'"]'),p={lotKey:key,kind:box.dataset.kind,source:get('source').value.trim(),verified:get('verified').checked};
+ for(const k of p.kind==='grandfathering'?['fairMarketValue']:['buyCII','sellCII'])p[k]=get(k).value.trim()===''?NaN:Number(get(k).value);
+ if(!p.source||!p.verified||!Number.isFinite(applyHistoricalTaxBasis(matches[0],p).taxBasis)||!Object.keys(p).filter(k=>['fairMarketValue','buyCII','sellCII'].includes(k)).every(k=>Number.isFinite(p[k])&&p[k]>=0)){status.textContent='Enter valid verified historical values and evidence.';return}
+ next.push(p);
+ }
+ S.taxBasisAdjustments=next;save();render();
 });
