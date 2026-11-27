@@ -112,3 +112,12 @@ near(capitalGainRules('2024-07-22').exemption,125000);
 near(capitalGainRules('2024-03-31').exemption,100000);
 assert.equal(capitalGainRules('2026-04-01').requiresReview,true);
 assert.equal(tax.estimateOnly,true);
+
+import {mk,taxAutoCls,addM} from '../js/engines/tax.mjs';
+assert.equal(taxAutoCls('SBI Gold ETF',{tx:[]},'stock'),'listedOther');
+assert.equal(taxAutoCls('GoldBeES',{tx:[]},'stock'),'listedOther');
+assert.equal(taxAutoCls('Gold mining company',{tx:[]},'stock'),'equity');
+assert.equal(addM('2024-02-29',12),'2025-02-28');
+assert.equal(mk('A','equity','2024-08-01','2025-08-01',1,100,120).lt,false);
+assert.equal(mk('A','equity','2024-08-01','2025-08-02',1,100,120).lt,true);
+assert.ok(taxCollision.every(g=>g.review&&g.classificationSource==='inferred'));
