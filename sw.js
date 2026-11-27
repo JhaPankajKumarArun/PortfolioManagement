@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v148-dynamic-appearance';
+const CACHE_NAME = 'my-portfolio-pwa-v149-stability';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
@@ -25,6 +25,7 @@ const APP_SHELL = [
   './js/bootstrap.mjs',
   './js/appearance.js',
   './js/features/recovery-ui.mjs',
+  './js/features/app-health.mjs',
   './js/core/errors.mjs',
   './js/core/integrity.mjs',
   './js/services/http.mjs',
