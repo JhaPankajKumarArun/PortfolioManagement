@@ -161,3 +161,8 @@ const scan=discoverTaxHarvest(harvestState,{date:'2025-06-01',slab:30,quotes:[{n
 assert.equal(scan.length,1);near(scan[0].units,100);near(scan[0].netTaxBenefit,1032.08);
 assert.deepEqual(discoverTaxHarvest(harvestState,{date:'2025-06-01',slab:30,quotes:[{name:'Loss',type:'stock',date:'2025-05-01',price:50}]}),[]);
 assert.equal(JSON.stringify(harvestState),harvestOriginal);
+
+ // Annual dates with exact 365-day spacing: polynomial in discount factor.
+ near(xirr([['2021-01-01',-100],['2022-01-01',50],['2023-01-01',-100],['2024-01-01',150]]),0);
+ assert.equal(xirr([['2021-01-01',-100],['2022-01-01',230],['2023-01-01',-132]]),null);
+ near(xirr([['2021-01-01',-100],['2022-01-01',200],['2023-01-01',-100]]),0);
