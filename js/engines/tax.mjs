@@ -13,7 +13,7 @@ export function capitalGainRules(saleDate,fy=fyOf(saleDate)){
  const revised=saleDate>='2024-07-23';
  return {eqST:revised?.20:.15,eqLT:revised?.125:.10,otLT:revised?.125:.20,exemption:fy<'2018-19'?Infinity:fy<'2024-25'?100000:125000,cess:.04,requiresReview:fy<'2018-19'||fy>='2026-27'};
 }
-function calculateTaxFY(L,fy,slab){const ledgerValid=L.ledgerValid!==false&&!L.some(g=>g.ledgerValid===false);const rt={eqST:0,eqLT:0,slab:0,otLT:0},pos={eqST:[0,0],eqLT:[0,0],otLT:[0,0]};
+function calculateTaxFY(L,fy,slab){const ledgerValid=L.ledgerValid!==false&&!L.some(g=>g.ledgerValid===false);const inputsValid=Number.isFinite(slab)&&slab>=0&&slab<=100&&/^\d{4}-\d{2}$/.test(fy)&&L.filter(g=>g.fy===fy).every(g=>['eqST','eqLT','slab','otLT'].includes(g.bucket)&&Number.isFinite(g.taxableGain??g.gain));const rt={eqST:0,eqLT:0,slab:0,otLT:0},pos={eqST:[0,0],eqLT:[0,0],otLT:[0,0]};
 L.filter(g=>g.fy===fy).forEach(g=>{const gain=Number.isFinite(g.taxableGain)?g.taxableGain:g.gain;rt[g.bucket]+=gain;if(gain>0&&pos[g.bucket])pos[g.bucket][g.sell>='2024-07-23'?1:0]+=gain});
 const x={...rt},offsets=[],off=(f,t)=>{if(x[f]<0&&x[t]>0){const u=Math.min(-x[f],x[t]);x[f]+=u;x[t]-=u;offsets.push({from:f,to:t,amount:u})}};
 // Restricted long-term losses first, preserving flexible short-term losses.
@@ -23,7 +23,7 @@ const carryShort=Math.max(0,-x.eqST)+Math.max(0,-x.slab),carryLong=Math.max(0,-x
 const carry=Object.values(x).filter(v=>v<0).reduce((s,v)=>s-v,0),bl=(p,a,b)=>{const t=p[0]+p[1];return t?(p[0]*a+p[1]*b)/t:b};
 const old=capitalGainRules('2024-07-22',fy),revised=capitalGainRules('2024-07-23',fy);
 const lim=revised.exemption,tEqST=Math.max(x.eqST,0)*bl(pos.eqST,old.eqST,revised.eqST),tEqLT=fy<'2018-19'?0:Math.max(x.eqLT-lim,0)*bl(pos.eqLT,old.eqLT,revised.eqLT),tSlab=Math.max(x.slab,0)*slab/100,tOT=Math.max(x.otLT,0)*bl(pos.otLT,old.otLT,revised.otLT);
-return{mixedRateApproximation:Object.values(pos).some(p=>p[0]>0&&p[1]>0),ledgerValid,ready:ledgerValid,rulesReview:!ledgerValid||revised.requiresReview||L.some(g=>g.fy===fy&&g.review)||Object.values(pos).some(p=>p[0]>0&&p[1]>0),estimateOnly:true,review:L.filter(g=>g.fy===fy&&g.review).length,raw:rt,net:x,carry,carryShort,carryLong,offsets,carryEligibilityVerified:false,lim,tEqST,tEqLT,tSlab,tOT,tax:ledgerValid?(tEqST+tEqLT+tSlab+tOT)*(1+revised.cess):null}}
+return{mixedRateApproximation:Object.values(pos).some(p=>p[0]>0&&p[1]>0),ledgerValid,ready:ledgerValid&&inputsValid,inputsValid,rulesReview:!inputsValid||!ledgerValid||revised.requiresReview||L.some(g=>g.fy===fy&&g.review)||Object.values(pos).some(p=>p[0]>0&&p[1]>0),estimateOnly:true,review:L.filter(g=>g.fy===fy&&g.review).length,raw:rt,net:x,carry,carryShort,carryLong,offsets,carryEligibilityVerified:false,lim,tEqST,tEqLT,tSlab,tOT,tax:ledgerValid&&inputsValid?(tEqST+tEqLT+tSlab+tOT)*(1+revised.cess):null}}
 function calculateRemainingLots(n,S){return fifoLedger(S.tx,'9999-12-31',S.corporateActions??[]).filter(h=>h.name===n).flatMap(h=>h.lots).filter(l=>l.u>1e-6)}
 
 export { addM, fyOf, srt, taxAutoCls, taxClass, mk, calculateRealized, calculateTaxFY, calculateRemainingLots };
@@ -63,6 +63,7 @@ export function simulateTaxHarvest(S,{name,type,date,units,price,fee=0,slab}){
  const fy=fyOf(date),before=calculateTaxFY(calculateRealized({...S,tx,corporateActions:(S.corporateActions??[]).filter(a=>a.date<=date)}),fy,slab);
  const proposed={name,type,date,units,price,fee,side:'sell'};
  const after=calculateTaxFY(calculateRealized({...S,tx:[...tx,proposed],corporateActions:(S.corporateActions??[]).filter(a=>a.date<=date)}),fy,slab);
+ if(!before.ready||!after.ready||!Number.isFinite(before.tax)||!Number.isFinite(after.tax))return {ready:false,reason:'Tax estimate unavailable'};
  return {ready:true,estimateOnly:true,requiresReview:true,fy,before,after,netProceeds:units*price-fee,taxReduction:before.tax-after.tax,netTaxBenefit:before.tax-after.tax-fee,remainingEquityExemption:Math.max(0,after.lim-Math.max(0,after.net.eqLT))};
 }
 
