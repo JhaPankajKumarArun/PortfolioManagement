@@ -4,7 +4,8 @@ const mfHeld=C=>C.open.filter(h=>{const t=S.tx.find(x=>x.name===h.name);return t
 function updatePerfUi(){const w=$('#pfw'),daily=$('#overview-day-change');if(!w&&!daily)return;const C=calc();if(w)w.innerHTML=tab==='home'?overviewPerformance(C):perfBody(C);if(daily)daily.innerHTML=overviewDayChange(C)}
 // Recover missing history per fund; successful downloads survive other failures.
 const historyTargets=()=>[...new Set(S.tx.filter(t=>t.type==='mf'&&t.date<=today()).map(t=>t.name))].map(name=>({name})).filter(h=>S.isin?.[h.name]||S.sc?.[h.name]);
-const historyDue=h=>!NH[h.name]?.d?.length||Date.now()-(NH[h.name].t||0)>432e5;
+const historyGap=h=>{const rows=NH[h.name]?.d||[],end=S.pxd?.[h.name];return !rows.length||!!end&&(!rows.some(([d])=>d===end)||!rows.some(([d])=>d<end&&Date.parse(end)-Date.parse(d)<=7*86400000))};
+const historyDue=h=>historyGap(h)||Date.now()-(NH[h.name]?.t||0)>432e5;
 async function navhLoad(force=true){
  if(NHBUSY||navigator.onLine===false)return;
  const H=historyTargets().filter(h=>force||historyDue(h));if(!H.length)return;
@@ -22,12 +23,13 @@ async function navhLoad(force=true){
  if(S!==owner)return;
  const merged=new Map(NH[h.name]?.d||[]);for(const [d,p] of rows)merged.set(d,p);
  NH[h.name]={t:Date.now(),d:[...merged].sort((a,b)=>a[0].localeCompare(b[0]))};saveNH();
- },{force,ttl:432e5,baseDelay:60000,maxDelay:600000});
+ const last=rows[rows.length-1];if(last&&(!S.pxd?.[h.name]||last[0]>=S.pxd[h.name]))setPx(h.name,last[1],last[0]);
+ },{force:force||historyGap(h),ttl:432e5,baseDelay:60000,maxDelay:600000});
  if(historyDue(h))failed.push(h.name);
  }catch(e){failed.push(h.name)}finally{done++;NHPROG='Checked '+done+' of '+H.length+' funds…';updatePerfUi()}}};
  await Promise.all([worker(),worker(),worker()]);
  if(S===owner){save();NHMSG=failed.length?'History still needs attention for '+failed.length+' fund(s): '+failed.join(', '):'Fund history checked successfully.';NHFAIL=failed.length?Date.now():0}
- }finally{NHBUSY=false;updatePerfUi();if(S===owner&&(tab==='data'||tab==='time'))render()}
+ }finally{NHBUSY=false;updatePerfUi();if(S===owner&&(tab==='data'||tab==='time'||tab==='list'))render()}
 }
 
 /* Personal Wealth Analytics: local market-data cache and provider adapter. */

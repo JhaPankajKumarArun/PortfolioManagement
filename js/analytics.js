@@ -197,7 +197,7 @@ function mutualFundHoldingRow(h,c,weight){
  const full=v=>'₹'+Math.round(Math.abs(v)).toLocaleString('en-IN');
  const end=S.pxd?.[h.name],history=(typeof NH!=='undefined'?NH[h.name]?.d:[])||[];c=holdingPeriodChange(history,end,h.price,h.units,holdingPeriod);const start=c?.since,days=(Date.parse(end)-Date.parse(start))/86400000;
  const valid=c&&Number.isFinite(c.abs)&&Number.isFinite(c.pct)&&days>0;
- const move=valid?`<span class='mut'>${holdingPeriod} Change: ${c.abs<0?'−':c.abs>0?'+':''}${cr(Math.abs(c.abs))}</span> <b class='${cls(c.abs)}' style='white-space:nowrap'>${c.abs>0?'▲':c.abs<0?'▼':'—'}${Math.abs(c.pct).toFixed(2)}%</b>`:`<span class='mut'>${holdingPeriod} Change: N/A</span>`;
+ const move=valid?`<span class='mut'>${holdingPeriod} Change: ${c.abs<0?'−':c.abs>0?'+':''}${cr(Math.abs(c.abs))}</span> <b class='${cls(c.abs)}' style='white-space:nowrap'>${c.abs>0?'▲':c.abs<0?'▼':'—'}${Math.abs(c.pct).toFixed(2)}%</b><small class='mut' style='display:block;font-size:10px'>${fd(start)} – ${fd(end)}</small>`:`<span class='mut'>${holdingPeriod} Change: ${NHBUSY?'Loading…':'N/A'}</span><small class='mut' style='display:block;font-size:10px'>${!end?'NAV date missing':!history.length?'NAV history unavailable':'Comparable NAV unavailable'}</small>`;
  return `<button type='button' ${holdingMatches(h.name,holdingQuery)?'':'hidden'} class='hc mf-holding-row' data-ho-fund='${esc(h.name)}' data-h='${esc(h.name)}' style='${holdingMatches(h.name,holdingQuery)?'display:block;':'display:none;'}text-align:left;width:100%;padding:12px 10px'><div class='mf-holding-head' style='display:flex;align-items:center;gap:8px'><span class='ho-check' aria-hidden='true'></span><span style='display:flex;flex:none;width:36px;height:36px;border-radius:50%;overflow:hidden;align-items:center;justify-content:center'>${av(h.name)}</span><div style='flex:1;min-width:0'><b class='mf-holding-name' title='${esc(h.name)}' style='display:block;font-size:14px;line-height:1.25'>${esc(h.name)}</b><div style='font-size:12px;line-height:1.5;margin-top:2px'>${move}</div></div></div><div class='mf-holding-values' style='display:grid;font-variant-numeric:tabular-nums'><div style='min-width:0'><small class='mut' style='font-size:11px'>Invested value</small><strong style='display:block;margin-top:3px'>${full(h.cost)}</strong></div><div style='min-width:0;text-align:center'><small class='mut' style='font-size:11px'>Current value</small><strong style='display:block;margin-top:3px'>${full(h.value)}</strong></div><div style='min-width:0;text-align:right'><small style='font-size:11px'>Total <b class='${cls(h.pl)}' style='white-space:nowrap'>(${h.pl>0?'▲':h.pl<0?'▼':'—'}${Math.abs(h.plp).toFixed(2)}%)</b></small><strong class='${cls(h.pl)}' style='display:block;margin-top:3px'>${h.pl>0?'+':h.pl<0?'−':''}${full(h.pl)}</strong></div></div>${holdingCompact?'':`<div style='display:flex;justify-content:space-between;margin-top:7px;font-size:10px' class='mut'><span>XIRR ${pc(h.xirr)}</span><span>${weight.toFixed(1)}% of portfolio</span></div>`}</button>`;
 }
 
@@ -206,9 +206,10 @@ document.addEventListener('change',e=>{if(e.target.id==='holdingPeriod'&&holding
 function holdingPeriodChange(history,end,price,units,period){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(end||'')||!Number.isFinite(price)||price<=0||!Number.isFinite(units)||!holdingPeriods.includes(period))return null;
  const rows=history.filter(([d,p])=>d<=end&&Number.isFinite(p)&&p>0).sort((a,b)=>b[0].localeCompare(a[0]));
- if(!rows.some(([d,p])=>d===end&&Math.abs(p-price)<0.000001))return null;
+ const same=rows.find(([d])=>d===end);
+ if(same&&Math.abs(same[1]-price)>0.000051)return null;
  let prior;
- if(period==='1D')prior=rows.find(([d])=>d<end);
+ if(period==='1D'){prior=rows.find(([d])=>d<end);if(prior&&Date.parse(end)-Date.parse(prior[0])>7*86400000)return null;}
  else{
  const target=new Date(end+'T00:00:00Z'),n=parseInt(period),unit=period.slice(-1);
  if(unit==='W')target.setUTCDate(target.getUTCDate()-7*n);

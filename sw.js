@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v126-exposure-dashboard';
+const CACHE_NAME = 'my-portfolio-pwa-v127-nav-history-sync';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
