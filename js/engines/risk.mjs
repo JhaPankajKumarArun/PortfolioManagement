@@ -1,3 +1,4 @@
+import {fifoLedger} from './ledger.mjs';
 import {resolvePrice} from './valuation.mjs';
 const PA_RF=0.065;
 function paMonthEnd(s){const y=+s.slice(0,4),m=+s.slice(5,7)-1;return new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)}
@@ -5,15 +6,15 @@ function riskHistPrice(S,PWH,NH,asOf,dnum,name,type,d){
  const p=resolvePrice(d,[{rows:type==='stock'?PWH?.[name]:NH?.[name]?.d,source:'history'},{rows:d===asOf&&new Set((S.tx||[]).filter(t=>t.name===name).map(t=>t.type)).size<=1?[[S.pxd?.[name],S.px?.[name]]]:[],source:'cached market'}]);
  return p.status==='market'?p.price:null;
 }
-function riskPortfolioAt(S,price,d){const pos=Object.create(null);S.tx.filter(t=>t.date<=d).forEach(t=>{const key=JSON.stringify([t.type,t.name]);const p=pos[key]||(pos[key]={u:0,type:t.type,name:t.name});p.u+=(t.side==='buy'?1:-1)*t.units});let value=0,missing=[];
- Object.values(pos).forEach(p=>{if(p.u>1e-6){const q=price(p.name,p.type,d);if(!Number.isFinite(q)||q<=0)missing.push(p.name);else value+=p.u*q}});
+function riskPortfolioAt(S,price,d){const holdings=fifoLedger(S.tx,d,S.corporateActions??[]);let value=0,missing=[];
+ for(const h of holdings){if(h.unmatched>1e-9||h.rejectedActions?.length){missing.push(h.name);continue}if(h.units>1e-9){const q=price(h.name,h.type,d);if(!Number.isFinite(q)||q<=0)missing.push(h.name);else value+=h.units*q}}
  return{value,missing};
 }
 function calculateRiskSeries(S,end,dnum,price){const tx=S.tx.filter(t=>t.date<=end).sort((a,b)=>a.date.localeCompare(b.date));if(!tx.length)return{points:[],missing:[]};const first=tx[0].date,start=paMonthEnd(first),dates=[];let y=+start.slice(0,4),m=+start.slice(5,7)-1;
  for(let guard=0;guard<1200;guard++){let d=paMonthEnd(`${y}-${String(m+1).padStart(2,'0')}-01`);if(d>end)d=end;if(!dates.length||dates[dates.length-1]!==d)dates.push(d);if(d===end)break;m++;if(m>11){m=0;y++}}
  const points=[],missingSet=new Set();let prev=null,index=100;
  dates.forEach(d=>{const v=riskPortfolioAt(S,price,d);v.missing.forEach(n=>missingSet.add(n));if(v.missing.length){prev=null;points.length=0;index=100;return}
- if(prev){const flows=tx.filter(t=>t.date>prev.d&&t.date<=d).map(t=>({date:t.date,amt:(t.side==='buy'?1:-1)*(t.units*t.price+(t.side==='buy'?(t.fee||0):-(t.fee||0)))}));const net=flows.reduce((a,x)=>a+x.amt,0),span=Math.max(1,dnum(d)-dnum(prev.d)),weighted=flows.reduce((a,x)=>a+x.amt*(dnum(d)-dnum(x.date))/span,0),den=prev.value+weighted;
+ if(prev){const flows=fifoLedger(tx,d,S.corporateActions??[]).flatMap(h=>h.flows).filter(([date])=>date>prev.d&&date<=d).map(([date,flow])=>({date,amt:-flow}));const net=flows.reduce((a,x)=>a+x.amt,0),span=Math.max(1,dnum(d)-dnum(prev.d)),weighted=flows.reduce((a,x)=>a+x.amt*(dnum(d)-dnum(x.date))/span,0),den=prev.value+weighted;
  const r=den>0?(v.value-prev.value-net)/den:null;if(r!==null&&Number.isFinite(r)&&r>-1){index*=1+r;points.push({d,value:v.value,r,index})}else{points.length=0;index=100;if(v.value>0)points.push({d,value:v.value,r:null,index:100})}
  }else if(v.value>0){points.push({d,value:v.value,r:null,index:100})}
  prev={d,value:v.value};
