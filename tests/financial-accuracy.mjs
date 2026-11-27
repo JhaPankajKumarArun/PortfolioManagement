@@ -138,3 +138,12 @@ assert.equal(grandfatheredEquityBasis(100,200,null),null);
 near(indexedAcquisitionBasis(100000,200,300),150000);
 assert.equal(indexedAcquisitionBasis(100000,0,300),null);
 assert.equal(indexedAcquisitionBasis(100000,300,200),null);
+
+import {applyHistoricalTaxBasis} from '../js/engines/tax.mjs';
+const historicalLot=mk('Historical','equity','2017-01-01','2025-06-01',1,100000,350000);
+const adjustedLot=applyHistoricalTaxBasis(historicalLot,{kind:'grandfathering',verified:true,fairMarketValue:200000});
+near(adjustedLot.gain,250000);near(adjustedLot.taxableGain,150000);
+near(calculateTaxFY([adjustedLot],'2025-26',30).tax,3250);
+near(calculateTaxFY([historicalLot],'2025-26',30).tax,16250);
+assert.equal(applyHistoricalTaxBasis(historicalLot,{kind:'grandfathering',fairMarketValue:200000}),historicalLot);
+assert.equal(applyHistoricalTaxBasis({...historicalLot,buy:'2019-01-01'},{kind:'grandfathering',verified:true,fairMarketValue:200000}).taxableGain,undefined);
