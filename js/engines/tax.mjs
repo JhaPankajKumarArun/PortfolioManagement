@@ -7,7 +7,7 @@ if(/liquid|overnight|money market|ultra short|low duration|short duration|medium
 if(/gold|silver|commodit|fund of fund|fof|international|overseas|global|nasdaq|s&p 500/.test(x))return 'other';return 'equity'}
 const taxClass=(n,S,type)=>{const ambiguous=new Set(S.tx.filter(t=>t.name===n).map(t=>t.type)).size>1;return (!ambiguous&&S.cls?.[n])||taxAutoCls(n,S,type)};
 function mk(n,c,b,s,u,cost,pro){const specified=c==='debt'&&b>='2023-04-01';const months=c==='equity'?12:c==='listedOther'&&s>='2024-07-23'?12:s>='2024-07-23'?24:36;const lt=!specified&&addM(b,months)<s;return{name:n,cls:c,buy:b,sell:s,units:u,cost,pro,gain:pro-cost,lt,review:(c==='equity'&&b<'2018-02-01')||(lt&&c!=='equity'&&s<'2024-07-23')||c==='other'||c==='debt',fy:fyOf(s),bucket:c==='equity'?(lt?'eqLT':'eqST'):(lt?'otLT':'slab')}}
-function calculateRealized(S){return fifoLedger(S.tx).flatMap(h=>h.sales.map(l=>({...mk(h.name,taxClass(h.name,S,h.type),l.buy,l.sell,l.units,l.cost,l.proceeds),type:h.type,classificationSource: S.cls?.[h.name]===taxClass(h.name,S,h.type)&&new Set(S.tx.filter(t=>t.name===h.name).map(t=>t.type)).size===1?'manual':'inferred',review:true})))}
+function calculateRealized(S){return fifoLedger(S.tx,'9999-12-31',S.corporateActions??[]).flatMap(h=>h.sales.map(l=>({...mk(h.name,taxClass(h.name,S,h.type),l.buy,l.sell,l.units,l.cost,l.proceeds),type:h.type,classificationSource: S.cls?.[h.name]===taxClass(h.name,S,h.type)&&new Set(S.tx.filter(t=>t.name===h.name).map(t=>t.type)).size===1?'manual':'inferred',review:true})))}
 // Rate assumptions for eligible capital gains; not a complete income-tax computation.
 export function capitalGainRules(saleDate,fy=fyOf(saleDate)){
  const revised=saleDate>='2024-07-23';
@@ -24,7 +24,7 @@ const carry=Object.values(x).filter(v=>v<0).reduce((s,v)=>s-v,0),bl=(p,a,b)=>{co
 const old=capitalGainRules('2024-07-22',fy),revised=capitalGainRules('2024-07-23',fy);
 const lim=revised.exemption,tEqST=Math.max(x.eqST,0)*bl(pos.eqST,old.eqST,revised.eqST),tEqLT=fy<'2018-19'?0:Math.max(x.eqLT-lim,0)*bl(pos.eqLT,old.eqLT,revised.eqLT),tSlab=Math.max(x.slab,0)*slab/100,tOT=Math.max(x.otLT,0)*bl(pos.otLT,old.otLT,revised.otLT);
 return{rulesReview:revised.requiresReview||L.some(g=>g.fy===fy&&g.review)||Object.values(pos).some(p=>p[0]>0&&p[1]>0),estimateOnly:true,review:L.filter(g=>g.fy===fy&&g.review).length,raw:rt,net:x,carry,carryShort,carryLong,offsets,carryEligibilityVerified:false,lim,tEqST,tEqLT,tSlab,tOT,tax:(tEqST+tEqLT+tSlab+tOT)*(1+revised.cess)}}
-function calculateRemainingLots(n,S){return fifoLedger(S.tx).filter(h=>h.name===n).flatMap(h=>h.lots).filter(l=>l.u>1e-6)}
+function calculateRemainingLots(n,S){return fifoLedger(S.tx,'9999-12-31',S.corporateActions??[]).filter(h=>h.name===n).flatMap(h=>h.lots).filter(l=>l.u>1e-6)}
 
 export { addM, fyOf, srt, taxAutoCls, taxClass, mk, calculateRealized, calculateTaxFY, calculateRemainingLots };
 
@@ -56,13 +56,13 @@ export function applyHistoricalTaxBasis(lot,adjustment){
 export function simulateTaxHarvest(S,{name,type,date,units,price,fee=0,slab}){
  if(!['mf','stock'].includes(type)||typeof name!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(Date.parse(date)).toISOString().slice(0,10)!==date||![units,price,fee,slab].every(Number.isFinite)||units<=0||price<=0||fee<0||fee>units*price||slab<0||slab>100)return {ready:false,reason:'Invalid redemption inputs'};
  const tx=S.tx.filter(t=>t.date<=date);
- const ledger=fifoLedger(tx);
- if(ledger.some(h=>h.unmatched>1e-9))return {ready:false,reason:'Unmatched sales in ledger'};
+ const ledger=fifoLedger(tx,date,S.corporateActions??[]);
+ if(ledger.some(h=>h.unmatched>1e-9||h.rejectedActions?.length))return {ready:false,reason:'Unmatched sales in ledger'};
  const holding=ledger.find(h=>h.name===name&&h.type===type);
  if(!holding||units>holding.units+1e-9)return {ready:false,reason:'Insufficient units'};
- const fy=fyOf(date),before=calculateTaxFY(calculateRealized({...S,tx}),fy,slab);
+ const fy=fyOf(date),before=calculateTaxFY(calculateRealized({...S,tx,corporateActions:(S.corporateActions??[]).filter(a=>a.date<=date)}),fy,slab);
  const proposed={name,type,date,units,price,fee,side:'sell'};
- const after=calculateTaxFY(calculateRealized({...S,tx:[...tx,proposed]}),fy,slab);
+ const after=calculateTaxFY(calculateRealized({...S,tx:[...tx,proposed],corporateActions:(S.corporateActions??[]).filter(a=>a.date<=date)}),fy,slab);
  return {ready:true,estimateOnly:true,requiresReview:true,fy,before,after,netProceeds:units*price-fee,taxReduction:before.tax-after.tax,netTaxBenefit:before.tax-after.tax-fee,remainingEquityExemption:Math.max(0,after.lim-Math.max(0,after.net.eqLT))};
 }
 
@@ -70,7 +70,7 @@ export function simulateTaxHarvest(S,{name,type,date,units,price,fee=0,slab}){
 export function discoverTaxHarvest(S,{date,slab,quotes=[],maxAge=7,feeRate=0}){
  if(!Number.isFinite(feeRate)||feeRate<0||feeRate>1||!Number.isFinite(maxAge)||maxAge<0)return [];
  const results=[];
- for(const h of fifoLedger(S.tx,date)){
+ for(const h of fifoLedger(S.tx,date,S.corporateActions??[])){
   if(h.units<=1e-9)continue;
   const q=quotes.filter(q=>q.name===h.name&&q.type===h.type&&Number.isFinite(q.price)&&q.price>0&&Number.isFinite(Date.parse(q.date))&&q.date<=date&&(Date.parse(date)-Date.parse(q.date))/864e5<=maxAge).sort((a,b)=>b.date.localeCompare(a.date))[0];
   if(!q)continue;
