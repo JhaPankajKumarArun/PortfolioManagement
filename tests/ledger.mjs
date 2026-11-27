@@ -53,3 +53,11 @@ assert.equal(calculateRealized(actionState)[0].gain,294);
 assert.equal(calculateRemainingLots('Example',actionState)[0].u,8);
 const staleActionState={tx:[tx[0]],corporateActions:splitEvents,px:{Example:100},pxd:{Example:'2025-01-01'}};
 assert.equal(calculatePortfolio(staleActionState,'2025-02-01').tv,1000);
+
+import {decodePortfolio,persistPortfolio,loadPortfolio} from '../js/core/storage.mjs';
+const localMap=new Map(),localStore={getItem:k=>localMap.get(k)??null,setItem:(k,v)=>localMap.set(k,v)};
+persistPortfolio(localStore,actionState);
+assert.deepEqual(loadPortfolio(localStore),actionState);
+assert.deepEqual(decodePortfolio('{"tx":[]}'),{tx:[]});
+for(const corporateActions of [null,[{...splitEvents[0],ratio:0}],[{...splitEvents[0],date:'2025-02-30'}],[...splitEvents,...splitEvents]])assert.throws(()=>persistPortfolio(localStore,{tx:[],corporateActions}));
+assert.deepEqual(loadPortfolio(localStore),actionState);
