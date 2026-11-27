@@ -155,3 +155,9 @@ const harvest=simulateTaxHarvest(harvestState,{name:'Loss',type:'stock',date:'20
 assert.equal(harvest.ready,true);near(harvest.before.tax,2080);near(harvest.after.tax,1037.92);near(harvest.taxReduction,1042.08);near(harvest.netTaxBenefit,1032.08);near(harvest.netProceeds,4990);
 assert.equal(JSON.stringify(harvestState),harvestOriginal);
 assert.equal(simulateTaxHarvest(harvestState,{name:'Loss',type:'stock',date:'2025-06-01',units:101,price:50,slab:30}).ready,false);
+
+import {discoverTaxHarvest} from '../js/engines/tax.mjs';
+const scan=discoverTaxHarvest(harvestState,{date:'2025-06-01',slab:30,quotes:[{name:'Loss',type:'stock',date:'2025-06-01',price:50}],feeRate:.002});
+assert.equal(scan.length,1);near(scan[0].units,100);near(scan[0].netTaxBenefit,1032.08);
+assert.deepEqual(discoverTaxHarvest(harvestState,{date:'2025-06-01',slab:30,quotes:[{name:'Loss',type:'stock',date:'2025-05-01',price:50}]}),[]);
+assert.equal(JSON.stringify(harvestState),harvestOriginal);
