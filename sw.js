@@ -1,10 +1,10 @@
-const CACHE_NAME = 'my-portfolio-pwa-v149-stability';
+const CACHE_NAME = 'my-portfolio-pwa-v150-overview-refresh';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
   './',
   './index.html',
-  './css/app.css?v=148',
+  './css/app.css?v=150',
   './js/engines/portfolio.mjs',
   './js/engines/ledger.mjs',
   './js/engines/valuation.mjs',
