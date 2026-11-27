@@ -102,3 +102,25 @@ for(const taxProfiles of [null,[],{unknown:{}},{mf:{Example:{'2025-27':annualPro
  assert.throws(()=>persistPortfolio(localStore,{...actionState,taxProfiles}));
  assert.deepEqual(loadPortfolio(localStore),profileState);
 }
+
+import {taxLotKey,auditTaxBasisAdjustments} from '../js/engines/tax.mjs';
+const basisState={tx:[{type:'stock',name:'Historical',side:'buy',date:'2017-01-01',units:10,price:100},{type:'stock',name:'Historical',side:'sell',date:'2025-05-01',units:10,price:300}]};
+const basisLots=calculateRealized(basisState);
+const evidence={lotKey:taxLotKey(basisLots[0]),kind:'grandfathering',verified:true,source:'Synthetic FMV evidence',fairMarketValue:2000};
+const savedBasis={...basisState,taxBasisAdjustments:[evidence]};
+persistPortfolio(localStore,savedBasis);
+assert.deepEqual(loadPortfolio(localStore),savedBasis);
+assert.deepEqual(decodePortfolio(JSON.stringify(savedBasis)),savedBasis);
+for(const taxBasisAdjustments of [null,{},[evidence,evidence],[{...evidence,verified:false}],[{...evidence,source:''}],[{...evidence,lotKey:'invalid'}],[{...evidence,fairMarketValue:-1}],[{...evidence,kind:'unknown'}],[{...evidence,kind:'indexation',buyCII:200,sellCII:300}]]){
+ assert.throws(()=>persistPortfolio(localStore,{...basisState,taxBasisAdjustments}));
+ assert.deepEqual(loadPortfolio(localStore),savedBasis);
+}
+assert.deepEqual(auditTaxBasisAdjustments(basisLots,[evidence]),[]);
+assert.equal(auditTaxBasisAdjustments([],[evidence])[0].reason,'unmatched sale lot');
+assert.equal(auditTaxBasisAdjustments([...basisLots,...basisLots],[evidence])[0].reason,'ambiguous sale lot');
+assert.equal(auditTaxBasisAdjustments(basisLots,[evidence,evidence])[0].reason,'duplicate evidence');
+assert.equal(auditTaxBasisAdjustments(basisLots,[{...evidence,verified:false}])[0].reason,'ineligible evidence');
+const editedBasis={...savedBasis,tx:[basisState.tx[0],{...basisState.tx[1],price:310}]};
+assert.equal(calculateRealized(editedBasis)[0].taxableGain,undefined);
+assert.equal(auditTaxBasisAdjustments(calculateRealized(editedBasis),editedBasis.taxBasisAdjustments)[0].reason,'unmatched sale lot');
+assert.deepEqual(editedBasis.taxBasisAdjustments,[evidence]);
