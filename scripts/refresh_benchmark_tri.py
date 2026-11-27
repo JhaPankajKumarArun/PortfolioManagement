@@ -11,12 +11,12 @@ def warm_session():
 
 root=pathlib.Path(__file__).resolve().parents[1]/'data'/'benchmarks'
 root.mkdir(parents=True,exist_ok=True)
-url="https://www.niftyindices.com/Backpage.aspx/getTotalReturnIndexString"
+urls=["https://www.niftyindices.com/BackPage/getTotalReturnIndexString","https://www.niftyindices.com/Backpage.aspx/getTotalReturnIndexString"]
 names={"nifty500":"NIFTY 500","nifty50":"NIFTY 50","midcap150":"NIFTY MIDCAP 150","smallcap250":"NIFTY SMALLCAP 250"}
-def fetch(name,start,end):
+def fetch_endpoint(url,name,start,end):
     payload={"cinfo":"{'name':'%s','startDate':'%s','endDate':'%s','indexName':'%s'}"%(name,start.strftime("%d-%b-%Y"),end.strftime("%d-%b-%Y"),name)}
     req=urllib.request.Request(url,data=json.dumps(payload).encode(),headers={"Content-Type":"application/json; charset=UTF-8","X-Requested-With":"XMLHttpRequest","Referer":"https://www.niftyindices.com/reports/historical-data","User-Agent":agent,"Accept":"application/json","Origin":"https://www.niftyindices.com"})
-    print(f"Requesting {name}: {start} to {end}", flush=True)
+    print(f"Requesting {url}: {name}: {start} to {end}", flush=True)
     try:
         with opener.open(req,timeout=45) as response:
             print(f"HTTP {response.status}; content type {response.headers.get('Content-Type')}", flush=True)
@@ -24,7 +24,8 @@ def fetch(name,start,end):
             if response.headers.get_content_type()!="application/json":
                 title=re.search(r"<title[^>]*>(.*?)</title>",body[:16384].decode("utf-8",errors="replace"),re.I|re.S)
                 raise RuntimeError(f"Expected JSON, received {response.headers.get_content_type()}; final URL {response.geturl()}; page title {title.group(1).strip() if title else 'unknown'}. Use permitted local retrieval if access is restricted.")
-            raw=json.loads(body)["d"]
+            payload_response=json.loads(body)
+            raw=payload_response.get("d") if isinstance(payload_response,dict) else payload_response
     except urllib.error.HTTPError as exc:
         raise RuntimeError(f"{name}: HTTP {exc.code} {exc.reason}") from exc
     rows=json.loads(raw) if isinstance(raw,str) else raw
@@ -37,6 +38,21 @@ def fetch(name,start,end):
         out[date.isoformat()]=value
     if not out: raise ValueError("Empty TRI response")
     return out
+def fetch(name,start,end):
+    failures=[]
+    for url in list(urls):
+        try:
+            rows=fetch_endpoint(url,name,start,end)
+            urls.remove(url)
+            urls.insert(0,url)
+            print(f"Validated {len(rows)} TRI observations from {url}",flush=True)
+            return rows
+        except Exception as exc:
+            failures.append(f"{url}: {exc}")
+            if isinstance(exc.__cause__,urllib.error.HTTPError) and exc.__cause__.code in (401,403,429):
+                raise
+            print("Endpoint failed:",failures[-1],flush=True)
+    raise RuntimeError("; ".join(failures))
 failed=[]
 try:
     warm_session()
