@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v175-nse-route';
+const CACHE_NAME = 'my-portfolio-pwa-v176-insight-tabs';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',

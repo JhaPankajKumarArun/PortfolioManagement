@@ -365,3 +365,7 @@ html:has(#holdingOverlap[open]),body:has(#holdingOverlap[open]){overflow:hidden;
 .overview-hero .overview-kpis-compact .overview-gain-label{white-space:nowrap;font-size:clamp(9px,2.7vw,11px)}.overview-xirr-help{background:none;border:0;padding:0;color:#fff;text-decoration:underline;font-size:10px;text-align:left;min-height:24px}
 
 .hero.overview-hero.holdings-summary.ho-redesign{background:linear-gradient(140deg,var(--hero1),var(--hero2))!important;border-radius:26px!important;padding:20px 20px 18px!important}.ho-redesign .ho-integrated-actions.chips{margin:12px -20px -18px!important}.ho-redesign .overview-kpis-compact{margin-top:10px}.ho-redesign .sub{margin-top:6px}
+
+/* Keep all five Insights tabs on one row, including narrow phones. */
+.insight-jumps{display:flex;flex-wrap:nowrap;gap:4px;overflow-x:auto;min-width:0}
+.insight-jumps button{flex:1 0 auto;white-space:nowrap;padding:9px 6px;font-size:clamp(10px,2.9vw,12px);min-height:44px}
