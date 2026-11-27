@@ -1,4 +1,6 @@
 import {test,expect} from '@playwright/test';
+import {spawn} from 'node:child_process';
+import {once} from 'node:events';
 const base='http://127.0.0.1:8000/';
 const nav=async(page,tab,title,parent=tab)=>{
  await page.locator('#tabs button[data-t="'+parent+'"]').click();
@@ -8,13 +10,19 @@ const nav=async(page,tab,title,parent=tab)=>{
  await expect(page.locator('#tabs button[data-t="'+parent+'"]')).toHaveAttribute('aria-current','page');
 };
 const fixture={tx:[{type:'stock',side:'buy',name:'QA Stock',date:'2024-01-01',units:10,price:100}],px:{'QA Stock':120},pxd:{'QA Stock':'2024-02-01'},goals:[]};
-async function seed(page){
+async function seed(page,origin=base){
  await page.addInitScript(p=>{if(!localStorage.getItem('portfolio-v1'))localStorage.setItem('portfolio-v1',JSON.stringify(p))},fixture);
- await page.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
+ await page.route('**/*',route=>route.request().url().startsWith(origin)?route.continue():route.abort());
 }
 test('startup, navigation, backup and offline reload',async({page,context})=>{
+ // Isolated origin: stop the actual HTTP server instead of emulating offline in WebKit.
+ const server=spawn('python3',['-u','-c','import http.server; s=http.server.ThreadingHTTPServer(("127.0.0.1",0),http.server.SimpleHTTPRequestHandler); print(s.server_port,flush=True); s.serve_forever()'],{stdio:['ignore','pipe','ignore']});
+ const exited=once(server,'exit');
+ try {
+ const [chunk]=await once(server.stdout,'data');
+ const origin='http://127.0.0.1:'+String(chunk).trim()+'/';
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await seed(page);await page.goto(base);
+ await seed(page,origin);await page.goto(origin);
  await expect(page.locator('.overview-hero')).toBeVisible();
  for(const [tab,title,parent] of [['list','Holdings','list'],['sips','SIP tracker','planning'],['plan','Plan','planning'],['swp','SWP','planning'],['time','Time Machine','insights'],['tax','Tax','more'],['data','Import and backup','more'],['home','Overview','home']])await nav(page,tab,title,parent);
  await nav(page,'data','Import and backup','more');
@@ -24,19 +32,17 @@ test('startup, navigation, backup and offline reload',async({page,context})=>{
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual([]);
  await page.evaluate(async()=>{await navigator.serviceWorker.ready});
  await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true);
- // Remove Playwright interception before exercising native offline navigation.
  await page.unroute('**/*');
- await context.setOffline(true);
- try {
-  // Navigate normally rather than using the browser's force-revalidation reload path.
-  // The server must remain unreachable throughout this offline launch.
-  await page.goto(base,{waitUntil:'domcontentloaded'});
-  await expect(page.locator('.overview-hero')).toBeVisible();
-  await expect(page.locator('#app')).not.toBeEmpty();
-  await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true);
-  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual([]);
-  expect(errors).toEqual([]);
- } finally {await context.setOffline(false);}
+ // Confirm the shell is installed before disconnecting the origin.
+ expect(await page.evaluate(async()=>!!(await caches.match(location.origin+'/index.html')))).toBe(true);
+ server.kill();await exited;
+ await expect(fetch(origin)).rejects.toThrow();
+ await page.reload({waitUntil:'domcontentloaded'});
+ await expect(page.locator('#app')).not.toBeEmpty();
+ await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true);
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual([]);
+ expect(errors).toEqual([]);
+ } finally {if(server.exitCode===null&&server.signalCode===null){server.kill();await exited;}}
 });
 for(const [width,height] of [[320,568],[390,844],[844,390],[1280,800]])for(const theme of ['light','dark']){
  test('premium layout '+width+'x'+height+' '+theme,async({page})=>{
