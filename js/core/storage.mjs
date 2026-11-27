@@ -1,9 +1,12 @@
+import {verifiedFundTaxProfile} from '../engines/tax.mjs';
+const record=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
+function validateTaxProfiles(profiles){if(!record(profiles))throw Error('Invalid tax profiles');for(const [type,names] of Object.entries(profiles)){if(!['mf','stock'].includes(type)||!record(names))throw Error('Invalid tax profile identity');for(const [name,years] of Object.entries(names)){if(!name.trim()||!record(years))throw Error('Invalid tax profile holding');for(const [fy,p] of Object.entries(years)){if(!/^\d{4}-\d{2}$/.test(fy)||fy.slice(5)!==String((Number(fy.slice(0,4))+1)%100).padStart(2,'0')||!verifiedFundTaxProfile(p,fy.slice(0,4)+'-04-01'))throw Error('Invalid annual tax profile');}}}}
 let snapshotHook=null;
 export function setSnapshotHook(fn){snapshotHook=fn}
 export const K='portfolio-v1';
 export const RECOVERY_KEY=K+'-recovery';
 export const $=s=>document.querySelector(s);
-export function decodePortfolio(raw){const d=JSON.parse(raw);if(!d||!Array.isArray(d.tx)||typeof d!=='object')throw Error('Invalid portfolio format');if(Object.hasOwn(d,'corporateActions')){if(!Array.isArray(d.corporateActions))throw Error('Invalid corporate actions');const seen=new Set();for(const a of d.corporateActions){if(!a||typeof a.name!=='string'||!a.name.trim()||!['stock','mf'].includes(a.type)||!['split','bonus'].includes(a.kind)||!Number.isFinite(a.ratio)||a.ratio<=0||typeof a.date!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(a.date)||!Number.isFinite(Date.parse(a.date))||new Date(Date.parse(a.date)).toISOString().slice(0,10)!==a.date)throw Error('Invalid corporate action');const key=JSON.stringify([a.type,a.name,a.date,a.kind]);if(seen.has(key))throw Error('Duplicate corporate action');seen.add(key)}}return d}
+export function decodePortfolio(raw){const d=JSON.parse(raw);if(!d||!Array.isArray(d.tx)||typeof d!=='object')throw Error('Invalid portfolio format');if(Object.hasOwn(d,'corporateActions')){if(!Array.isArray(d.corporateActions))throw Error('Invalid corporate actions');const seen=new Set();for(const a of d.corporateActions){if(!a||typeof a.name!=='string'||!a.name.trim()||!['stock','mf'].includes(a.type)||!['split','bonus'].includes(a.kind)||!Number.isFinite(a.ratio)||a.ratio<=0||typeof a.date!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(a.date)||!Number.isFinite(Date.parse(a.date))||new Date(Date.parse(a.date)).toISOString().slice(0,10)!==a.date)throw Error('Invalid corporate action');const key=JSON.stringify([a.type,a.name,a.date,a.kind]);if(seen.has(key))throw Error('Duplicate corporate action');seen.add(key)}}if(Object.hasOwn(d,'taxProfiles'))validateTaxProfiles(d.taxProfiles);return d}
 export function loadPortfolio(storage){const raw=storage.getItem(K);if(raw==null)return {tx:[],px:{}};return decodePortfolio(raw)}
 const baselines=new WeakMap();
 export function trackPortfolioVersion(storage){baselines.set(storage,storage.getItem(K))}
@@ -46,7 +49,7 @@ export function persistReplacement(storage,candidate){
  assertCurrent(storage);
  decodePortfolio(JSON.stringify(candidate));
  const old=storage.getItem(K);
- if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample&&(previous.tx.length||previous.corporateActions?.length||previous.goals?.length||previous.wealth||storage.getItem(REPLACEMENT_KEY)===null))storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
+ if(old!==null){const previous=withLegacyGoals(storage,decodePortfolio(old));if(!previous.sample&&(previous.tx.length||previous.corporateActions?.length||Object.keys(previous.taxProfiles??{}).length||previous.goals?.length||previous.wealth||storage.getItem(REPLACEMENT_KEY)===null))storage.setItem(REPLACEMENT_KEY,JSON.stringify(previous));}
  return persistPortfolio(storage,candidate);
 }
 export function readReplacement(storage){const raw=storage.getItem(REPLACEMENT_KEY);return raw===null?null:decodePortfolio(raw)}
