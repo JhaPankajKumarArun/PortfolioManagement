@@ -153,6 +153,8 @@ document.addEventListener('click',e=>{if(e.target.closest('[data-holding-directi
 let hoMode=false,hoPress=null,hoSuppressUntil=0;
 function paintHoldingSelection(){
  const bar=document.getElementById('hoSelectBar');if(!bar)return;
+ const dock=document.getElementById('ho-selection-dock'),actions=document.querySelector('.ho-integrated-actions');
+ if(dock&&actions){if(hoMode){dock.appendChild(bar);actions.classList.add('ho-selection-active')}else{actions.appendChild(bar);actions.classList.remove('ho-selection-active')}}
  const funds=calc().open.filter(h=>h.type==='mf');
  if(hoMode)overlapSelection=new Set(funds.filter(h=>overlapSelection.has(h.name)).map(h=>h.name));
  const n=hoMode?overlapSelection.size:0;
@@ -237,7 +239,7 @@ function holdingSummaryHero(C,L,tot,cost,gain){
  }
  const rate=all?C.xirr:xirr(fifoLedger(S.tx.filter(t=>t.type===flt),today()).flatMap(h=>h.flows).concat([[today(),tot]]));
  const warning=L.some(h=>!h.valuation||h.valuation.estimated||!h.valuation.date||['missing','stale'].includes(h.valuation.status));
- return `<section class='hero overview-hero holdings-summary ho-redesign'><div class='ho-hero-label'><span class='lab'>${label}</span><small>${L.length} holdings</small></div><div class='ho-hero-main'><h1>${cr(tot)}</h1><div><strong class='${cls(gain)}'>${pc(cost>0?gain/cost*100:null)}</strong><small>XIRR ${pc(rate)}</small></div></div><div class='overview-day-change'>${daily}</div><div class='ho-hero-totals'><span>Invested <b>${cr(cost)}</b></span><span>Total gain <b class='${cls(gain)}'>${cr(gain)}</b></span></div><details class='holding-valuation'><summary>${warning?'⚠ Valuation data warning':'Valuation details'}</summary><small>${valuationSummary(L)}</small></details><div class='chips holdings-actions ho-integrated-actions'><button data-hist=''><span aria-hidden='true'>⇅</span>Transactions</button>${elssData().length?`<button data-a='elss'><span aria-hidden='true'>♙</span>ELSS lock-in</button>`:''}${flt!=='stock'?holdingOverlap(C):''}</div></section>`;
+ return `<section class='hero overview-hero holdings-summary ho-redesign'><div class='ho-hero-label'><span class='lab'>${label}</span><small>${L.length} holdings</small></div><div class='ho-hero-main'><h1>${cr(tot)}</h1><div><strong class='${cls(gain)}'>${pc(cost>0?gain/cost*100:null)}</strong><small>XIRR ${pc(rate)}</small></div></div><div class='overview-day-change'>${daily}</div><div class='ho-hero-totals'><span>Invested <b>${cr(cost)}</b></span><span>Total gain <b class='${cls(gain)}'>${cr(gain)}</b></span></div><details class='holding-valuation'><summary>${warning?'⚠ Valuation data warning':'Valuation details'}</summary><small>${valuationSummary(L)}</small></details><div class='chips holdings-actions ho-integrated-actions'><button data-hist=''><span aria-hidden='true'>⇅</span>Transactions</button>${elssData().length?`<button data-a='elss'><span aria-hidden='true'>♙</span>ELSS lock-in</button>`:''}${flt!=='stock'?holdingOverlap(C):''}</div></section><div id='ho-selection-dock' class='ho-selection-dock'></div>`;
 
 }
 
