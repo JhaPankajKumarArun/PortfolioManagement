@@ -1,3 +1,4 @@
+import {fifoLedger} from '../engines/ledger.mjs';
 // Read-only validation; never changes or deletes portfolio records.
 export function auditTransactions(tx,asOf,actions=[]){
  const issues=[],balances=new Map();
@@ -67,7 +68,7 @@ export function historicalCoverage(S,NH,PWH,asOf,maxAge=7){
  const validDate=d=>typeof d==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(d)&&Number.isFinite(Date.parse(d))&&new Date(Date.parse(d)).toISOString().slice(0,10)===d;
  if(!validDate(asOf))return {rows:[],covered:0,required:0,percent:null};
  const groups=new Map();
- for(const t of S.tx||[]){if(!validDate(t.date)||t.date>asOf||!Number.isFinite(t.units)||t.units<=0||!['buy','sell'].includes(t.side))continue;const key=JSON.stringify([t.type,t.name]);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(t)}
+ for(const t of S.tx||[]){if(!t||!validDate(t.date)||t.date>asOf||!Number.isFinite(t.units)||t.units<=0||!['buy','sell'].includes(t.side))continue;const key=JSON.stringify([t.type,t.name]);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(t)}
  const rows=[];
  for(const tx of groups.values()){
   tx.sort((a,b)=>a.date.localeCompare(b.date));const {name,type}=tx[0];
@@ -75,8 +76,8 @@ export function historicalCoverage(S,NH,PWH,asOf,maxAge=7){
   const dates=[...new Set(prices.filter(r=>validDate(r?.[0])&&r[0]<=asOf&&Number.isFinite(r[1])&&r[1]>0).map(r=>r[0]))].sort();
   const first=tx[0].date, cursor=new Date(first.slice(0,7)+'-01T00:00:00Z'), snapshots=[];
   while(cursor.toISOString().slice(0,10)<=asOf){const end=new Date(Date.UTC(cursor.getUTCFullYear(),cursor.getUTCMonth()+1,0)).toISOString().slice(0,10);snapshots.push(end<asOf?end:asOf);cursor.setUTCMonth(cursor.getUTCMonth()+1)}
-  let i=0,j=0,units=0,required=0,covered=0;const missing=[];
-  for(const d of snapshots){while(i<tx.length&&tx[i].date<=d){units+=(tx[i].side==='buy'?1:-1)*tx[i].units;i++}while(j<dates.length&&dates[j]<=d)j++;if(units<=1e-6)continue;required++;if(j&& (Date.parse(d)-Date.parse(dates[j-1]))/864e5<=maxAge)covered++;else missing.push(d)}
+  let j=0,units=0,required=0,covered=0;const missing=[];const actions=(S.corporateActions??[]).filter(a=>a.name===name&&a.type===type);
+  for(const d of snapshots){const h=fifoLedger(tx,d,actions)[0];units=h?.units??0;while(j<dates.length&&dates[j]<=d)j++;if(units<=1e-6)continue;required++;if(j&& (Date.parse(d)-Date.parse(dates[j-1]))/864e5<=maxAge)covered++;else missing.push(d)}
   const latest=dates.at(-1)||null,age=latest?(Date.parse(asOf)-Date.parse(latest))/864e5:null;
   rows.push({name,type,required,covered,missing,latest,age,open:units>1e-6,percent:required?100*covered/required:null});
  }
