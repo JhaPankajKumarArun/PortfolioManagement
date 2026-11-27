@@ -158,3 +158,18 @@ test('split-adjusted stock CSV requires verified cutoff and preserves transactio
  await expect(page.locator('#pwstatus')).toContainText('Imported 2 observations');
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual(before);
 });
+
+test('all supported holding periods preserve valuation and ledger',async({page})=>{
+ await seed(page);await page.goto(base);await nav(page,'list','Holdings');
+ const hero=page.locator('.holdings-summary h1'),value=await hero.innerText();
+ const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx);
+ const periods=['1D',...Array.from({length:4},(_,i)=>(i+1)+'W'),...Array.from({length:12},(_,i)=>(i+1)+'M'),...Array.from({length:15},(_,i)=>(i+1)+'Y')];
+ for(const period of periods){
+  const menu=page.locator('.ho-filter-menu');
+  if(await menu.getAttribute('open')===null)await menu.locator('summary').click();
+  await page.locator('#holdingPeriod').selectOption(period);
+  await expect(hero).toHaveText(value);
+  await expect(page.locator('.ho-filter-menu summary small')).toHaveText(period);
+ }
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('portfolio-v1')).tx)).toEqual(before);
+});
