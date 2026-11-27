@@ -4,7 +4,7 @@ import {showRecovery} from './features/recovery-ui.mjs';
 import {wealthView,installWealth} from './features/wealth-ui.mjs';
 import {createSnapshotMirror,openSnapshotDB,readSnapshot} from './core/indexed-storage.mjs';
 import {assetClassCard,allocationPlanner,installAllocation} from './features/allocation-ui.mjs';
-import {resolvePrice} from './engines/valuation.mjs';
+import {resolvePrice,normalizeHistoricalPrice} from './engines/valuation.mjs';
 import {fifoLedger} from './engines/ledger.mjs';
 import * as integrity from './core/integrity.mjs';
 import * as refreshService from './services/refresh.mjs';
@@ -26,7 +26,7 @@ import * as e5 from './engines/benchmark.mjs';
 import * as e6 from './engines/tax.mjs';
 import * as e7 from './engines/sip.mjs';
 // Temporary compatibility bridge; remove when feature modules migrate.
-Object.assign(globalThis,{resolvePrice,fifoLedger,amfiProvider,marketProviders,financialFeatures,uiViews,refreshService,integrity},storage,format,cache,{xirr:e0.xirr,swpSim:e1.swpSim,safeW:e1.safeW,paMonthEnd:e4.paMonthEnd,pbmPrice:e5.pbmPrice,addM:e6.addM,fyOf:e6.fyOf,srt:e6.srt,mk:e6.mk,PA_RF:e4.PA_RF});
+Object.assign(globalThis,{resolvePrice,normalizeHistoricalPrice,fifoLedger,amfiProvider,marketProviders,financialFeatures,uiViews,refreshService,integrity},storage,format,cache,{xirr:e0.xirr,swpSim:e1.swpSim,safeW:e1.safeW,paMonthEnd:e4.paMonthEnd,pbmPrice:e5.pbmPrice,addM:e6.addM,fyOf:e6.fyOf,srt:e6.srt,mk:e6.mk,PA_RF:e4.PA_RF});
 Object.assign(globalThis,{recordError,diagnosticSummary,clearDiagnostics,fetchJsonWithTimeout,installAppHealth});
 installErrorHandlers(globalThis);
 function returnFromStartup(){throw new Error('Recovery required')}
