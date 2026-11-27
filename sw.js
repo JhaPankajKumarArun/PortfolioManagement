@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v166-full-category';
+const CACHE_NAME = 'my-portfolio-pwa-v167-peer-accuracy';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
