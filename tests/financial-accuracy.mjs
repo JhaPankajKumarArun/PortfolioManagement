@@ -71,3 +71,10 @@ const collision=calculatePortfolio({tx:collisionTx,px:{Collision:500},pxd:{Colli
 near(collision.tv,800);assert.ok(collision.open.every(h=>h.valuation.estimated));
 const unique=calculatePortfolio({tx:[collisionTx[0]],px:{Collision:500},pxd:{Collision:'2025-01-03'}},'2025-01-03');
 near(unique.tv,1000);assert.equal(unique.open[0].valuation.estimated,false);
+
+import {riskPortfolioAt} from '../js/engines/risk.mjs';
+const riskCollision=riskPortfolioAt({tx:collisionTx},(n,type)=>type==='mf'?110:220,'2025-01-03');
+near(riskCollision.value,880);assert.deepEqual(riskCollision.missing,[]);
+const riskInvalid=riskPortfolioAt({tx:collisionTx},()=>Infinity,'2025-01-03');assert.equal(riskInvalid.missing.length,2);
+const perfCollision=calculatePerformance({S:{tx:collisionTx},ser:{},PWH:{},pxAt:()=>500,navCovers:()=>true,dnum},'2025-01-02','2025-01-03');
+assert.equal(perfCollision.hist,true);assert.equal(perfCollision.gain,null);assert.equal(perfCollision.rows.length,2);
