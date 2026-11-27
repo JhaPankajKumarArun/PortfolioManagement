@@ -191,3 +191,26 @@ assert.equal(calculateBenchmark([['2025-01-01',100],['2025-03-01',120]],{points:
 assert.equal(simulateTaxHarvest(rejectedState,{name:'Validation fixture',type:'stock',date:'2025-03-01',units:1,price:120,slab:30}).ready,false);
 assert.equal(calculatePortfolio(rejectedState,'2025-01-31').ledgerValid,true);
 assert.equal(JSON.stringify(rejectedState),rejectedBefore);
+
+import {normalizeHistoricalPrice as normalizeSplitPrice} from '../js/engines/valuation.mjs';
+import {riskHistPrice as splitRiskPrice} from '../js/engines/risk.mjs';
+import {historicalCoverage as splitCoverage} from '../js/core/integrity.mjs';
+const splitQuote={name:'Risk split',type:'stock',date:'2025-01-31',price:50,actions:riskSplitState.corporateActions};
+assert.equal(normalizeSplitPrice({...splitQuote,basis:'raw'}),50);
+assert.equal(normalizeSplitPrice({...splitQuote,basis:'unknown'}),null);
+assert.equal(normalizeSplitPrice({...splitQuote,basis:'split-adjusted'}),null);
+assert.equal(normalizeSplitPrice({...splitQuote,basis:'split-adjusted',adjustedThrough:'2025-02-28'}),100);
+assert.equal(normalizeSplitPrice({...splitQuote,basis:'split-adjusted',adjustedThrough:'2025-02-28',actions:[...splitQuote.actions,{name:'Risk split',type:'stock',kind:'split',ratio:3,date:'2025-02-15'}]}),300);
+assert.equal(normalizeSplitPrice({...splitQuote,basis:'split-adjusted',adjustedThrough:'2025-02-28',actions:[{...splitQuote.actions[0],kind:'bonus'}]}),null);
+assert.equal(normalizeSplitPrice({...splitQuote,basis:'split-adjusted',adjustedThrough:'2025-02-28',date:'2025-02-01'}),50);
+const adjustedRows={'Risk split':[['2025-01-31',50],['2025-02-28',50]]};
+const adjustedBasis=new Map([['Risk split',{basis:'split-adjusted',adjustedThrough:'2025-02-28'}]]);
+const splitStateBefore=JSON.stringify(riskSplitState),splitRowsBefore=JSON.stringify(adjustedRows);
+const adjustedRisk=calculateRiskSeries(riskSplitState,'2025-02-28',dnum,(n,t,d)=>splitRiskPrice(riskSplitState,adjustedRows,{},'2025-02-28',dnum,n,t,d,adjustedBasis));
+assert.equal(adjustedRisk.points.length,2);near(adjustedRisk.points[0].value,1000);near(adjustedRisk.points[1].value,1000);near(adjustedRisk.points[1].r,0);
+assert.equal(splitRiskPrice(riskSplitState,adjustedRows,{},'2025-02-28',dnum,'Risk split','stock','2025-01-31'),null);
+const afterSale={...riskSplitState,tx:[...riskSplitState.tx,{name:'Risk split',type:'stock',side:'sell',date:'2025-02-15',units:15,price:50}]};
+const coverage=splitCoverage(afterSale,{},adjustedRows,'2025-02-28');
+assert.equal(coverage.rows[0].open,true);assert.equal(coverage.required,2);
+assert.equal(JSON.stringify(riskSplitState),splitStateBefore);assert.equal(JSON.stringify(adjustedRows),splitRowsBefore);
+console.log('Corporate action price normalization fixtures passed');
