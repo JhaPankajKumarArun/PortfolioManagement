@@ -58,3 +58,9 @@ const firstFee=calculatePortfolio({tx:[tx[0]],px:{A:100},pxd:{A:'2025-01-01'}},'
 near(firstFee.lifetimeGain,-10);near(firstFee.realized,0);near(firstFee.reconciliationDifference,0);
 const closed=calculatePortfolio({tx:[tx[0],{...tx[0],side:'sell',date:'2025-02-01',price:120,fee:5}]},'2025-02-01');
 near(closed.lifetimeGain,185);near(closed.realized,185);near(closed.pl,0);near(closed.reconciliationDifference,0);
+
+ // Independent period-return fixtures: opening 1000, midpoint contribution 500, closing 1650.
+const periodTx=[{name:'Fixture',type:'mf',side:'buy',date:'2025-01-01',units:10,price:100},{name:'Fixture',type:'mf',side:'buy',date:'2025-01-16',units:5,price:100}];
+const period=(price)=>calculatePerformance({S:{tx:periodTx},ser:{},PWH:{},pxAt:(s,n,d)=>d==='2025-01-01'?100:price,navCovers:()=>true,dnum},'2025-01-01','2025-01-31');
+const complete=period(110);near(complete.gain,150);near(complete.vch,650);near(complete.pct,12);
+for(const price of [null,undefined,0,-1,NaN,Infinity]){const incomplete=period(price);assert.equal(incomplete.hist,true);assert.equal(incomplete.gain,null);assert.equal(incomplete.pct,null);assert.equal(incomplete.vch,null);assert.equal(incomplete.rows[0].gain,null);near(incomplete.cf,500);}
