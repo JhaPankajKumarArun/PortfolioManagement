@@ -21,9 +21,11 @@ jobs:
           ref: refactor/modular-architecture
       - name: Retrieve and validate official series
         id: retrieve
+        env:
+          TRI_REDISTRIBUTION_ALLOWED: ${{ vars.BENCHMARK_REDISTRIBUTION_ALLOWED }}
         run: python3 -u scripts/refresh_benchmark_tri.py
       - name: Publish validated public data
-        if: success() || failure()
+        if: (success() || failure()) && vars.BENCHMARK_REDISTRIBUTION_ALLOWED == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

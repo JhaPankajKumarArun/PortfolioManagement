@@ -1,17 +1,30 @@
 import os, traceback, urllib.error, json, urllib.request, datetime as d, pathlib, math, time
+import http.cookiejar, re
 today=d.date.today()
-root=pathlib.Path("data/benchmarks")
+page="https://www.niftyindices.com/reports/historical-data"
+agent="PortfolioManagement TRI downloader/1.0"
+opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+def warm_session():
+    with opener.open(urllib.request.Request(page,headers={"User-Agent":agent,"Accept":"text/html"}),timeout=30) as response:
+        print("Session page:",response.status,response.geturl(),flush=True)
+        response.read()
+
+root=pathlib.Path(__file__).resolve().parents[1]/'data'/'benchmarks'
 root.mkdir(parents=True,exist_ok=True)
 url="https://www.niftyindices.com/Backpage.aspx/getTotalReturnIndexString"
 names={"nifty500":"NIFTY 500","nifty50":"NIFTY 50","midcap150":"NIFTY MIDCAP 150","smallcap250":"NIFTY SMALLCAP 250"}
 def fetch(name,start,end):
     payload={"cinfo":"{'name':'%s','startDate':'%s','endDate':'%s','indexName':'%s'}"%(name,start.strftime("%d-%b-%Y"),end.strftime("%d-%b-%Y"),name)}
-    req=urllib.request.Request(url,data=json.dumps(payload).encode(),headers={"Content-Type":"application/json; charset=UTF-8","X-Requested-With":"XMLHttpRequest","Referer":"https://www.niftyindices.com/reports/historical-data","User-Agent":"Mozilla/5.0"})
+    req=urllib.request.Request(url,data=json.dumps(payload).encode(),headers={"Content-Type":"application/json; charset=UTF-8","X-Requested-With":"XMLHttpRequest","Referer":"https://www.niftyindices.com/reports/historical-data","User-Agent":agent,"Accept":"application/json","Origin":"https://www.niftyindices.com"})
     print(f"Requesting {name}: {start} to {end}", flush=True)
     try:
-        with urllib.request.urlopen(req,timeout=45) as response:
+        with opener.open(req,timeout=45) as response:
             print(f"HTTP {response.status}; content type {response.headers.get('Content-Type')}", flush=True)
-            raw=json.load(response)["d"]
+            body=response.read()
+            if response.headers.get_content_type()!="application/json":
+                title=re.search(r"<title[^>]*>(.*?)</title>",body[:16384].decode("utf-8",errors="replace"),re.I|re.S)
+                raise RuntimeError(f"Expected JSON, received {response.headers.get_content_type()}; final URL {response.geturl()}; page title {title.group(1).strip() if title else 'unknown'}. Use permitted local retrieval if access is restricted.")
+            raw=json.loads(body)["d"]
     except urllib.error.HTTPError as exc:
         raise RuntimeError(f"{name}: HTTP {exc.code} {exc.reason}") from exc
     rows=json.loads(raw) if isinstance(raw,str) else raw
@@ -25,6 +38,10 @@ def fetch(name,start,end):
     if not out: raise ValueError("Empty TRI response")
     return out
 failed=[]
+try:
+    warm_session()
+except Exception as e:
+    print('Session initialization failed:',repr(e),flush=True)
 for id,name in names.items():
     try:
         path=root/(id+".json")
