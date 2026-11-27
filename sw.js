@@ -1,10 +1,10 @@
-const CACHE_NAME = 'my-portfolio-pwa-v153-xirr-solver';
+const CACHE_NAME = 'my-portfolio-pwa-v154-holdings-summary';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
   './',
   './index.html',
-  './css/app.css?v=152',
+  './css/app.css?v=154',
   './js/engines/portfolio.mjs',
   './js/engines/ledger.mjs',
   './js/engines/valuation.mjs',

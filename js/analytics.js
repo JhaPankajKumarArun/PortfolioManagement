@@ -252,7 +252,7 @@ function holdingSummaryHero(C,L,tot,cost,gain){
  const targets=L;
  const scope='';
  let daily;
- if(all&&period==='1D'){const r=perfGet(C,'1D');daily=r&&!r.hist&&Number.isFinite(r.gain)?`<span class='day-change-label'>1D market change${r.est?' (est.)':''}</span><strong class='day-change-${r.gain>0?'up':r.gain<0?'down':'flat'}'>${r.gain>0?'▲ ':r.gain<0?'▼ ':''}${holdingChangeAmount(r.gain)}${Number.isFinite(r.pct)?' ('+r.pct.toFixed(2)+'%)':''}</strong>`:'<span>1D · History unavailable</span>';}
+ if(all&&period==='1D'){daily=overviewDayChange(C);}
  else{
  const changes=targets.map(h=>({h,c:holdingInvestorChange(h,period)}));
  const valid=changes.filter(x=>x.c),aligned=valid.length&&new Set(valid.map(x=>x.c.since)).size===1&&new Set(valid.map(x=>S.pxd?.[x.h.name])).size===1;
@@ -262,7 +262,7 @@ function holdingSummaryHero(C,L,tot,cost,gain){
  const filteredLedger=all?[]:fifoLedger(S.tx.filter(t=>t?.type===flt),today(),(S.corporateActions??[]).filter(a=>a.type===flt));
  const rate=all?C.xirr:filteredLedger.some(h=>h.unmatched>1e-9||h.rejectedActions?.length||h.rejectedTransactions?.length)?null:xirr(filteredLedger.flatMap(h=>h.flows).concat([[today(),tot]]));
  const warning=L.some(h=>!h.valuation||h.valuation.estimated||!h.valuation.date||['missing','stale'].includes(h.valuation.status));
- return `<section class='hero overview-hero holdings-summary ho-redesign'><div class='ho-hero-label'><span class='lab'>${label}</span><small>${L.length} holdings</small></div><div class='ho-hero-main'><h1>${cr(tot)}</h1><div><strong class='${cls(gain)}'>${pc(cost>0?gain/cost*100:null)}</strong><small>XIRR ${pc(rate)}</small></div></div><div class='overview-day-change'>${daily}</div><div class='ho-hero-totals'><span>Invested <b>${cr(cost)}</b></span><span>Total gain <b class='${cls(gain)}'>${cr(gain)}</b></span></div><details class='holding-valuation'><summary>${warning?'⚠ Valuation data warning':'Valuation details'}</summary><small>${valuationSummary(L)}</small></details><div class='chips holdings-actions ho-integrated-actions'><button data-hist=''><span aria-hidden='true'>⇅</span>Transactions</button>${elssData().length?`<button data-a='elss'><span aria-hidden='true'>♙</span>ELSS lock-in</button>`:''}${flt!=='stock'?holdingOverlap(C):''}</div></section><div id='ho-selection-dock' class='ho-selection-dock'></div>`;
+ return `<section class='hero overview-hero holdings-summary ho-redesign'><div class='ho-hero-label'><span class='lab'>${label}</span><small>${L.length} holdings</small></div><h1>${cr(tot)}</h1><div class='overview-day-change'>${daily}</div><p class='sub'>${valuationSummary(L)}</p>${warning?`<p class='sub'>⚠ Valuation data warning</p>`:''}<div class='overview-kpis overview-kpis-compact'><div><small>Invested</small><strong>${cr(cost)}</strong></div><div><small class='overview-gain-label'>Gain <span class='${cls(gain)}'>(${pc(cost>0?gain/cost*100:null)})</span></small><strong class='${cls(gain)}'>${cr(gain)}</strong></div><div><small>XIRR (p.a.)</small><strong class='${Number.isFinite(rate)?cls(rate):""}'>${Number.isFinite(rate)?pc(rate):'N/A'}</strong></div></div><div class='chips holdings-actions ho-integrated-actions'><button data-hist=''><span aria-hidden='true'>⇅</span>Transactions</button>${elssData().length?`<button data-a='elss'><span aria-hidden='true'>♙</span>ELSS lock-in</button>`:''}${flt!=='stock'?holdingOverlap(C):''}</div></section><div id='ho-selection-dock' class='ho-selection-dock'></div>`;
 
 }
 
