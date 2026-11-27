@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v138-exposure-organized-cards';
+const CACHE_NAME = 'my-portfolio-pwa-v139-exposure-inline-controls';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
