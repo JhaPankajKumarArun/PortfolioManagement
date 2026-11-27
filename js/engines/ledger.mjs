@@ -27,3 +27,20 @@ export function fifoLedger(transactions,asOf='9999-12-31'){
  for(const h of groups.values()){h.lots=h.lots.filter(l=>l.u>1e-9);h.cost=h.lots.reduce((s,l)=>s+l.u*l.p,0)}
  return [...groups.values()];
 }
+
+// Explicit corporate-action accounting primitive. Not a transaction import format.
+// Split ratio is new shares / old shares. Bonus ratio is additional shares / old shares.
+// No rounding or cash-in-lieu assumptions: fractional entitlements require review.
+export function applyCorporateAction(holding,action){
+ if(!holding||!action||!['split','bonus'].includes(action.kind)||!Number.isFinite(action.ratio)||action.ratio<=0||!/^\d{4}-\d{2}-\d{2}$/.test(action.date)||!Number.isFinite(Date.parse(action.date))||new Date(Date.parse(action.date)).toISOString().slice(0,10)!==action.date||holding.units<=0||holding.unmatched>1e-9||holding.lots.some(l=>l.d>action.date))return null;
+ const lots=holding.lots.map(l=>({...l}));
+ const factor=action.kind==='split'?action.ratio:1+action.ratio;
+ const units=holding.units*factor;
+ if(!Number.isFinite(units)||units<=0)return null;
+ if(action.kind==='split'){for(const l of lots){l.u*=factor;l.p/=factor}}
+ else lots.push({d:action.date,u:holding.units*action.ratio,p:0});
+ if(lots.some(l=>!Number.isFinite(l.u)||!Number.isFinite(l.p)))return null;
+ const cost=lots.reduce((s,l)=>s+l.u*l.p,0);
+ if(!Number.isFinite(cost))return null;
+ return {...holding,units,lots,cost,last:Number.isFinite(holding.last)?holding.last/factor:null,flows:holding.flows.map(f=>[...f]),sales:holding.sales.map(s=>({...s})),corporateActionReview:true};
+}
