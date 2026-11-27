@@ -5,16 +5,31 @@ function xirr(f){
  const grouped=new Map();for(const [d,v] of f){const t=Date.parse(d);grouped.set(t,(grouped.get(t)||0)+v)}
  const flows=[...grouped].filter(x=>x[1]!==0).sort((a,b)=>a[0]-b[0]);
  if(flows.length<2||!flows.some(x=>x[1]<0)||!flows.some(x=>x[1]>0))return null;
- // Non-conventional flows can have multiple roots; do not silently select one.
- const signChanges=flows.slice(1).reduce((n,f,i)=>n+(Math.sign(f[1])!==Math.sign(flows[i][1])?1:0),0);
- if(signChanges>1)return null;
- const t0=flows[0][0],scale=Math.max(...flows.map(x=>Math.abs(x[1])));
- const npv=z=>flows.reduce((s,[t,v])=>s+v/scale*Math.exp(-z*(t-t0)/31536000000),0);
- let lo=Math.log(0.000001),hi=Math.log(11),a=npv(lo),c=npv(hi);
- while(Math.sign(a)===Math.sign(c)&&hi<Math.log(1000001)){hi=Math.min(hi+Math.log(10),Math.log(1000001));c=npv(hi)}
- if(!Number.isFinite(a)||!Number.isFinite(c)||Math.sign(a)===Math.sign(c))return null;
- for(let i=0;i<120;i++){const mid=(lo+hi)/2,v=npv(mid);if(v===0)return Math.expm1(mid)*100;if(Math.sign(v)===Math.sign(a)){lo=mid;a=v}else hi=mid}
- return Math.expm1((lo+hi)/2)*100;
+ // Work in log-discount space. Derivative roots partition the domain into
+ // monotonic intervals, including tangent roots that a sign scan misses.
+ const t0=flows[0][0],scale=flows.reduce((m,x)=>Math.max(m,Math.abs(x[1])),0);
+ const terms=flows.map(([t,v])=>[(t-t0)/31536000000,v/scale]);
+ const lo=Math.log(0.000001),hi=Math.log(1000001);
+ const changes=a=>a.slice(1).reduce((n,x,i)=>n+(Math.sign(x[1])!==Math.sign(a[i][1])?1:0),0);
+ function roots(a,depth=0){
+  if(!a.length||!changes(a))return [];
+  if(depth>64)return null;
+  const shift=a[0][0];a=a.map(([t,v])=>[t-shift,v]);
+  const value=z=>{const pivot=z<0?a[a.length-1][0]:0;let sum=0,abs=0;for(const [t,v] of a){const w=v*Math.exp(-z*(t-pivot));sum+=w;abs+=Math.abs(w)}return {sum,zero:Math.abs(sum)<=1e-12*abs}};
+  let critical=[];
+  if(changes(a)>1){const derivative=a.slice(1).map(([t,v])=>[t,-t*v]);critical=roots(derivative,depth+1);if(critical===null)return null}
+  const points=[lo,...critical.filter(z=>z>lo&&z<hi),hi],found=[];
+  for(const z of points)if(value(z).zero)found.push(z);
+  for(let i=1;i<points.length;i++){
+   let l=points[i-1],r=points[i],left=value(l),right=value(r);
+   if(left.zero||right.zero||Math.sign(left.sum)===Math.sign(right.sum))continue;
+   for(let j=0;j<100;j++){const m=(l+r)/2,v=value(m);if(Math.sign(v.sum)===Math.sign(left.sum))l=m;else r=m}
+   found.push((l+r)/2);
+  }
+  return found.sort((a,b)=>a-b).filter((z,i,all)=>!i||Math.abs(z-all[i-1])>1e-9);
+ }
+ const result=roots(terms);
+ return result?.length===1?Math.expm1(result[0])*100:null;
 }
 function calculatePortfolio(S,asOf){
 const tradeIndex=new Map();
