@@ -223,15 +223,20 @@ function holdingPeriodChange(history,end,price,units,period){
 
 function holdingSummaryHero(C,L,tot,cost,gain){
  const all=flt==='all',label=all?'PORTFOLIO VALUE':flt==='mf'?'MUTUAL FUNDS VALUE':'STOCKS VALUE';
- let daily=all?overviewDayChange(C):'<span>1-day market change · History unavailable</span>';
- if(!all&&L.length){
- const changes=L.map(h=>holdingPeriodChange((typeof NH!=='undefined'?NH[h.name]?.d:[])||[],S.pxd?.[h.name],h.price,h.units,'1D'));
- if(flt==='mf'&&changes.every(Boolean)&&new Set(changes.map(c=>c.since)).size===1&&new Set(L.map(h=>S.pxd?.[h.name])).size===1){
- const delta=changes.reduce((s,c)=>s+c.abs,0),base=tot-delta;
- daily=`<span class='day-change-label'>1-day price change (current units)</span><strong class='day-change-${delta>0?'up':delta<0?'down':'flat'}'>${delta>0?'▲ ':delta<0?'▼ ':''}${sg(delta)}${base>0?' ('+pc(delta/base*100)+')':''}</strong><small>${fd(changes[0].since)} – ${fd(S.pxd[L[0].name])}</small>`;
- }}
+ const period=flt==='stock'?'1D':holdingPeriod;
+ const targets=all&&period!=='1D'?L.filter(h=>h.type==='mf'):L;
+ const scope=all&&period!=='1D'?'MF ':'';
+ let daily;
+ if(all&&period==='1D')daily=overviewDayChange(C);
+ else{
+ const changes=targets.map(h=>({h,c:holdingPeriodChange(h.type==='mf'?(NH[h.name]?.d||[]):(PWH[h.name]||[]),S.pxd?.[h.name],h.price,h.units,period)}));
+ const valid=changes.filter(x=>x.c),aligned=valid.length&&new Set(valid.map(x=>x.c.since)).size===1&&new Set(valid.map(x=>S.pxd?.[x.h.name])).size===1;
+ const delta=valid.reduce((s,x)=>s+x.c.abs,0),base=valid.reduce((s,x)=>s+x.h.value-x.c.abs,0);
+ daily=aligned?`<span class='day-change-label'>${scope}${period} price change${valid.length<targets.length?' · partial':''}</span><strong class='day-change-${delta>0?'up':delta<0?'down':'flat'}'>${delta>0?'▲ ':delta<0?'▼ ':''}${sg(delta)}${base>0?' ('+pc(delta/base*100)+')':''}</strong><small>${valid.length}/${targets.length} holdings · ${fd(valid[0].c.since)} – ${fd(S.pxd[valid[0].h.name])}</small>`:`<span>${scope}${period} · ${valid.length?'NAV/price dates differ':'History unavailable'}</span>`;
+ }
  const rate=all?C.xirr:xirr(fifoLedger(S.tx.filter(t=>t.type===flt),today()).flatMap(h=>h.flows).concat([[today(),tot]]));
- return `<section class='hero overview-hero holdings-summary'><div class='hl'><span class='lab'>${label}</span><small>${L.length} holdings</small></div><h1>${cr(tot)}</h1><div class='overview-day-change'>${daily}</div><p class='sub'>${valuationSummary(L)}</p><div class='overview-kpis'><div><small>Invested capital</small><strong>${cr(cost)}</strong></div><div><small>Unrealized gain / loss</small><strong class='${cls(gain)}'>${cr(gain)} · ${pc(cost>0?gain/cost*100:null)}</strong></div><div><small>Annualized XIRR</small><strong>${pc(rate)}</strong></div></div></section>`;
+ const warning=L.some(h=>!h.valuation||h.valuation.estimated||!h.valuation.date||['missing','stale'].includes(h.valuation.status));
+ return `<section class='hero overview-hero holdings-summary'><div class='hl'><span class='lab'>${label}</span><small>${L.length} holdings</small></div><h1>${cr(tot)}</h1><div class='overview-day-change'>${daily}</div><div class='overview-kpis holdings-kpis'><div><small>Invested</small><strong>${cr(cost)}</strong></div><div><small>Total gain / loss</small><strong class='${cls(gain)}'>${cr(gain)}</strong></div><div><small>Absolute return</small><strong class='${cls(gain)}'>${pc(cost>0?gain/cost*100:null)}</strong></div><div><small>XIRR</small><strong>${pc(rate)}</strong></div></div><details class='holding-valuation'><summary>${warning?'⚠ Valuation data warning':'Valuation details'}</summary><small>${valuationSummary(L)}</small></details></section>`;
 }
 
 function exposureDashboard(p,count){
