@@ -11,6 +11,6 @@ if(invalid)missing.push(n);
 const sp=u0>1e-9?(ambiguous?null:pxAt(ser,n,start)):null,ep=u1>1e-9?(ambiguous?null:pxAt(ser,n,end)):null;if(u0>1e-9&&!(Number.isFinite(sp)&&sp>0)||u1>1e-9&&!(Number.isFinite(ep)&&ep>0))missing.push(n);const a0=u0>1e-9?(Number.isFinite(sp)&&sp>0?u0*sp:null):0,a1=u1>1e-9?(Number.isFinite(ep)&&ep>0?u1*ep:null):0;if(u0>1e-9||c!==0||u1>1e-9){rows.push({n,type,v0:a0,v1:a1,cf:c,gain:invalid||a0===null||a1===null?null:a1-a0-c,den:a0===null?null:a0+d});v0+=a0;v1+=a1;cf+=c;den+=a0+d;
 const h=tx[0],sh=PWH&&PWH[n],stockCovered=h&&h.type==='stock'&&sh&&sh.length&&dnum(start)>=dnum(sh[0][0])&&dnum(end)<=dnum(sh[sh.length-1][0]);if(h&&h.type==='stock'&&!stockCovered||h&&h.type==='mf'&&(!navCovers(n,start)||!navCovers(n,end)))est=true}});
 if(missing.length)return {hist:true,missing,v0:null,v1:null,cf,gain:null,pct:null,vch:null,vpct:null,rows,est:true,start,end};
-const gain=v1-v0-cf;return{hist:missing.length>0,missing,v0,v1,cf,gain,pct:den>1?gain/den*100:null,vch:v1-v0,vpct:v0>1?(v1-v0)/v0*100:null,rows,est,start,end}}
+const gain=v1-v0-cf;return{hist:missing.length>0,missing,v0,v1,cf,gain,pct:den>0&&Number.isFinite(gain/den*100)?gain/den*100:null,vch:v1-v0,vpct:v0>0&&Number.isFinite((v1-v0)/v0*100)?(v1-v0)/v0*100:null,rows,est,start,end}}
 
 export { calculatePerformance };
