@@ -17,3 +17,14 @@ const same=[{...tx[2],date:'2025-01-01',units:2},{...tx[0]}];
 assert.equal(fifoLedger(same)[0].unmatched,2);
 assert.equal(fifoLedger([tx[0],{...tx[0],type:'mf'}]).length,2);
 console.log('Ledger regression fixtures passed');
+
+const invalid=[tx[0],{...tx[2],units:12},{...tx[1],date:'2025-04-01'}];
+const [quarantined]=fifoLedger(invalid);
+assert.equal(quarantined.units,15);
+assert.equal(quarantined.cost,1610);
+assert.equal(quarantined.unmatched,2);
+assert.equal(quarantined.sales.length,0);
+assert.equal(quarantined.flows.length,2);
+assert.equal(quarantined.rejectedSales.length,1);
+assert.equal(calculatePortfolio({tx:invalid},'2025-04-01').ledgerValid,false);
+assert.equal(calculateRealized({tx:invalid}).length,0);
