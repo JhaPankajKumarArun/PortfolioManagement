@@ -4,7 +4,7 @@ const PA_RF=0.065;
 function paMonthEnd(s){const y=+s.slice(0,4),m=+s.slice(5,7)-1;return new Date(Date.UTC(y,m+1,0)).toISOString().slice(0,10)}
 function riskHistPrice(S,PWH,NH,asOf,dnum,name,type,d,bases=new Map()){
  // Legacy stock histories have no verified adjustment basis. Do not mix pre-action prices with raw FIFO quantities.
- const actions=S.corporateActions??[],basis=bases.get(name)??'unknown';const stockRows=(PWH?.[name]??[]).map(([date,price])=>[date,normalizeHistoricalPrice({price,date,name,type,basis,actions})]).filter(([date])=>!actions.some(a=>a.name===name&&a.type===type&&a.date>date&&a.date<=d));
+ const actions=S.corporateActions??[],meta=bases.get(name),basis=typeof meta==='string'?meta:meta?.basis??'unknown';const stockRows=(PWH?.[name]??[]).map(([date,price])=>[date,normalizeHistoricalPrice({price,date,name,type,basis,adjustedThrough:meta?.adjustedThrough,actions})]).filter(([date])=>!actions.some(a=>a.name===name&&a.type===type&&a.date>date&&a.date<=d));
  const p=resolvePrice(d,[{rows:type==='stock'?stockRows:NH?.[name]?.d,source:'history'},{rows:d===asOf&&new Set((S.tx||[]).filter(t=>t.name===name).map(t=>t.type)).size<=1?[[S.pxd?.[name],S.px?.[name]]]:[],source:'cached market'}]);
  return p.status==='market'?p.price:null;
 }
