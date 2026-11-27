@@ -129,3 +129,12 @@ assert.deepEqual(restricted.offsets,[{from:'otLT',to:'eqLT',amount:20000}]);
 const noLongToShort=lossFixture([['eqLT',-10000],['eqST',20000]]);
 near(noLongToShort.tax,4160);near(noLongToShort.carryLong,10000);
 assert.equal(noLongToShort.carryEligibilityVerified,false);
+
+import {grandfatheredEquityBasis,indexedAcquisitionBasis} from '../js/engines/tax.mjs';
+near(grandfatheredEquityBasis(100,200,150),150);
+near(grandfatheredEquityBasis(100,120,150),120);
+near(grandfatheredEquityBasis(100,80,150),100);
+assert.equal(grandfatheredEquityBasis(100,200,null),null);
+near(indexedAcquisitionBasis(100000,200,300),150000);
+assert.equal(indexedAcquisitionBasis(100000,0,300),null);
+assert.equal(indexedAcquisitionBasis(100000,300,200),null);
