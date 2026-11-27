@@ -111,7 +111,7 @@ test('overview and holdings period controls preserve current valuation and local
 
 test('custom theme extreme colors preserve contrast and portfolio storage',async({page})=>{
  await seed(page);
- await page.addInitScript(()=>localStorage.setItem('portfolio-appearance-v1',JSON.stringify({base:'#FFFFFF',mode:'light'})));
+ await page.addInitScript(()=>{if(!localStorage.getItem('portfolio-appearance-v1'))localStorage.setItem('portfolio-appearance-v1',JSON.stringify({base:'#FFFFFF',mode:'light'}))});
  await page.goto(base);
  const before=await page.evaluate(()=>localStorage.getItem('portfolio-v1'));
  await page.evaluate(()=>{const host=document.createElement('div');host.innerHTML=globalThis.appearanceCard();document.body.append(host)});
