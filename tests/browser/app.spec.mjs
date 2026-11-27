@@ -88,3 +88,23 @@ test('overview displays dated one-day market change independently of selected pe
  const daily=page.locator('#overview-day-change');await expect(daily).toBeVisible();await expect(daily).toContainText('1-day market change');
  await page.locator('#pfw [data-pp="1M"]').click();await expect(daily).toContainText('1-day market change');
 });
+
+test('overview and holdings period controls preserve current valuation and local selection',async({page})=>{
+ await seed(page);await page.goto(base);
+ const hero=page.locator('.overview-hero h1'),initial=await hero.innerText();
+ for(const period of ['1D','1W','1M','1Y','All']){
+  await page.locator('#pfw [data-pp="'+period+'"]').click();
+  await expect(hero).toHaveText(initial);
+ }
+ await nav(page,'list','Holdings');
+ const holdingHero=page.locator('.holdings-summary h1'),holdingValue=await holdingHero.innerText();
+ await page.locator('.ho-filter-menu summary').click();
+ await page.locator('#holdingPeriod').selectOption('3M');
+ await expect(holdingHero).toHaveText(holdingValue);
+ await nav(page,'home','Overview');
+ await expect(hero).toHaveText(initial);
+ await expect(page.locator('#pfw [data-pp="All"]')).toHaveAttribute('aria-pressed','true');
+ await nav(page,'list','Holdings');
+ await page.locator('.ho-filter-menu summary').click();
+ await expect(page.locator('#holdingPeriod')).toHaveValue('3M');
+});
