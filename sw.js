@@ -4,7 +4,7 @@ const APP_SHELL = [
   './js/vendor/pdf.worker.min.js',
   './',
   './index.html',
-  './css/app.css?v=154',
+  './css/app.css?v=176',
   './js/engines/portfolio.mjs',
   './js/engines/ledger.mjs',
   './js/engines/valuation.mjs',
