@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v130-holdings-hide-dates';
+const CACHE_NAME = 'my-portfolio-pwa-v131-holdings-change-precision';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',

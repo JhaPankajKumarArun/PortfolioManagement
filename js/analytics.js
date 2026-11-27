@@ -198,7 +198,7 @@ function mutualFundHoldingRow(h,c,weight){
  const end=S.pxd?.[h.name],history=(typeof NH!=='undefined'?NH[h.name]?.d:[])||[];c=holdingPeriodChange(history,end,h.price,h.units,holdingPeriod);const start=c?.since,days=(Date.parse(end)-Date.parse(start))/86400000;
  const valid=c&&Number.isFinite(c.abs)&&Number.isFinite(c.pct)&&days>0;
  const reason=!end?'NAV date missing':!history.length?'NAV history unavailable':'Comparable NAV unavailable';
- const move=valid?`<span class='mut' title='${fd(start)} – ${fd(end)}'>${holdingPeriod}</span> <b class='${cls(c.abs)}' style='white-space:nowrap'>${c.abs<0?'−':c.abs>0?'+':''}${cr(Math.abs(c.abs))} · ${c.abs>0?'▲':c.abs<0?'▼':'—'}${Math.abs(c.pct).toFixed(2)}%</b>`:`<span class='mut' title='${reason}'>${holdingPeriod} · ${NHBUSY?'Loading…':'N/A'}</span>`;
+ const move=valid?`<span class='mut' title='${fd(start)} – ${fd(end)}'>${holdingPeriod}</span> <b class='${cls(c.abs)}' style='white-space:nowrap'>${holdingChangeAmount(c.abs)} · ${c.abs>0?'▲':c.abs<0?'▼':'—'}${Math.abs(c.pct).toFixed(2)}%</b>`:`<span class='mut' title='${reason}'>${holdingPeriod} · ${NHBUSY?'Loading…':'N/A'}</span>`;
  return `<button type='button' ${holdingMatches(h.name,holdingQuery)?'':'hidden'} class='hc mf-holding-row' data-ho-fund='${esc(h.name)}' data-h='${esc(h.name)}' style='${holdingMatches(h.name,holdingQuery)?'display:block;':'display:none;'}text-align:left;width:100%;padding:12px 10px'><div class='mf-holding-head' style='display:flex;align-items:center;gap:8px'><span class='ho-check' aria-hidden='true'></span><span style='display:flex;flex:none;width:36px;height:36px;border-radius:50%;overflow:hidden;align-items:center;justify-content:center'>${av(h.name)}</span><div style='flex:1;min-width:0'><b class='mf-holding-name' title='${esc(h.name)}' style='display:block;font-size:14px;line-height:1.25'>${esc(h.name)}</b><div style='font-size:12px;line-height:1.5;margin-top:2px'>${move}</div></div></div><div class='mf-holding-values' style='display:grid;font-variant-numeric:tabular-nums'><div style='min-width:0'><small class='mut' style='font-size:11px'>Invested</small><strong style='display:block;margin-top:3px'>${full(h.cost)}</strong></div><div style='min-width:0;text-align:center'><small class='mut' style='font-size:11px'>Current</small><strong style='display:block;margin-top:3px'>${full(h.value)}</strong></div><div style='min-width:0;text-align:right'><small style='font-size:11px'>Gain <b class='${cls(h.pl)}' style='white-space:nowrap'>(${h.pl>0?'▲':h.pl<0?'▼':'—'}${Math.abs(h.plp).toFixed(2)}%)</b></small><strong class='${cls(h.pl)}' style='display:block;margin-top:3px'>${h.pl>0?'+':h.pl<0?'−':''}${full(h.pl)}</strong></div></div>${holdingCompact?'':`<div style='display:flex;justify-content:space-between;margin-top:7px;font-size:10px' class='mut'><span>XIRR ${pc(h.xirr)}</span><span>${weight.toFixed(1)}% of portfolio</span></div>`}</button>`;
 }
 
@@ -221,18 +221,19 @@ function holdingPeriodChange(history,end,price,units,period){
  return prior?{abs:(price-prior[1])*units,pct:(price/prior[1]-1)*100,since:prior[0]}:null;
 }
 
+function holdingChangeAmount(v){return (v<0?'−':v>0?'+':'')+'₹'+Math.abs(v).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}
 function holdingSummaryHero(C,L,tot,cost,gain){
  const all=flt==='all',label=all?'PORTFOLIO VALUE':flt==='mf'?'MUTUAL FUNDS VALUE':'STOCKS VALUE';
  const period=flt==='stock'?'1D':holdingPeriod;
  const targets=all&&period!=='1D'?L.filter(h=>h.type==='mf'):L;
  const scope=all&&period!=='1D'?'MF ':'';
  let daily;
- if(all&&period==='1D')daily=overviewDayChange(C).replace(/<small>[^<]*<\/small>/g,'');
+ if(all&&period==='1D'){const r=perfGet(C,'1D');daily=r&&!r.hist&&Number.isFinite(r.gain)?`<span class='day-change-label'>1D market change${r.est?' (est.)':''}</span><strong class='day-change-${r.gain>0?'up':r.gain<0?'down':'flat'}'>${r.gain>0?'▲ ':r.gain<0?'▼ ':''}${holdingChangeAmount(r.gain)}${Number.isFinite(r.pct)?' ('+r.pct.toFixed(2)+'%)':''}</strong>`:'<span>1D · History unavailable</span>';}
  else{
  const changes=targets.map(h=>({h,c:holdingPeriodChange(h.type==='mf'?(NH[h.name]?.d||[]):(PWH[h.name]||[]),S.pxd?.[h.name],h.price,h.units,period)}));
  const valid=changes.filter(x=>x.c),aligned=valid.length&&new Set(valid.map(x=>x.c.since)).size===1&&new Set(valid.map(x=>S.pxd?.[x.h.name])).size===1;
  const delta=valid.reduce((s,x)=>s+x.c.abs,0),base=valid.reduce((s,x)=>s+x.h.value-x.c.abs,0);
- daily=aligned?`<span class='day-change-label'>${scope}${period} price change${valid.length<targets.length?' · partial':''}</span><strong class='day-change-${delta>0?'up':delta<0?'down':'flat'}'>${delta>0?'▲ ':delta<0?'▼ ':''}${sg(delta)}${base>0?' ('+pc(delta/base*100)+')':''}</strong>${valid.length<targets.length?`<small>${valid.length}/${targets.length} holdings</small>`:''}`:`<span>${scope}${period} · ${valid.length?'NAV/price dates differ':'History unavailable'}</span>`;
+ daily=aligned?`<span class='day-change-label'>${scope}${period} price change${valid.length<targets.length?' · partial':''}</span><strong class='day-change-${delta>0?'up':delta<0?'down':'flat'}'>${delta>0?'▲ ':delta<0?'▼ ':''}${holdingChangeAmount(delta)}${base>0?' ('+(delta/base*100).toFixed(2)+'%)':''}</strong>${valid.length<targets.length?`<small>${valid.length}/${targets.length} holdings</small>`:''}`:`<span>${scope}${period} · ${valid.length?'NAV/price dates differ':'History unavailable'}</span>`;
  }
  const rate=all?C.xirr:xirr(fifoLedger(S.tx.filter(t=>t.type===flt),today()).flatMap(h=>h.flows).concat([[today(),tot]]));
  const warning=L.some(h=>!h.valuation||h.valuation.estimated||!h.valuation.date||['missing','stale'].includes(h.valuation.status));
