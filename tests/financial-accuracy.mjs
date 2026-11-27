@@ -241,3 +241,7 @@ const incompleteTax=safeTaxLots(rejectedState);
 assert.equal(incompleteTax.ledgerValid,false);
 const incompleteEstimate=safeTaxFY(incompleteTax,'2024-25',30);
 assert.equal(incompleteEstimate.ready,false);assert.equal(incompleteEstimate.tax,null);assert.equal(incompleteEstimate.rulesReview,true);
+
+for(const slab of [-1,101,NaN,Infinity,null,'30']){const invalid=safeTaxFY([],'2025-26',slab);assert.equal(invalid.ready,false);assert.equal(invalid.tax,null);}
+for(const lot of [{bucket:'unknown',gain:100},{bucket:'eqST',gain:Infinity},{bucket:'eqST',gain:100,taxableGain:NaN}]){const invalid=safeTaxFY([{...lot,fy:'2025-26',sell:'2025-05-01'}],'2025-26',30);assert.equal(invalid.ready,false);assert.equal(invalid.tax,null);}
+assert.equal(safeTaxFY([],'2025-26',0).tax,0);
