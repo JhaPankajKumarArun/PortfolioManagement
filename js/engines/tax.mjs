@@ -14,7 +14,7 @@ export function capitalGainRules(saleDate,fy=fyOf(saleDate)){
  return {eqST:revised?.20:.15,eqLT:revised?.125:.10,otLT:revised?.125:.20,exemption:fy<'2018-19'?Infinity:fy<'2024-25'?100000:125000,cess:.04,requiresReview:fy<'2018-19'||fy>='2026-27'};
 }
 function calculateTaxFY(L,fy,slab){const rt={eqST:0,eqLT:0,slab:0,otLT:0},pos={eqST:[0,0],eqLT:[0,0],otLT:[0,0]};
-L.filter(g=>g.fy===fy).forEach(g=>{rt[g.bucket]+=g.gain;if(g.gain>0&&pos[g.bucket])pos[g.bucket][g.sell>='2024-07-23'?1:0]+=g.gain});
+L.filter(g=>g.fy===fy).forEach(g=>{const gain=Number.isFinite(g.taxableGain)?g.taxableGain:g.gain;rt[g.bucket]+=gain;if(gain>0&&pos[g.bucket])pos[g.bucket][g.sell>='2024-07-23'?1:0]+=gain});
 const x={...rt},offsets=[],off=(f,t)=>{if(x[f]<0&&x[t]>0){const u=Math.min(-x[f],x[t]);x[f]+=u;x[t]-=u;offsets.push({from:f,to:t,amount:u})}};
 // Restricted long-term losses first, preserving flexible short-term losses.
 off('eqLT','otLT');off('otLT','eqLT');
@@ -37,4 +37,17 @@ export function grandfatheredEquityBasis(cost,proceeds,fairMarketValue){
 export function indexedAcquisitionBasis(cost,buyCII,sellCII){
  if(!Number.isFinite(cost)||cost<0||!Number.isInteger(buyCII)||buyCII<=0||!Number.isInteger(sellCII)||sellCII<buyCII)return null;
  return cost*sellCII/buyCII;
+}
+
+// Explicit opt-in: verified inputs are supplied for this particular realized lot.
+// Keep accounting gain unchanged for attribution and reconciliation.
+export function applyHistoricalTaxBasis(lot,adjustment){
+ if(!lot||!adjustment||adjustment.verified!==true||!lot.lt)return lot;
+ let basis=null;
+ if(adjustment.kind==='grandfathering'&&lot.cls==='equity'&&lot.buy<'2018-02-01'&&lot.sell>='2018-04-01')
+  basis=grandfatheredEquityBasis(lot.cost,lot.pro,adjustment.fairMarketValue);
+ if(adjustment.kind==='indexation'&&lot.cls!=='equity'&&lot.sell<'2024-07-23'&&lot.bucket==='otLT')
+  basis=indexedAcquisitionBasis(lot.cost,adjustment.buyCII,adjustment.sellCII);
+ if(!Number.isFinite(basis))return lot;
+ return {...lot,taxBasis:basis,taxableGain:lot.pro-basis,taxBasisKind:adjustment.kind};
 }
