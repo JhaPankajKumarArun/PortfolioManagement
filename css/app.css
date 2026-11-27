@@ -304,3 +304,8 @@ html:has(#holdingOverlap[open]),body:has(#holdingOverlap[open]){overflow:hidden;
 .ho-matrix td{padding:0;text-align:center}.ho-matrix .ho-cell,.ho-matrix .ho-na{display:grid;place-items:center;min-width:56px;min-height:44px;border:0;border-radius:6px;padding:4px;font:600 12px var(--sans);white-space:nowrap;box-shadow:none}
 .ho-low{background:#d8eade!important;color:#174a32!important}.ho-mid{background:#f4dfb3!important;color:#62430c!important}.ho-high{background:#eeb4a9!important;color:#762c25!important}.ho-na{background:var(--tint);color:var(--mut)}
 .ho-legend{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}.ho-legend span{font-size:11px;padding:4px 7px;border-radius:6px}.ho-fund-key>div{display:grid;grid-template-columns:32px 1fr;gap:6px;padding:6px 0;border-bottom:1px solid var(--line)}
+
+/* MF holding header: keep selection control in flow, ahead of avatar. */
+#holding-results .mf-holding-row.ho-selectable .ho-check{position:static;transform:none;flex:0 0 22px;margin:0}
+#holding-results .mf-holding-row .mf-holding-head{min-width:0;flex-wrap:nowrap}
+#holding-results .mf-holding-row .mf-holding-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal;max-width:100%}
