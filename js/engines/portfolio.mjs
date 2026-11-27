@@ -29,7 +29,13 @@ function xirr(f){
   return found.sort((a,b)=>a-b).filter((z,i,all)=>!i||Math.abs(z-all[i-1])>1e-9);
  }
  const result=roots(terms);
- return result?.length===1?Math.expm1(result[0])*100:null;
+ if(result?.length===1)return Math.expm1(result[0])*100;
+ if(result!==null)return null;
+ // Large alternating cash-flow histories can exceed the recursive isolation budget.
+ // Use a conventional guess-based XIRR only if a bracketed root is verified.
+ const value=z=>{const pivot=z<0?terms[terms.length-1][0]:0;let sum=0,abs=0;for(const [t,v] of terms){const w=v*Math.exp(-z*(t-pivot));sum+=w;abs+=Math.abs(w)}return {sum,abs}};
+ const candidates=[];let l=lo,left=value(l);for(let i=1;i<=2048;i++){let r=lo+(hi-lo)*i/2048,right=value(r);if(Math.sign(left.sum)!==Math.sign(right.sum)){let a=l,b=r;for(let j=0;j<80;j++){const m=(a+b)/2;if(Math.sign(value(m).sum)===Math.sign(left.sum))a=m;else b=m}const z=(a+b)/2,v=value(z);if(Math.abs(v.sum)<=1e-10*v.abs)candidates.push(z)}l=r;left=right}
+ return candidates.length===1?Math.expm1(candidates[0])*100:null;
 }
 function calculatePortfolio(S,asOf){
 const tradeIndex=new Map();
