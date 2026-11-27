@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v162-auto-peers';
+const CACHE_NAME = 'my-portfolio-pwa-v163-amfi-ter';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
