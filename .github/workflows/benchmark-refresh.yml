@@ -1,17 +1,13 @@
 name: Benchmark provider refresh
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 14 * * 1-5'
-  push:
-    branches: [phase-4.3]
-    paths: ['.github/workflows/benchmark-refresh.yml']
 permissions:
   contents: write
 concurrency:
   group: benchmark-refresh-${{ github.ref }}
 jobs:
   refresh:
+    if: vars.BENCHMARK_REDISTRIBUTION_ALLOWED == 'true' && vars.BENCHMARK_PROVIDER_URL != ''
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

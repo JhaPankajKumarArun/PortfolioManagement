@@ -13,6 +13,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   refresh:
+    if: vars.BENCHMARK_REDISTRIBUTION_ALLOWED == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
