@@ -59,8 +59,8 @@ def is_pdf(url):
     return urlparse(url).scheme=="https" and urlparse(url).path.lower().endswith(".pdf")
 def dated_pdf(url,title,today):
     if not is_pdf(url):return None
-    text=title+" "+unquote(urlparse(url).path.rsplit("/",1)[-1])
-    if not re.search(r"factsheet|fact sheet|the asset as on",text,re.I):return None
+    text=re.sub(r"[_-]+"," ",title+" "+unquote(urlparse(url).path.rsplit("/",1)[-1]))
+    if not re.search(r"factsheet|fact sheet|the asset as on|\\bnippon fs\\b",text,re.I) and not re.search(r"/fact[ _-]?sheets?/",unquote(urlparse(url).path),re.I):return None
     dates=set()
     for m in re.finditer(r"(?i)\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[\s_-]*(?:20)?(\d{2})\b",text):
         month=dt.datetime.strptime(m[1][:3].title(),"%b").month

@@ -224,3 +224,20 @@ class DiscoveryIntegrationTests(unittest.TestCase):
         dated,unknown=discovery_candidates([(url,"October 2026 factsheet"),(url,"October 2026 factsheet")],dt.date(2026,11,28))
         self.assertEqual(dated,[(dt.date(2026,10,1),url)])
         self.assertEqual(unknown,[])
+
+
+class ObservedDiscoveryFilenameTests(unittest.TestCase):
+    def test_observed_source_formats(self):
+        import datetime as dt
+        from factsheet_sources import dated_pdf
+        cases=[
+            ("https://quantmutual.com/Admin/Factsheet/quant_Factsheet_-_August_2026.pdf","",8),
+            ("https://www.barodabnpparibasmf.in/assets/download_documents/Factsheet-October_2026_20826.pdf","Copy Link",10),
+            ("https://media.samcomf.com/scomamc/amc_documents/Factsheet-August2026_1788525518.pdf","",8),
+            ("https://www.quantumamc.com/FileCDN/FactSheet/opaque.pdf","October 2026 - All Funds",10),
+            ("https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Oct-2026.pdf","Download",10),
+        ]
+        for url,title,month in cases:
+            with self.subTest(url=url):
+                self.assertEqual(dated_pdf(url,title,dt.date(2026,11,28)),(dt.date(2026,month,1),url))
+        self.assertIsNone(dated_pdf("https://example.org/Factsheet-November_2026.pdf","",dt.date(2026,11,28)))
