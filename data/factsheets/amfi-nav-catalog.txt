@@ -8841,17 +8841,17 @@ Open Ended Schemes(Income/Debt Oriented Schemes - Liquid Fund)
  
 Abakkus Mutual Fund
  
-154049;-;INF2JJD01011;Abakkus Liquid Fund;Direct Plan;Daily IDCW Reinvestment;100.0881;27-Nov-2026
-154051;INF2JJD01029;-;Abakkus Liquid Fund;Direct Plan;Growth;105.7433;27-Nov-2026
-154055;-;INF2JJD01037;Abakkus Liquid Fund;Direct Plan;Monthly IDCW Reinvestment;100.2256;27-Nov-2026
-154052;-;INF2JJD01052;Abakkus Liquid Fund;Direct Plan;Quarterly IDCW Reinvestment;100.9859;27-Nov-2026
-154050;-;INF2JJD01045;Abakkus Liquid Fund;Direct Plan;Weekly IDCW Reinvestment;100.1156;27-Nov-2026
-154053;-;INF2JJD01060;Abakkus Liquid Fund;Regular Plan;Daily IDCW Reinvestment;100.0881;27-Nov-2026
-154047;INF2JJD01078;-;Abakkus Liquid Fund;Regular Plan;Growth;105.6619;27-Nov-2026
-154048;-;INF2JJD01086;Abakkus Liquid Fund;Regular Plan;Monthly IDCW Reinvestment;100.2232;27-Nov-2026
-154054;-;INF2JJD01102;Abakkus Liquid Fund;Regular Plan;Quarterly IDCW Reinvestment;100.9887;27-Nov-2026
-154056;-;INF2JJD01094;Abakkus Liquid Fund;Regular Plan;Weekly IDCW Reinvestment;100.1145;27-Nov-2026
-154521;-;-;Abakkus Liquid Fund;Direct Plan;Unclaimed Redemption Less Than 3 years;102.1357;27-Nov-2026
+154049;-;INF2JJD01011;Abakkus Liquid Fund;Direct Plan;Daily IDCW Reinvestment;100.1063;28-Nov-2026
+154051;INF2JJD01029;-;Abakkus Liquid Fund;Direct Plan;Growth;105.7625;28-Nov-2026
+154055;-;INF2JJD01037;Abakkus Liquid Fund;Direct Plan;Monthly IDCW Reinvestment;100.2437;28-Nov-2026
+154052;-;INF2JJD01052;Abakkus Liquid Fund;Direct Plan;Quarterly IDCW Reinvestment;101.0043;28-Nov-2026
+154050;-;INF2JJD01045;Abakkus Liquid Fund;Direct Plan;Weekly IDCW Reinvestment;100.1338;28-Nov-2026
+154053;-;INF2JJD01060;Abakkus Liquid Fund;Regular Plan;Daily IDCW Reinvestment;100.1061;28-Nov-2026
+154047;INF2JJD01078;-;Abakkus Liquid Fund;Regular Plan;Growth;105.6809;28-Nov-2026
+154048;-;INF2JJD01086;Abakkus Liquid Fund;Regular Plan;Monthly IDCW Reinvestment;100.2412;28-Nov-2026
+154054;-;INF2JJD01102;Abakkus Liquid Fund;Regular Plan;Quarterly IDCW Reinvestment;101.0069;28-Nov-2026
+154056;-;INF2JJD01094;Abakkus Liquid Fund;Regular Plan;Weekly IDCW Reinvestment;100.1325;28-Nov-2026
+154521;-;-;Abakkus Liquid Fund;Direct Plan;Unclaimed Redemption Less Than 3 years;102.1546;28-Nov-2026
  
 Aditya Birla Sun Life Mutual Fund
  
