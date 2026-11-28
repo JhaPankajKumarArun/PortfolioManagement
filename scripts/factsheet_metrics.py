@@ -141,3 +141,26 @@ def expense_metrics(page):
             for col,value in zip(header.groups(),hit.groups()[1:]):
                 candidates.setdefault(hit[1].lower()+col.upper(),set()).add(float(value))
     return {key:{"value":next(iter(values)),"unit":"%"} for key,values in candidates.items() if len(values)==1 and 0<=next(iter(values))<=10}
+
+
+def labelled_performance(page):
+    """Parse only explicit CAGR tables with unambiguous plan columns."""
+    lines=page.splitlines()
+    candidates={}
+    for i,line in enumerate(lines):
+        if not re.fullmatch(r"\s*(?:Fund Performance|Performance)\s*\(CAGR\)\s*",line,re.I):continue
+        for j in range(i+1,min(i+6,len(lines))):
+            cells=re.split(r"\s{2,}",lines[j].strip())
+            if len(cells)!=4 or cells[0].lower() not in ("period","investment period","returns"):continue
+            labels={"direct plan":"direct","regular plan":"regular","benchmark":"benchmark"}
+            cols=[labels.get(x.lower()) for x in cells[1:]]
+            if set(cols)!={"direct","regular","benchmark"}:continue
+            for row in lines[j+1:j+9]:
+                cells=re.split(r"\s{2,}",row.strip())
+                if len(cells)!=4:break
+                period=re.fullmatch(r"(1|3|5|10)\s*(?:years?|y)",cells[0],re.I)
+                key=period[1]+"Y" if period else "SinceInception" if cells[0].lower()=="since inception" else None
+                if not key or not all(re.fullmatch(r"-?\d+(?:\.\d+)?\s*%",x) for x in cells[1:]):break
+                values=dict(zip(cols,[float(x.rstrip("%").strip()) for x in cells[1:]]))
+                candidates.setdefault(key,[]).append(values)
+    return {key:{**rows[0],"unit":"%","planIdentityVerified":True} for key,rows in candidates.items() if all(row==rows[0] for row in rows)}

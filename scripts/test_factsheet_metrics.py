@@ -172,3 +172,13 @@ class ExpenseMetricTests(unittest.TestCase):
     def test_ambiguous_label(self):
         from factsheet_metrics import expense_metrics
         self.assertEqual(expense_metrics("Expense Ratio\nRegular: 2.62%\nDirect: 0.80%"),{})
+
+
+class LabelledPerformanceTests(unittest.TestCase):
+    def test_explicit_cagr(self):
+        from factsheet_metrics import labelled_performance
+        page="Fund Performance (CAGR)\nPeriod    Regular Plan    Benchmark    Direct Plan\n3 Years    10%    11%    12%"
+        self.assertEqual(labelled_performance(page)["3Y"],{"regular":10,"benchmark":11,"direct":12,"unit":"%","planIdentityVerified":True})
+    def test_chart_not_cagr(self):
+        from factsheet_metrics import labelled_performance
+        self.assertEqual(labelled_performance("FY 2025-26\nRegular Plan    Direct Plan    Benchmark"),{})
