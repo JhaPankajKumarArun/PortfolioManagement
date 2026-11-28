@@ -134,3 +134,12 @@ class ProfileMetricTests(unittest.TestCase):
     def test_conflicting_values(self):
         from factsheet_metrics import profile_metrics
         self.assertNotIn("stddev",profile_metrics("Standard Deviation 10%\nStandard Deviation Scheme (%): 12"))
+
+
+class FundCatalogTests(unittest.TestCase):
+    def test_catalog_projection(self):
+        from factsheet_catalog import build_catalog
+        row={"name":"Nifty 50 TRI","isins":["INF123"],"source":"https://example.org/factsheet.pdf","verifiedAsOf":"2026-10-31","metrics":{"aum":{"value":123,"unit":"Cr"}}}
+        catalog=build_catalog({"schemes":{"1":row,"2":row}},{"Example Mutual Fund":{"1"}})
+        self.assertEqual(set(catalog["schemes"]),{"1"})
+        self.assertEqual(catalog["schemes"]["1"]["snapshots"]["2026-10-31"]["metrics"]["aum"]["value"],123)

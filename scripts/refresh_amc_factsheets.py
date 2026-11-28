@@ -7,6 +7,7 @@ import tempfile
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 from factsheet_schema import validate_fields
+from factsheet_catalog import build_catalog
 from factsheet_adapters import adapter_for, extract, hsbc_profile
 import requests
 from bs4 import BeautifulSoup
@@ -137,5 +138,7 @@ def main():
     ROOT.with_name("coverage.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
     if not accepted:raise SystemExit("No unambiguous mappings extracted; prior catalog retained.")
     ROOT.parent.mkdir(parents=True,exist_ok=True)
+    catalog=build_catalog(prior,amcs)
+    ROOT.with_name("fund-intelligence.json").write_text(json.dumps(catalog,indent=2,sort_keys=True)+"\n")
     ROOT.write_text(json.dumps(prior,indent=2,sort_keys=True)+"\n")
 if __name__=="__main__":main()
