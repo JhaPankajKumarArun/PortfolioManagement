@@ -125,3 +125,19 @@ def profile_details(page):
             pending=None
     if managers:result["fundManagers"]=managers
     return result
+
+
+def expense_metrics(page):
+    """Accept only explicitly identified BER/TER columns, never generic expense labels."""
+    lines=page.splitlines()
+    candidates={}
+    for i,line in enumerate(lines):
+        header=re.match(r"^\s*(?:Plan\s+)?(BER|TER)[~*]?\s{2,}(BER|TER)[~*]?(?=\s{2,}|$)",line,re.I)
+        if not header or header[1].upper()==header[2].upper():continue
+        if not any(re.match(r"\s*Expense Ratio\b",x,re.I) for x in lines[max(0,i-5):i]):continue
+        for row in lines[i+1:i+7]:
+            hit=re.match(r"^\s*(Direct|Regular)(?: Plan)?[~*¹1]?\s+(\d+(?:\.\d+)?)\s*%\s+(\d+(?:\.\d+)?)\s*%(?=\s|$)",row,re.I)
+            if not hit:continue
+            for col,value in zip(header.groups(),hit.groups()[1:]):
+                candidates.setdefault(hit[1].lower()+col.upper(),set()).add(float(value))
+    return {key:{"value":next(iter(values)),"unit":"%"} for key,values in candidates.items() if len(values)==1 and 0<=next(iter(values))<=10}

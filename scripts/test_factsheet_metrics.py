@@ -162,3 +162,13 @@ class ProfileDetailsTests(unittest.TestCase):
         result=profile_details(page)
         self.assertEqual(result["schemeType"],"An open-ended equity scheme")
         self.assertEqual(result["fundManagers"],[{"name":"Ajay Khandelwal","managingSince":"2024-02-06"}])
+
+
+class ExpenseMetricTests(unittest.TestCase):
+    def test_explicit_columns(self):
+        from factsheet_metrics import expense_metrics
+        page="Expense Ratio\n    BER~           TER~\nRegular Plan    1.20%    1.50%\nDirect Plan    0.40%    0.60%"
+        self.assertEqual({k:v["value"] for k,v in expense_metrics(page).items()},{"regularBER":1.2,"regularTER":1.5,"directBER":0.4,"directTER":0.6})
+    def test_ambiguous_label(self):
+        from factsheet_metrics import expense_metrics
+        self.assertEqual(expense_metrics("Expense Ratio\nRegular: 2.62%\nDirect: 0.80%"),{})
