@@ -96,3 +96,32 @@ def profile_metrics(page):
         if len(values)==1:result[key]={"value":values.pop(),"unit":unit}
         elif len(values)>1:result.pop(key,None)
     return result
+
+
+def profile_details(page):
+    """Read explicit profile labels and bounded manager blocks."""
+    from datetime import datetime
+    result={}
+    lines=[re.split(r" {2,}",line.strip(),maxsplit=1)[0] for line in page.splitlines()]
+    types={m[1].strip() for line in lines[:12] if (m:=re.fullmatch(r"Type of Scheme\s*:\s*(.+)",line,re.I))}
+    if len(types)==1:result["schemeType"]=types.pop()
+    managers=[]
+    active=False
+    pending=None
+    for line in lines:
+        if re.fullmatch(r"Name of Fund Managers?\s*:",line,re.I):
+            active=True
+            continue
+        if not active:continue
+        if re.match(r"(?:Expense Ratio|NAV|Portfolio|Risk Ratios|Investment Objective)\b",line,re.I):
+            break
+        hit=re.fullmatch(r"(?:Mr|Ms|Mrs|Dr)\.?\s+([A-Za-z][A-Za-z .'-]{2,100})",line)
+        if hit:
+            pending={"name":hit[1].strip()}
+            managers.append(pending)
+        elif pending and (hit:=re.fullmatch(r"Managing Since:\s*(\d{1,2} [A-Za-z]+,? \d{4})",line,re.I)):
+            try:pending["managingSince"]=datetime.strptime(hit[1].replace(",",""),"%d %B %Y").date().isoformat()
+            except ValueError:pass
+            pending=None
+    if managers:result["fundManagers"]=managers
+    return result

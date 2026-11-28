@@ -1,7 +1,7 @@
 """Public factsheet page adapters; no portfolio data or network access."""
 import re
 from urllib.parse import urlparse
-from factsheet_metrics import metrics, hsbc_metrics, hsbc_details, hsbc_performance, profile_metrics
+from factsheet_metrics import metrics, hsbc_metrics, hsbc_details, hsbc_performance, profile_metrics, profile_details
 def norm(s):
     return re.sub(r"[^a-z0-9]+"," ",s.lower()).strip()
 def extract(page, names):
@@ -46,7 +46,7 @@ class HSBCAdapter(GenericAdapter):
         rows=super().rows(page,names)
         profile=hsbc_profile(page,names)
         if profile:
-            fields={**hsbc_metrics(page),**hsbc_details(page)}
+            fields={**hsbc_metrics(page),**hsbc_details(page),**profile_details(page)}
             performance=hsbc_performance(page)
             if performance:fields["publishedPerformance"]=performance
             rows.append((profile[0],profile[1],fields))
@@ -72,7 +72,7 @@ class ProfileAdapter(GenericAdapter):
             if re.fullmatch(r"(?:Nifty|BSE|MSCI)\s+[A-Za-z0-9 &:/.-]+?\s+TRI",value,re.I) and not re.search(r"annualised|returns|benchmark",value,re.I):
                 hits[norm(value)]=value
         if len(hits)!=1:return []
-        return [(name,next(iter(hits.values())),profile_metrics(page))]
+        return [(name,next(iter(hits.values())),{**profile_metrics(page),**profile_details(page)})]
 
 ADAPTERS={
     "www.assetmanagement.hsbc.co.in":HSBCAdapter(),

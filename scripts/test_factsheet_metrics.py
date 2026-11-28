@@ -153,3 +153,12 @@ class ComprehensiveSchemaTests(unittest.TestCase):
     def test_invalid_allocations(self):
         from factsheet_schema import validate_fields
         self.assertNotIn("holdings",validate_fields({"holdings":{"coverage":"full","rows":[{"name":"A","weight":80},{"name":"B","weight":40}]}},"2026-10-31"))
+
+
+class ProfileDetailsTests(unittest.TestCase):
+    def test_manager_block(self):
+        from factsheet_metrics import profile_details
+        page="Motilal Oswal Large Cap Fund\nType of Scheme : An open-ended equity scheme\nName of Fund Managers:    10.00\nMr. Ajay Khandelwal    Other column\nManaging Since: 06 February, 2024\nExpense Ratio\nMr. Unrelated Person"
+        result=profile_details(page)
+        self.assertEqual(result["schemeType"],"An open-ended equity scheme")
+        self.assertEqual(result["fundManagers"],[{"name":"Ajay Khandelwal","managingSince":"2024-02-06"}])
