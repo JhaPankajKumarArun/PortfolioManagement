@@ -6,6 +6,10 @@ from urllib.parse import urlparse, unquote
 
 DIRECTORY="https://www.amfiindia.com/online-center/download-factsheets"
 SOURCES={
+    "Axis":"https://www.axismf.com/downloads",
+    "Bandhan":"https://cmsnew.bandhanmutual.com/category/factsheet/",
+    "Canara Robeco":"https://www.canararobeco.com/documents/forms-downloads/forms-information-documents/information-documents/factsheets/",
+    "Quantum":"https://www.quantumamc.com/factsheets/combined/-1/0/0",
     "DSP":"https://www.dspim.com/factsheets",
     "Edelweiss":"https://www.edelweissmf.com/downloads/factsheets",
     "Franklin Templeton":"https://www.franklintempletonindia.com/downloads/fund-documents",
