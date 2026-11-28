@@ -258,3 +258,13 @@ class PPFASLayoutTests(unittest.TestCase):
         self.assertEqual(rows[0][1],"NIFTY 500 TRI")
         self.assertEqual(validate_fields(rows[0][2],"2026-10-31")["aum"],{"value":146784.53,"unit":"Cr"})
         self.assertEqual(adapter.rows(page.replace("Fund Details","Additional Disclosure"),{"parag parikh flexi cap fund":[]}),[])
+
+
+class PPFASInceptionTests(unittest.TestCase):
+    def test_inception_left_column(self):
+        from factsheet_adapters import adapter_for
+        page=("Parag Parikh Flexi Cap Fund\nType of Scheme: Equity\nFund Details\n"
+              "Benchmark Name: NIFTY 500 (TRI)    SIP Investment Performance\n"
+              "Date of Inception / Allotment    May 24, 2013    Riskometer (Nifty 500 TRI)\n")
+        rows=adapter_for("https://amc.ppfas.com/factsheet.pdf").rows(page,{"parag parikh flexi cap fund":[]})
+        self.assertEqual(rows[0][2]["inceptionDate"],"2013-05-24")

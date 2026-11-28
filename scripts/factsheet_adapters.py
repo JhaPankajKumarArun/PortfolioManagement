@@ -97,6 +97,12 @@ class PPFASAdapter(GenericAdapter):
             m=re.match(r"AUM as on [A-Za-z]+ \d{1,2}, \d{4}:\s*[\x60₹]?\s*([\d,]+(?:\.\d+)?)\s+Crores?\b",line,re.I)
             if m:fields["aum"]={"value":float(m[1].replace(",","")),"unit":"Cr"}
         if len(hits)!=1:return []
+        from datetime import datetime
+        for line in lines:
+            m=re.match(r"Date of Inception / Allotment\s+([A-Za-z]+ \d{1,2}, \d{4})\b",line,re.I)
+            if m:
+                try:fields["inceptionDate"]=datetime.strptime(m[1],"%B %d, %Y").date().isoformat()
+                except ValueError:pass
         return [(name,hits.pop(),fields)]
 
 ADAPTERS={
