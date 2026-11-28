@@ -6,6 +6,7 @@ from urllib.parse import urlparse, unquote
 
 DIRECTORY="https://www.amfiindia.com/online-center/download-factsheets"
 SOURCES={
+    "Baroda BNP Paribas":"https://www.barodabnpparibasmf.in/downloads/monthly-factsheet",
     "360 ONE":"https://www.360.one/asset/mutual-funds/downloads/",
     "Jio BlackRock":"https://www.jioblackrockamc.com/statutory-disclosure/fund-documents/factsheet",
     "Axis":"https://www.axismf.com/downloads",
