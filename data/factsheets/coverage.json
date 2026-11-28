@@ -388,6 +388,7 @@
       "name": "quant Mutual Fund"
     }
   ],
+  "amfiCatalogStatus": "live",
   "amfiCodes": 14486,
   "candidateCodes": 212,
   "catalogCodes": 372,
@@ -436,6 +437,7 @@
         "inceptionDate": 44,
         "publishedPerformance": 52,
         "regularBER": 56,
+        "schemeType": 56,
         "sharpe": 44,
         "stddev": 44
       },
@@ -469,6 +471,8 @@
         "aum": 60,
         "averageAum": 60,
         "beta": 24,
+        "fundManagers": 60,
+        "schemeType": 52,
         "sharpe": 16,
         "stddev": 24,
         "ytm": 4
@@ -485,6 +489,8 @@
         "aum": 32,
         "averageAum": 32,
         "beta": 24,
+        "fundManagers": 20,
+        "schemeType": 32,
         "stddev": 24
       },
       "reportingMonth": "2026-10-31",
@@ -500,6 +506,7 @@
         "beta": 40,
         "macaulayDuration": 4,
         "modifiedDuration": 4,
+        "schemeType": 60,
         "sharpe": 40
       },
       "reportingMonth": "2026-10-31",

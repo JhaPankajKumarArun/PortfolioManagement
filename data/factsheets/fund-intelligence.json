@@ -21,6 +21,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Equity Scheme investing in technology and",
             "sharpe": {
               "unit": "",
               "value": 0.29
@@ -49,6 +50,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open-ended Equity Scheme following contrarian investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -77,6 +79,7 @@
               "unit": "",
               "value": 0.95
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the ESG theme",
             "sharpe": {
               "unit": "",
               "value": 0.23
@@ -125,6 +128,7 @@
               "unit": "%",
               "value": 1.78
             },
+            "schemeType": "An open ended equity scheme predominantly investing in large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -176,6 +180,7 @@
               "unit": "%",
               "value": 1.78
             },
+            "schemeType": "An open ended equity scheme predominantly investing in large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -287,6 +292,7 @@
               "unit": "%",
               "value": 1.58
             },
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.51
@@ -368,6 +374,7 @@
               "unit": "%",
               "value": 1.58
             },
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.51
@@ -443,6 +450,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open-ended Equity Scheme following contrarian investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -470,6 +478,7 @@
               "unit": "",
               "value": 0.83
             },
+            "schemeType": "An open-ended Equity Scheme investing in maximum 30 stocks",
             "sharpe": {
               "unit": "",
               "value": 0.59
@@ -498,6 +507,7 @@
               "unit": "",
               "value": 0.83
             },
+            "schemeType": "An open-ended Equity Scheme investing in maximum 30 stocks",
             "sharpe": {
               "unit": "",
               "value": 0.59
@@ -525,6 +535,7 @@
               "unit": "",
               "value": 0.65
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the MNC theme.",
             "sharpe": {
               "unit": "",
               "value": 0.07
@@ -553,6 +564,7 @@
               "unit": "",
               "value": 0.65
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the MNC theme.",
             "sharpe": {
               "unit": "",
               "value": 0.07
@@ -580,6 +592,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Dynamic Equity Scheme investing across large cap, mid cap,",
             "sharpe": {
               "unit": "",
               "value": 0.16
@@ -608,6 +621,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Dynamic Equity Scheme investing across large cap, mid cap,",
             "sharpe": {
               "unit": "",
               "value": 0.16
@@ -635,6 +649,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open ended equity scheme predominantly investing in Large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.25
@@ -663,6 +678,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open ended equity scheme predominantly investing in Large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.25
@@ -690,6 +706,7 @@
               "unit": "",
               "value": 0.97
             },
+            "schemeType": "An Open Ended scheme with attributes in accordance with Equity Linked Savings",
             "sharpe": {
               "unit": "",
               "value": 0.47
@@ -717,6 +734,7 @@
               "unit": "",
               "value": 0.95
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the ESG theme",
             "sharpe": {
               "unit": "",
               "value": 0.23
@@ -744,6 +762,7 @@
               "unit": "",
               "value": 0.97
             },
+            "schemeType": "An Open Ended scheme with attributes in accordance with Equity Linked Savings",
             "sharpe": {
               "unit": "",
               "value": 0.47
@@ -801,6 +820,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open-ended Equity Scheme investing in PSU/PSU subsidiaries sector.",
             "sharpe": {
               "unit": "",
               "value": 0.6
@@ -828,6 +848,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open-ended Equity Scheme investing in PSU/PSU subsidiaries sector.",
             "sharpe": {
               "unit": "",
               "value": 0.6
@@ -901,6 +922,7 @@
               "unit": "%",
               "value": 1.22
             },
+            "schemeType": "An open ended fund of fund scheme investing in HSBC Global Investment Funds - Brazil Equity Fund",
             "sharpe": {
               "unit": "",
               "value": 0.32
@@ -979,6 +1001,7 @@
               "unit": "%",
               "value": 1.22
             },
+            "schemeType": "An open ended fund of fund scheme investing in HSBC Global Investment Funds - Brazil Equity Fund",
             "sharpe": {
               "unit": "",
               "value": 0.32
@@ -1125,6 +1148,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open ended equity scheme predominantly investing in Large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.25
@@ -1152,6 +1176,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open ended equity scheme predominantly investing in Large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.25
@@ -1180,6 +1205,7 @@
               "unit": "",
               "value": 0.95
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the ESG theme",
             "sharpe": {
               "unit": "",
               "value": 0.23
@@ -1207,6 +1233,7 @@
               "unit": "",
               "value": 0.95
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the ESG theme",
             "sharpe": {
               "unit": "",
               "value": 0.23
@@ -1235,6 +1262,7 @@
               "unit": "",
               "value": 0.65
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the MNC theme.",
             "sharpe": {
               "unit": "",
               "value": 0.07
@@ -1262,6 +1290,7 @@
               "unit": "",
               "value": 0.65
             },
+            "schemeType": "An open-ended Equity Scheme investing in companies following the MNC theme.",
             "sharpe": {
               "unit": "",
               "value": 0.07
@@ -1290,6 +1319,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Dynamic Equity Scheme investing across large cap, mid cap,",
             "sharpe": {
               "unit": "",
               "value": 0.16
@@ -1317,6 +1347,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Dynamic Equity Scheme investing across large cap, mid cap,",
             "sharpe": {
               "unit": "",
               "value": 0.16
@@ -1344,6 +1375,7 @@
               "unit": "",
               "value": 0.97
             },
+            "schemeType": "An Open Ended scheme with attributes in accordance with Equity Linked Savings",
             "sharpe": {
               "unit": "",
               "value": 0.47
@@ -1371,6 +1403,7 @@
               "unit": "",
               "value": 0.97
             },
+            "schemeType": "An Open Ended scheme with attributes in accordance with Equity Linked Savings",
             "sharpe": {
               "unit": "",
               "value": 0.47
@@ -1399,6 +1432,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open-ended Equity Scheme following contrarian investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -1426,6 +1460,7 @@
               "unit": "",
               "value": 0.83
             },
+            "schemeType": "An open-ended Equity Scheme investing in maximum 30 stocks",
             "sharpe": {
               "unit": "",
               "value": 0.59
@@ -1454,6 +1489,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Equity Scheme investing in technology and",
             "sharpe": {
               "unit": "",
               "value": 0.29
@@ -1481,6 +1517,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open-ended Equity Scheme investing in PSU/PSU subsidiaries sector.",
             "sharpe": {
               "unit": "",
               "value": 0.6
@@ -1509,6 +1546,7 @@
               "unit": "",
               "value": 0.92
             },
+            "schemeType": "An open-ended Equity Scheme investing in PSU/PSU subsidiaries sector.",
             "sharpe": {
               "unit": "",
               "value": 0.6
@@ -1537,6 +1575,7 @@
               "unit": "",
               "value": 0.83
             },
+            "schemeType": "An open-ended Equity Scheme investing in maximum 30 stocks",
             "sharpe": {
               "unit": "",
               "value": 0.59
@@ -1564,6 +1603,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open-ended Equity Scheme following contrarian investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -1612,6 +1652,7 @@
               "unit": "%",
               "value": 1.78
             },
+            "schemeType": "An open ended equity scheme predominantly investing in large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -1663,6 +1704,7 @@
               "unit": "%",
               "value": 1.78
             },
+            "schemeType": "An open ended equity scheme predominantly investing in large cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.3
@@ -1740,6 +1782,7 @@
               "unit": "%",
               "value": 1.22
             },
+            "schemeType": "An open ended fund of fund scheme investing in HSBC Global Investment Funds - Brazil Equity Fund",
             "sharpe": {
               "unit": "",
               "value": 0.32
@@ -1818,6 +1861,7 @@
               "unit": "%",
               "value": 1.22
             },
+            "schemeType": "An open ended fund of fund scheme investing in HSBC Global Investment Funds - Brazil Equity Fund",
             "sharpe": {
               "unit": "",
               "value": 0.32
@@ -1987,6 +2031,7 @@
               "unit": "%",
               "value": 1.58
             },
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.51
@@ -2068,6 +2113,7 @@
               "unit": "%",
               "value": 1.58
             },
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.51
@@ -2172,6 +2218,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Equity Scheme investing in technology and",
             "sharpe": {
               "unit": "",
               "value": 0.29
@@ -2199,6 +2246,7 @@
               "unit": "",
               "value": 0.87
             },
+            "schemeType": "An open-ended Equity Scheme investing in technology and",
             "sharpe": {
               "unit": "",
               "value": 0.29
@@ -2230,6 +2278,20 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-05",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Varun Sharma"
+              },
+              {
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme investing in maximum 30 stocks with focus in multi cap space",
             "sharpe": {
               "unit": "",
               "value": 0.1
@@ -2266,6 +2328,20 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-05",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Varun Sharma"
+              },
+              {
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme investing in maximum 30 stocks with focus in multi cap space",
             "sharpe": {
               "unit": "",
               "value": 0.1
@@ -2301,6 +2377,20 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-05",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Varun Sharma"
+              },
+              {
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme investing in maximum 30 stocks with focus in multi cap space",
             "sharpe": {
               "unit": "",
               "value": 0.1
@@ -2337,6 +2427,20 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-05",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Varun Sharma"
+              },
+              {
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme investing in maximum 30 stocks with focus in multi cap space",
             "sharpe": {
               "unit": "",
               "value": 0.1
@@ -2373,6 +2477,7 @@
               "unit": "",
               "value": 0.85
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.31
@@ -2404,6 +2509,7 @@
               "unit": "",
               "value": 0.85
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.31
@@ -2436,6 +2542,7 @@
               "unit": "",
               "value": 0.85
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.31
@@ -2467,6 +2574,7 @@
               "unit": "",
               "value": 0.85
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.31
@@ -2498,6 +2606,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in mid cap stocks",
             "sharpe": {
               "unit": "",
               "value": 1.0
@@ -2534,6 +2665,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in mid cap stocks",
             "sharpe": {
               "unit": "",
               "value": 1.0
@@ -2569,6 +2723,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in mid cap stocks",
             "sharpe": {
               "unit": "",
               "value": 1.0
@@ -2605,6 +2782,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in mid cap stocks",
             "sharpe": {
               "unit": "",
               "value": 1.0
@@ -2640,6 +2840,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.9
@@ -2676,6 +2899,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.9
@@ -2711,6 +2957,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.9
@@ -2747,6 +3016,29 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-10-01",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An Open-Ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.9
@@ -2782,6 +3074,24 @@
               "unit": "",
               "value": 1.2
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-11",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-03-16",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -2817,6 +3127,24 @@
               "unit": "",
               "value": 1.2
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-11",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-03-16",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -2852,6 +3180,24 @@
               "unit": "",
               "value": 1.2
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-11",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-03-16",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -2887,6 +3233,24 @@
               "unit": "",
               "value": 1.2
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-11",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-03-16",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2022-11-22",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -2922,6 +3286,12 @@
               "unit": "",
               "value": 0.92
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 13.62
@@ -2954,6 +3324,12 @@
               "unit": "",
               "value": 0.92
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 13.62
@@ -2986,6 +3362,12 @@
               "unit": "",
               "value": 0.92
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 13.62
@@ -3017,6 +3399,12 @@
               "unit": "",
               "value": 0.92
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open ended dynamic equity scheme investing across large cap, mid cap, small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 13.62
@@ -3048,6 +3436,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open ended equity linked savings scheme with a statutory lock-in of 3 years and tax benefit",
             "stddev": {
               "unit": "%",
               "value": 13.31
@@ -3079,6 +3468,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open ended equity linked savings scheme with a statutory lock-in of 3 years and tax benefit",
             "stddev": {
               "unit": "%",
               "value": 13.31
@@ -3110,6 +3500,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open ended equity linked savings scheme with a statutory lock-in of 3 years and tax benefit",
             "stddev": {
               "unit": "%",
               "value": 13.31
@@ -3141,6 +3532,7 @@
               "unit": "",
               "value": 0.9
             },
+            "schemeType": "An open ended equity linked savings scheme with a statutory lock-in of 3 years and tax benefit",
             "stddev": {
               "unit": "%",
               "value": 13.31
@@ -3173,6 +3565,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3204,6 +3602,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3235,6 +3639,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3266,6 +3676,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3297,6 +3713,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3328,6 +3750,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3360,6 +3788,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3391,6 +3825,12 @@
               "unit": "",
               "value": 0.93
             },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjeneyan"
+              }
+            ],
+            "schemeType": "An open - ended equity scheme predominantly investing in large cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 13.05
@@ -3419,6 +3859,7 @@
               "unit": "",
               "value": 1.01
             },
+            "schemeType": "An Open Ended Equity Scheme following minimum variance theme",
             "sharpe": {
               "unit": "",
               "value": 0.11
@@ -3447,6 +3888,7 @@
               "unit": "",
               "value": 1.01
             },
+            "schemeType": "An Open Ended Equity Scheme following minimum variance theme",
             "sharpe": {
               "unit": "",
               "value": 0.11
@@ -3474,6 +3916,7 @@
               "unit": "",
               "value": 1.01
             },
+            "schemeType": "An Open Ended Equity Scheme following minimum variance theme",
             "sharpe": {
               "unit": "",
               "value": 0.11
@@ -3501,6 +3944,7 @@
               "unit": "",
               "value": 1.01
             },
+            "schemeType": "An Open Ended Equity Scheme following minimum variance theme",
             "sharpe": {
               "unit": "",
               "value": 0.11
@@ -3579,6 +4023,7 @@
               "unit": "%",
               "value": 1.57
             },
+            "schemeType": "An open ended equity scheme investing in both large cap and mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.58
@@ -3661,6 +4106,7 @@
               "unit": "%",
               "value": 1.57
             },
+            "schemeType": "An open ended equity scheme investing in both large cap and mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.58
@@ -3742,6 +4188,7 @@
               "unit": "%",
               "value": 1.57
             },
+            "schemeType": "An open ended equity scheme investing in both large cap and mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.58
@@ -3823,6 +4270,7 @@
               "unit": "%",
               "value": 1.57
             },
+            "schemeType": "An open ended equity scheme investing in both large cap and mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.58
@@ -4134,6 +4582,7 @@
               "unit": "%",
               "value": 1.79
             },
+            "schemeType": "An open ended equity scheme investing in maximum 30 stocks across market caps (i.e. Multi-Cap))",
             "sharpe": {
               "unit": "",
               "value": 0.43
@@ -4216,6 +4665,7 @@
               "unit": "%",
               "value": 1.79
             },
+            "schemeType": "An open ended equity scheme investing in maximum 30 stocks across market caps (i.e. Multi-Cap))",
             "sharpe": {
               "unit": "",
               "value": 0.43
@@ -4297,6 +4747,7 @@
               "unit": "%",
               "value": 1.79
             },
+            "schemeType": "An open ended equity scheme investing in maximum 30 stocks across market caps (i.e. Multi-Cap))",
             "sharpe": {
               "unit": "",
               "value": 0.43
@@ -4379,6 +4830,7 @@
               "unit": "%",
               "value": 1.79
             },
+            "schemeType": "An open ended equity scheme investing in maximum 30 stocks across market caps (i.e. Multi-Cap))",
             "sharpe": {
               "unit": "",
               "value": 0.43
@@ -4507,7 +4959,8 @@
             "modifiedDuration": {
               "unit": "Years",
               "value": 0.16
-            }
+            },
+            "schemeType": "An open-ended retirement solution-oriented scheme having a"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -4534,7 +4987,8 @@
             "modifiedDuration": {
               "unit": "Years",
               "value": 0.16
-            }
+            },
+            "schemeType": "An open-ended retirement solution-oriented scheme having a"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -4561,7 +5015,8 @@
             "modifiedDuration": {
               "unit": "Years",
               "value": 0.16
-            }
+            },
+            "schemeType": "An open-ended retirement solution-oriented scheme having a"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -4588,7 +5043,8 @@
             "modifiedDuration": {
               "unit": "Years",
               "value": 0.16
-            }
+            },
+            "schemeType": "An open-ended retirement solution-oriented scheme having a"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -4616,6 +5072,7 @@
               "unit": "",
               "value": 0.76
             },
+            "schemeType": "An open-ended equity scheme predominantly investing in small cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.73
@@ -4647,6 +5104,7 @@
               "unit": "",
               "value": 0.76
             },
+            "schemeType": "An open-ended equity scheme predominantly investing in small cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.73
@@ -4679,6 +5137,7 @@
               "unit": "",
               "value": 0.76
             },
+            "schemeType": "An open-ended equity scheme predominantly investing in small cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.73
@@ -4711,6 +5170,7 @@
               "unit": "",
               "value": 0.76
             },
+            "schemeType": "An open-ended equity scheme predominantly investing in small cap stocks.",
             "stddev": {
               "unit": "%",
               "value": 15.73
@@ -5085,6 +5545,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.72
@@ -5166,6 +5627,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.72
@@ -5248,6 +5710,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.72
@@ -5329,6 +5792,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in mid cap stocks.",
             "sharpe": {
               "unit": "",
               "value": 0.72
@@ -5409,6 +5873,7 @@
               "unit": "%",
               "value": 1.73
             },
+            "schemeType": "An open ended equity scheme investing in infrastructure theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -5490,6 +5955,7 @@
               "unit": "%",
               "value": 1.73
             },
+            "schemeType": "An open ended equity scheme investing in infrastructure theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -5571,6 +6037,7 @@
               "unit": "%",
               "value": 1.73
             },
+            "schemeType": "An open ended equity scheme investing in infrastructure theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -5651,6 +6118,7 @@
               "unit": "%",
               "value": 1.73
             },
+            "schemeType": "An open ended equity scheme investing in infrastructure theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -6168,6 +6636,7 @@
               "unit": "%",
               "value": 1.63
             },
+            "schemeType": "An open ended scheme with attributes in accordance with Equity Linked Saving Scheme, 2005 notified",
             "sharpe": {
               "unit": "",
               "value": 0.54
@@ -6249,6 +6718,7 @@
               "unit": "%",
               "value": 1.63
             },
+            "schemeType": "An open ended scheme with attributes in accordance with Equity Linked Saving Scheme, 2005 notified",
             "sharpe": {
               "unit": "",
               "value": 0.54
@@ -6330,6 +6800,7 @@
               "unit": "%",
               "value": 1.63
             },
+            "schemeType": "An open ended scheme with attributes in accordance with Equity Linked Saving Scheme, 2005 notified",
             "sharpe": {
               "unit": "",
               "value": 0.54
@@ -6411,6 +6882,7 @@
               "unit": "%",
               "value": 1.63
             },
+            "schemeType": "An open ended scheme with attributes in accordance with Equity Linked Saving Scheme, 2005 notified",
             "sharpe": {
               "unit": "",
               "value": 0.54
@@ -6694,6 +7166,7 @@
               "unit": "%",
               "value": 1.45
             },
+            "schemeType": "An open ended equity scheme following a value investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.48
@@ -6776,6 +7249,7 @@
               "unit": "%",
               "value": 1.45
             },
+            "schemeType": "An open ended equity scheme following a value investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.48
@@ -6858,6 +7332,7 @@
               "unit": "%",
               "value": 1.45
             },
+            "schemeType": "An open ended equity scheme following a value investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.48
@@ -6939,6 +7414,7 @@
               "unit": "%",
               "value": 1.45
             },
+            "schemeType": "An open ended equity scheme following a value investment strategy.",
             "sharpe": {
               "unit": "",
               "value": 0.48
@@ -7254,6 +7730,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.31
@@ -7336,6 +7813,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.31
@@ -7418,6 +7896,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.31
@@ -7499,6 +7978,7 @@
               "unit": "%",
               "value": 1.43
             },
+            "schemeType": "An open ended equity scheme predominantly investing in small cap stocks",
             "sharpe": {
               "unit": "",
               "value": 0.31
@@ -7668,6 +8148,7 @@
               "unit": "%",
               "value": 1.89
             },
+            "schemeType": "An open ended equity scheme investing in business cycles based theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -7750,6 +8231,7 @@
               "unit": "%",
               "value": 1.89
             },
+            "schemeType": "An open ended equity scheme investing in business cycles based theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -7831,6 +8313,7 @@
               "unit": "%",
               "value": 1.89
             },
+            "schemeType": "An open ended equity scheme investing in business cycles based theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -7913,6 +8396,7 @@
               "unit": "%",
               "value": 1.89
             },
+            "schemeType": "An open ended equity scheme investing in business cycles based theme",
             "sharpe": {
               "unit": "",
               "value": 0.44
@@ -8078,7 +8562,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.3
-            }
+            },
+            "schemeType": "An open-ended Equity Scheme tracking NIFTY 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8147,7 +8632,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.3
-            }
+            },
+            "schemeType": "An open-ended Equity Scheme tracking NIFTY 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8216,7 +8702,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.3
-            }
+            },
+            "schemeType": "An open-ended Equity Scheme tracking NIFTY 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8286,7 +8773,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.3
-            }
+            },
+            "schemeType": "An open-ended Equity Scheme tracking NIFTY 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8355,7 +8843,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.58
-            }
+            },
+            "schemeType": "An open ended Equity Scheme tracking Nifty Next 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8425,7 +8914,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.58
-            }
+            },
+            "schemeType": "An open ended Equity Scheme tracking Nifty Next 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8494,7 +8984,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.58
-            }
+            },
+            "schemeType": "An open ended Equity Scheme tracking Nifty Next 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8564,7 +9055,8 @@
             "regularBER": {
               "unit": "%",
               "value": 0.58
-            }
+            },
+            "schemeType": "An open ended Equity Scheme tracking Nifty Next 50 Index."
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -8766,6 +9258,36 @@
               "unit": "",
               "value": 0.9
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-26",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2026-07-03",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2026-08-17",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2023-12-26",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              },
+              {
+                "name": "Agarwals Health Care Ltd."
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 20.2
@@ -8798,6 +9320,36 @@
               "unit": "",
               "value": 0.9
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-26",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2026-07-03",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2026-08-17",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2023-12-26",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              },
+              {
+                "name": "Agarwals Health Care Ltd."
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 20.2
@@ -8830,6 +9382,36 @@
               "unit": "",
               "value": 0.9
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-26",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2026-07-03",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2026-08-17",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2023-12-26",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              },
+              {
+                "name": "Agarwals Health Care Ltd."
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 20.2
@@ -8861,6 +9443,36 @@
               "unit": "",
               "value": 0.9
             },
+            "fundManagers": [
+              {
+                "managingSince": "2023-12-26",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2026-07-03",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2026-08-17",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2023-12-26",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              },
+              {
+                "name": "Agarwals Health Care Ltd."
+              }
+            ],
+            "schemeType": "An Open-Ended equity scheme predominantly investing in small cap stocks",
             "stddev": {
               "unit": "%",
               "value": 20.2
@@ -8893,6 +9505,25 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-02-06",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme predominantly investing in large cap stocks",
             "stddev": {
               "unit": "%",
               "value": 14.5
@@ -8924,6 +9555,25 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-02-06",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme predominantly investing in large cap stocks",
             "stddev": {
               "unit": "%",
               "value": 14.5
@@ -8956,6 +9606,25 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-02-06",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme predominantly investing in large cap stocks",
             "stddev": {
               "unit": "%",
               "value": 14.5
@@ -8987,6 +9656,25 @@
               "unit": "",
               "value": 1.0
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-02-06",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2024-02-06",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme predominantly investing in large cap stocks",
             "stddev": {
               "unit": "%",
               "value": 14.5
@@ -9067,7 +9755,8 @@
             "aum": {
               "unit": "Cr",
               "value": 7548.47
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the energy theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9086,7 +9775,8 @@
             "aum": {
               "unit": "Cr",
               "value": 7548.47
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the energy theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9106,7 +9796,8 @@
             "aum": {
               "unit": "Cr",
               "value": 7548.47
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the energy theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9126,7 +9817,8 @@
             "aum": {
               "unit": "Cr",
               "value": 7548.47
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the energy theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9149,7 +9841,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 102.33
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjenyan"
+              }
+            ],
+            "schemeType": "An open ended retirement solution oriented scheme having a lock-in of 5 years or till retirement age (whichever is"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9172,7 +9870,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 102.33
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjenyan"
+              }
+            ],
+            "schemeType": "An open ended retirement solution oriented scheme having a lock-in of 5 years or till retirement age (whichever is"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9195,7 +9899,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 102.33
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjenyan"
+              }
+            ],
+            "schemeType": "An open ended retirement solution oriented scheme having a lock-in of 5 years or till retirement age (whichever is"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9218,7 +9928,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 102.33
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Anandha Padmanabhan Anjenyan"
+              }
+            ],
+            "schemeType": "An open ended retirement solution oriented scheme having a lock-in of 5 years or till retirement age (whichever is"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9238,7 +9954,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5870.81
-            }
+            },
+            "schemeType": "An open-ended equity scheme following automotive &"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9258,7 +9975,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5870.81
-            }
+            },
+            "schemeType": "An open-ended equity scheme following automotive &"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9277,7 +9995,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5870.81
-            }
+            },
+            "schemeType": "An open-ended equity scheme following automotive &"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9296,7 +10015,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5870.81
-            }
+            },
+            "schemeType": "An open-ended equity scheme following automotive &"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9319,7 +10039,22 @@
             "averageAum": {
               "unit": "Cr",
               "value": 232.4
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-06-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-02-12",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-06-06",
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9343,7 +10078,22 @@
             "averageAum": {
               "unit": "Cr",
               "value": 232.4
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-06-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-02-12",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-06-06",
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9366,7 +10116,22 @@
             "averageAum": {
               "unit": "Cr",
               "value": 232.4
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-06-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-02-12",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-06-06",
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9390,7 +10155,22 @@
             "averageAum": {
               "unit": "Cr",
               "value": 232.4
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-06-06",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-02-12",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-06-06",
+                "name": "Rakesh Shetty"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9409,7 +10189,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5083.68
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the innovation theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9429,7 +10210,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5083.68
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the innovation theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9448,7 +10230,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5083.68
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the innovation theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9468,7 +10251,8 @@
             "aum": {
               "unit": "Cr",
               "value": 5083.68
-            }
+            },
+            "schemeType": "An open-ended equity scheme following the innovation theme."
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9491,7 +10275,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1414.02
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following business cycles based investing theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9515,7 +10322,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1414.02
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following business cycles based investing theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9538,7 +10368,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1414.02
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following business cycles based investing theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9562,7 +10415,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1414.02
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2026-01-21",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2026-01-21",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2024-08-27",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following business cycles based investing theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9612,7 +10488,8 @@
             "regularBER": {
               "unit": "%",
               "value": 1.85
-            }
+            },
+            "schemeType": "An open ended equity scheme investing in export theme"
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -9662,7 +10539,8 @@
             "regularBER": {
               "unit": "%",
               "value": 1.85
-            }
+            },
+            "schemeType": "An open ended equity scheme investing in export theme"
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -9713,7 +10591,8 @@
             "regularBER": {
               "unit": "%",
               "value": 1.85
-            }
+            },
+            "schemeType": "An open ended equity scheme investing in export theme"
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -9764,7 +10643,8 @@
             "regularBER": {
               "unit": "%",
               "value": 1.85
-            }
+            },
+            "schemeType": "An open ended equity scheme investing in export theme"
           },
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
         }
@@ -9787,7 +10667,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 995.37
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-11-04",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Digital space focusing on Technology,"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9811,7 +10710,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 995.37
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-11-04",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Digital space focusing on Technology,"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9834,7 +10752,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 995.37
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-11-04",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Digital space focusing on Technology,"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9858,7 +10795,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 995.37
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2024-11-04",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-11-04",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Digital space focusing on Technology,"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -9882,7 +10838,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.16
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Lal Path Labs Ltd."
+              }
+            ],
+            "schemeType": "An open ended equity scheme investing in healthcare and pharmaceutical sector"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9906,7 +10868,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.16
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Lal Path Labs Ltd."
+              }
+            ],
+            "schemeType": "An open ended equity scheme investing in healthcare and pharmaceutical sector"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9929,7 +10897,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.16
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Lal Path Labs Ltd."
+              }
+            ],
+            "schemeType": "An open ended equity scheme investing in healthcare and pharmaceutical sector"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9952,7 +10926,13 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.16
-            }
+            },
+            "fundManagers": [
+              {
+                "name": "Lal Path Labs Ltd."
+              }
+            ],
+            "schemeType": "An open ended equity scheme investing in healthcare and pharmaceutical sector"
           },
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
         }
@@ -9972,7 +10952,8 @@
             "aum": {
               "unit": "Cr",
               "value": 2543.96
-            }
+            },
+            "schemeType": "An open ended equity scheme following Quant based investing theme"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -9992,7 +10973,8 @@
             "aum": {
               "unit": "Cr",
               "value": 2543.96
-            }
+            },
+            "schemeType": "An open ended equity scheme following Quant based investing theme"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -10011,7 +10993,8 @@
             "aum": {
               "unit": "Cr",
               "value": 2543.96
-            }
+            },
+            "schemeType": "An open ended equity scheme following Quant based investing theme"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -10030,7 +11013,8 @@
             "aum": {
               "unit": "Cr",
               "value": 2543.96
-            }
+            },
+            "schemeType": "An open ended equity scheme following Quant based investing theme"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
         }
@@ -10055,6 +11039,20 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-12-23",
+                "name": "Vishal Ashar"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -10083,6 +11081,20 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-12-23",
+                "name": "Vishal Ashar"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -10110,6 +11122,20 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-12-23",
+                "name": "Vishal Ashar"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -10137,6 +11163,20 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "fundManagers": [
+              {
+                "managingSince": "2024-12-23",
+                "name": "Vishal Ashar"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2024-12-23",
+                "name": "Rakesh Shetty"
+              }
+            ],
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -10163,7 +11203,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 857.56
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-02-18",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following innovation theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10187,7 +11246,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 857.56
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-02-18",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following innovation theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10210,7 +11288,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 857.56
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-02-18",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following innovation theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10234,7 +11331,26 @@
             "averageAum": {
               "unit": "Cr",
               "value": 857.56
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-02-18",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-02-18",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following innovation theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10315,7 +11431,21 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1446.6
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-01",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-03-17",
+                "name": "Vishal Ashar"
+              },
+              {
+                "name": "Ajay Khandelwal"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following momentum factor theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10338,7 +11468,21 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1446.6
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-01",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-03-17",
+                "name": "Vishal Ashar"
+              },
+              {
+                "name": "Ajay Khandelwal"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following momentum factor theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10362,7 +11506,21 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1446.6
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-01",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-03-17",
+                "name": "Vishal Ashar"
+              },
+              {
+                "name": "Ajay Khandelwal"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following momentum factor theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10386,7 +11544,21 @@
             "averageAum": {
               "unit": "Cr",
               "value": 1446.6
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-01",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-03-17",
+                "name": "Vishal Ashar"
+              },
+              {
+                "name": "Ajay Khandelwal"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following momentum factor theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10409,7 +11581,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 148.67
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-05-13",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10433,7 +11628,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 148.67
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-05-13",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10456,7 +11674,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 148.67
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-05-13",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10480,7 +11721,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 148.67
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-05-13",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-05-13",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10503,7 +11767,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.34
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-06-09",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10526,7 +11813,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.34
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-06-09",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10550,7 +11860,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.34
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-06-09",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10574,7 +11907,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 136.34
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-06-09",
+                "name": "Bhalchandra Shinde"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Atul Mehra"
+              },
+              {
+                "managingSince": "2025-06-09",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10597,7 +11953,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 115.84
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-14",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10621,7 +12000,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 115.84
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-14",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10644,7 +12046,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 115.84
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-14",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
@@ -10668,7 +12093,30 @@
             "averageAum": {
               "unit": "Cr",
               "value": 115.84
-            }
+            },
+            "fundManagers": [
+              {
+                "managingSince": "2025-08-14",
+                "name": "Ajay Khandelwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Ankit Agarwal"
+              },
+              {
+                "managingSince": "2026-07-20",
+                "name": "Varun Sharma"
+              },
+              {
+                "managingSince": "2025-08-14",
+                "name": "Rakesh Shetty"
+              },
+              {
+                "managingSince": "2025-11-18",
+                "name": "Swapnil Mayekar"
+              }
+            ],
+            "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
         }
