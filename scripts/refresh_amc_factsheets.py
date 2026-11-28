@@ -4,6 +4,7 @@ import json
 import re
 import subprocess
 import tempfile
+import time
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 from factsheet_schema import validate_fields
@@ -17,9 +18,16 @@ from factsheet_sources import DIRECTORY, SOURCES, FALLBACKS, is_pdf, dated_pdf
 HEADERS = {"User-Agent":"PortfolioManagement public factsheet reader/1.0"}
 def load(url):
     if urlparse(url).scheme != "https": raise ValueError("HTTPS required")
-    r = requests.get(url, headers=HEADERS, timeout=45)
-    r.raise_for_status()
-    return r
+    for attempt in range(3):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=(15,45))
+            r.raise_for_status()
+            return r
+        except (requests.ConnectionError, requests.Timeout, requests.HTTPError) as exc:
+            if isinstance(exc,requests.HTTPError) and exc.response.status_code not in (429,500,502,503,504):raise
+            if attempt==2:raise
+            print("Retry",attempt+1,url,type(exc).__name__,flush=True)
+            time.sleep(2**(attempt+1))
 def norm(s):
     return re.sub(r"[^a-z0-9]+"," ",s.lower()).strip()
 def scheme_name(s):
@@ -28,7 +36,20 @@ def links(url):
     soup=BeautifulSoup(load(url).text,"html.parser")
     return [(urljoin(url,a["href"]),a.get_text(" ",strip=True)) for a in soup.select("a[href]")]
 def main():
-    nav=load("https://www.amfiindia.com/spages/NAVAll.txt").text
+    cache=ROOT.with_name("amfi-nav-catalog.txt")
+    try:
+        nav=load("https://www.amfiindia.com/spages/NAVAll.txt").text
+        if sum(line.split(";")[0].isdigit() for line in nav.splitlines())<1000:
+            raise ValueError("Invalid or incomplete AMFI catalog")
+        cache.parent.mkdir(parents=True,exist_ok=True)
+        cache.write_text(nav,encoding="utf-8")
+        nav_status="live"
+    except (requests.RequestException,ValueError) as exc:
+        if not cache.exists():raise RuntimeError("AMFI unavailable and no validated cache exists; previous factsheets retained") from exc
+        nav=cache.read_text(encoding="utf-8")
+        if sum(line.split(";")[0].isdigit() for line in nav.splitlines())<1000:raise ValueError("Invalid cached AMFI catalog")
+        nav_status="cached"
+        print("AMFI unavailable; using last validated public catalog",flush=True)
     names={}
     amcs={}
     current_amc=None
@@ -48,7 +69,7 @@ def main():
             if "factsheet" in (u+" "+t).lower() and urlparse(u).hostname!=urlparse(DIRECTORY).hostname and urlparse(u).scheme=="https":pages.add(u)
     except requests.RequestException as e:print("Directory unavailable:",e)
     found={}
-    report={"sources":[],"documents":[],"acceptedCodes":0}
+    report={"sources":[],"documents":[],"acceptedCodes":0,"amfiCatalogStatus":nav_status}
     for url in sorted(pages):
         source={"url":url,"status":"pending","pdfLinks":0,"datedLinks":0}
         report['sources'].append(source)
