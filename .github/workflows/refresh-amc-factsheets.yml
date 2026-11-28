@@ -3,6 +3,13 @@ on:
   schedule:
     - cron: '30 3 * * 1'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refresh-amc-factsheets.yml'
+      - 'scripts/refresh_amc_factsheets.py'
+      - 'scripts/factsheet_metrics.py'
+      - 'scripts/test_factsheet_metrics.py'
 permissions:
   contents: write
 concurrency:
@@ -15,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: refactor/modular-architecture
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -29,4 +36,4 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Refresh public AMC benchmark facts'
-          git push origin HEAD:refactor/modular-architecture
+          git push origin HEAD:main
