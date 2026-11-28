@@ -1,5 +1,393 @@
 {
   "acceptedCodes": 208,
+  "amcCount": 55,
+  "amcUniverse": [
+    {
+      "amfiCodes": 45,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "360 ONE Mutual Fund"
+    },
+    {
+      "amfiCodes": 8,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "ASK MUTUAL FUND"
+    },
+    {
+      "amfiCodes": 19,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Abakkus Mutual Fund"
+    },
+    {
+      "amfiCodes": 425,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Aditya Birla Sun Life Mutual Fund"
+    },
+    {
+      "amfiCodes": 12,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "AlphaGrep Mutual Fund"
+    },
+    {
+      "amfiCodes": 16,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Angel One Mutual Fund"
+    },
+    {
+      "amfiCodes": 399,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Axis Mutual Fund"
+    },
+    {
+      "amfiCodes": 108,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Bajaj Finserv Mutual Fund"
+    },
+    {
+      "amfiCodes": 435,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Bandhan Mutual Fund"
+    },
+    {
+      "amfiCodes": 144,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Bank of India Mutual Fund"
+    },
+    {
+      "amfiCodes": 255,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Baroda BNP Paribas Mutual Fund"
+    },
+    {
+      "amfiCodes": 130,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Canara Robeco Mutual Fund"
+    },
+    {
+      "amfiCodes": 12,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Capitalmind Mutual Fund"
+    },
+    {
+      "amfiCodes": 9,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Carnelian Mutual Fund"
+    },
+    {
+      "amfiCodes": 12,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Choice Mutual Fund"
+    },
+    {
+      "amfiCodes": 363,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "DSP Mutual Fund"
+    },
+    {
+      "amfiCodes": 313,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Edelweiss Mutual Fund"
+    },
+    {
+      "amfiCodes": 321,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Franklin Templeton Mutual Fund"
+    },
+    {
+      "amfiCodes": 217,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Groww Mutual Fund"
+    },
+    {
+      "amfiCodes": 579,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "HDFC Mutual Fund"
+    },
+    {
+      "amfiCodes": 282,
+      "candidateCodes": 56,
+      "catalogCodes": 216,
+      "codesWithMetrics": 56,
+      "name": "HSBC Mutual Fund"
+    },
+    {
+      "amfiCodes": 34,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Helios Mutual Fund"
+    },
+    {
+      "amfiCodes": 2524,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "ICICI Prudential Mutual Fund"
+    },
+    {
+      "amfiCodes": 114,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "ITI Mutual Fund"
+    },
+    {
+      "amfiCodes": 254,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Invesco Mutual Fund"
+    },
+    {
+      "amfiCodes": 178,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "JM Financial Mutual Fund"
+    },
+    {
+      "amfiCodes": 35,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Jio BlackRock Mutual Fund"
+    },
+    {
+      "amfiCodes": 951,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Kotak Mahindra Mutual Fund"
+    },
+    {
+      "amfiCodes": 220,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "LIC Mutual Fund"
+    },
+    {
+      "amfiCodes": 2,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Lakshya Mutual Fund"
+    },
+    {
+      "amfiCodes": 122,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Mahindra Manulife Mutual Fund"
+    },
+    {
+      "amfiCodes": 284,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Mirae Asset Mutual Fund"
+    },
+    {
+      "amfiCodes": 4,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Monarch Mutual Fund"
+    },
+    {
+      "amfiCodes": 231,
+      "candidateCodes": 60,
+      "catalogCodes": 60,
+      "codesWithMetrics": 60,
+      "name": "Motilal Oswal Mutual Fund"
+    },
+    {
+      "amfiCodes": 25,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "NJ Mutual Fund"
+    },
+    {
+      "amfiCodes": 78,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Navi Mutual Fund"
+    },
+    {
+      "amfiCodes": 1870,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Nippon India Mutual Fund"
+    },
+    {
+      "amfiCodes": 12,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Old Bridge Mutual Fund"
+    },
+    {
+      "amfiCodes": 199,
+      "candidateCodes": 32,
+      "catalogCodes": 32,
+      "codesWithMetrics": 32,
+      "name": "PGIM India Mutual Fund"
+    },
+    {
+      "amfiCodes": 28,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "PPFAS Mutual Fund"
+    },
+    {
+      "amfiCodes": 44,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Quantum Mutual Fund"
+    },
+    {
+      "amfiCodes": 494,
+      "candidateCodes": 60,
+      "catalogCodes": 60,
+      "codesWithMetrics": 60,
+      "name": "SBI Mutual Fund"
+    },
+    {
+      "amfiCodes": 31,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Samco Mutual Fund"
+    },
+    {
+      "amfiCodes": 39,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Shriram Mutual Fund"
+    },
+    {
+      "amfiCodes": 277,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Sundaram Mutual Fund"
+    },
+    {
+      "amfiCodes": 407,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Tata Mutual Fund"
+    },
+    {
+      "amfiCodes": 36,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Taurus Mutual Fund"
+    },
+    {
+      "amfiCodes": 49,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "The Wealth Company Mutual Fund"
+    },
+    {
+      "amfiCodes": 48,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Trust Mutual Fund"
+    },
+    {
+      "amfiCodes": 1379,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "UTI Mutual Fund"
+    },
+    {
+      "amfiCodes": 6,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Unifi Mutual Fund"
+    },
+    {
+      "amfiCodes": 151,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Union Mutual Fund"
+    },
+    {
+      "amfiCodes": 82,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "WhiteOak Capital Mutual Fund"
+    },
+    {
+      "amfiCodes": 25,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "Zerodha CASE Mutual Fund"
+    },
+    {
+      "amfiCodes": 149,
+      "candidateCodes": 0,
+      "catalogCodes": 0,
+      "codesWithMetrics": 0,
+      "name": "quant Mutual Fund"
+    }
+  ],
   "amfiCodes": 14486,
   "candidateCodes": 208,
   "catalogCodes": 368,
@@ -109,5 +497,6 @@
       "status": "discovered",
       "url": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
     }
-  ]
+  ],
+  "unclassifiedAmfiCodes": 0
 }
