@@ -77,7 +77,30 @@ class ProfileAdapter(GenericAdapter):
         if performance:fields["publishedPerformance"]=performance
         return [(name,next(iter(hits.values())),fields)]
 
+class PPFASAdapter(GenericAdapter):
+    name="ppfas"
+    def rows(self,page,names):
+        lines=[line.strip() for line in page.splitlines() if line.strip()]
+        if not lines:return []
+        name=norm(re.split(r"\s{2,}",lines[0],maxsplit=1)[0])
+        if name not in names or not name.startswith("parag parikh "):return []
+        if not any(re.match(r"Type of Scheme\s*:",line,re.I) for line in lines[:4]):return []
+        if not any(re.fullmatch(r"Fund Details",line,re.I) for line in lines):return []
+        hits=set()
+        fields={}
+        for line in lines:
+            m=re.match(r"Benchmark Name:\s*(.+)",line,re.I)
+            if m:
+                value=re.split(r"\s{2,}|\t+",m[1],maxsplit=1)[0].strip()
+                value=re.sub(r"\s*\(TRI\)$"," TRI",value,flags=re.I)
+                if re.fullmatch(r"(?:Nifty|BSE)\s+[A-Za-z0-9 &./-]+?\s+TRI",value,re.I):hits.add(value)
+            m=re.match(r"AUM as on [A-Za-z]+ \d{1,2}, \d{4}:\s*[\x60₹]?\s*([\d,]+(?:\.\d+)?)\s+Crores?\b",line,re.I)
+            if m:fields["aum"]={"value":float(m[1].replace(",","")),"unit":"Cr"}
+        if len(hits)!=1:return []
+        return [(name,hits.pop(),fields)]
+
 ADAPTERS={
+    "amc.ppfas.com":PPFASAdapter(),
     "www.assetmanagement.hsbc.co.in":HSBCAdapter(),
     "www.motilaloswalmf.com":ProfileAdapter("motilal-oswal","motilal oswal"),
     "www.pgimindia.com":ProfileAdapter("pgim","pgim india"),

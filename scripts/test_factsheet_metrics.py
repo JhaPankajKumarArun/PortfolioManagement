@@ -241,3 +241,20 @@ class ObservedDiscoveryFilenameTests(unittest.TestCase):
             with self.subTest(url=url):
                 self.assertEqual(dated_pdf(url,title,dt.date(2026,11,28)),(dt.date(2026,month,1),url))
         self.assertIsNone(dated_pdf("https://example.org/Factsheet-November_2026.pdf","",dt.date(2026,11,28)))
+
+
+class PPFASLayoutTests(unittest.TestCase):
+    def test_observed_flexicap_layout(self):
+        from factsheet_adapters import adapter_for
+        from factsheet_schema import validate_fields
+        page=("Parag Parikh Flexi Cap Fund\n"
+              "Type of Scheme: An open-ended dynamic Equity scheme\n"
+              "Fund Details\n"
+              "Benchmark Name: \t\t NIFTY 500 (TRI)     SIP Investment Performance\n"
+              "AUM as on October 31, 2026:  ₹ 1,46,784.53 Crores    Returns for last 5 Years\n")
+        adapter=adapter_for("https://amc.ppfas.com/factsheet.pdf")
+        rows=adapter.rows(page,{"parag parikh flexi cap fund":[]})
+        self.assertEqual(len(rows),1)
+        self.assertEqual(rows[0][1],"NIFTY 500 TRI")
+        self.assertEqual(validate_fields(rows[0][2],"2026-10-31")["aum"],{"value":146784.53,"unit":"Cr"})
+        self.assertEqual(adapter.rows(page.replace("Fund Details","Additional Disclosure"),{"parag parikh flexi cap fund":[]}),[])
