@@ -19,3 +19,13 @@ class HSBCProfileTests(unittest.TestCase):
     def test_reject_non_profile(self):
         from refresh_amc_factsheets import hsbc_profile
         self.assertIsNone(hsbc_profile("HSBC Small Cap Fund\nAdditional Disclosure\nBenchmark Name: Nifty Smallcap 250 TRI", {"hsbc small cap fund": []}))
+
+
+class LayoutMetricTests(unittest.TestCase):
+    def test_adjacent_columns(self):
+        self.assertEqual(metrics("Beta: 0.82    Other column")["beta"]["value"],0.82)
+        self.assertEqual(metrics("Standard Deviation: 16.08%    Other column")["stddev"]["value"],16.08)
+    def test_reject_truncated_benchmark(self):
+        from refresh_amc_factsheets import hsbc_profile
+        page="HSBC Small Cap Fund\nType of Scheme: Equity\nBenchmark Name: NIFTY 50 Hybrid Composite    Annualised"
+        self.assertIsNone(hsbc_profile(page,{"hsbc small cap fund":[]}))

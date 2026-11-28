@@ -4,7 +4,7 @@ FIELDS={"beta":("Beta",""),"sharpe":("Sharpe Ratio",""),"sortino":("Sortino Rati
 def metrics(page):
     result={}
     for key,(label,unit) in FIELDS.items():
-        pattern=r"(?im)^[ \t]*(?:"+label+r")[ \t]*:?[ \t]*(-?\d+(?:\.\d+)?)[ \t]*"+re.escape(unit)+r"[ \t]*$"
+        pattern=r"(?im)(?:^[ \t]*|[ \t]{2,})(?:"+label+r")[ \t]*:?[ \t]*(-?\d+(?:\.\d+)?)[ \t]*"+re.escape(unit)+r"(?:[ \t]*$|[ \t]{2,}\S)"
         values={float(x) for x in re.findall(pattern,page)}
         if len(values)==1:
             v=values.pop()

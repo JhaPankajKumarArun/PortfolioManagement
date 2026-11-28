@@ -52,7 +52,8 @@ def hsbc_profile(page,names):
         m=re.match(r"(?i)^Benchmark Name:\s*(.+)$",line)
         if m:
             value=re.split(r"\s{2,}",m[1],maxsplit=1)[0].strip()
-            if re.fullmatch(r"[A-Za-z0-9 &:/().+%-]{3,120}",value):hits.add(value)
+            # Accept only complete, explicitly identified TRI labels until other layouts are verified.
+            if re.fullmatch(r"(?:Nifty|BSE|MSCI)\s+[A-Za-z0-9 &:/().+%-]+?\s+TRI",value,re.I) and not re.search(r"annualised|returns|benchmark|[+%]",value,re.I):hits.add(value)
     if len(hits)==1:return name,hits.pop()
     return None
 
@@ -127,7 +128,13 @@ def main():
                     rows=[(match[0],match[1],metrics(page))] if match else []
                     if urlparse(u).hostname=="www.assetmanagement.hsbc.co.in":
                         profile=hsbc_profile(page,names)
-                        if profile:rows.append((profile[0],profile[1],metrics(page)))
+                        if profile:
+                            fields=metrics(page)
+                            rows.append((profile[0],profile[1],fields))
+                            print("Profile:",profile[0],"benchmark:",profile[1],"metrics:",sorted(fields),flush=True)
+                            for line in page.splitlines():
+                                if re.search(r"AUM|expense ratio|sharpe|sortino|standard deviation|turnover|beta|date of inception",line,re.I):
+                                    print("Metric layout:",repr(line[:300]),flush=True)
                     for n,value,fields in rows:
                         matched_pages+=1
                         for code,isins in names[n]:
