@@ -82,3 +82,15 @@ class SchemaTests(unittest.TestCase):
         from factsheet_schema import validate_fields
         fields={"aum":{"value":100,"unit":"Cr"},"beta":{"value":float("nan"),"unit":""},"directBER":{"value":0.5,"unit":"%"},"largeCap":{"value":101,"unit":"%"},"inceptionDate":"2027-01-01"}
         self.assertEqual(set(validate_fields(fields,"2026-10-31")),{"aum","directBER"})
+
+
+class GenericLayoutTests(unittest.TestCase):
+    def test_numbered_and_prefix_units(self):
+        d=metrics(" 1 Standard Deviation (%)    22.41    Other column\n 2 Beta    0.95\nModified Duration (Years)    2.4")
+        self.assertEqual(d["stddev"]["value"],22.41)
+        self.assertEqual(d["beta"]["value"],0.95)
+        self.assertEqual(d["modifiedDuration"]["value"],2.4)
+    def test_conflicting_layouts(self):
+        self.assertNotIn("stddev",metrics("Standard Deviation: 12%\n1 Standard Deviation (%)    13"))
+    def test_unit_required(self):
+        self.assertNotIn("equityTurnover",metrics("Equity Turnover    0.35"))

@@ -2,13 +2,20 @@
 import re
 FIELDS={"beta":("Beta",""),"sharpe":("Sharpe Ratio",""),"sortino":("Sortino Ratio",""),"stddev":("Standard Deviation","%"),"equityTurnover":("Equity Turnover","%"),"totalTurnover":("Total Turnover","%"),"riskFreeRate":("Risk free rate","%"),"ytm":("Yield to Maturity|YTM","%"),"modifiedDuration":("Modified Duration","Years"),"macaulayDuration":("Macaulay Duration","Years"),"largeCap":("Large Cap","%"),"midCap":("Mid Cap","%"),"smallCap":("Small Cap","%")}
 def metrics(page):
+    """Match explicit labels and units in isolated or multi-column rows."""
     result={}
     for key,(label,unit) in FIELDS.items():
-        pattern=r"(?im)(?:^[ \t]*|[ \t]{2,})(?:"+label+r")[ \t]*:?[ \t]*(-?\d+(?:\.\d+)?)[ \t]*"+re.escape(unit)+r"(?:[ \t]*$|[ \t]{2,}\S)"
-        values={float(x) for x in re.findall(pattern,page)}
+        prefix=r"(?:^[ \t]*|[ \t]{2,})(?:\d+[.)]?[ \t]+)?(?:"+label+r")"
+        num=r"(-?\d+(?:\.\d+)?)"
+        end=r"(?=[ \t]*$|[ \t]{2,}\S)"
+        suffix=r"[ \t]*:?[ \t]*"+num+r"[ \t]*"+re.escape(unit)
+        patterns=[prefix+suffix+end]
+        if unit:
+            patterns.append(prefix+r"[ \t]*\("+re.escape(unit)+r"\)[ \t]*:?[ \t]*"+num+end)
+        values={float(x) for pattern in patterns for x in re.findall(pattern,page,re.I|re.M)}
         if len(values)==1:
             v=values.pop()
-            if v<0 and key not in ("beta","sharpe","sortino"):continue
+            if v<0 and key not in ("beta","sharpe","sortino","ytm","riskFreeRate"):continue
             if key in ("largeCap","midCap","smallCap") and v>100:continue
             result[key]={"value":v,"unit":unit}
     return result
