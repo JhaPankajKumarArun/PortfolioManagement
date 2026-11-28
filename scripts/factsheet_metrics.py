@@ -78,3 +78,21 @@ def hsbc_performance(page):
                 result[hit[1]+"Y"]={"printedColumns":nums,"unit":"%","planIdentityVerified":False}
                 break
     return result
+
+
+def profile_metrics(page):
+    """Explicit single-scheme profile labels observed in AMC PDF layouts."""
+    result=metrics(page)
+    patterns={
+        "aum":(r"^ *AUM(?: as on \d{1,2}/\d{1,2}/\d{4})? *:? *[\x60₹] *(\d[\d,]*(?:\.\d+)?) +(?:Crore|Cr)","Cr"),
+        "averageAum":(r"^ *AAUM *:? *[\x60₹] *(\d[\d,]*(?:\.\d+)?) +(?:Crore|Cr)","Cr"),
+        "stddev":(r"^ *Standard Deviation (?:\(Annualised\) *:? *(\d+(?:\.\d+)?) *%|Scheme *\(%\) *: *(\d+(?:\.\d+)?))","%"),
+        "sharpe":(r"^ *Sharpe Ratio@? *\(Annualised\) *:? *(-?\d+(?:\.\d+)?)",""),
+    }
+    for key,(pattern,unit) in patterns.items():
+        values={float(next(x for x in hit.groups() if x is not None).replace(",",""))
+                for hit in re.finditer(pattern+r"(?=[ \t]{2,}|[ \t]*$)",page,re.I|re.M)}
+        if key in result:values.add(result[key]["value"])
+        if len(values)==1:result[key]={"value":values.pop(),"unit":unit}
+        elif len(values)>1:result.pop(key,None)
+    return result

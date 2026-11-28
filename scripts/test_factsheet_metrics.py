@@ -121,3 +121,16 @@ class MultiAMCProfileTests(unittest.TestCase):
         from factsheet_adapters import adapter_for
         a=adapter_for("https://www.sbimf.com/a.pdf")
         self.assertEqual(a.rows("SBI Large Cap Fund\nType of Scheme: Equity\nFund Details\nBenchmark Index : NIFTY Large",{"sbi large cap fund":[]}),[])
+
+
+class ProfileMetricTests(unittest.TestCase):
+    def test_observed_layouts(self):
+        from factsheet_metrics import profile_metrics
+        for page,expected in [
+            ("AUM    \x60 2,936.67 Crore    Benchmark Riskometer\nAAUM \x60 2,919.30 Crore\nStandard Deviation (Annualised) 14.5%    Power\nSharpe Ratio@ (Annualised) 0.9",{"aum":2936.67,"averageAum":2919.30,"stddev":14.5,"sharpe":0.9}),
+            ("AUM : \x60 506.08 Crore\nStandard Deviation Scheme (%): 13.05\nStandard Deviation Benchmark (%): 13.82",{"aum":506.08,"stddev":13.05}),
+            ("AUM as on 30/10/2026: \x60 52,416.37 Cr",{"aum":52416.37})]:
+            self.assertEqual({k:v["value"] for k,v in profile_metrics(page).items()},expected)
+    def test_conflicting_values(self):
+        from factsheet_metrics import profile_metrics
+        self.assertNotIn("stddev",profile_metrics("Standard Deviation 10%\nStandard Deviation Scheme (%): 12"))
