@@ -11,6 +11,7 @@ on:
       - 'scripts/factsheet_metrics.py'
       - 'scripts/factsheet_adapters.py'
       - 'scripts/factsheet_schema.py'
+      - 'scripts/factsheet_sources.py'
       - 'scripts/test_factsheet_metrics.py'
 permissions:
   contents: write

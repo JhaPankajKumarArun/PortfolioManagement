@@ -94,3 +94,13 @@ class GenericLayoutTests(unittest.TestCase):
         self.assertNotIn("stddev",metrics("Standard Deviation: 12%\n1 Standard Deviation (%)    13"))
     def test_unit_required(self):
         self.assertNotIn("equityTurnover",metrics("Equity Turnover    0.35"))
+
+
+class SourceTests(unittest.TestCase):
+    def test_dates(self):
+        from factsheet_sources import dated_pdf
+        from datetime import date
+        today=date(2026,11,28)
+        self.assertEqual(dated_pdf("https://example.org/Factsheet-October2026.pdf","",today)[0],date(2026,10,1))
+        self.assertIsNone(dated_pdf("https://example.org/Factsheet-November2026.pdf","",today))
+        self.assertIsNone(dated_pdf("https://example.org/Factsheet-October2026.pdf","September 2026",today))

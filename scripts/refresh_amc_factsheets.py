@@ -12,10 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 
 ROOT = Path("data/factsheets/benchmarks.json")
-DIRECTORY = "https://www.amfiindia.com/online-center/download-factsheets"
-SEEDS = ["https://www.hdfcfund.com/mutual-funds/factsheets",
-"https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources?Doc=fund-factsheets",
-"https://www.miraeassetmf.co.in/downloads/factsheet"]
+from factsheet_sources import DIRECTORY, SOURCES, FALLBACKS, is_pdf, dated_pdf
 HEADERS = {"User-Agent":"PortfolioManagement public factsheet reader/1.0"}
 def load(url):
     if urlparse(url).scheme != "https": raise ValueError("HTTPS required")
@@ -39,22 +36,16 @@ def main():
     print("AMFI normalized schemes:",len(names),flush=True)
     print("HSBC catalog names:",[n for n in names if n.startswith("hsbc ")],flush=True)
     prior=json.loads(ROOT.read_text()) if ROOT.exists() else {"schema":1,"schemes":{}}
-    pages=set(SEEDS)
+    pages=set(SOURCES.values()) | set(FALLBACKS)
     try:
         for u,t in links(DIRECTORY):
-            if "factsheet" in (u+" "+t).lower() and urlparse(u).hostname!=urlparse(DIRECTORY).hostname and not u.lower().endswith(".pdf"):pages.add(u)
+            if "factsheet" in (u+" "+t).lower() and urlparse(u).hostname!=urlparse(DIRECTORY).hostname and urlparse(u).scheme=="https":pages.add(u)
     except requests.RequestException as e:print("Directory unavailable:",e)
     found={}
     for url in sorted(pages):
         try:
-            pdfs=[(u,t) for u,t in links(url) if urlparse(u).path.lower().endswith(".pdf") and ("factsheet" in (u+" "+t).lower() or "the asset as on" in (u+" "+t).lower())]
-            # Require explicit month/year, select newest dated documents.
-            dated=[]
-            for u,t in pdfs:
-                m=re.search(r"(?i)\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[\s%_-]+(?:20)?(\d{2})\b",t+" "+u.replace("%20"," "))
-                if m:
-                    month=dt.datetime.strptime(m[1][:3].title(),"%b").month
-                    dated.append((dt.date(2000+int(m[2]),month,1),u))
+            pdfs=[(url,"")] if is_pdf(url) else [(u,t) for u,t in links(url) if is_pdf(u)]
+            dated=[d for u,t in pdfs if (d:=dated_pdf(u,t,dt.date.today()))]
             print("Discovery:",url,"PDF links:",len(pdfs),"dated:",len(dated),flush=True)
             if not dated:continue
             newest=max(d for d,u in dated)
