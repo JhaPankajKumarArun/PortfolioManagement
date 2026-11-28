@@ -398,7 +398,8 @@
       "candidateCodes": 6,
       "distinctSchemes": 2,
       "fieldCodeCounts": {
-        "aum": 6
+        "aum": 6,
+        "inceptionDate": 4
       },
       "reportingMonth": "2026-10-31",
       "status": "extracted",
@@ -455,6 +456,15 @@
       "reportingMonth": "2026-10-31",
       "status": "no_matches",
       "url": "https://www.barodabnpparibasmf.in/assets/download_documents/Factsheet-October_2026_20826.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.heliosmf.in/wp-content/uploads/2026/11/helios-mutual-fund-factsheet-oct-26.pdf"
     },
     {
       "adapter": "generic",
@@ -855,10 +865,59 @@
       "configuredAMCs": [
         "Helios"
       ],
-      "datedLinks": 0,
-      "errorType": "HTTPError",
-      "pdfLinks": 0,
-      "status": "failed",
+      "datedLinks": 35,
+      "pdfLinks": 457,
+      "status": "discovered",
+      "unrecognizedDateSamples": [
+        {
+          "title": "October 31, 2025",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2025/11/Helios-Mutual-Fund-Factsheet_Oct25-Perf.pdf"
+        },
+        {
+          "title": "November 30, 2025",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2025/12/Helios-Mutual-Fund-Factsheet_Nov25-Perf.pdf"
+        },
+        {
+          "title": "December 31, 2025",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/01/Helios-Mutual-Fund-Factsheet_Dec25-Perf.pdf"
+        },
+        {
+          "title": "January 31, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/02/Performance_Helios-Factsheet_Jan26.pdf"
+        },
+        {
+          "title": "February 28, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/03/Perfromance_Helios-Factsheet-February-2026.pdf"
+        },
+        {
+          "title": "March 31, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/04/Perfromance_Helios-Factsheet-Mar26.pdf"
+        },
+        {
+          "title": "April 30, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/05/Performance-Helios-Factsheet_Apr-26.pdf"
+        },
+        {
+          "title": "May 31, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/06/Performance-Helios-Factsheet_May26-1.pdf"
+        },
+        {
+          "title": "June 30, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/07/Performance-Helios-Factsheet_Jun26.pdf"
+        },
+        {
+          "title": "July 31, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/08/performance-helios-factsheet-jul26.pdf"
+        },
+        {
+          "title": "August 31, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/09/performance-helios-mutual-fund-factsheet-aug26.pdf"
+        },
+        {
+          "title": "September 30, 2026",
+          "url": "https://www.heliosmf.in/wp-content/uploads/2026/10/performance-helios-mutual-fund-factsheet-sep26.pdf"
+        }
+      ],
       "url": "https://www.heliosmf.in/downloads/"
     },
     {
