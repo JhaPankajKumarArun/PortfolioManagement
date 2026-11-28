@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v190-datahub-intelligence';
+const CACHE_NAME = 'my-portfolio-pwa-v191-fund-intelligence';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
