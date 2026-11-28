@@ -61,6 +61,8 @@ def main():
         p=line.split(";")
         if len(p)>=6 and p[0].isdigit():
             names.setdefault(scheme_name(p[3]),[]).append((p[0],[x for x in p[1:3] if x.startswith("INF")]))
+    print("AMFI normalized schemes:",len(names),flush=True)
+    print("HSBC catalog names:",[n for n in names if n.startswith("hsbc ")],flush=True)
     prior=json.loads(ROOT.read_text()) if ROOT.exists() else {"schema":1,"schemes":{}}
     pages=set(SEEDS)
     try:
@@ -92,6 +94,18 @@ def main():
                 asof=date.replace(day=calendar.monthrange(date.year,date.month)[1]).isoformat()
                 if asof>dt.date.today().isoformat():continue
                 print("PDF:",u,"pages:",len(content.split("\f")),"characters:",len(content),flush=True)
+                if urlparse(u).hostname=="www.assetmanagement.hsbc.co.in":
+                    samples=0
+                    for number,page in enumerate(content.split("\f"),1):
+                        lines=page.splitlines()
+                        relevant=[i for i,line in enumerate(lines) if re.search(r"scheme benchmark|hsbc small cap fund|inception date",line,re.I)]
+                        if not relevant:continue
+                        if samples>=8:break
+                        print("HSBC layout sample page",number,flush=True)
+                        indices=set(range(min(8,len(lines))))
+                        for i in relevant[:6]:indices.update(range(max(0,i-1),min(len(lines),i+3)))
+                        for i in sorted(indices):print(repr(lines[i][:350]),flush=True)
+                        samples+=1
                 matched_pages=0
                 for page in content.split("\f"):
                     match=extract(page,names)
