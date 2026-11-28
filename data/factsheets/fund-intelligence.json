@@ -3074,6 +3074,14 @@
               "unit": "",
               "value": 1.2
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.6
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.96
+            },
             "fundManagers": [
               {
                 "managingSince": "2023-12-11",
@@ -3092,6 +3100,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 1.61
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.1
+            },
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -3127,6 +3143,14 @@
               "unit": "",
               "value": 1.2
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.6
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.96
+            },
             "fundManagers": [
               {
                 "managingSince": "2023-12-11",
@@ -3145,6 +3169,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 1.61
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.1
+            },
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -3180,6 +3212,14 @@
               "unit": "",
               "value": 1.2
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.6
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.96
+            },
             "fundManagers": [
               {
                 "managingSince": "2023-12-11",
@@ -3198,6 +3238,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 1.61
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.1
+            },
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -3233,6 +3281,14 @@
               "unit": "",
               "value": 1.2
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.6
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.96
+            },
             "fundManagers": [
               {
                 "managingSince": "2023-12-11",
@@ -3251,6 +3307,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 1.61
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.1
+            },
             "sharpe": {
               "unit": "",
               "value": 0.8
@@ -9505,6 +9569,14 @@
               "unit": "",
               "value": 1.0
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.68
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.98
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-02-06",
@@ -9554,6 +9626,14 @@
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "directBER": {
+              "unit": "%",
+              "value": 0.68
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.98
             },
             "fundManagers": [
               {
@@ -9606,6 +9686,14 @@
               "unit": "",
               "value": 1.0
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.68
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.98
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-02-06",
@@ -9655,6 +9743,14 @@
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "directBER": {
+              "unit": "%",
+              "value": 0.68
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 0.98
             },
             "fundManagers": [
               {
@@ -9955,6 +10051,22 @@
               "unit": "Cr",
               "value": 5870.81
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.0
+            },
+            "regularBER": {
+              "unit": "%",
+              "value": 1.57
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.0
+            },
             "schemeType": "An open-ended equity scheme following automotive &"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
@@ -9976,6 +10088,22 @@
               "unit": "Cr",
               "value": 5870.81
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.0
+            },
+            "regularBER": {
+              "unit": "%",
+              "value": 1.57
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.0
+            },
             "schemeType": "An open-ended equity scheme following automotive &"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
@@ -9996,6 +10124,22 @@
               "unit": "Cr",
               "value": 5870.81
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.0
+            },
+            "regularBER": {
+              "unit": "%",
+              "value": 1.57
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.0
+            },
             "schemeType": "An open-ended equity scheme following automotive &"
           },
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
@@ -10015,6 +10159,22 @@
             "aum": {
               "unit": "Cr",
               "value": 5870.81
+            },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.0
+            },
+            "regularBER": {
+              "unit": "%",
+              "value": 1.57
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.0
             },
             "schemeType": "An open-ended equity scheme following automotive &"
           },
@@ -10040,6 +10200,14 @@
               "unit": "Cr",
               "value": 232.4
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.67
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-06-06",
@@ -10054,6 +10222,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.8
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.77
+            },
             "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -10079,6 +10255,14 @@
               "unit": "Cr",
               "value": 232.4
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.67
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-06-06",
@@ -10093,6 +10277,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.8
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.77
+            },
             "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -10117,6 +10309,14 @@
               "unit": "Cr",
               "value": 232.4
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.67
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-06-06",
@@ -10131,6 +10331,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.8
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.77
+            },
             "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -10156,6 +10364,14 @@
               "unit": "Cr",
               "value": 232.4
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.71
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.67
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-06-06",
@@ -10170,6 +10386,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.8
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.77
+            },
             "schemeType": "An open-ended equity scheme investing based on a quant investment framework"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -10668,6 +10892,14 @@
               "unit": "Cr",
               "value": 995.37
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.75
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.07
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-11-04",
@@ -10711,6 +10943,14 @@
               "unit": "Cr",
               "value": 995.37
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.75
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.07
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-11-04",
@@ -10752,6 +10992,14 @@
             "averageAum": {
               "unit": "Cr",
               "value": 995.37
+            },
+            "directBER": {
+              "unit": "%",
+              "value": 0.75
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.07
             },
             "fundManagers": [
               {
@@ -10795,6 +11043,14 @@
             "averageAum": {
               "unit": "Cr",
               "value": 995.37
+            },
+            "directBER": {
+              "unit": "%",
+              "value": 0.75
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.07
             },
             "fundManagers": [
               {
@@ -11039,6 +11295,14 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.14
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.04
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-12-23",
@@ -11053,6 +11317,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.99
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.98
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -11081,6 +11353,14 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.14
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.04
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-12-23",
@@ -11095,6 +11375,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.99
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.98
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -11122,6 +11410,14 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.14
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.04
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-12-23",
@@ -11136,6 +11432,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.99
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.98
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -11163,6 +11467,14 @@
               "unit": "Cr",
               "value": 3158.7
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.14
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.04
+            },
             "fundManagers": [
               {
                 "managingSince": "2024-12-23",
@@ -11177,6 +11489,14 @@
                 "name": "Rakesh Shetty"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 0.99
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 1.98
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -11582,6 +11902,14 @@
               "unit": "Cr",
               "value": 148.67
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.76
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.54
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-05-13",
@@ -11604,6 +11932,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.95
+            },
             "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11629,6 +11965,14 @@
               "unit": "Cr",
               "value": 148.67
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.76
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.54
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-05-13",
@@ -11651,6 +11995,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.95
+            },
             "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11675,6 +12027,14 @@
               "unit": "Cr",
               "value": 148.67
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.76
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.54
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-05-13",
@@ -11697,6 +12057,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.95
+            },
             "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11722,6 +12090,14 @@
               "unit": "Cr",
               "value": 148.67
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.76
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.54
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-05-13",
@@ -11744,6 +12120,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.95
+            },
             "schemeType": "An open-ended equity scheme following infrastructure theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11768,6 +12152,14 @@
               "unit": "Cr",
               "value": 136.34
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.81
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.32
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-06-09",
@@ -11790,6 +12182,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.66
+            },
             "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11814,6 +12214,14 @@
               "unit": "Cr",
               "value": 136.34
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.81
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.32
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-06-09",
@@ -11836,6 +12244,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.66
+            },
             "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11861,6 +12277,14 @@
               "unit": "Cr",
               "value": 136.34
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.81
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.32
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-06-09",
@@ -11883,6 +12307,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.66
+            },
             "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11908,6 +12340,14 @@
               "unit": "Cr",
               "value": 136.34
             },
+            "directBER": {
+              "unit": "%",
+              "value": 0.81
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 1.32
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-06-09",
@@ -11930,6 +12370,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.66
+            },
             "schemeType": "An open-ended equity scheme investing in Services Sector"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -11954,6 +12402,14 @@
               "unit": "Cr",
               "value": 115.84
             },
+            "directBER": {
+              "unit": "%",
+              "value": 2.0
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 2.86
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-08-14",
@@ -11976,6 +12432,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.98
+            },
             "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -12001,6 +12465,14 @@
               "unit": "Cr",
               "value": 115.84
             },
+            "directBER": {
+              "unit": "%",
+              "value": 2.0
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 2.86
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-08-14",
@@ -12023,6 +12495,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.98
+            },
             "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -12047,6 +12527,14 @@
               "unit": "Cr",
               "value": 115.84
             },
+            "directBER": {
+              "unit": "%",
+              "value": 2.0
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 2.86
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-08-14",
@@ -12069,6 +12557,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.98
+            },
             "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
@@ -12094,6 +12590,14 @@
               "unit": "Cr",
               "value": 115.84
             },
+            "directBER": {
+              "unit": "%",
+              "value": 2.0
+            },
+            "directTER": {
+              "unit": "%",
+              "value": 2.86
+            },
             "fundManagers": [
               {
                 "managingSince": "2025-08-14",
@@ -12116,6 +12620,14 @@
                 "name": "Swapnil Mayekar"
               }
             ],
+            "regularBER": {
+              "unit": "%",
+              "value": 2.1
+            },
+            "regularTER": {
+              "unit": "%",
+              "value": 2.98
+            },
             "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
