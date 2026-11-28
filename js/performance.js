@@ -40,9 +40,5 @@ function overviewPerformance(C){const chartSeries=pxSeries(C);
  return `<div class="seg"><button data-pm="gain" aria-pressed="${gain}" class="${gain?'on':''}">Market gain</button><button data-pm="value" aria-pressed="${!gain}" class="${gain?'':'on'}">Value change</button></div><div class="overview-periods">${periods.map(p=>`<button data-pp="${p}" aria-pressed="${p===k}" class="${p===k?'on':''}">${p}</button>`).join('')}</div><p class="mut">${gain?'Excludes net investment cash flows.':'Includes net investment cash flows.'} End date: ${fd(r?.end||perfEnd())}.</p>${valid?`<p class="overview-return ${cls(amount)}">${sg(amount)} <small>${pct==null?'':pc(pct)+(r.lifetime&&gain?' annualized XIRR':'')}</small></p><p class="mut">${fd(r.start)} – ${fd(r.end||perfEnd())}${r.est?' · Estimated valuation':''}</p>${r.lifetime&&gain?`<div class='ur'><span>Unrealized gain</span><b>${sg(r.unrealized)}</b></div><div class='ur'><span>Realized gain</span><b>${sg(r.realized)}</b></div><div class='ur'><span>Reconciliation difference</span><b>${Math.abs(r.difference)<0.01?'₹0.00':sg(r.difference)}</b></div><p class='mut'>Lifetime profit is net of recorded transaction charges; excludes unrecorded dividends and taxes.</p>`:''}${chart}`:`<p role="status" class="mut">${r?.hist?'Required historical prices are missing.':'Selected period is unavailable for this portfolio.'}</p>`}<button class="btn ghost" data-t="insights">Detailed performance & history ›</button>`;
 }
 
-function overviewDayChange(C,showDates=true){
- const r=perfGet(C,'1D');
- if(!r||r.hist||!Number.isFinite(r.gain))return '<span>1-day market change · History unavailable</span>';
- const direction=r.gain>0?'up':r.gain<0?'down':'flat';
- return `<span class="day-change-label">1-day market change${r.est?' (est.)':''}</span><strong class="day-change-${direction}">${r.gain>0?'▲ ':r.gain<0?'▼ ':''}${sg(r.gain)}${Number.isFinite(r.pct)?' ('+pc(r.pct)+')':''}</strong>${showDates?`<small>${fd(r.start)} – ${fd(r.end)}</small>`:''}`;
-}
+function overviewDayChange(C,showDates=true){return dailyHoldingMarkup(C.open,showDates);}
+

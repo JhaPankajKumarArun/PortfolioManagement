@@ -245,19 +245,22 @@ function holdingInvestorChange(h,period){
  return {abs,pct:capital>0?abs/capital*100:null,since,capital};
 }
 function holdingChangeAmount(v){return (v<0?'−':v>0?'+':'')+'₹'+Math.abs(v).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function dailyHoldingAggregate(targets){
+ const changes=targets.map(h=>({h,c:holdingInvestorChange(h,'1D')}));
+ const valid=changes.filter(x=>x.c&&Number.isFinite(x.c.abs)&&Number.isFinite(x.c.capital));
+ const aligned=valid.length>0&&new Set(valid.map(x=>x.c.since)).size===1&&new Set(valid.map(x=>S.pxd?.[x.h.name])).size===1;
+ return {gain:valid.reduce((sum,x)=>sum+x.c.abs,0),capital:valid.reduce((sum,x)=>sum+x.c.capital,0),count:valid.length,total:targets.length,aligned,start:valid[0]?.c.since,end:valid[0]?S.pxd?.[valid[0].h.name]:null};
+}
+function dailyHoldingMarkup(targets,showDates=false){
+ const r=dailyHoldingAggregate(targets);
+ if(!r.count)return '<span>1-day market change · History unavailable</span>';
+ const direction=r.gain>0?'up':r.gain<0?'down':'flat';
+ const label=r.aligned?'1-day market change':'Latest holding changes · mixed dates';
+ return `<span class="day-change-label">${label}${r.count<r.total?' · partial':''}</span><strong class="day-change-${direction}">${r.gain>0?'▲ ':r.gain<0?'▼ ':''}${holdingChangeAmount(r.gain)}${r.aligned&&r.capital>0?' ('+pc(r.gain/r.capital*100)+')':''}</strong>${r.count<r.total?`<small>${r.count}/${r.total} holdings</small>`:''}${showDates&&r.aligned?`<small>${fd(r.start)} – ${fd(r.end)}</small>`:''}`;
+}
 function holdingSummaryHero(C,L,tot,cost,gain){
  const all=flt==='all',label=all?'PORTFOLIO VALUE':flt==='mf'?'MUTUAL FUNDS':'STOCKS';
- const period='1D';
- const targets=L;
- const scope='';
- let daily;
- if(all&&period==='1D'){daily=overviewDayChange(C,false);}
- else{
- const changes=targets.map(h=>({h,c:holdingInvestorChange(h,period)}));
- const valid=changes.filter(x=>x.c),aligned=valid.length&&new Set(valid.map(x=>x.c.since)).size===1&&new Set(valid.map(x=>S.pxd?.[x.h.name])).size===1;
- const delta=valid.reduce((s,x)=>s+x.c.abs,0),base=valid.reduce((s,x)=>s+x.c.capital,0);
- daily=aligned?`<span class='day-change-label'>${scope}${period} investment gain${valid.length<targets.length?' · partial':''}</span><strong class='day-change-${delta>0?'up':delta<0?'down':'flat'}'>${delta>0?'▲ ':delta<0?'▼ ':''}${holdingChangeAmount(delta)}${base>0?' ('+(delta/base*100).toFixed(2)+'%)':''}</strong>${valid.length<targets.length?`<small>${valid.length}/${targets.length} holdings</small>`:''}`:`<span>${scope}${period} · ${valid.length?'NAV/price dates differ':'History unavailable'}</span>`;
- }
+ const daily=dailyHoldingMarkup(L,false);
  const filteredLedger=all?[]:fifoLedger(S.tx.filter(t=>t?.type===flt),today(),(S.corporateActions??[]).filter(a=>a.type===flt));
  const rate=all?C.xirr:filteredLedger.some(h=>h.unmatched>1e-9||h.rejectedActions?.length||h.rejectedTransactions?.length)?null:xirr(filteredLedger.flatMap(h=>h.flows).concat([[today(),tot]]));
  const warning=L.some(h=>!h.valuation||h.valuation.estimated||!h.valuation.date||['missing','stale'].includes(h.valuation.status));
