@@ -143,3 +143,13 @@ class FundCatalogTests(unittest.TestCase):
         catalog=build_catalog({"schemes":{"1":row,"2":row}},{"Example Mutual Fund":{"1"}})
         self.assertEqual(set(catalog["schemes"]),{"1"})
         self.assertEqual(catalog["schemes"]["1"]["snapshots"]["2026-10-31"]["metrics"]["aum"]["value"],123)
+
+
+class ComprehensiveSchemaTests(unittest.TestCase):
+    def test_extended_fields(self):
+        from factsheet_schema import validate_fields
+        fields={"directTER":{"value":0.8,"unit":"%"},"fundManagers":[{"name":"Example Manager","managingSince":"2020-01-01"}],"schemeRiskometer":"High","holdings":{"coverage":"partial","rows":[{"name":"Example Ltd","weight":5}]},"publishedPerformance":{"10Y":{"direct":12,"benchmark":10,"unit":"%","planIdentityVerified":True}}}
+        self.assertEqual(set(validate_fields(fields,"2026-10-31")),set(fields))
+    def test_invalid_allocations(self):
+        from factsheet_schema import validate_fields
+        self.assertNotIn("holdings",validate_fields({"holdings":{"coverage":"full","rows":[{"name":"A","weight":80},{"name":"B","weight":40}]}},"2026-10-31"))
