@@ -42,17 +42,25 @@ def main():
             if "factsheet" in (u+" "+t).lower() and urlparse(u).hostname!=urlparse(DIRECTORY).hostname and urlparse(u).scheme=="https":pages.add(u)
     except requests.RequestException as e:print("Directory unavailable:",e)
     found={}
+    report={"sources":[],"documents":[],"acceptedCodes":0}
     for url in sorted(pages):
+        source={"url":url,"status":"pending","pdfLinks":0,"datedLinks":0}
+        report['sources'].append(source)
         try:
             pdfs=[(url,"")] if is_pdf(url) else [(u,t) for u,t in links(url) if is_pdf(u)]
             dated=[d for u,t in pdfs if (d:=dated_pdf(u,t,dt.date.today()))]
             print("Discovery:",url,"PDF links:",len(pdfs),"dated:",len(dated),flush=True)
+            source.update(pdfLinks=len(pdfs),datedLinks=len(dated),status='discovered' if dated else 'no_dated_pdf')
             if not dated:continue
             newest=max(d for d,u in dated)
             for date,u in sorted(set(dated),reverse=True):
                 if date!=newest or date>dt.date.today():continue
+                doc={'url':u,'status':'downloading'}
+                report['documents'].append(doc)
                 response=load(u)
-                if not response.content.startswith(b"%PDF"):continue
+                if not response.content.startswith(b"%PDF"):
+                    doc["status"]="not_pdf"
+                    continue
                 with tempfile.TemporaryDirectory() as tmp:
                     f=Path(tmp)/"factsheet.pdf";f.write_bytes(response.content)
                     content=subprocess.check_output(["pdftotext","-layout",str(f),"-"],timeout=90).decode("utf-8",errors="replace")
@@ -74,22 +82,29 @@ def main():
                         samples+=1
                 adapter=adapter_for(u)
                 coverage=set()
+                field_codes={}
+                codes=set()
                 matched_names=set()
                 matched_pages=0
                 for page in content.split("\f"):
                     rows=adapter.rows(page,names)
                     for name,benchmark,fields in rows:
-                        coverage.update(fields.keys())
                         matched_names.add(name)
                     for n,value,fields in rows:
                         validated=validate_fields(fields,asof)
                         if set(fields)-set(validated):print('Rejected fields:',n,sorted(set(fields)-set(validated)),flush=True)
                         fields=validated
+                        coverage.update(fields.keys())
                         matched_pages+=1
                         for code,isins in names[n]:
+                            codes.add(code)
+                            for key in fields:field_codes.setdefault(key,set()).add(code)
                             found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
+                doc.update(status="extracted" if codes else "no_matches",adapter=adapter.name,reportingMonth=asof,distinctSchemes=len(matched_names),candidateCodes=len(codes),fieldCodeCounts={k:len(v) for k,v in field_codes.items()})
                 print("Matched pages:",matched_pages,"adapter:",adapter.name,"distinct schemes:",len(matched_names),"fields:",sorted(coverage),flush=True)
-        except Exception as e:print("Source failed:",url,str(e),flush=True)
+        except Exception as e:
+            source.update(status="failed",errorType=type(e).__name__)
+            print("Source failed:",url,str(e),flush=True)
     accepted=0
     for code,rows in found.items():
         latest=max(x["verifiedAsOf"] for x in rows)
@@ -105,6 +120,9 @@ def main():
             prior["schemes"][code]={**chosen,"history":history}
             accepted+=1
     print("Extracted candidates:",len(found),"catalog total:",len(prior["schemes"]))
+    report.update(acceptedCodes=accepted,candidateCodes=len(found),catalogCodes=len(prior["schemes"]),amfiCodes=len({code for entries in names.values() for code,_ in entries}))
+    ROOT.parent.mkdir(parents=True,exist_ok=True)
+    ROOT.with_name("coverage.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
     if not accepted:raise SystemExit("No unambiguous mappings extracted; prior catalog retained.")
     ROOT.parent.mkdir(parents=True,exist_ok=True)
     ROOT.write_text(json.dumps(prior,indent=2,sort_keys=True)+"\n")
