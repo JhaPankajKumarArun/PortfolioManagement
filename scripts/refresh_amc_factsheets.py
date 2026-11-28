@@ -6,6 +6,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
+from factsheet_metrics import metrics
 import requests
 from bs4 import BeautifulSoup
 
@@ -76,15 +77,22 @@ def main():
                     match=extract(page,names)
                     if not match:continue
                     n,value=match
+                    fields=metrics(page)
                     for code,isins in names[n]:
-                        found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof})
+                        found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
         except Exception as e:print("Source failed:",url,str(e))
     for code,rows in found.items():
         latest=max(x["verifiedAsOf"] for x in rows)
         candidates=[x for x in rows if x["verifiedAsOf"]==latest]
         if len({norm(x["name"]) for x in candidates})!=1:continue
         old=prior["schemes"].get(code,{})
-        if latest>=old.get("verifiedAsOf",""):prior["schemes"][code]=candidates[0]
+        if latest>=old.get("verifiedAsOf",""):
+            chosen=candidates[0]
+            if any(x["metrics"]!=chosen["metrics"] for x in candidates):continue
+            history=dict(old.get("history",{}))
+            if old.get("verifiedAsOf"):history[old["verifiedAsOf"]]={k:v for k,v in old.items() if k!="history"}
+            history[latest]=dict(chosen)
+            prior["schemes"][code]={**chosen,"history":history}
     print("Extracted candidates:",len(found),"catalog total:",len(prior["schemes"]))
     if not found:raise SystemExit("No unambiguous mappings extracted; prior catalog retained.")
     ROOT.parent.mkdir(parents=True,exist_ok=True)

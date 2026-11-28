@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v186-amc-factsheets';
+const CACHE_NAME = 'my-portfolio-pwa-v187-factsheet-intelligence';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
