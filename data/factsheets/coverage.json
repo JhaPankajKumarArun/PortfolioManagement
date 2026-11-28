@@ -607,8 +607,9 @@
     },
     {
       "datedLinks": 0,
-      "pdfLinks": 19,
-      "status": "no_dated_pdf",
+      "errorType": "HTTPError",
+      "pdfLinks": 0,
+      "status": "failed",
       "url": "https://www.edelweissmf.com/downloads/factsheets"
     },
     {

@@ -8924,11 +8924,11 @@ Canara Robeco Mutual Fund
  
 Carnelian Mutual Fund
  
-154784;-;INF30CN01046;Carnelian Liquid Fund;Direct Plan;Daily IDCW Reinvest;999.9216;28-Nov-2026
-154782;INF30CN01038;-;Carnelian Liquid Fund;Direct Plan;Growth;1006.3052;28-Nov-2026
-154783;-;INF30CN01053;Carnelian Liquid Fund;Direct Plan;Weekly IDCW Reinvest;1000.0492;28-Nov-2026
-154781;-;INF30CN01079;Carnelian Liquid Fund;Regular Plan;Daily IDCW Reinvest;999.9301;28-Nov-2026
-154780;INF30CN01061;-;Carnelian Liquid Fund;Regular Plan;Growth;1006.2232;28-Nov-2026
+154784;-;INF30CN01046;Carnelian Liquid Fund;Direct Plan;Daily IDCW Reinvest;1000;29-Nov-2026
+154782;INF30CN01038;-;Carnelian Liquid Fund;Direct Plan;Growth;1006.4523;29-Nov-2026
+154783;-;INF30CN01053;Carnelian Liquid Fund;Direct Plan;Weekly IDCW Reinvest;1000.195;29-Nov-2026
+154781;-;INF30CN01079;Carnelian Liquid Fund;Regular Plan;Daily IDCW Reinvest;1000;29-Nov-2026
+154780;INF30CN01061;-;Carnelian Liquid Fund;Regular Plan;Growth;1006.3681;29-Nov-2026
  
 DSP Mutual Fund
  
