@@ -71,11 +71,12 @@ def main():
     found={}
     report={"sources":[],"documents":[],"acceptedCodes":0,"amfiCatalogStatus":nav_status}
     for url in sorted(pages):
-        source={"url":url,"status":"pending","pdfLinks":0,"datedLinks":0}
+        source={"url":url,"status":"pending","pdfLinks":0,"datedLinks":0,"configuredAMCs":[name for name,source_url in SOURCES.items() if source_url==url]}
         report['sources'].append(source)
         try:
             pdfs=[(url,"")] if is_pdf(url) else [(u,t) for u,t in links(url) if is_pdf(u)]
-            dated=[d for u,t in pdfs if (d:=dated_pdf(u,t,dt.date.today()))]
+            dated,unknown=discovery_candidates(pdfs,dt.date.today())
+            source['unrecognizedDateSamples']=unknown
             print("Discovery:",url,"PDF links:",len(pdfs),"dated:",len(dated),flush=True)
             source.update(pdfLinks=len(pdfs),datedLinks=len(dated),status='discovered' if dated else 'no_dated_pdf')
             if not dated:continue

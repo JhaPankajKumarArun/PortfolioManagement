@@ -62,3 +62,18 @@ def dated_pdf(url,title,today):
     if len(dates)!=1:return None
     d=dates.pop()
     return (d,url) if d.replace(day=calendar.monthrange(d.year,d.month)[1])<=today else None
+
+
+def discovery_candidates(pdfs,today):
+    """Deduplicate links and retain bounded evidence for unrecognized dates."""
+    unique={}
+    for url,title in pdfs:
+        unique.setdefault(url,set()).add(title)
+    dated=set()
+    unknown=[]
+    for url,titles in sorted(unique.items()):
+        matches={d for title in titles if (d:=dated_pdf(url,title,today))}
+        if len(matches)==1:dated.update(matches)
+        elif not matches and re.search(r"fact[\s_-]*sheet",url+" "+" ".join(titles),re.I):
+            unknown.append({"url":url,"title":sorted(titles)[0][:200]})
+    return sorted(dated),unknown[:12]
