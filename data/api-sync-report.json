@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-11-26T19:15:27.258Z",
+  "provider": "charlie-alpha",
+  "status": "blocked",
+  "stage": "coverage",
+  "error": "HTTP 403 Non-JSON response",
+  "processed": 0,
+  "success": 0
+}

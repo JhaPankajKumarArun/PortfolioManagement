@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {fundingPlan} from '../js/engines/goals.mjs';
+const g={target:120000,saved:0,monthly:5000,years:1,rate:0,inflation:0};
+const p=fundingPlan([g,g],0,15000);
+assert.equal(p.required,20000);
+assert.equal(p.extra,10000);
+assert.equal(p.budgetGap,5000);
+assert.equal(fundingPlan([{...g,saved:20000}],10000,10000).overallocated,10000);
+assert.equal(fundingPlan([g],-1,0),null);
+assert.equal(fundingPlan([],0,0).required,0);

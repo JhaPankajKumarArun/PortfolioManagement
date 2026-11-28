@@ -1,0 +1,38 @@
+name: Refresh public benchmark TRI
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 13 * * 1-6'
+  push:
+    branches: [refactor/modular-architecture]
+    paths: [.github/workflows/refresh-benchmark-tri.yml, scripts/refresh_benchmark_tri.py]
+permissions:
+  contents: write
+concurrency:
+  group: public-benchmark-tri
+  cancel-in-progress: false
+jobs:
+  refresh:
+    if: vars.BENCHMARK_REDISTRIBUTION_ALLOWED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/modular-architecture
+      - name: Retrieve and validate official series
+        id: retrieve
+        env:
+          TRI_REDISTRIBUTION_ALLOWED: ${{ vars.BENCHMARK_REDISTRIBUTION_ALLOWED }}
+        run: python3 -u scripts/refresh_benchmark_tri.py
+      - name: Publish validated public data
+        if: (success() || failure()) && vars.BENCHMARK_REDISTRIBUTION_ALLOWED == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/benchmarks/
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh official public benchmark TRI"
+            git pull --rebase origin refactor/modular-architecture
+            git push origin HEAD:refactor/modular-architecture
+          fi

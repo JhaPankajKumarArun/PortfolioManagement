@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {mk,calculateTaxFY} from '../js/engines/tax.mjs';
+const lot=(c,b,s)=>mk('Example',c,b,s,1,100000,300000);
+assert.equal(lot('debt','2023-03-31','2026-04-01').bucket,'otLT');
+assert.equal(lot('debt','2023-04-01','2026-04-02').bucket,'slab');
+assert.equal(lot('equity','2025-01-01','2026-01-01').lt,false);
+assert.equal(lot('equity','2025-01-01','2026-01-02').lt,true);
+assert.equal(lot('listedOther','2025-01-01','2026-01-02').bucket,'otLT');
+assert.equal(lot('other','2025-01-01','2026-01-02').bucket,'slab');
+assert.equal(calculateTaxFY([lot('equity','2023-01-01','2025-06-01')],'2025-26',30).tax,9750);
+assert.equal(calculateTaxFY([lot('debt','2023-04-01','2025-06-01')],'2025-26',30).tax,62400);
+console.log('Tax lot rule fixtures passed');

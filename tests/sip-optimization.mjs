@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {sipScenario,sipConsistency} from '../js/engines/sip-optimization.mjs';
+const g={monthly:10000,years:2,rate:0,step:10};
+const p=sipScenario(g);
+assert.ok(Math.abs(p.value-252000)<1e-7);
+assert.equal(p.flat,240000);
+assert.ok(Math.abs(p.finalMonthly-11000)<1e-7);
+assert.equal(sipScenario({...g,step:0}).extra,0);
+assert.equal(sipScenario({...g,years:0}),null);
+assert.equal(sipScenario({...g,monthly:-1}),null);
+assert.equal(sipScenario({...g,rate:12}).value>p.value,true);
+assert.equal(sipConsistency([{name:'A',mo:{'2025-01':100,'2025-03':100},missed:1}])[0].coverage,200/3);
+console.log('SIP optimization fixtures passed');

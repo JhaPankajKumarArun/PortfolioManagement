@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {parseAmfiRegistry,resolveScheme} from '../scripts/amfi-registry.mjs';
+const r=parseAmfiRegistry('Scheme Code;ISIN Div Payout/ISIN Growth;ISIN Div Reinvestment;Scheme Name;Net Asset Value;Date\nOpen Ended Schemes(Equity Scheme)\nExample Mutual Fund\n123456;INF000000001;-;Example Flexi Cap Direct Growth;10;01-Jan-2026\n123457;INF000000002;-;Example Flexi Cap Regular Growth;11;01-Jan-2026\nAnother Mutual Fund\n123458;INF000000003;-;Another Small Cap Fund;12;01-Jan-2026');
+assert.equal(r.amcs.length,2);
+assert.equal(r.schemes.length,3);
+assert.equal(resolveScheme(r,{code:'123456'}).name,'Example Flexi Cap Direct Growth');
+assert.equal(resolveScheme(r,{isin:'INF000000002'}).code,'123457');
+assert.equal(resolveScheme(r,{name:'Example Flexi Cap'}),null);
+assert.equal(resolveScheme(r,{code:'123456',isin:'INF000000002'}),null);
+console.log('AMFI registry tests passed');

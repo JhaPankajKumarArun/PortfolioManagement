@@ -1,0 +1,1 @@
+PDF.js 3.2.146 legacy distribution, Mozilla pdfjs-dist, Apache-2.0. Main and worker are matching upstream blobs a0ac0ccb884c067f7a3383afd64e9f9a3d005ead and cf127302402fc8f82139261caaf7c025b52ea2b8. Temporary compatibility fallback; upgrade to maintained release before general distribution. PDF parsing disables eval and XFA.

@@ -1,0 +1,30 @@
+name: Holdings API sync
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: holdings-api-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/modular-architecture
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/sync-holdings-api.mjs
+      - if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for f in data/disclosures.json data/charlie-sync-state.json data/api-sync-report.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          git diff --cached --quiet || git commit -m 'Refresh public API holdings'
+          git pull --rebase origin refactor/modular-architecture
+          git push origin HEAD:refactor/modular-architecture
