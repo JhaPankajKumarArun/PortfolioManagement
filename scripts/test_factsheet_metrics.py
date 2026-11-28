@@ -196,3 +196,21 @@ class HoldingsMetricTests(unittest.TestCase):
         from factsheet_metrics import holdings_metrics
         self.assertEqual(holdings_metrics("Top 10 changes in Holding\nCompany Name    % of Net Assets\nExample Ltd    6.2%"),{})
         self.assertEqual(holdings_metrics("Top 2 Holdings\nCompany Name    % of Net Assets\nExample Ltd    6.2%"),{})
+
+
+class AllocationMetricTests(unittest.TestCase):
+    def test_explicit_total(self):
+        from factsheet_metrics import allocation_metrics
+        from factsheet_schema import validate_fields
+        page="Asset Allocation\nAsset Class    % of NAV\nEquity    75%\nDebt    20%\nCash    5%\nTotal    100%"
+        result=validate_fields(allocation_metrics(page),"2026-10-31")
+        self.assertEqual(result["assetAllocation"]["coverage"],"full")
+        self.assertEqual(len(result["assetAllocation"]["rows"]),3)
+    def test_partial_and_wrong_basis(self):
+        from factsheet_metrics import allocation_metrics
+        page="Sector Allocation\nSector    % of NAV\nFinance    20%"
+        self.assertEqual(allocation_metrics(page)["sectorAllocation"]["coverage"],"partial")
+        self.assertEqual(allocation_metrics(page.replace("% of NAV","% of Equity")), {})
+    def test_inconsistent_total(self):
+        from factsheet_metrics import allocation_metrics
+        self.assertEqual(allocation_metrics("Asset Allocation\nAsset Class    % of NAV\nEquity    75%\nTotal    100%"),{})

@@ -186,3 +186,33 @@ def holdings_metrics(page):
     if tables and all(rows==tables[0] for rows in tables):
         return {"holdings":{"coverage":"partial","rows":tables[0]}}
     return {}
+
+
+def allocation_metrics(page):
+    """Explicit NAV-weight tables only; chart labels and equity-only weights are not NAV weights."""
+    headings={"sector allocation":"sectorAllocation","asset allocation":"assetAllocation",
+              "market cap allocation":"marketCapAllocation","market capitalization allocation":"marketCapAllocation",
+              "credit quality allocation":"creditQuality"}
+    lines=page.splitlines()
+    candidates={}
+    for i,line in enumerate(lines):
+        key=headings.get(line.strip().lower())
+        if not key:continue
+        for j in range(i+1,min(i+4,len(lines))):
+            if not re.fullmatch(r"\s*(?:Sector|Asset Class|Market Cap|Market Capitalization|Rating|Category)\s{2,}% of (?:Net Assets|NAV|AUM)\s*",lines[j],re.I):continue
+            rows=[]
+            total=None
+            for row in lines[j+1:j+52]:
+                hit=re.fullmatch(r"\s*([A-Za-z][A-Za-z0-9 &.,()'/-]{0,150}?)\s{2,}(\d+(?:\.\d+)?)\s*%?\s*",row)
+                if not hit:break
+                name,weight=hit[1].strip(),float(hit[2])
+                if name.lower() in ("total","grand total"):
+                    total=weight
+                    break
+                rows.append({"name":name,"weight":weight})
+            if not rows:continue
+            summed=sum(row["weight"] for row in rows)
+            if total is not None and abs(summed-total)>0.5:continue
+            coverage="full" if total is not None and abs(total-100)<=0.5 and abs(summed-100)<=0.5 else "partial"
+            candidates.setdefault(key,[]).append({"coverage":coverage,"rows":rows})
+    return {key:tables[0] for key,tables in candidates.items() if all(table==tables[0] for table in tables)}
