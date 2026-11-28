@@ -369,3 +369,5 @@ html:has(#holdingOverlap[open]),body:has(#holdingOverlap[open]){overflow:hidden;
 /* Keep all five Insights tabs on one row, including narrow phones. */
 .insight-jumps{display:flex;flex-wrap:nowrap;gap:4px;overflow-x:auto;min-width:0}
 .insight-jumps button{flex:1 0 auto;white-space:nowrap;padding:9px 6px;font-size:clamp(10px,2.9vw,12px);min-height:44px}
+
+.overview-hero h1.portfolio-full-value{font-size:clamp(24px,7.5vw,42px);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.035em}
