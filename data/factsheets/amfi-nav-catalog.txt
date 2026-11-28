@@ -5373,7 +5373,7 @@ Motilal Oswal Mutual Fund
  
 Shriram Mutual Fund
  
-152741;INF680P01422;-;Shriram Nifty 1D Rate Liquid ETF;Direct Plan;Growth;1132.5561;27-Nov-2026
+152741;INF680P01422;-;Shriram Nifty 1D Rate Liquid ETF;Direct Plan;Growth;1132.7174;28-Nov-2026
  
 UTI Mutual Fund
  
@@ -9046,12 +9046,12 @@ Mirae Asset Mutual Fund
  
 Shriram Mutual Fund
  
-153035;INF680P01430;-;Shriram Liquid Fund;Direct Plan;Growth;1135.5118;27-Nov-2026
-153036;INF680P01448;-;Shriram Liquid Fund;Regular Plan;Growth;1132.2991;27-Nov-2026
-153282;-;-;Shriram Liquid Fund;Direct Plan;;1107.6486;27-Nov-2026
-153283;-;-;Shriram Liquid Fund;Direct Plan;;1000;27-Nov-2026
-153280;-;-;Shriram Liquid Fund;Direct Plan;;1120.2627;27-Nov-2026
-153281;-;-;Shriram Liquid Fund;Direct Plan;;1000;27-Nov-2026
+153035;INF680P01430;-;Shriram Liquid Fund;Direct Plan;Growth;1135.7228;28-Nov-2026
+153036;INF680P01448;-;Shriram Liquid Fund;Regular Plan;Growth;1132.5054;28-Nov-2026
+153282;-;-;Shriram Liquid Fund;Direct Plan;;1107.8295;28-Nov-2026
+153283;-;-;Shriram Liquid Fund;Direct Plan;;1000;28-Nov-2026
+153280;-;-;Shriram Liquid Fund;Direct Plan;;1120.471;28-Nov-2026
+153281;-;-;Shriram Liquid Fund;Direct Plan;;1000;28-Nov-2026
  
 UTI Mutual Fund
  
@@ -9775,12 +9775,12 @@ Samco Mutual Fund
  
 Shriram Mutual Fund
  
-154395;-;INF680P01513;Shriram Overnight Fund;Direct Plan;Daily IDCW;1000;27-Nov-2026
-154394;INF680P01497;-;Shriram Overnight Fund;Direct Plan;Growth;1286.7441;27-Nov-2026
-154396;INF680P01612;INF680P01638;Shriram Overnight Fund;Direct Plan;Monthly IDCW;1001.6669;27-Nov-2026
-154398;-;INF680P01521;Shriram Overnight Fund;Regular Plan;Daily IDCW;1000.0086;27-Nov-2026
-154399;INF680P01505;-;Shriram Overnight Fund;Regular Plan;Growth;1282.376;27-Nov-2026
-154402;INF680P01620;INF680P01646;Shriram Overnight Fund;Regular Plan;Monthly IDCW;1001.6486;27-Nov-2026
+154395;-;INF680P01513;Shriram Overnight Fund;Direct Plan;Daily IDCW;1000;28-Nov-2026
+154394;INF680P01497;-;Shriram Overnight Fund;Direct Plan;Growth;1286.9437;28-Nov-2026
+154396;INF680P01612;INF680P01638;Shriram Overnight Fund;Direct Plan;Monthly IDCW;1001.8221;28-Nov-2026
+154398;-;INF680P01521;Shriram Overnight Fund;Regular Plan;Daily IDCW;1000.0089;28-Nov-2026
+154399;INF680P01505;-;Shriram Overnight Fund;Regular Plan;Growth;1282.5728;28-Nov-2026
+154402;INF680P01620;INF680P01646;Shriram Overnight Fund;Regular Plan;Monthly IDCW;1001.8024;28-Nov-2026
  
 Zerodha CASE Mutual Fund
  
