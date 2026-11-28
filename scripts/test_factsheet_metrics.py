@@ -55,3 +55,16 @@ class HSBCDetailsTests(unittest.TestCase):
     def test_do_not_guess_ter(self):
         from factsheet_metrics import hsbc_details
         self.assertEqual(hsbc_details("Direct   0.57%"),{})
+
+
+class HSBCPerformanceTests(unittest.TestCase):
+    def test_printed_columns(self):
+        from factsheet_metrics import hsbc_performance
+        page="Fund Details    Fund Performance (CAGR)\nRegular Plan - Growth Option    ₹ 82.8350    Returns for last 1\n    2.03    3.07    -2.61\nRegular Plan - IDCW Option    ₹ 37.4848    year\nDirect Plan - Growth Option    ₹ 93.2503    Returns for last 3\nDirect Plan - IDCW Option    ₹ 44.2805    10.69    11.82    12.39\n    years"
+        d=hsbc_performance(page)
+        self.assertEqual(d["1Y"]["printedColumns"],[2.03,3.07,-2.61])
+        self.assertEqual(d["3Y"]["printedColumns"],[10.69,11.82,12.39])
+        self.assertFalse(d["1Y"]["planIdentityVerified"])
+    def test_no_header(self):
+        from factsheet_metrics import hsbc_performance
+        self.assertEqual(hsbc_performance("Returns for last 1\n  2.03    3.07    -2.61"),{})

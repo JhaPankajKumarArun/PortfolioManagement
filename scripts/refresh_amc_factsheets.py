@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
-from factsheet_metrics import metrics, hsbc_metrics, hsbc_details
+from factsheet_metrics import metrics, hsbc_metrics, hsbc_details, hsbc_performance
 import requests
 from bs4 import BeautifulSoup
 
@@ -130,13 +130,15 @@ def main():
                         profile=hsbc_profile(page,names)
                         if profile:
                             fields={**hsbc_metrics(page),**hsbc_details(page)}
+                            performance=hsbc_performance(page)
+                            if performance:fields['publishedPerformance']=performance
                             rows.append((profile[0],profile[1],fields))
                             print("Profile:",profile[0],"benchmark:",profile[1],"metrics:",sorted(fields),flush=True)
                             profile_lines=page.splitlines()
                             for i,line in enumerate(profile_lines):
                                 if re.search(r"fund manager|fund performance|returns for last|since inception|compounded|annualised returns",line,re.I):
                                     print("Manager/performance layout:",i,repr(line[:400]),flush=True)
-                                    for following in profile_lines[i+1:i+4]:
+                                    for following in profile_lines[i+1:i+10]:
                                         print("Layout continuation:",repr(following[:400]),flush=True)
                             for line in profile_lines:
                                 if re.search(r"AUM|expense ratio|sharpe|sortino|standard deviation|turnover|beta|date of inception",line,re.I):

@@ -51,3 +51,23 @@ def hsbc_details(page):
                 key="directBER" if hit[1].lower()=="direct" else "regularBER"
                 result[key]={"value":float(hit[2]),"unit":"%"}
     return result
+
+
+def hsbc_performance(page):
+    """Preserve printed column order until plan headers are independently verified."""
+    lines=page.splitlines()
+    result={}
+    if not any("Fund Performance (CAGR)" in line for line in lines):return result
+    for i,line in enumerate(lines):
+        hit=re.search(r"Returns for last\s+(1|3|5)\s*$",line)
+        if not hit:continue
+        for row in lines[i+1:i+3]:
+            cells=re.split(r"\s{2,}",row.strip())
+            nums=[]
+            for cell in reversed(cells):
+                if re.fullmatch(r"-?\d+\.\d{2}",cell):nums.insert(0,float(cell))
+                else:break
+            if len(nums)==3 and all(-100<=v<=1000 for v in nums):
+                result[hit[1]+"Y"]={"printedColumns":nums,"unit":"%","planIdentityVerified":False}
+                break
+    return result
