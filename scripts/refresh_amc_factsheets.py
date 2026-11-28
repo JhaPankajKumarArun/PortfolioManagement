@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
-from factsheet_metrics import metrics, hsbc_metrics, hsbc_details, hsbc_performance
+from factsheet_adapters import adapter_for, extract, hsbc_profile
 import requests
 from bs4 import BeautifulSoup
 
@@ -28,48 +28,6 @@ def scheme_name(s):
 def links(url):
     soup=BeautifulSoup(load(url).text,"html.parser")
     return [(urljoin(url,a["href"]),a.get_text(" ",strip=True)) for a in soup.select("a[href]")]
-def extract(page, names):
-    lines=[norm(x) for x in page.splitlines() if x.strip()]
-    # Only accept a unique exact scheme heading and an explicit primary benchmark label.
-    matches={n for n in names if n in lines}
-    if not matches:
-        # Layout extraction can place a heading beside another column.
-        matches={n for n in names if any(line.startswith(n+" ") for line in lines[:12])}
-        matches={n for n in matches if not any(m.startswith(n+" ") for m in matches)}
-    if len(matches)!=1:return None
-    hits=re.findall(r"(?im)^\s*(?:AMFI\s+)?(?:Tier\s*I\s+)?Benchmark(?:\s+Index)?\s*[:\-]?\s*(Nifty\s+(?:50|500|Next\s+50|Midcap\s+150|Smallcap\s+250)\s*(?:\(\s*TRI\s*\)|TRI|Total Returns Index))\s*$",page)
-    values={re.sub(r"\s+(?:\(\s*TRI\s*\)|TRI|Total Returns Index)$"," TRI",v,flags=re.I).strip() for v in hits}
-    if len(values)!=1:return None
-    return next(iter(matches)),next(iter(values))
-def hsbc_profile(page,names):
-    lines=[line.strip() for line in page.splitlines() if line.strip()]
-    if not lines:return None
-    name=norm(lines[0])
-    if not name.startswith("hsbc ") or name not in names:return None
-    if not any(line.startswith("Type of Scheme:") for line in lines[:8]):return None
-    hits=set()
-    for line in lines:
-        m=re.match(r"(?i)^Benchmark Name:\s*(.+)$",line)
-        if m:
-            value=re.split(r"\s{2,}",m[1],maxsplit=1)[0].strip()
-            # Accept only complete, explicitly identified TRI labels until other layouts are verified.
-            if re.fullmatch(r"(?:Nifty|BSE|MSCI)\s+[A-Za-z0-9 &:/().+%-]+?\s+TRI",value,re.I) and not re.search(r"annualised|returns|benchmark|[+%]",value,re.I):hits.add(value)
-    if len(hits)==1:return name,hits.pop()
-    return None
-
-def hsbc_benchmarks(page,names):
-    # Comparative performance tables explicitly distinguish primary and additional benchmarks.
-    pattern=r"(?im)^\s*(HSBC[^\n]+?)\s*-\s*(?:Direct|Regular)\s+Plan\s*~~\s*Inception Date:[^\n]*"
-    headings=list(re.finditer(pattern,page))
-    for i,h in enumerate(headings):
-        name=norm(h[1])
-        if name not in names:continue
-        block=page[h.end():headings[i+1].start() if i+1<len(headings) else len(page)]
-        hits={re.sub(r"\s+"," ",x).strip() for x in re.findall(r"Scheme Benchmark\s*\(([^()]{1,120})\)",block,re.I)}
-        if len(hits)==1:
-            value=hits.pop()
-            if re.fullmatch(r"[A-Za-z0-9 &:/.-]+",value):yield name,value
-
 def main():
     nav=load("https://www.amfiindia.com/spages/NAVAll.txt").text
     names={}
@@ -122,33 +80,22 @@ def main():
                         for i in relevant[:6]:indices.update(range(max(0,i-1),min(len(lines),i+3)))
                         for i in sorted(indices):print(repr(lines[i][:350]),flush=True)
                         samples+=1
+                adapter=adapter_for(u)
+                coverage=set()
+                matched_names=set()
                 matched_pages=0
                 for page in content.split("\f"):
-                    match=extract(page,names)
-                    rows=[(match[0],match[1],metrics(page))] if match else []
-                    if urlparse(u).hostname=="www.assetmanagement.hsbc.co.in":
-                        profile=hsbc_profile(page,names)
-                        if profile:
-                            fields={**hsbc_metrics(page),**hsbc_details(page)}
-                            performance=hsbc_performance(page)
-                            if performance:fields['publishedPerformance']=performance
-                            rows.append((profile[0],profile[1],fields))
-                            print("Profile:",profile[0],"benchmark:",profile[1],"metrics:",sorted(fields),flush=True)
-                            profile_lines=page.splitlines()
-                            for i,line in enumerate(profile_lines):
-                                if re.search(r"fund manager|fund performance|returns for last|since inception|compounded|annualised returns",line,re.I):
-                                    print("Manager/performance layout:",i,repr(line[:400]),flush=True)
-                                    for following in profile_lines[i+1:i+10]:
-                                        print("Layout continuation:",repr(following[:400]),flush=True)
-                            for line in profile_lines:
-                                if re.search(r"AUM|expense ratio|sharpe|sortino|standard deviation|turnover|beta|date of inception",line,re.I):
-                                    print("Metric layout:",repr(line[:300]),flush=True)
+                    rows=adapter.rows(page,names)
+                    for name,benchmark,fields in rows:
+                        coverage.update(fields.keys())
+                        matched_names.add(name)
                     for n,value,fields in rows:
                         matched_pages+=1
                         for code,isins in names[n]:
                             found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
-                print("Matched pages:",matched_pages,flush=True)
+                print("Matched pages:",matched_pages,"adapter:",adapter.name,"distinct schemes:",len(matched_names),"fields:",sorted(coverage),flush=True)
         except Exception as e:print("Source failed:",url,str(e),flush=True)
+    accepted=0
     for code,rows in found.items():
         latest=max(x["verifiedAsOf"] for x in rows)
         candidates=[x for x in rows if x["verifiedAsOf"]==latest]
@@ -161,8 +108,9 @@ def main():
             if old.get("verifiedAsOf"):history[old["verifiedAsOf"]]={k:v for k,v in old.items() if k!="history"}
             history[latest]=dict(chosen)
             prior["schemes"][code]={**chosen,"history":history}
+            accepted+=1
     print("Extracted candidates:",len(found),"catalog total:",len(prior["schemes"]))
-    if not found:raise SystemExit("No unambiguous mappings extracted; prior catalog retained.")
+    if not accepted:raise SystemExit("No unambiguous mappings extracted; prior catalog retained.")
     ROOT.parent.mkdir(parents=True,exist_ok=True)
     ROOT.write_text(json.dumps(prior,indent=2,sort_keys=True)+"\n")
 if __name__=="__main__":main()

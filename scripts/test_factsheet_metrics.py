@@ -68,3 +68,10 @@ class HSBCPerformanceTests(unittest.TestCase):
     def test_no_header(self):
         from factsheet_metrics import hsbc_performance
         self.assertEqual(hsbc_performance("Returns for last 1\n  2.03    3.07    -2.61"),{})
+
+
+class AdapterTests(unittest.TestCase):
+    def test_dispatch(self):
+        from factsheet_adapters import adapter_for
+        self.assertEqual(adapter_for("https://www.assetmanagement.hsbc.co.in/a.pdf").name,"hsbc")
+        self.assertEqual(adapter_for("https://example.org/a.pdf").name,"generic")
