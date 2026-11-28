@@ -32,6 +32,10 @@ def extract(page, names):
     lines=[norm(x) for x in page.splitlines() if x.strip()]
     # Only accept a unique exact scheme heading and an explicit primary benchmark label.
     matches={n for n in names if n in lines}
+    if not matches:
+        # Layout extraction can place a heading beside another column.
+        matches={n for n in names if any(line.startswith(n+" ") for line in lines[:12])}
+        matches={n for n in matches if not any(m.startswith(n+" ") for m in matches)}
     if len(matches)!=1:return None
     hits=re.findall(r"(?im)^\s*(?:AMFI\s+)?(?:Tier\s*I\s+)?Benchmark(?:\s+Index)?\s*[:\-]?\s*(Nifty\s+(?:50|500|Next\s+50|Midcap\s+150|Smallcap\s+250)\s*(?:\(\s*TRI\s*\)|TRI|Total Returns Index))\s*$",page)
     values={re.sub(r"\s+(?:\(\s*TRI\s*\)|TRI|Total Returns Index)$"," TRI",v,flags=re.I).strip() for v in hits}
@@ -57,10 +61,11 @@ def main():
             # Require explicit month/year, select newest dated documents.
             dated=[]
             for u,t in pdfs:
-                m=re.search(r"(?i)\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[\s%_-]+(?:20)?(\d{2})\b",t)
+                m=re.search(r"(?i)\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[\s%_-]+(?:20)?(\d{2})\b",t+" "+u.replace("%20"," "))
                 if m:
                     month=dt.datetime.strptime(m[1][:3].title(),"%b").month
                     dated.append((dt.date(2000+int(m[2]),month,1),u))
+            print("Discovery:",url,"PDF links:",len(pdfs),"dated:",len(dated),flush=True)
             if not dated:continue
             newest=max(d for d,u in dated)
             for date,u in sorted(set(dated),reverse=True):
@@ -73,14 +78,18 @@ def main():
                 import calendar
                 asof=date.replace(day=calendar.monthrange(date.year,date.month)[1]).isoformat()
                 if asof>dt.date.today().isoformat():continue
+                print("PDF:",u,"pages:",len(content.split("\f")),"characters:",len(content),flush=True)
+                matched_pages=0
                 for page in content.split("\f"):
                     match=extract(page,names)
                     if not match:continue
+                    matched_pages+=1
                     n,value=match
                     fields=metrics(page)
                     for code,isins in names[n]:
                         found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
-        except Exception as e:print("Source failed:",url,str(e))
+                print("Matched pages:",matched_pages,flush=True)
+        except Exception as e:print("Source failed:",url,str(e),flush=True)
     for code,rows in found.items():
         latest=max(x["verifiedAsOf"] for x in rows)
         candidates=[x for x in rows if x["verifiedAsOf"]==latest]
