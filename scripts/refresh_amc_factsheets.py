@@ -24,7 +24,7 @@ def load(url):
 def norm(s):
     return re.sub(r"[^a-z0-9]+"," ",s.lower()).strip()
 def scheme_name(s):
-    return norm(re.split(r"\s+-\s+",s,maxsplit=1)[0])
+    return re.sub(r"\s+(?:direct|regular|growth|idcw|dividend)\b.*$","",norm(s))
 def links(url):
     soup=BeautifulSoup(load(url).text,"html.parser")
     return [(urljoin(url,a["href"]),a.get_text(" ",strip=True)) for a in soup.select("a[href]")]
@@ -41,6 +41,19 @@ def extract(page, names):
     values={re.sub(r"\s+(?:\(\s*TRI\s*\)|TRI|Total Returns Index)$"," TRI",v,flags=re.I).strip() for v in hits}
     if len(values)!=1:return None
     return next(iter(matches)),next(iter(values))
+def hsbc_benchmarks(page,names):
+    # Comparative performance tables explicitly distinguish primary and additional benchmarks.
+    pattern=r"(?im)^\s*(HSBC[^\n]+?)\s*-\s*(?:Direct|Regular)\s+Plan\s*~~\s*Inception Date:[^\n]*"
+    headings=list(re.finditer(pattern,page))
+    for i,h in enumerate(headings):
+        name=norm(h[1])
+        if name not in names:continue
+        block=page[h.end():headings[i+1].start() if i+1<len(headings) else len(page)]
+        hits={re.sub(r"\s+"," ",x).strip() for x in re.findall(r"Scheme Benchmark\s*\(([^()]{1,120})\)",block,re.I)}
+        if len(hits)==1:
+            value=hits.pop()
+            if re.fullmatch(r"[A-Za-z0-9 &:/.-]+",value):yield name,value
+
 def main():
     nav=load("https://www.amfiindia.com/spages/NAVAll.txt").text
     names={}
@@ -82,12 +95,13 @@ def main():
                 matched_pages=0
                 for page in content.split("\f"):
                     match=extract(page,names)
-                    if not match:continue
-                    matched_pages+=1
-                    n,value=match
-                    fields=metrics(page)
-                    for code,isins in names[n]:
-                        found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
+                    rows=[(match[0],match[1],metrics(page))] if match else []
+                    if urlparse(u).hostname=="www.assetmanagement.hsbc.co.in":
+                        rows.extend((n,v,{}) for n,v in hsbc_benchmarks(page,names))
+                    for n,value,fields in rows:
+                        matched_pages+=1
+                        for code,isins in names[n]:
+                            found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
                 print("Matched pages:",matched_pages,flush=True)
         except Exception as e:print("Source failed:",url,str(e),flush=True)
     for code,rows in found.items():
@@ -96,8 +110,8 @@ def main():
         if len({norm(x["name"]) for x in candidates})!=1:continue
         old=prior["schemes"].get(code,{})
         if latest>=old.get("verifiedAsOf",""):
-            chosen=candidates[0]
-            if any(x["metrics"]!=chosen["metrics"] for x in candidates):continue
+            chosen=max(candidates,key=lambda x:len(x["metrics"]))
+            if any(x["metrics"] and x["metrics"]!=chosen["metrics"] for x in candidates):continue
             history=dict(old.get("history",{}))
             if old.get("verifiedAsOf"):history[old["verifiedAsOf"]]={k:v for k,v in old.items() if k!="history"}
             history[latest]=dict(chosen)
