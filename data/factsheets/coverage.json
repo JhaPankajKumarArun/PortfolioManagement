@@ -1,5 +1,5 @@
 {
-  "acceptedCodes": 212,
+  "acceptedCodes": 156,
   "amcCount": 55,
   "amcUniverse": [
     {
@@ -144,7 +144,7 @@
     },
     {
       "amfiCodes": 282,
-      "candidateCodes": 56,
+      "candidateCodes": 0,
       "catalogCodes": 216,
       "codesWithMetrics": 56,
       "name": "HSBC Mutual Fund"
@@ -389,7 +389,7 @@
     }
   ],
   "amfiCodes": 14486,
-  "candidateCodes": 212,
+  "candidateCodes": 156,
   "catalogCodes": 372,
   "documents": [
     {
@@ -421,27 +421,6 @@
       "reportingMonth": "2026-04-30",
       "status": "no_matches",
       "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet-April_2026.pdf"
-    },
-    {
-      "adapter": "hsbc",
-      "candidateCodes": 56,
-      "distinctSchemes": 14,
-      "fieldCodeCounts": {
-        "aum": 56,
-        "averageAum": 56,
-        "beta": 44,
-        "directBER": 56,
-        "equityTurnoverMultiple": 52,
-        "grossTurnoverMultiple": 56,
-        "inceptionDate": 44,
-        "publishedPerformance": 52,
-        "regularBER": 56,
-        "sharpe": 44,
-        "stddev": 44
-      },
-      "reportingMonth": "2026-10-31",
-      "status": "extracted",
-      "url": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
     },
     {
       "adapter": "generic",
@@ -579,9 +558,10 @@
       "url": "https://www.archive.icicipruamc.com/downloads/factsheet-and-portfolio"
     },
     {
-      "datedLinks": 117,
-      "pdfLinks": 8457,
-      "status": "discovered",
+      "datedLinks": 0,
+      "errorType": "ReadTimeout",
+      "pdfLinks": 0,
+      "status": "failed",
       "url": "https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources?Doc=fund-factsheets"
     },
     {
@@ -592,9 +572,8 @@
     },
     {
       "datedLinks": 0,
-      "errorType": "HTTPError",
-      "pdfLinks": 0,
-      "status": "failed",
+      "pdfLinks": 19,
+      "status": "no_dated_pdf",
       "url": "https://www.edelweissmf.com/downloads/factsheets"
     },
     {
