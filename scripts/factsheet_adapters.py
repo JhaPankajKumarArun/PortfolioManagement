@@ -52,6 +52,33 @@ class HSBCAdapter(GenericAdapter):
             rows.append((profile[0],profile[1],fields))
         return rows
 
-ADAPTERS={"www.assetmanagement.hsbc.co.in":HSBCAdapter()}
+class ProfileAdapter(GenericAdapter):
+    def __init__(self,name,prefix):
+        self.name=name
+        self.prefix=prefix
+    def rows(self,page,names):
+        lines=[line.strip() for line in page.splitlines() if line.strip()]
+        if not lines:return []
+        name=norm(lines[0])
+        if name not in names or not name.startswith(self.prefix+" "):return []
+        if not any(re.match(r"Type of Scheme\s*:",line,re.I) for line in lines[:8]):return []
+        if not any(re.match(r"Fund Details\b",line,re.I) for line in lines):return []
+        hits={}
+        for line in lines:
+            m=re.match(r"Benchmark (?:Name|Index)\s*:\s*(.+)",line,re.I)
+            if not m:continue
+            value=re.split(r"\s{2,}",m[1],maxsplit=1)[0].strip()
+            value=re.sub(r"\s*\(TRI\)$"," TRI",value,flags=re.I)
+            if re.fullmatch(r"(?:Nifty|BSE|MSCI)\s+[A-Za-z0-9 &:/.-]+?\s+TRI",value,re.I) and not re.search(r"annualised|returns|benchmark",value,re.I):
+                hits[norm(value)]=value
+        if len(hits)!=1:return []
+        return [(name,next(iter(hits.values())),metrics(page))]
+
+ADAPTERS={
+    "www.assetmanagement.hsbc.co.in":HSBCAdapter(),
+    "www.motilaloswalmf.com":ProfileAdapter("motilal-oswal","motilal oswal"),
+    "www.pgimindia.com":ProfileAdapter("pgim","pgim india"),
+    "www.sbimf.com":ProfileAdapter("sbi","sbi"),
+}
 def adapter_for(url):
     return ADAPTERS.get(urlparse(url).hostname,GenericAdapter())

@@ -104,3 +104,20 @@ class SourceTests(unittest.TestCase):
         self.assertEqual(dated_pdf("https://example.org/Factsheet-October2026.pdf","",today)[0],date(2026,10,1))
         self.assertIsNone(dated_pdf("https://example.org/Factsheet-November2026.pdf","",today))
         self.assertIsNone(dated_pdf("https://example.org/Factsheet-October2026.pdf","September 2026",today))
+
+
+class MultiAMCProfileTests(unittest.TestCase):
+    def test_profiles(self):
+        from factsheet_adapters import adapter_for
+        for host,name,benchmark in [
+            ("www.motilaloswalmf.com","Motilal Oswal Large Cap Fund","NIFTY 100 TRI"),
+            ("www.pgimindia.com","PGIM INDIA LARGE CAP FUND","NIFTY 100 TRI"),
+            ("www.sbimf.com","SBI LARGE CAP FUND","BSE 100 (TRI)")]:
+            page=name+"\nType of Scheme : Equity\nFund Details    Fund Performance\nBenchmark Name : "+benchmark+"    Other column\nBeta: 0.95"
+            rows=adapter_for("https://"+host+"/a.pdf").rows(page,{name.lower():[]})
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0][2]["beta"]["value"],0.95)
+    def test_incomplete_benchmark(self):
+        from factsheet_adapters import adapter_for
+        a=adapter_for("https://www.sbimf.com/a.pdf")
+        self.assertEqual(a.rows("SBI Large Cap Fund\nType of Scheme: Equity\nFund Details\nBenchmark Index : NIFTY Large",{"sbi large cap fund":[]}),[])
