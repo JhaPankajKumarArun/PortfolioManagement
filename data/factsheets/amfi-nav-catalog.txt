@@ -900,14 +900,14 @@ The Wealth Company Mutual Fund
  
 Trust Mutual Fund
  
-148842;-;INF0GCD01263;TRUSTMF Liquid Fund;Direct Plan;Daily Income Distribution cum Capital Withdrawal;1308.0770;27-Nov-2026
-148841;INF0GCD01255;-;TRUSTMF Liquid Fund;Direct Plan;Growth;1392.1026;27-Nov-2026
-148839;INF0GCD01305;INF0GCD01297;TRUSTMF Liquid Fund;Direct Plan;Monthly Income Distribution cum Capital Withdrawal;1233.8066;27-Nov-2026
-148837;INF0GCD01271;INF0GCD01289;TRUSTMF Liquid Fund;Direct Plan;Weekly Income Distribution cum Capital Withdrawal;1261.8751;27-Nov-2026
-148834;-;INF0GCD01206;TRUSTMF Liquid Fund;Regular Plan;Daily Income Distribution cum Capital Withdrawal;1232.4102;27-Nov-2026
-148833;INF0GCD01198;-;TRUSTMF Liquid Fund;Regular Plan;Growth;1380.3502;27-Nov-2026
-148843;INF0GCD01248;INF0GCD01230;TRUSTMF Liquid Fund;Regular Plan;Monthly Income Distribution cum Capital Withdrawal;1223.3034;27-Nov-2026
-148836;INF0GCD01214;INF0GCD01222;TRUSTMF Liquid Fund;Regular Plan;Weekly Income Distribution cum Capital Withdrawal;1207.1787;27-Nov-2026
+148842;-;INF0GCD01263;TRUSTMF Liquid Fund;Direct Plan;Daily Income Distribution cum Capital Withdrawal;1308.2601;28-Nov-2026
+148841;INF0GCD01255;-;TRUSTMF Liquid Fund;Direct Plan;Growth;1392.3658;28-Nov-2026
+148839;INF0GCD01305;INF0GCD01297;TRUSTMF Liquid Fund;Direct Plan;Monthly Income Distribution cum Capital Withdrawal;1234.0398;28-Nov-2026
+148837;INF0GCD01271;INF0GCD01289;TRUSTMF Liquid Fund;Direct Plan;Weekly Income Distribution cum Capital Withdrawal;1262.1137;28-Nov-2026
+148834;-;INF0GCD01206;TRUSTMF Liquid Fund;Regular Plan;Daily Income Distribution cum Capital Withdrawal;1232.5655;28-Nov-2026
+148833;INF0GCD01198;-;TRUSTMF Liquid Fund;Regular Plan;Growth;1380.6055;28-Nov-2026
+148843;INF0GCD01248;INF0GCD01230;TRUSTMF Liquid Fund;Regular Plan;Monthly Income Distribution cum Capital Withdrawal;1223.5296;28-Nov-2026
+148836;INF0GCD01214;INF0GCD01222;TRUSTMF Liquid Fund;Regular Plan;Weekly Income Distribution cum Capital Withdrawal;1207.4020;28-Nov-2026
  
 Unifi Mutual Fund
  
@@ -1479,11 +1479,11 @@ Tata Mutual Fund
  
 Trust Mutual Fund
  
-149796;-;INF0GCD01461;TRUSTMF Overnight Fund;Direct Plan;Daily IDCW Reinvestment;1288.8076;27-Nov-2026
-149797;INF0GCD01453;-;TRUSTMF Overnight Fund;Direct Plan;Growth;1317.0313;27-Nov-2026
-149798;-;INF0GCD01446;TRUSTMF Overnight Fund;Regular Plan;Daily IDCW Reinvestment;1268.5391;27-Nov-2026
-149795;INF0GCD01438;-;TRUSTMF Overnight Fund;Regular Plan;Growth;1313.7903;27-Nov-2026
-153520;-;-;TRUSTMF Overnight Fund;Direct Plan;Unclaimed Redemption Plan Growth;1016.9688;27-Nov-2026
+149796;-;INF0GCD01461;TRUSTMF Overnight Fund;Direct Plan;Daily IDCW Reinvestment;1289.0093;28-Nov-2026
+149797;INF0GCD01453;-;TRUSTMF Overnight Fund;Direct Plan;Growth;1317.2376;28-Nov-2026
+149798;-;INF0GCD01446;TRUSTMF Overnight Fund;Regular Plan;Daily IDCW Reinvestment;1268.6724;28-Nov-2026
+149795;INF0GCD01438;-;TRUSTMF Overnight Fund;Regular Plan;Growth;1313.9940;28-Nov-2026
+153520;-;-;TRUSTMF Overnight Fund;Direct Plan;Unclaimed Redemption Plan Growth;1017.1288;28-Nov-2026
  
 Union Mutual Fund
  

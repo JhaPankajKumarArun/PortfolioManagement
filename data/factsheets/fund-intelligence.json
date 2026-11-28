@@ -2454,6 +2454,44 @@
         }
       }
     },
+    "122639": {
+      "amc": "PPFAS Mutual Fund",
+      "isins": [
+        "INF879O01027"
+      ],
+      "latestReportingDate": "2026-10-31",
+      "snapshots": {
+        "2026-10-31": {
+          "benchmark": "NIFTY 500 TRI",
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026"
+        }
+      }
+    },
+    "122640": {
+      "amc": "PPFAS Mutual Fund",
+      "isins": [
+        "INF879O01019"
+      ],
+      "latestReportingDate": "2026-10-31",
+      "snapshots": {
+        "2026-10-31": {
+          "benchmark": "NIFTY 500 TRI",
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026"
+        }
+      }
+    },
     "125301": {
       "amc": "PGIM India Mutual Fund",
       "isins": [
@@ -9356,6 +9394,44 @@
         }
       }
     },
+    "152109": {
+      "amc": "PPFAS Mutual Fund",
+      "isins": [
+        "INF879O01225"
+      ],
+      "latestReportingDate": "2026-10-31",
+      "snapshots": {
+        "2026-10-31": {
+          "benchmark": "Nifty 50 Arbitrage TRI",
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2720.36
+            }
+          },
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026"
+        }
+      }
+    },
+    "152110": {
+      "amc": "PPFAS Mutual Fund",
+      "isins": [
+        "INF879O01217"
+      ],
+      "latestReportingDate": "2026-10-31",
+      "snapshots": {
+        "2026-10-31": {
+          "benchmark": "Nifty 50 Arbitrage TRI",
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2720.36
+            }
+          },
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026"
+        }
+      }
+    },
     "152232": {
       "amc": "Motilal Oswal Mutual Fund",
       "isins": [
@@ -12687,6 +12763,44 @@
             "schemeType": "An open-ended equity scheme following special situation\u2019s theme"
           },
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
+        }
+      }
+    },
+    "153964": {
+      "amc": "PPFAS Mutual Fund",
+      "isins": [
+        "INF879O01308"
+      ],
+      "latestReportingDate": "2026-10-31",
+      "snapshots": {
+        "2026-10-31": {
+          "benchmark": "NIFTY 500 TRI",
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026"
+        }
+      }
+    },
+    "153965": {
+      "amc": "PPFAS Mutual Fund",
+      "isins": [
+        "INF879O01324"
+      ],
+      "latestReportingDate": "2026-10-31",
+      "snapshots": {
+        "2026-10-31": {
+          "benchmark": "NIFTY 500 TRI",
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026"
         }
       }
     },

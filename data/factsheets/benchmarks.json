@@ -4281,6 +4281,66 @@
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
     },
+    "122639": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF879O01027"
+          ],
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF879O01027"
+      ],
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 146784.53
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "122640": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF879O01019"
+          ],
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF879O01019"
+      ],
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 146784.53
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+      "verifiedAsOf": "2026-10-31"
+    },
     "125301": {
       "history": {
         "2026-10-31": {
@@ -16375,6 +16435,66 @@
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
+    "152109": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF879O01225"
+          ],
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2720.36
+            }
+          },
+          "name": "Nifty 50 Arbitrage TRI",
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF879O01225"
+      ],
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2720.36
+        }
+      },
+      "name": "Nifty 50 Arbitrage TRI",
+      "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152110": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF879O01217"
+          ],
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2720.36
+            }
+          },
+          "name": "Nifty 50 Arbitrage TRI",
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF879O01217"
+      ],
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2720.36
+        }
+      },
+      "name": "Nifty 50 Arbitrage TRI",
+      "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+      "verifiedAsOf": "2026-10-31"
+    },
     "152232": {
       "history": {
         "2026-10-31": {
@@ -22401,6 +22521,66 @@
       },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153964": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF879O01308"
+          ],
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF879O01308"
+      ],
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 146784.53
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153965": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF879O01324"
+          ],
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 146784.53
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF879O01324"
+      ],
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 146784.53
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026",
       "verifiedAsOf": "2026-10-31"
     },
     "154294": {
