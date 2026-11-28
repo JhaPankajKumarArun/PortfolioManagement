@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v192-fund-footer';
+const CACHE_NAME = 'my-portfolio-pwa-v193-optional-benchmark';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
