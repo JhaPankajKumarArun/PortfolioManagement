@@ -164,3 +164,25 @@ def labelled_performance(page):
                 values=dict(zip(cols,[float(x.rstrip("%").strip()) for x in cells[1:]]))
                 candidates.setdefault(key,[]).append(values)
     return {key:{**rows[0],"unit":"%","planIdentityVerified":True} for key,rows in candidates.items() if all(row==rows[0] for row in rows)}
+
+
+def holdings_metrics(page):
+    """Extract explicitly headed top-N tables; never infer complete portfolio coverage."""
+    lines=page.splitlines()
+    tables=[]
+    for i,line in enumerate(lines):
+        heading=re.fullmatch(r"\s*Top\s+(\d{1,2})\s+(?:Equity\s+)?(?:Holdings|Securities)\s*",line,re.I)
+        if not heading:continue
+        limit=int(heading[1])
+        if not 1<=limit<=50:continue
+        for j in range(i+1,min(i+4,len(lines))):
+            if not re.fullmatch(r"\s*(?:Company|Security|Name of Securities|Company Name)\s{2,}(?:% of (?:Net Assets|NAV|AUM)|Weight\s*\(%\))\s*",lines[j],re.I):continue
+            rows=[]
+            for row in lines[j+1:j+1+limit]:
+                hit=re.fullmatch(r"\s*(?:\d+\s+)?([A-Za-z][A-Za-z0-9 &.,()'/-]{1,150}?)\s{2,}(\d+(?:\.\d+)?)\s*%?\s*",row)
+                if not hit or re.match(r"(?:Total|Cash|Others|Grand Total)\b",hit[1],re.I):break
+                rows.append({"name":hit[1].strip(),"weight":float(hit[2])})
+            if len(rows)==limit:tables.append(rows)
+    if tables and all(rows==tables[0] for rows in tables):
+        return {"holdings":{"coverage":"partial","rows":tables[0]}}
+    return {}

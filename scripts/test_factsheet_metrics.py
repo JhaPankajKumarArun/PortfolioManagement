@@ -182,3 +182,17 @@ class LabelledPerformanceTests(unittest.TestCase):
     def test_chart_not_cagr(self):
         from factsheet_metrics import labelled_performance
         self.assertEqual(labelled_performance("FY 2025-26\nRegular Plan    Direct Plan    Benchmark"),{})
+
+
+class HoldingsMetricTests(unittest.TestCase):
+    def test_partial_table(self):
+        from factsheet_metrics import holdings_metrics
+        from factsheet_schema import validate_fields
+        page="Top 2 Holdings\nCompany Name    % of Net Assets\nExample Ltd    6.2%\nOther Ltd    4.1%"
+        result=validate_fields(holdings_metrics(page),"2026-10-31")
+        self.assertEqual(result["holdings"]["coverage"],"partial")
+        self.assertEqual(len(result["holdings"]["rows"]),2)
+    def test_reject_changes_and_incomplete(self):
+        from factsheet_metrics import holdings_metrics
+        self.assertEqual(holdings_metrics("Top 10 changes in Holding\nCompany Name    % of Net Assets\nExample Ltd    6.2%"),{})
+        self.assertEqual(holdings_metrics("Top 2 Holdings\nCompany Name    % of Net Assets\nExample Ltd    6.2%"),{})
