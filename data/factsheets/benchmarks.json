@@ -1,1 +1,4521 @@
-{"schema":1,"schemes":{}}
+{
+  "schema": 1,
+  "schemes": {
+    "101593": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01024",
+            "INF336L01032"
+          ],
+          "metrics": {},
+          "name": "Nifty 100 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01024",
+        "INF336L01032"
+      ],
+      "metrics": {},
+      "name": "Nifty 100 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "101594": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01016"
+          ],
+          "metrics": {},
+          "name": "Nifty 100 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01016"
+      ],
+      "metrics": {},
+      "name": "Nifty 100 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "101685": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01776"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium to Long",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01776"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium to Long",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "101686": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01784",
+            "INF336L01792"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium to Long",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01784",
+        "INF336L01792"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium to Long",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "102251": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01AE8",
+            "INF336L01AD0"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01AE8",
+        "INF336L01AD0"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "102252": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01AF5"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01AF5"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "102260": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01107",
+            "INF336L01115"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01107",
+        "INF336L01115"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "102261": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01123",
+            "INF336L01131"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01123",
+        "INF336L01131"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "102262": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01099"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01099"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "107988": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01446"
+          ],
+          "metrics": {},
+          "name": "MSCI Emerging Markets Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01446"
+      ],
+      "metrics": {},
+      "name": "MSCI Emerging Markets Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "107989": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01438",
+            "INF336L01420"
+          ],
+          "metrics": {},
+          "name": "MSCI Emerging Markets Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01438",
+        "INF336L01420"
+      ],
+      "metrics": {},
+      "name": "MSCI Emerging Markets Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "115116": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01164"
+          ],
+          "metrics": {},
+          "name": "MSCI Brazil 10/40 Index TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01164"
+      ],
+      "metrics": {},
+      "name": "MSCI Brazil 10/40 Index TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "115117": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01172",
+            "INF336L01180"
+          ],
+          "metrics": {},
+          "name": "MSCI Brazil 10/40 Index TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01172",
+        "INF336L01180"
+      ],
+      "metrics": {},
+      "name": "MSCI Brazil 10/40 Index TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118901": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BM9"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BM9"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118902": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BN7"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BN7"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118903": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BP2",
+            "INF336L01BO5"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BP2",
+        "INF336L01BO5"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118904": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01LJ4",
+            "INF336L01BQ0"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01LJ4",
+        "INF336L01BQ0"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118906": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BK3"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BK3"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118907": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BL1"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BL1"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118908": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BR8"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BR8"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "118909": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BS6"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BS6"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120029": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01CK1",
+            "INF336L01CL9"
+          ],
+          "metrics": {},
+          "name": "Nifty 100 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01CK1",
+        "INF336L01CL9"
+      ],
+      "metrics": {},
+      "name": "Nifty 100 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120030": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01CM7"
+          ],
+          "metrics": {},
+          "name": "Nifty 100 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01CM7"
+      ],
+      "metrics": {},
+      "name": "Nifty 100 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120035": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BY4"
+          ],
+          "metrics": {},
+          "name": "MSCI Brazil 10/40 Index TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BY4"
+      ],
+      "metrics": {},
+      "name": "MSCI Brazil 10/40 Index TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120036": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BW8",
+            "INF336L01BX6"
+          ],
+          "metrics": {},
+          "name": "MSCI Brazil 10/40 Index TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BW8",
+        "INF336L01BX6"
+      ],
+      "metrics": {},
+      "name": "MSCI Brazil 10/40 Index TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120037": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01CB0"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01CB0"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120038": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01CC8"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01CC8"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120039": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01BZ1",
+            "INF336L01CA2"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01BZ1",
+        "INF336L01CA2"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120040": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01LK2",
+            "INF336L01CD6"
+          ],
+          "metrics": {},
+          "name": "Nifty Liquid Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01LK2",
+        "INF336L01CD6"
+      ],
+      "metrics": {},
+      "name": "Nifty Liquid Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120043": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01CJ3"
+          ],
+          "metrics": {},
+          "name": "MSCI Emerging Markets Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01CJ3"
+      ],
+      "metrics": {},
+      "name": "MSCI Emerging Markets Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120044": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01CH7",
+            "INF336L01CI5"
+          ],
+          "metrics": {},
+          "name": "MSCI Emerging Markets Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01CH7",
+        "INF336L01CI5"
+      ],
+      "metrics": {},
+      "name": "MSCI Emerging Markets Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120045": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01DF9",
+            "INF336L01DG7"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01DF9",
+        "INF336L01DG7"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120046": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01DH5"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01DH5"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120059": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01DE2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium to Long",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01DE2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium to Long",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120073": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01DW4"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01DW4"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120074": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01DX2",
+            "INF336L01DY0"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01DX2",
+        "INF336L01DY0"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120075": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01DZ7",
+            "INF336L01EA8"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01DZ7",
+        "INF336L01EA8"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120101": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01EO9",
+            "INF336L01EP6"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium to Long",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01EO9",
+        "INF336L01EP6"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium to Long",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146769": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01NZ6",
+            "INF336L01OA7"
+          ],
+          "metrics": {},
+          "name": "NIFTY Large Midcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01NZ6",
+        "INF336L01OA7"
+      ],
+      "metrics": {},
+      "name": "NIFTY Large Midcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146770": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01NW3",
+            "INF336L01NX1"
+          ],
+          "metrics": {},
+          "name": "NIFTY Large Midcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01NW3",
+        "INF336L01NX1"
+      ],
+      "metrics": {},
+      "name": "NIFTY Large Midcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146771": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01NY9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Large Midcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01NY9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Large Midcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146772": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01NV5"
+          ],
+          "metrics": {},
+          "name": "NIFTY Large Midcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01NV5"
+      ],
+      "metrics": {},
+      "name": "NIFTY Large Midcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147287": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OF6"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OF6"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147288": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OP5",
+            "INF336L01ON0"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OP5",
+        "INF336L01ON0"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147289": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OM2"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OM2"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147290": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OL4"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OL4"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147291": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OG4"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OG4"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147296": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OJ8",
+            "INF336L01OH2"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OJ8",
+        "INF336L01OH2"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147300": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OK6",
+            "INF336L01OI0"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OK6",
+        "INF336L01OI0"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147301": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OQ3",
+            "INF336L01OO8"
+          ],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OQ3",
+        "INF336L01OO8"
+      ],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147907": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OW1"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OW1"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147908": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OR1"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OR1"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147909": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OX9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OX9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147910": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OS9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OS9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147911": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OY7"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OY7"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147912": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OT7"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OT7"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147915": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01OV3",
+            "INF336L01OU5"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01OV3",
+        "INF336L01OU5"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "147916": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01PA4",
+            "INF336L01OZ4"
+          ],
+          "metrics": {},
+          "name": "NIFTY Ultra Short Duration",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01PA4",
+        "INF336L01OZ4"
+      ],
+      "metrics": {},
+      "name": "NIFTY Ultra Short Duration",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148409": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01PE6"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01PE6"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148410": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01PF3",
+            "INF336L01PG1"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01PF3",
+        "INF336L01PG1"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148411": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01PB2"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01PB2"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148412": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01PC0",
+            "INF336L01PD8"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01PC0",
+        "INF336L01PD8"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149962": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QI5",
+            "INF336L01QJ3"
+          ],
+          "metrics": {},
+          "name": "CRISIL IBX 50:50 Gilt Plus",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QI5",
+        "INF336L01QJ3"
+      ],
+      "metrics": {},
+      "name": "CRISIL IBX 50:50 Gilt Plus",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149963": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QK1"
+          ],
+          "metrics": {},
+          "name": "CRISIL IBX 50:50 Gilt Plus",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QK1"
+      ],
+      "metrics": {},
+      "name": "CRISIL IBX 50:50 Gilt Plus",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149964": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QL9",
+            "INF336L01QM7"
+          ],
+          "metrics": {},
+          "name": "CRISIL IBX 50:50 Gilt Plus",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QL9",
+        "INF336L01QM7"
+      ],
+      "metrics": {},
+      "name": "CRISIL IBX 50:50 Gilt Plus",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149966": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QH7"
+          ],
+          "metrics": {},
+          "name": "CRISIL IBX 50:50 Gilt Plus",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QH7"
+      ],
+      "metrics": {},
+      "name": "CRISIL IBX 50:50 Gilt Plus",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150499": {
+      "history": {
+        "2026-10-31": {
+          "isins": [],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150500": {
+      "history": {
+        "2026-10-31": {
+          "isins": [],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150501": {
+      "history": {
+        "2026-10-31": {
+          "isins": [],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150502": {
+      "history": {
+        "2026-10-31": {
+          "isins": [],
+          "metrics": {},
+          "name": "NIFTY 1D Rate Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [],
+      "metrics": {},
+      "name": "NIFTY 1D Rate Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150992": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01AH0"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01AH0"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150993": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01AF4",
+            "INF917K01AG2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01AF4",
+        "INF917K01AG2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150994": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01AI8",
+            "INF917K01AJ6"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01AI8",
+        "INF917K01AJ6"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150995": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01AK4"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01AK4"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150996": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HN3"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HN3"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150997": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HR4",
+            "INF917K01HQ6"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HR4",
+        "INF917K01HQ6"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "150998": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HP8",
+            "INF917K01HO1"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HP8",
+        "INF917K01HO1"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151000": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01VZ8",
+            "INF917K01VY1"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01VZ8",
+        "INF917K01VY1"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151001": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01WB7",
+            "INF917K01WA9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Corporate Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01WB7",
+        "INF917K01WA9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Corporate Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151012": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01BN6",
+            "INF917K01BO4"
+          ],
+          "metrics": {},
+          "name": "NIFTY All Duration G-Sec",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01BN6",
+        "INF917K01BO4"
+      ],
+      "metrics": {},
+      "name": "NIFTY All Duration G-Sec",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151013": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01BP1"
+          ],
+          "metrics": {},
+          "name": "NIFTY All Duration G-Sec",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01BP1"
+      ],
+      "metrics": {},
+      "name": "NIFTY All Duration G-Sec",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151014": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01FI7"
+          ],
+          "metrics": {},
+          "name": "NIFTY All Duration G-Sec",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01FI7"
+      ],
+      "metrics": {},
+      "name": "NIFTY All Duration G-Sec",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151015": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01FK3",
+            "INF917K01FJ5"
+          ],
+          "metrics": {},
+          "name": "NIFTY All Duration G-Sec",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01FK3",
+        "INF917K01FJ5"
+      ],
+      "metrics": {},
+      "name": "NIFTY All Duration G-Sec",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151033": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01239",
+            "INF917K01247"
+          ],
+          "metrics": {},
+          "name": "Nifty Midcap 150 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01239",
+        "INF917K01247"
+      ],
+      "metrics": {},
+      "name": "Nifty Midcap 150 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151034": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01254"
+          ],
+          "metrics": {},
+          "name": "Nifty Midcap 150 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01254"
+      ],
+      "metrics": {},
+      "name": "Nifty Midcap 150 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151035": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01E78",
+            "INF917K01FX6"
+          ],
+          "metrics": {},
+          "name": "Nifty Midcap 150 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01E78",
+        "INF917K01FX6"
+      ],
+      "metrics": {},
+      "name": "Nifty Midcap 150 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151036": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01FZ1"
+          ],
+          "metrics": {},
+          "name": "Nifty Midcap 150 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01FZ1"
+      ],
+      "metrics": {},
+      "name": "Nifty Midcap 150 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151037": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01536"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01536"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151038": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01544",
+            "INF917K01551"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01544",
+        "INF917K01551"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151039": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01E52",
+            "INF917K01FU2"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01E52",
+        "INF917K01FU2"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151040": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01FW8"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01FW8"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151041": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01CU9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Credit Risk Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01CU9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Credit Risk Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151042": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01114",
+            "INF917K01122"
+          ],
+          "metrics": {},
+          "name": "NIFTY Credit Risk Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01114",
+        "INF917K01122"
+      ],
+      "metrics": {},
+      "name": "NIFTY Credit Risk Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151043": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01130"
+          ],
+          "metrics": {},
+          "name": "NIFTY Credit Risk Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01130"
+      ],
+      "metrics": {},
+      "name": "NIFTY Credit Risk Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151044": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01E29",
+            "INF917K01UI6"
+          ],
+          "metrics": {},
+          "name": "NIFTY Credit Risk Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01E29",
+        "INF917K01UI6"
+      ],
+      "metrics": {},
+      "name": "NIFTY Credit Risk Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151045": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01UH8"
+          ],
+          "metrics": {},
+          "name": "NIFTY Credit Risk Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01UH8"
+      ],
+      "metrics": {},
+      "name": "NIFTY Credit Risk Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151046": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01UN6",
+            "INF917K01UM8"
+          ],
+          "metrics": {},
+          "name": "NIFTY Credit Risk Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01UN6",
+        "INF917K01UM8"
+      ],
+      "metrics": {},
+      "name": "NIFTY Credit Risk Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151047": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01UL0",
+            "INF917K01UK2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Credit Risk Bond Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01UL0",
+        "INF917K01UK2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Credit Risk Bond Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151048": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01BC9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01BC9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151049": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01AY5"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01AY5"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151050": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01AZ2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01AZ2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151051": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01BB1",
+            "INF917K01BA3"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01BB1",
+        "INF917K01BA3"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151052": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01E86",
+            "INF917K01FF3"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01E86",
+        "INF917K01FF3"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151053": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01FH9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01FH9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151054": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01FE6"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01FE6"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151055": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01FD8"
+          ],
+          "metrics": {},
+          "name": "NIFTY Money Market Index A-I",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01FD8"
+      ],
+      "metrics": {},
+      "name": "NIFTY Money Market Index A-I",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151056": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01965",
+            "INF917K01973"
+          ],
+          "metrics": {},
+          "name": "NIFTY Equity Savings Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01965",
+        "INF917K01973"
+      ],
+      "metrics": {},
+      "name": "NIFTY Equity Savings Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151057": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01981",
+            "INF917K01999"
+          ],
+          "metrics": {},
+          "name": "NIFTY Equity Savings Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01981",
+        "INF917K01999"
+      ],
+      "metrics": {},
+      "name": "NIFTY Equity Savings Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151058": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01AA5"
+          ],
+          "metrics": {},
+          "name": "NIFTY Equity Savings Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01AA5"
+      ],
+      "metrics": {},
+      "name": "NIFTY Equity Savings Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151059": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01GD6",
+            "INF917K01GC8"
+          ],
+          "metrics": {},
+          "name": "NIFTY Equity Savings Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01GD6",
+        "INF917K01GC8"
+      ],
+      "metrics": {},
+      "name": "NIFTY Equity Savings Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151060": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01GE4"
+          ],
+          "metrics": {},
+          "name": "NIFTY Equity Savings Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01GE4"
+      ],
+      "metrics": {},
+      "name": "NIFTY Equity Savings Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151061": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01E37",
+            "INF917K01GA2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Equity Savings Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01E37",
+        "INF917K01GA2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Equity Savings Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151062": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01CM6"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01CM6"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151063": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01CH6",
+            "INF917K01CI4"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01CH6",
+        "INF917K01CI4"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151064": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01CJ2",
+            "INF917K01CK0"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01CJ2",
+        "INF917K01CK0"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151065": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01CL8"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01CL8"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151067": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01IQ4"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01IQ4"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151068": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01IP6",
+            "INF917K01IO9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01IP6",
+        "INF917K01IO9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151069": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01IS0",
+            "INF917K01IR2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01IS0",
+        "INF917K01IR2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151070": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01VR5",
+            "INF917K01VQ7"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01VR5",
+        "INF917K01VQ7"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151071": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01VT1",
+            "INF917K01VS3"
+          ],
+          "metrics": {},
+          "name": "NIFTY Short Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01VT1",
+        "INF917K01VS3"
+      ],
+      "metrics": {},
+      "name": "NIFTY Short Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151076": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01064"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01064"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151077": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01072"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01072"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151078": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01GP0"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01GP0"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151079": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01GO3"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01GO3"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151084": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01916"
+          ],
+          "metrics": {},
+          "name": "NIFTY Composite Debt Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01916"
+      ],
+      "metrics": {},
+      "name": "NIFTY Composite Debt Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151085": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01924",
+            "INF677K01932"
+          ],
+          "metrics": {},
+          "name": "NIFTY Composite Debt Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01924",
+        "INF677K01932"
+      ],
+      "metrics": {},
+      "name": "NIFTY Composite Debt Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151086": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01GZ9",
+            "INF917K01GY2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Composite Debt Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01GZ9",
+        "INF917K01GY2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Composite Debt Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151087": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HA0"
+          ],
+          "metrics": {},
+          "name": "NIFTY Composite Debt Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HA0"
+      ],
+      "metrics": {},
+      "name": "NIFTY Composite Debt Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151088": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01VN4",
+            "INF917K01VM6"
+          ],
+          "metrics": {},
+          "name": "NIFTY Composite Debt Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01VN4",
+        "INF917K01VM6"
+      ],
+      "metrics": {},
+      "name": "NIFTY Composite Debt Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151089": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01VP9",
+            "INF917K01VO2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Composite Debt Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01VP9",
+        "INF917K01VO2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Composite Debt Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151102": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01AF4"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01AF4"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151103": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HM5"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HM5"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151104": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01AE7"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01AE7"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151105": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01AI8",
+            "INF677K01AJ6"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01AI8",
+        "INF677K01AJ6"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151106": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HJ1",
+            "INF917K01HI3"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HJ1",
+        "INF917K01HI3"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151107": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HH5"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HH5"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151108": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HL7"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HL7"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151109": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HK9"
+          ],
+          "metrics": {},
+          "name": "Nifty Banking and PSU Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HK9"
+      ],
+      "metrics": {},
+      "name": "Nifty Banking and PSU Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151110": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01023"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01023"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151111": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01213",
+            "INF677K01015"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01213",
+        "INF677K01015"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151112": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HC6",
+            "INF917K01HB8"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HC6",
+        "INF917K01HB8"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151113": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01HD4"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01HD4"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151114": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01452"
+          ],
+          "metrics": {},
+          "name": "NIFTY Low Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01452"
+      ],
+      "metrics": {},
+      "name": "NIFTY Low Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151115": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF677K01460",
+            "INF677K01478"
+          ],
+          "metrics": {},
+          "name": "NIFTY Low Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF677K01460",
+        "INF677K01478"
+      ],
+      "metrics": {},
+      "name": "NIFTY Low Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151116": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01E60",
+            "INF917K01GK1"
+          ],
+          "metrics": {},
+          "name": "NIFTY Low Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01E60",
+        "INF917K01GK1"
+      ],
+      "metrics": {},
+      "name": "NIFTY Low Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151117": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01GM7"
+          ],
+          "metrics": {},
+          "name": "NIFTY Low Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01GM7"
+      ],
+      "metrics": {},
+      "name": "NIFTY Low Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151118": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01VV7",
+            "INF917K01VU9"
+          ],
+          "metrics": {},
+          "name": "NIFTY Low Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01VV7",
+        "INF917K01VU9"
+      ],
+      "metrics": {},
+      "name": "NIFTY Low Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151119": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01VX3",
+            "INF917K01VW5"
+          ],
+          "metrics": {},
+          "name": "NIFTY Low Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01VX3",
+        "INF917K01VW5"
+      ],
+      "metrics": {},
+      "name": "NIFTY Low Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151120": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01LB0"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01LB0"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151121": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01KZ1",
+            "INF917K01LA2"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01KZ1",
+        "INF917K01LA2"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151122": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01LE4"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01LE4"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151123": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01E45",
+            "INF917K01LD6"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01E45",
+        "INF917K01LD6"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151124": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01TW9",
+            "INF917K01TV1"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01TW9",
+        "INF917K01TV1"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151125": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01TY5",
+            "INF917K01TX7"
+          ],
+          "metrics": {},
+          "name": "NIFTY 50 Hybrid Composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01TY5",
+        "INF917K01TX7"
+      ],
+      "metrics": {},
+      "name": "NIFTY 50 Hybrid Composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151126": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01KW8",
+            "INF917K01KX6"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Hybrid composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01KW8",
+        "INF917K01KX6"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Hybrid composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151127": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01KY4"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Hybrid composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01KY4"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Hybrid composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151128": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01IM3",
+            "INF917K01IL5"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Hybrid composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01IM3",
+        "INF917K01IL5"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Hybrid composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151129": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01IN1"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Hybrid composite",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01IN1"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Hybrid composite",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151130": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QA1"
+          ],
+          "metrics": {},
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QA1"
+      ],
+      "metrics": {},
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151131": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QB9",
+            "INF917K01XQ3"
+          ],
+          "metrics": {},
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QB9",
+        "INF917K01XQ3"
+      ],
+      "metrics": {},
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151132": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01PZ0",
+            "INF917K01XP5"
+          ],
+          "metrics": {},
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01PZ0",
+        "INF917K01XP5"
+      ],
+      "metrics": {},
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151133": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QC7"
+          ],
+          "metrics": {},
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QC7"
+      ],
+      "metrics": {},
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151134": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QL8"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Arbitrage Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QL8"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Arbitrage Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151135": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QT1",
+            "INF917K01QS3"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Arbitrage Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QT1",
+        "INF917K01QS3"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Arbitrage Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151136": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QV7",
+            "INF917K01QU9"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Arbitrage Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QV7",
+        "INF917K01QU9"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Arbitrage Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151137": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QP9",
+            "INF917K01QO2"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Arbitrage Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QP9",
+        "INF917K01QO2"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Arbitrage Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151138": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QR5"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Arbitrage Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QR5"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Arbitrage Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151140": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01QN4",
+            "INF917K01QM6"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 Arbitrage Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01QN4",
+        "INF917K01QM6"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 Arbitrage Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151142": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01RI2"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01RI2"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151143": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01RH4",
+            "INF917K01RG6"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01RH4",
+        "INF917K01RG6"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151144": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01RF8"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01RF8"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151145": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01RK8",
+            "INF917K01RJ0"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01RK8",
+        "INF917K01RJ0"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151146": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01TK4"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01TK4"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151147": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01TJ6",
+            "INF917K01TI8"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01TJ6",
+        "INF917K01TI8"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151148": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01TM0",
+            "INF917K01TL2"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01TM0",
+        "INF917K01TL2"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151149": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01TH0"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01TH0"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151150": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01WF8",
+            "INF917K01WC5"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01WF8",
+        "INF917K01WC5"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151151": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01WE1",
+            "INF917K01WD3"
+          ],
+          "metrics": {},
+          "name": "NIFTY Medium Duration Debt",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01WE1",
+        "INF917K01WD3"
+      ],
+      "metrics": {},
+      "name": "NIFTY Medium Duration Debt",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151156": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01C96",
+            "INF917K01D04"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01C96",
+        "INF917K01D04"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151157": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01D12"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01D12"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151158": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01D38"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01D38"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151159": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01D20",
+            "INF917K01D46"
+          ],
+          "metrics": {},
+          "name": "Nifty 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01D20",
+        "INF917K01D46"
+      ],
+      "metrics": {},
+      "name": "Nifty 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151160": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01D79"
+          ],
+          "metrics": {},
+          "name": "Nifty Next 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01D79"
+      ],
+      "metrics": {},
+      "name": "Nifty Next 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151161": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01D87",
+            "INF917K01E03"
+          ],
+          "metrics": {},
+          "name": "Nifty Next 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01D87",
+        "INF917K01E03"
+      ],
+      "metrics": {},
+      "name": "Nifty Next 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151162": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01D95"
+          ],
+          "metrics": {},
+          "name": "Nifty Next 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01D95"
+      ],
+      "metrics": {},
+      "name": "Nifty Next 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151163": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF917K01D53",
+            "INF917K01D61"
+          ],
+          "metrics": {},
+          "name": "Nifty Next 50 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF917K01D53",
+        "INF917K01D61"
+      ],
+      "metrics": {},
+      "name": "Nifty Next 50 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151289": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QQ8"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 Multicap 50:25:25",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QQ8"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 Multicap 50:25:25",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151290": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QN5"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 Multicap 50:25:25",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QN5"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 Multicap 50:25:25",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151291": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QO3",
+            "INF336L01QP0"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 Multicap 50:25:25",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QO3",
+        "INF336L01QP0"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 Multicap 50:25:25",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151292": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QR6",
+            "INF336L01QS4"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 Multicap 50:25:25",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QR6",
+        "INF336L01QS4"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 Multicap 50:25:25",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151479": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QT2"
+          ],
+          "metrics": {},
+          "name": "Crisil IBX Gilt Index - June",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QT2"
+      ],
+      "metrics": {},
+      "name": "Crisil IBX Gilt Index - June",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151480": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QW6"
+          ],
+          "metrics": {},
+          "name": "Crisil IBX Gilt Index - June",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QW6"
+      ],
+      "metrics": {},
+      "name": "Crisil IBX Gilt Index - June",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151481": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QX4",
+            "INF336L01QY2"
+          ],
+          "metrics": {},
+          "name": "Crisil IBX Gilt Index - June",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QX4",
+        "INF336L01QY2"
+      ],
+      "metrics": {},
+      "name": "Crisil IBX Gilt Index - June",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "151482": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QU0",
+            "INF336L01QV8"
+          ],
+          "metrics": {},
+          "name": "Crisil IBX Gilt Index - June",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QU0",
+        "INF336L01QV8"
+      ],
+      "metrics": {},
+      "name": "Crisil IBX Gilt Index - June",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152027": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RC6"
+          ],
+          "metrics": {},
+          "name": "Nifty India Consumption Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RC6"
+      ],
+      "metrics": {},
+      "name": "Nifty India Consumption Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152028": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RA0",
+            "INF336L01RB8"
+          ],
+          "metrics": {},
+          "name": "Nifty India Consumption Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RA0",
+        "INF336L01RB8"
+      ],
+      "metrics": {},
+      "name": "Nifty India Consumption Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152030": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RD4",
+            "INF336L01RE2"
+          ],
+          "metrics": {},
+          "name": "Nifty India Consumption Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RD4",
+        "INF336L01RE2"
+      ],
+      "metrics": {},
+      "name": "Nifty India Consumption Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152032": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01QZ9"
+          ],
+          "metrics": {},
+          "name": "Nifty India Consumption Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01QZ9"
+      ],
+      "metrics": {},
+      "name": "Nifty India Consumption Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152378": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RF9"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RF9"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152379": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RG7",
+            "INF336L01RH5"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RG7",
+        "INF336L01RH5"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152380": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RI3"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RI3"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152381": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RJ1",
+            "INF336L01RK9"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RJ1",
+        "INF336L01RK9"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152829": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RO1"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RO1"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152830": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RL7"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RL7"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152831": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RP8",
+            "INF336L01RQ6"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RP8",
+        "INF336L01RQ6"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152832": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RM5",
+            "INF336L01RN3"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RM5",
+        "INF336L01RN3"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153266": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RU8"
+          ],
+          "metrics": {},
+          "name": "BSE Financial Services Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RU8"
+      ],
+      "metrics": {},
+      "name": "BSE Financial Services Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153267": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RR4"
+          ],
+          "metrics": {},
+          "name": "BSE Financial Services Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RR4"
+      ],
+      "metrics": {},
+      "name": "BSE Financial Services Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153268": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RT0",
+            "INF336L01RS2"
+          ],
+          "metrics": {},
+          "name": "BSE Financial Services Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RT0",
+        "INF336L01RS2"
+      ],
+      "metrics": {},
+      "name": "BSE Financial Services Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153269": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RW4",
+            "INF336L01RV6"
+          ],
+          "metrics": {},
+          "name": "BSE Financial Services Index",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RW4",
+        "INF336L01RV6"
+      ],
+      "metrics": {},
+      "name": "BSE Financial Services Index",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "154294": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RX2"
+          ],
+          "metrics": {},
+          "name": "Domestic Price of Gold",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RX2"
+      ],
+      "metrics": {},
+      "name": "Domestic Price of Gold",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "154295": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01SB6"
+          ],
+          "metrics": {},
+          "name": "Domestic Price of Gold",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01SB6"
+      ],
+      "metrics": {},
+      "name": "Domestic Price of Gold",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "154296": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01SA8",
+            "INF336L01RZ7"
+          ],
+          "metrics": {},
+          "name": "Domestic Price of Gold",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01SA8",
+        "INF336L01RZ7"
+      ],
+      "metrics": {},
+      "name": "Domestic Price of Gold",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "154297": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01SD2",
+            "INF336L01SC4"
+          ],
+          "metrics": {},
+          "name": "Domestic Price of Gold",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01SD2",
+        "INF336L01SC4"
+      ],
+      "metrics": {},
+      "name": "Domestic Price of Gold",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "154298": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF336L01RY0"
+          ],
+          "metrics": {},
+          "name": "Domestic Price of Gold",
+          "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF336L01RY0"
+      ],
+      "metrics": {},
+      "name": "Domestic Price of Gold",
+      "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    }
+  }
+}
