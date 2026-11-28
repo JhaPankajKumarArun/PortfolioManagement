@@ -29,9 +29,14 @@ def links(url):
 def main():
     nav=load("https://www.amfiindia.com/spages/NAVAll.txt").text
     names={}
+    amcs={}
+    current_amc=None
     for line in nav.splitlines():
         p=line.split(";")
+        if ";" not in line and re.search(r"\bMutual Fund\s*$",line.strip(),re.I):
+            current_amc=line.strip()
         if len(p)>=6 and p[0].isdigit():
+            if current_amc:amcs.setdefault(current_amc,set()).add(p[0])
             names.setdefault(scheme_name(p[3]),[]).append((p[0],[x for x in p[1:3] if x.startswith("INF")]))
     print("AMFI normalized schemes:",len(names),flush=True)
     print("HSBC catalog names:",[n for n in names if n.startswith("hsbc ")],flush=True)
@@ -120,6 +125,13 @@ def main():
             prior["schemes"][code]={**chosen,"history":history}
             accepted+=1
     print("Extracted candidates:",len(found),"catalog total:",len(prior["schemes"]))
+    report["amcUniverse"]=[{"name":name,"amfiCodes":len(codes),
+        "catalogCodes":len(codes & set(prior["schemes"])),
+        "candidateCodes":len(codes & set(found)),
+        "codesWithMetrics":sum(bool(prior["schemes"].get(code,{}).get("metrics")) for code in codes)}
+        for name,codes in sorted(amcs.items())]
+    report["amcCount"]=len(amcs)
+    report["unclassifiedAmfiCodes"]=len({code for entries in names.values() for code,_ in entries}-set().union(*amcs.values()))
     report.update(acceptedCodes=accepted,candidateCodes=len(found),catalogCodes=len(prior["schemes"]),amfiCodes=len({code for entries in names.values() for code,_ in entries}))
     ROOT.parent.mkdir(parents=True,exist_ok=True)
     ROOT.with_name("coverage.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
