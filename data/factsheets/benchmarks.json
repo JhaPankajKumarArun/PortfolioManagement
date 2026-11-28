@@ -1,6 +1,126 @@
 {
   "schema": 1,
   "schemes": {
+    "100643": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01420",
+            "INF200K01438"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.29
+            }
+          },
+          "name": "BSE Teck TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01420",
+        "INF200K01438"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.29
+        }
+      },
+      "name": "BSE Teck TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "100915": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01347",
+            "INF200K01354"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01347",
+        "INF200K01354"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "101295": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01198",
+            "INF200K01206"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.23
+            }
+          },
+          "name": "NIFTY 100 ESG TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01198",
+        "INF200K01206"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.23
+        }
+      },
+      "name": "NIFTY 100 ESG TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
     "101593": {
       "history": {
         "2026-10-31": {
@@ -607,6 +727,470 @@
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
+    "102414": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01362"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01362"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "102756": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01370"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.83
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.59
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01370"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.83
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.59
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "102765": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01388",
+            "INF200K01396"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.83
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.59
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01388",
+        "INF200K01396"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.83
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.59
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "103034": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01271"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.65
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.07
+            }
+          },
+          "name": "NIFTY MNC Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01271"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.65
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.07
+        }
+      },
+      "name": "NIFTY MNC Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "103114": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01255",
+            "INF200K01263"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.65
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.07
+            }
+          },
+          "name": "NIFTY MNC Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01255",
+        "INF200K01263"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.65
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.07
+        }
+      },
+      "name": "NIFTY MNC Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "103215": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01222"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01222"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "103216": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01230",
+            "INF200K01248"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01230",
+        "INF200K01248"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "103504": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01180"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.25
+            }
+          },
+          "name": "BSE 100 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01180"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.25
+        }
+      },
+      "name": "BSE 100 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "103616": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01164",
+            "INF200K01172"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.25
+            }
+          },
+          "name": "BSE 100 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01164",
+        "INF200K01172"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.25
+        }
+      },
+      "name": "BSE 100 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "103883": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01479"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.47
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01479"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.97
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.47
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "104523": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01214"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.23
+            }
+          },
+          "name": "NIFTY 100 ESG TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01214"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.23
+        }
+      },
+      "name": "NIFTY 100 ESG TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "105628": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01495"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.47
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01495"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.97
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.47
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
     "107988": {
       "history": {
         "2026-10-31": {
@@ -647,6 +1231,84 @@
       "metrics": {},
       "name": "MSCI Emerging Markets Index",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "112923": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01BD8",
+            "INF200K01BE6"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.6
+            }
+          },
+          "name": "BSE PSU TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01BD8",
+        "INF200K01BE6"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.6
+        }
+      },
+      "name": "BSE PSU TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "113099": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01BC0"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.6
+            }
+          },
+          "name": "BSE PSU TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01BC0"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.6
+        }
+      },
+      "name": "BSE PSU TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
     "115116": {
@@ -1105,6 +1767,668 @@
       "metrics": {},
       "name": "Nifty Liquid Index A-I",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119585": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01QV8",
+            "INF200K01QW6"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.25
+            }
+          },
+          "name": "BSE 100 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01QV8",
+        "INF200K01QW6"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.25
+        }
+      },
+      "name": "BSE 100 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119598": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01QX4"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.25
+            }
+          },
+          "name": "BSE 100 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01QX4"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.25
+        }
+      },
+      "name": "BSE 100 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119708": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01SC4",
+            "INF200K01SD2"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.23
+            }
+          },
+          "name": "NIFTY 100 ESG TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01SC4",
+        "INF200K01SD2"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.23
+        }
+      },
+      "name": "NIFTY 100 ESG TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119709": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01SE0"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.23
+            }
+          },
+          "name": "NIFTY 100 ESG TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01SE0"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.23
+        }
+      },
+      "name": "NIFTY 100 ESG TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119710": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01SL5",
+            "INF200K01SM3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.65
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.07
+            }
+          },
+          "name": "NIFTY MNC Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01SL5",
+        "INF200K01SM3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.65
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.07
+        }
+      },
+      "name": "NIFTY MNC Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119711": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01SN1"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.65
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.07
+            }
+          },
+          "name": "NIFTY MNC Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01SN1"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.65
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.07
+        }
+      },
+      "name": "NIFTY MNC Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119717": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01UE6",
+            "INF200K01UF3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01UE6",
+        "INF200K01UF3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119718": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01UG1"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01UG1"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119722": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01UK3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.47
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01UK3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.97
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.47
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119723": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01UM9"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.47
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01UM9"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.97
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.47
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119724": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01QY2",
+            "INF200K01QZ9"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01QY2",
+        "INF200K01QZ9"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119727": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01RJ1"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.83
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.59
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01RJ1"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.83
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.59
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119731": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01RT0",
+            "INF200K01RU8"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.29
+            }
+          },
+          "name": "BSE Teck TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01RT0",
+        "INF200K01RU8"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.29
+        }
+      },
+      "name": "BSE Teck TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119732": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01UY4"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.6
+            }
+          },
+          "name": "BSE PSU TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01UY4"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.6
+        }
+      },
+      "name": "BSE PSU TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119733": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01UW8",
+            "INF200K01UX6"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.6
+            }
+          },
+          "name": "BSE PSU TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01UW8",
+        "INF200K01UX6"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.6
+        }
+      },
+      "name": "BSE PSU TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119834": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01RH5",
+            "INF200K01RI3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.83
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.59
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01RH5",
+        "INF200K01RI3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.83
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.59
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "119835": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01RA0"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01RA0"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
     "120029": {
@@ -2131,6 +3455,1342 @@
       "metrics": {},
       "name": "NIFTY Medium to Long",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120577": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01VS4"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.29
+            }
+          },
+          "name": "BSE Teck TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01VS4"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.29
+        }
+      },
+      "name": "BSE Teck TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "120578": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200K01RV6"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.87
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.29
+            }
+          },
+          "name": "BSE Teck TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200K01RV6"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.87
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.29
+        }
+      },
+      "name": "BSE Teck TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "122387": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01155"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01155"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "122388": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01171",
+            "INF247L01163"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01171",
+        "INF247L01163"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "122389": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01189"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01189"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "122390": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01205",
+            "INF247L01197"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01205",
+        "INF247L01197"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "125301": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01DW1",
+            "INF663L01DX9"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.85
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01DW1",
+        "INF663L01DX9"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.85
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "125305": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01DZ4"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.85
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01DZ4"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.85
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "125306": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01EA5",
+            "INF663L01EB3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.85
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01EA5",
+        "INF663L01EB3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.85
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "125307": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01DV3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.85
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01DV3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.85
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "127039": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01411"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01411"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "127040": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01437",
+            "INF247L01429"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01437",
+        "INF247L01429"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "127042": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01445"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01445"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "127044": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01460",
+            "INF247L01452"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY Midcap 150 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01460",
+        "INF247L01452"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY Midcap 150 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "129046": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01502"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01502"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "129047": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01528",
+            "INF247L01510"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01528",
+        "INF247L01510"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "129048": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01478"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01478"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "129049": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01494",
+            "INF247L01486"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01494",
+        "INF247L01486"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133383": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01551"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.2
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01551"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.2
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133384": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01577"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.2
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01577"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.2
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133385": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01544"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.2
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01544"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.2
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133386": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01569"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.2
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01569"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.2
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133836": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FJ3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FJ3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133837": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FG9",
+            "INF663L01FH7"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FG9",
+        "INF663L01FH7"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133838": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FK1",
+            "INF663L01FL9"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FK1",
+        "INF663L01FL9"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "133839": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FF1"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.92
+            }
+          },
+          "name": "Nifty 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FF1"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.92
+        }
+      },
+      "name": "Nifty 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "135598": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FQ8"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FQ8"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "135599": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FR6"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FR6"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "135600": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FO3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FO3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "135601": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01FN5"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01FN5"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138307": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01GU8",
+            "INF663L01GV6"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01GU8",
+        "INF663L01GV6"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138308": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01GW4"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01GW4"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138309": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF223J01242"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF223J01242"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138310": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF223J01267"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF223J01267"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138311": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF223J01895"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF223J01895"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138312": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01GR4"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01GR4"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138313": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01GS2",
+            "INF663L01GT0"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01GS2",
+        "INF663L01GT0"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "138314": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF223J01MM0"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.93
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF223J01MM0"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.93
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146641": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1A55",
+            "INF200KA1A63"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.01
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.11
+            }
+          },
+          "name": "NIFTY 50 Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1A55",
+        "INF200KA1A63"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.01
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.11
+        }
+      },
+      "name": "NIFTY 50 Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146642": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1A89",
+            "INF200KA1A97"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.01
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.11
+            }
+          },
+          "name": "NIFTY 50 Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1A89",
+        "INF200KA1A97"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.01
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.11
+        }
+      },
+      "name": "NIFTY 50 Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146643": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1A71"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.01
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.11
+            }
+          },
+          "name": "NIFTY 50 Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1A71"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.01
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.11
+        }
+      },
+      "name": "NIFTY 50 Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "146644": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1A48"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.01
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.11
+            }
+          },
+          "name": "NIFTY 50 Index TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1A48"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.01
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.11
+        }
+      },
+      "name": "NIFTY 50 Index TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
     "146769": {
@@ -3703,6 +6363,282 @@
       },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148683": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1S55"
+          ],
+          "metrics": {
+            "macaulayDuration": {
+              "unit": "Years",
+              "value": 0.16
+            },
+            "modifiedDuration": {
+              "unit": "Years",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1S55"
+      ],
+      "metrics": {
+        "macaulayDuration": {
+          "unit": "Years",
+          "value": 0.16
+        },
+        "modifiedDuration": {
+          "unit": "Years",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148691": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1S48"
+          ],
+          "metrics": {
+            "macaulayDuration": {
+              "unit": "Years",
+              "value": 0.16
+            },
+            "modifiedDuration": {
+              "unit": "Years",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1S48"
+      ],
+      "metrics": {
+        "macaulayDuration": {
+          "unit": "Years",
+          "value": 0.16
+        },
+        "modifiedDuration": {
+          "unit": "Years",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148694": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1S63"
+          ],
+          "metrics": {
+            "macaulayDuration": {
+              "unit": "Years",
+              "value": 0.16
+            },
+            "modifiedDuration": {
+              "unit": "Years",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1S63"
+      ],
+      "metrics": {
+        "macaulayDuration": {
+          "unit": "Years",
+          "value": 0.16
+        },
+        "modifiedDuration": {
+          "unit": "Years",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "148698": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KA1S30"
+          ],
+          "metrics": {
+            "macaulayDuration": {
+              "unit": "Years",
+              "value": 0.16
+            },
+            "modifiedDuration": {
+              "unit": "Years",
+              "value": 0.16
+            }
+          },
+          "name": "BSE 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KA1S30"
+      ],
+      "metrics": {
+        "macaulayDuration": {
+          "unit": "Years",
+          "value": 0.16
+        },
+        "modifiedDuration": {
+          "unit": "Years",
+          "value": 0.16
+        }
+      },
+      "name": "BSE 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149019": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01W06"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.76
+            }
+          },
+          "name": "NIFTY Smallcap 250 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01W06"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.76
+        }
+      },
+      "name": "NIFTY Smallcap 250 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149020": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01W30"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.76
+            }
+          },
+          "name": "NIFTY Smallcap 250 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01W30"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.76
+        }
+      },
+      "name": "NIFTY Smallcap 250 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149031": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01W14",
+            "INF663L01W22"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.76
+            }
+          },
+          "name": "NIFTY Smallcap 250 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01W14",
+        "INF663L01W22"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.76
+        }
+      },
+      "name": "NIFTY Smallcap 250 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "149032": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01W48",
+            "INF663L01W55"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.76
+            }
+          },
+          "name": "NIFTY Smallcap 250 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01W48",
+        "INF663L01W55"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.76
+        }
+      },
+      "name": "NIFTY Smallcap 250 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
     "149962": {
@@ -10657,6 +13593,254 @@
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
+    "152232": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01BV9"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01BV9"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152234": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01BW7",
+            "INF247L01BX5"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01BW7",
+        "INF247L01BX5"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152235": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01BZ0",
+            "INF247L01CA1"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01BZ0",
+        "INF247L01CA1"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152237": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01BY3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.9
+            }
+          },
+          "name": "Nifty Smallcap 250 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01BY3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 0.9
+        }
+      },
+      "name": "Nifty Smallcap 250 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152351": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CF0",
+            "INF247L01CG8"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CF0",
+        "INF247L01CG8"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152352": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CB9"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CB9"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152353": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CC7",
+            "INF247L01CD5"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CC7",
+        "INF247L01CD5"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152354": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CE3"
+          ],
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            }
+          },
+          "name": "NIFTY 100 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CE3"
+      ],
+      "metrics": {
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        }
+      },
+      "name": "NIFTY 100 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
     "152378": {
       "history": {
         "2026-10-31": {
@@ -10739,6 +13923,506 @@
       "metrics": {},
       "name": "BSE 200 TRI (65%) + NIFTY Annualised Returns",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152417": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1126"
+          ],
+          "metrics": {},
+          "name": "NIFTY Energy TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1126"
+      ],
+      "metrics": {},
+      "name": "NIFTY Energy TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152418": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1092"
+          ],
+          "metrics": {},
+          "name": "NIFTY Energy TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1092"
+      ],
+      "metrics": {},
+      "name": "NIFTY Energy TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152419": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1100",
+            "INF200KB1118"
+          ],
+          "metrics": {},
+          "name": "NIFTY Energy TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1100",
+        "INF200KB1118"
+      ],
+      "metrics": {},
+      "name": "NIFTY Energy TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152420": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1134",
+            "INF200KB1142"
+          ],
+          "metrics": {},
+          "name": "NIFTY Energy TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1134",
+        "INF200KB1142"
+      ],
+      "metrics": {},
+      "name": "NIFTY Energy TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152537": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Y61"
+          ],
+          "metrics": {},
+          "name": "BSE 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Y61"
+      ],
+      "metrics": {},
+      "name": "BSE 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152538": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Y46"
+          ],
+          "metrics": {},
+          "name": "BSE 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Y46"
+      ],
+      "metrics": {},
+      "name": "BSE 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152539": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Y79"
+          ],
+          "metrics": {},
+          "name": "BSE 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Y79"
+      ],
+      "metrics": {},
+      "name": "BSE 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152540": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Y53"
+          ],
+          "metrics": {},
+          "name": "BSE 500 TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Y53"
+      ],
+      "metrics": {},
+      "name": "BSE 500 TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152655": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1191",
+            "INF200KB1209"
+          ],
+          "metrics": {},
+          "name": "NIFTY Auto TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1191",
+        "INF200KB1209"
+      ],
+      "metrics": {},
+      "name": "NIFTY Auto TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152656": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1167",
+            "INF200KB1175"
+          ],
+          "metrics": {},
+          "name": "NIFTY Auto TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1167",
+        "INF200KB1175"
+      ],
+      "metrics": {},
+      "name": "NIFTY Auto TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152657": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1183"
+          ],
+          "metrics": {},
+          "name": "NIFTY Auto TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1183"
+      ],
+      "metrics": {},
+      "name": "NIFTY Auto TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152658": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1159"
+          ],
+          "metrics": {},
+          "name": "NIFTY Auto TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1159"
+      ],
+      "metrics": {},
+      "name": "NIFTY Auto TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152692": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CP9"
+          ],
+          "metrics": {},
+          "name": "Nifty 200 Index TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CP9"
+      ],
+      "metrics": {},
+      "name": "Nifty 200 Index TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152693": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CQ7",
+            "INF247L01CR5"
+          ],
+          "metrics": {},
+          "name": "Nifty 200 Index TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CQ7",
+        "INF247L01CR5"
+      ],
+      "metrics": {},
+      "name": "Nifty 200 Index TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152694": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CS3"
+          ],
+          "metrics": {},
+          "name": "Nifty 200 Index TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CS3"
+      ],
+      "metrics": {},
+      "name": "Nifty 200 Index TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152695": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01CT1",
+            "INF247L01CU9"
+          ],
+          "metrics": {},
+          "name": "Nifty 200 Index TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01CT1",
+        "INF247L01CU9"
+      ],
+      "metrics": {},
+      "name": "Nifty 200 Index TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152774": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1290"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1290"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152775": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1308",
+            "INF200KB1316"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1308",
+        "INF200KB1316"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152776": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1324"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1324"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152777": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1332",
+            "INF200KB1340"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1332",
+        "INF200KB1340"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152794": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DD3"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DD3"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152795": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DE1",
+            "INF247L01DF8"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DE1",
+        "INF247L01DF8"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152796": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DG6"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DG6"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152797": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DH4",
+            "INF247L01DI2"
+          ],
+          "metrics": {},
+          "name": "NIFTY 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DH4",
+        "INF247L01DI2"
+      ],
+      "metrics": {},
+      "name": "NIFTY 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
     },
     "152829": {
@@ -11113,6 +14797,466 @@
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
     },
+    "152964": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DN2"
+          ],
+          "metrics": {},
+          "name": "BSE Teck TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DN2"
+      ],
+      "metrics": {},
+      "name": "BSE Teck TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152965": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DO0",
+            "INF247L01DP7"
+          ],
+          "metrics": {},
+          "name": "BSE Teck TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DO0",
+        "INF247L01DP7"
+      ],
+      "metrics": {},
+      "name": "BSE Teck TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152966": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DQ5"
+          ],
+          "metrics": {},
+          "name": "BSE Teck TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DQ5"
+      ],
+      "metrics": {},
+      "name": "BSE Teck TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "152967": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01DR3",
+            "INF247L01DS1"
+          ],
+          "metrics": {},
+          "name": "BSE Teck TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01DR3",
+        "INF247L01DS1"
+      ],
+      "metrics": {},
+      "name": "BSE Teck TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153037": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Z60",
+            "INF663L01Z78"
+          ],
+          "metrics": {},
+          "name": "BSE Healthcare TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Z60",
+        "INF663L01Z78"
+      ],
+      "metrics": {},
+      "name": "BSE Healthcare TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153038": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Z86",
+            "INF663L01Z94"
+          ],
+          "metrics": {},
+          "name": "BSE Healthcare TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Z86",
+        "INF663L01Z94"
+      ],
+      "metrics": {},
+      "name": "BSE Healthcare TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153039": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Z45"
+          ],
+          "metrics": {},
+          "name": "BSE Healthcare TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Z45"
+      ],
+      "metrics": {},
+      "name": "BSE Healthcare TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153040": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF663L01Z52"
+          ],
+          "metrics": {},
+          "name": "BSE Healthcare TRI",
+          "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF663L01Z52"
+      ],
+      "metrics": {},
+      "name": "BSE Healthcare TRI",
+      "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153151": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1514",
+            "INF200KB1522"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1514",
+        "INF200KB1522"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153152": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1480",
+            "INF200KB1498"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1480",
+        "INF200KB1498"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153153": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1472"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1472"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153154": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF200KB1506"
+          ],
+          "metrics": {},
+          "name": "BSE 200 TRI",
+          "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF200KB1506"
+      ],
+      "metrics": {},
+      "name": "BSE 200 TRI",
+      "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153185": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EE9",
+            "INF247L01EF6"
+          ],
+          "metrics": {
+            "ytm": {
+              "unit": "%",
+              "value": 7.17
+            }
+          },
+          "name": "Nifty 50 Arbitrage TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EE9",
+        "INF247L01EF6"
+      ],
+      "metrics": {
+        "ytm": {
+          "unit": "%",
+          "value": 7.17
+        }
+      },
+      "name": "Nifty 50 Arbitrage TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153186": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EH2",
+            "INF247L01EI0"
+          ],
+          "metrics": {
+            "ytm": {
+              "unit": "%",
+              "value": 7.17
+            }
+          },
+          "name": "Nifty 50 Arbitrage TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EH2",
+        "INF247L01EI0"
+      ],
+      "metrics": {
+        "ytm": {
+          "unit": "%",
+          "value": 7.17
+        }
+      },
+      "name": "Nifty 50 Arbitrage TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153187": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01ED1"
+          ],
+          "metrics": {
+            "ytm": {
+              "unit": "%",
+              "value": 7.17
+            }
+          },
+          "name": "Nifty 50 Arbitrage TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01ED1"
+      ],
+      "metrics": {
+        "ytm": {
+          "unit": "%",
+          "value": 7.17
+        }
+      },
+      "name": "Nifty 50 Arbitrage TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153188": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EG4"
+          ],
+          "metrics": {
+            "ytm": {
+              "unit": "%",
+              "value": 7.17
+            }
+          },
+          "name": "Nifty 50 Arbitrage TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EG4"
+      ],
+      "metrics": {
+        "ytm": {
+          "unit": "%",
+          "value": 7.17
+        }
+      },
+      "name": "Nifty 50 Arbitrage TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153256": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EM2"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EM2"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153257": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EN0",
+            "INF247L01EO8"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EN0",
+        "INF247L01EO8"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153258": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EJ8"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EJ8"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153259": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EK6",
+            "INF247L01EL4"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EK6",
+        "INF247L01EL4"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
     "153266": {
       "history": {
         "2026-10-31": {
@@ -11195,6 +15339,342 @@
       "metrics": {},
       "name": "BSE Financial Services Index",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153364": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EP5"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EP5"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153365": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01ES9"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01ES9"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153366": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01ET7",
+            "INF247L01EU5"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01ET7",
+        "INF247L01EU5"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153367": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EQ3",
+            "INF247L01ER1"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EQ3",
+        "INF247L01ER1"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153482": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EZ4"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EZ4"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153483": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EX9",
+            "INF247L01EY7"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EX9",
+        "INF247L01EY7"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153484": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01EW1"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01EW1"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153485": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FA4",
+            "INF247L01FB2"
+          ],
+          "metrics": {},
+          "name": "Nifty Infrastructure TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FA4",
+        "INF247L01FB2"
+      ],
+      "metrics": {},
+      "name": "Nifty Infrastructure TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153558": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FE6"
+          ],
+          "metrics": {},
+          "name": "Nifty Services Sector TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FE6"
+      ],
+      "metrics": {},
+      "name": "Nifty Services Sector TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153561": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FG1"
+          ],
+          "metrics": {},
+          "name": "Nifty Services Sector TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FG1"
+      ],
+      "metrics": {},
+      "name": "Nifty Services Sector TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153562": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FJ5",
+            "INF247L01FH9"
+          ],
+          "metrics": {},
+          "name": "Nifty Services Sector TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FJ5",
+        "INF247L01FH9"
+      ],
+      "metrics": {},
+      "name": "Nifty Services Sector TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153563": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FI7",
+            "INF247L01FF3"
+          ],
+          "metrics": {},
+          "name": "Nifty Services Sector TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FI7",
+        "INF247L01FF3"
+      ],
+      "metrics": {},
+      "name": "Nifty Services Sector TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153749": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FS6"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FS6"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153750": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FT4",
+            "INF247L01FU2"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FT4",
+        "INF247L01FU2"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153751": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FV0"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FV0"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+      "verifiedAsOf": "2026-10-31"
+    },
+    "153752": {
+      "history": {
+        "2026-10-31": {
+          "isins": [
+            "INF247L01FW8",
+            "INF247L01FX6"
+          ],
+          "metrics": {},
+          "name": "Nifty 500 TRI",
+          "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
+          "verifiedAsOf": "2026-10-31"
+        }
+      },
+      "isins": [
+        "INF247L01FW8",
+        "INF247L01FX6"
+      ],
+      "metrics": {},
+      "name": "Nifty 500 TRI",
+      "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
     },
     "154294": {

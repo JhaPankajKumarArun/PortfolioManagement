@@ -1,8 +1,8 @@
 {
-  "acceptedCodes": 56,
+  "acceptedCodes": 208,
   "amfiCodes": 14486,
-  "candidateCodes": 56,
-  "catalogCodes": 216,
+  "candidateCodes": 208,
+  "catalogCodes": 368,
   "documents": [
     {
       "adapter": "hsbc",
@@ -26,30 +26,40 @@
       "url": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
     },
     {
-      "adapter": "generic",
-      "candidateCodes": 0,
-      "distinctSchemes": 0,
-      "fieldCodeCounts": {},
+      "adapter": "motilal-oswal",
+      "candidateCodes": 60,
+      "distinctSchemes": 15,
+      "fieldCodeCounts": {
+        "beta": 24,
+        "ytm": 4
+      },
       "reportingMonth": "2026-10-31",
-      "status": "no_matches",
+      "status": "extracted",
       "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
     },
     {
-      "adapter": "generic",
-      "candidateCodes": 0,
-      "distinctSchemes": 0,
-      "fieldCodeCounts": {},
+      "adapter": "pgim",
+      "candidateCodes": 32,
+      "distinctSchemes": 7,
+      "fieldCodeCounts": {
+        "beta": 24
+      },
       "reportingMonth": "2026-10-31",
-      "status": "no_matches",
+      "status": "extracted",
       "url": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
     },
     {
-      "adapter": "generic",
-      "candidateCodes": 0,
-      "distinctSchemes": 0,
-      "fieldCodeCounts": {},
+      "adapter": "sbi",
+      "candidateCodes": 60,
+      "distinctSchemes": 15,
+      "fieldCodeCounts": {
+        "beta": 40,
+        "macaulayDuration": 4,
+        "modifiedDuration": 4,
+        "sharpe": 40
+      },
       "reportingMonth": "2026-10-31",
-      "status": "no_matches",
+      "status": "extracted",
       "url": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
     }
   ],
