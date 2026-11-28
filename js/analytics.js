@@ -255,8 +255,8 @@ function dailyHoldingMarkup(targets,showDates=false){
  const r=dailyHoldingAggregate(targets);
  if(!r.count)return '<span>1-day market change · History unavailable</span>';
  const direction=r.gain>0?'up':r.gain<0?'down':'flat';
- const label=r.aligned?'1-day market change':'Latest holding changes · mixed dates';
- return `<span class="day-change-label">${label}${r.count<r.total?' · partial':''}</span><strong class="day-change-${direction}">${r.gain>0?'▲ ':r.gain<0?'▼ ':''}${holdingChangeAmount(r.gain)}${r.aligned&&r.capital>0?' ('+pc(r.gain/r.capital*100)+')':''}</strong>${r.count<r.total?`<small>${r.count}/${r.total} holdings</small>`:''}${showDates&&r.aligned?`<small>${fd(r.start)} – ${fd(r.end)}</small>`:''}`;
+ const note=r.aligned?'Aligned valuation dates':'Latest available holding changes; NAV/price dates differ. Percentage uses combined opening capital, not a common-date portfolio return.';
+ return `<span class="day-change-label" title="${esc(note)}">1-day market change</span><strong class="day-change-${direction}" title="${esc(note)}">${r.gain>0?'▲ ':r.gain<0?'▼ ':''}${holdingChangeAmount(r.gain)}${r.capital>0?' ('+pc(r.gain/r.capital*100)+')':''}</strong>${r.count<r.total?`<small>${r.count}/${r.total} holdings</small>`:''}${showDates&&r.aligned?`<small>${fd(r.start)} – ${fd(r.end)}</small>`:''}`;
 }
 function holdingSummaryHero(C,L,tot,cost,gain){
  const all=flt==='all',label=all?'PORTFOLIO VALUE':flt==='mf'?'MUTUAL FUNDS':'STOCKS';
