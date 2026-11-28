@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-portfolio-pwa-v188-factsheet-metrics';
+const CACHE_NAME = 'my-portfolio-pwa-v189-datahub-api';
 const APP_SHELL = [
   './js/vendor/pdf.min.js',
   './js/vendor/pdf.worker.min.js',
