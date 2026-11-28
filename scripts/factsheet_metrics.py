@@ -29,3 +29,25 @@ def hsbc_metrics(page):
         values={float(x.replace(",","")) for x in re.findall(pattern+r"(?=[ \t]{2,}|[ \t]*$)",page,re.I|re.M)}
         if len(values)==1:result[key]={"value":values.pop(),"unit":unit}
     return result
+
+
+def hsbc_details(page):
+    from datetime import datetime
+    result={}
+    lines=page.splitlines()
+    dates=set()
+    for line in lines:
+        match=re.match(r"\s*Date of Inception / Allotment:\s*(\d{1,2}\s+[A-Za-z]+\s+\d{4})\b",line)
+        if match:
+            try: dates.add(datetime.strptime(match[1],"%d %B %Y").date().isoformat())
+            except ValueError: pass
+    if len(dates)==1:result["inceptionDate"]=dates.pop()
+    # The month-end table explicitly labels BER, not total expense ratio.
+    for i,line in enumerate(lines):
+        if not re.match(r"\s*Plan\s+Base Expense Ratio \(BER\)",line,re.I):continue
+        for row in lines[i+1:i+5]:
+            hit=re.match(r"\s*(Regular(?:[¹1])?|Direct)\s+(\d+(?:\.\d+)?)\s*%",row,re.I)
+            if hit and 0<=float(hit[2])<=10:
+                key="directBER" if hit[1].lower()=="direct" else "regularBER"
+                result[key]={"value":float(hit[2]),"unit":"%"}
+    return result

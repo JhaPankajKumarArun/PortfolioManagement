@@ -42,3 +42,16 @@ class HSBCActualMetricsTests(unittest.TestCase):
         self.assertEqual(m["beta"]["value"],0.95)
         self.assertEqual(m["sharpe"]["value"],0.30)
         self.assertEqual(m["equityTurnoverMultiple"]["value"],0.35)
+
+
+class HSBCDetailsTests(unittest.TestCase):
+    def test_profile(self):
+        from factsheet_metrics import hsbc_details
+        page="Date of Inception / Allotment: 12 May 2014    Compounded\nPlan   Base Expense Ratio (BER)    Other table\nRegular1    1.43%    Other table\nDirect    0.57%    Other table"
+        d=hsbc_details(page)
+        self.assertEqual(d["inceptionDate"],"2014-05-12")
+        self.assertEqual(d["directBER"]["value"],0.57)
+        self.assertEqual(d["regularBER"]["value"],1.43)
+    def test_do_not_guess_ter(self):
+        from factsheet_metrics import hsbc_details
+        self.assertEqual(hsbc_details("Direct   0.57%"),{})

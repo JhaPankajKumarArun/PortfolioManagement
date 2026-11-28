@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
-from factsheet_metrics import metrics, hsbc_metrics
+from factsheet_metrics import metrics, hsbc_metrics, hsbc_details
 import requests
 from bs4 import BeautifulSoup
 
@@ -129,7 +129,7 @@ def main():
                     if urlparse(u).hostname=="www.assetmanagement.hsbc.co.in":
                         profile=hsbc_profile(page,names)
                         if profile:
-                            fields=hsbc_metrics(page)
+                            fields={**hsbc_metrics(page),**hsbc_details(page)}
                             rows.append((profile[0],profile[1],fields))
                             print("Profile:",profile[0],"benchmark:",profile[1],"metrics:",sorted(fields),flush=True)
                             for line in page.splitlines():
