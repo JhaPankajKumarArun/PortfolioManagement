@@ -68,18 +68,18 @@ def main():
                 asof=date.replace(day=calendar.monthrange(date.year,date.month)[1]).isoformat()
                 if asof>dt.date.today().isoformat():continue
                 print("PDF:",u,"pages:",len(content.split("\f")),"characters:",len(content),flush=True)
-                if urlparse(u).hostname=="www.assetmanagement.hsbc.co.in":
-                    samples=0
-                    for number,page in enumerate(content.split("\f"),1):
-                        lines=page.splitlines()
-                        relevant=[i for i,line in enumerate(lines) if re.search(r"scheme benchmark|hsbc small cap fund|inception date",line,re.I)]
-                        if not relevant:continue
-                        if samples>=8:break
-                        print("HSBC layout sample page",number,flush=True)
-                        indices=set(range(min(8,len(lines))))
-                        for i in relevant[:6]:indices.update(range(max(0,i-1),min(len(lines),i+3)))
-                        for i in sorted(indices):print(repr(lines[i][:350]),flush=True)
-                        samples+=1
+                # Bounded layout evidence for all accessible AMC documents.
+                samples=0
+                for number,page in enumerate(content.split("\f"),1):
+                    lines=page.splitlines()
+                    relevant=[i for i,line in enumerate(lines) if re.search(r"\b(?:benchmark|fund manager|assets under management|average aum|expense ratio|standard deviation)\b",line,re.I)]
+                    if not relevant:continue
+                    if samples>=8:break
+                    print("Layout sample",urlparse(u).hostname,"page",number,flush=True)
+                    indices=set(range(min(10,len(lines))))
+                    for i in relevant[:8]:indices.update(range(max(0,i-1),min(len(lines),i+3)))
+                    for i in sorted(indices):print(repr(lines[i][:350]),flush=True)
+                    samples+=1
                 adapter=adapter_for(u)
                 coverage=set()
                 field_codes={}
