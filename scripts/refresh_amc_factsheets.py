@@ -85,51 +85,56 @@ def main():
                 if date!=newest or date>dt.date.today():continue
                 doc={'url':u,'status':'downloading'}
                 report['documents'].append(doc)
-                response=load(u)
-                if not response.content.startswith(b"%PDF"):
-                    doc["status"]="not_pdf"
+                try:
+                    response=load(u)
+                    if not response.content.startswith(b"%PDF"):
+                        doc["status"]="not_pdf"
+                        continue
+                    with tempfile.TemporaryDirectory() as tmp:
+                        f=Path(tmp)/"factsheet.pdf";f.write_bytes(response.content)
+                        content=subprocess.check_output(["pdftotext","-layout",str(f),"-"],timeout=90).decode("utf-8",errors="replace")
+                    import calendar
+                    asof=date.replace(day=calendar.monthrange(date.year,date.month)[1]).isoformat()
+                    if asof>dt.date.today().isoformat():continue
+                    print("PDF:",u,"pages:",len(content.split("\f")),"characters:",len(content),flush=True)
+                    # Bounded layout evidence for all accessible AMC documents.
+                    samples=0
+                    for number,page in enumerate(content.split("\f"),1):
+                        lines=page.splitlines()
+                        relevant=[i for i,line in enumerate(lines) if re.search(r"\b(?:benchmark|fund manager|assets under management|average aum|expense ratio|standard deviation)\b",line,re.I)]
+                        if not relevant:continue
+                        if samples>=8:break
+                        print("Layout sample",urlparse(u).hostname,"page",number,flush=True)
+                        indices=set(range(min(10,len(lines))))
+                        for i in relevant[:8]:indices.update(range(max(0,i-1),min(len(lines),i+3)))
+                        for i in sorted(indices):print(repr(lines[i][:350]),flush=True)
+                        samples+=1
+                    adapter=adapter_for(u)
+                    coverage=set()
+                    field_codes={}
+                    codes=set()
+                    matched_names=set()
+                    matched_pages=0
+                    for page in content.split("\f"):
+                        rows=adapter.rows(page,names)
+                        for name,benchmark,fields in rows:
+                            matched_names.add(name)
+                        for n,value,fields in rows:
+                            validated=validate_fields(fields,asof)
+                            if set(fields)-set(validated):print('Rejected fields:',n,sorted(set(fields)-set(validated)),flush=True)
+                            fields=validated
+                            coverage.update(fields.keys())
+                            matched_pages+=1
+                            for code,isins in names[n]:
+                                codes.add(code)
+                                for key in fields:field_codes.setdefault(key,set()).add(code)
+                                found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
+                    doc.update(status="extracted" if codes else "no_matches",adapter=adapter.name,reportingMonth=asof,distinctSchemes=len(matched_names),candidateCodes=len(codes),fieldCodeCounts={k:len(v) for k,v in field_codes.items()})
+                    print("Matched pages:",matched_pages,"adapter:",adapter.name,"distinct schemes:",len(matched_names),"fields:",sorted(coverage),flush=True)
+                except (requests.RequestException, subprocess.SubprocessError, OSError, ValueError) as exc:
+                    doc.update(status='failed',errorType=type(exc).__name__)
+                    print('Document failed:',u,str(exc),flush=True)
                     continue
-                with tempfile.TemporaryDirectory() as tmp:
-                    f=Path(tmp)/"factsheet.pdf";f.write_bytes(response.content)
-                    content=subprocess.check_output(["pdftotext","-layout",str(f),"-"],timeout=90).decode("utf-8",errors="replace")
-                import calendar
-                asof=date.replace(day=calendar.monthrange(date.year,date.month)[1]).isoformat()
-                if asof>dt.date.today().isoformat():continue
-                print("PDF:",u,"pages:",len(content.split("\f")),"characters:",len(content),flush=True)
-                # Bounded layout evidence for all accessible AMC documents.
-                samples=0
-                for number,page in enumerate(content.split("\f"),1):
-                    lines=page.splitlines()
-                    relevant=[i for i,line in enumerate(lines) if re.search(r"\b(?:benchmark|fund manager|assets under management|average aum|expense ratio|standard deviation)\b",line,re.I)]
-                    if not relevant:continue
-                    if samples>=8:break
-                    print("Layout sample",urlparse(u).hostname,"page",number,flush=True)
-                    indices=set(range(min(10,len(lines))))
-                    for i in relevant[:8]:indices.update(range(max(0,i-1),min(len(lines),i+3)))
-                    for i in sorted(indices):print(repr(lines[i][:350]),flush=True)
-                    samples+=1
-                adapter=adapter_for(u)
-                coverage=set()
-                field_codes={}
-                codes=set()
-                matched_names=set()
-                matched_pages=0
-                for page in content.split("\f"):
-                    rows=adapter.rows(page,names)
-                    for name,benchmark,fields in rows:
-                        matched_names.add(name)
-                    for n,value,fields in rows:
-                        validated=validate_fields(fields,asof)
-                        if set(fields)-set(validated):print('Rejected fields:',n,sorted(set(fields)-set(validated)),flush=True)
-                        fields=validated
-                        coverage.update(fields.keys())
-                        matched_pages+=1
-                        for code,isins in names[n]:
-                            codes.add(code)
-                            for key in fields:field_codes.setdefault(key,set()).add(code)
-                            found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})
-                doc.update(status="extracted" if codes else "no_matches",adapter=adapter.name,reportingMonth=asof,distinctSchemes=len(matched_names),candidateCodes=len(codes),fieldCodeCounts={k:len(v) for k,v in field_codes.items()})
-                print("Matched pages:",matched_pages,"adapter:",adapter.name,"distinct schemes:",len(matched_names),"fields:",sorted(coverage),flush=True)
         except Exception as e:
             source.update(status="failed",errorType=type(e).__name__)
             print("Source failed:",url,str(e),flush=True)
