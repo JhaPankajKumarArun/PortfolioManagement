@@ -4913,7 +4913,7 @@
       "isins": [
         "INF204KB12W7"
       ],
-      "latestReportingDate": "2025-07-31",
+      "latestReportingDate": "2026-03-31",
       "snapshots": {
         "2025-07-31": {
           "benchmark": "Nifty Smallcap 250 TRI",
@@ -4928,6 +4928,20 @@
             }
           },
           "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/NipponIndia-Factsheet-July-2025.pdf"
+        },
+        "2026-03-31": {
+          "benchmark": "Nifty Smallcap 250 TRI",
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.78
+            }
+          },
+          "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Mar-2026.pdf"
         }
       }
     },
@@ -4936,7 +4950,7 @@
       "isins": [
         "INF204KB15W0"
       ],
-      "latestReportingDate": "2025-07-31",
+      "latestReportingDate": "2026-03-31",
       "snapshots": {
         "2025-07-31": {
           "benchmark": "Nifty Smallcap 250 TRI",
@@ -4951,6 +4965,20 @@
             }
           },
           "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/NipponIndia-Factsheet-July-2025.pdf"
+        },
+        "2026-03-31": {
+          "benchmark": "Nifty Smallcap 250 TRI",
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.78
+            }
+          },
+          "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Mar-2026.pdf"
         }
       }
     },
@@ -4960,7 +4988,7 @@
         "INF204KB13W5",
         "INF204KB14W3"
       ],
-      "latestReportingDate": "2025-07-31",
+      "latestReportingDate": "2026-03-31",
       "snapshots": {
         "2025-07-31": {
           "benchmark": "Nifty Smallcap 250 TRI",
@@ -4975,6 +5003,20 @@
             }
           },
           "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/NipponIndia-Factsheet-July-2025.pdf"
+        },
+        "2026-03-31": {
+          "benchmark": "Nifty Smallcap 250 TRI",
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.78
+            }
+          },
+          "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Mar-2026.pdf"
         }
       }
     },
@@ -4984,7 +5026,7 @@
         "INF204KB16W8",
         "INF204KB17W6"
       ],
-      "latestReportingDate": "2025-07-31",
+      "latestReportingDate": "2026-03-31",
       "snapshots": {
         "2025-07-31": {
           "benchmark": "Nifty Smallcap 250 TRI",
@@ -4999,6 +5041,20 @@
             }
           },
           "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/NipponIndia-Factsheet-July-2025.pdf"
+        },
+        "2026-03-31": {
+          "benchmark": "Nifty Smallcap 250 TRI",
+          "metrics": {
+            "beta": {
+              "unit": "",
+              "value": 0.97
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.78
+            }
+          },
+          "source": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Mar-2026.pdf"
         }
       }
     },

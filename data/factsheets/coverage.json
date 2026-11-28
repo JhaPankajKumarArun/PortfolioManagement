@@ -410,18 +410,18 @@
         "beta": 4,
         "sharpe": 4
       },
-      "reportingMonth": "2025-07-31",
+      "reportingMonth": "2026-03-31",
       "status": "extracted",
-      "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/NipponIndia-Factsheet-July-2025.pdf"
+      "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Mar-2026.pdf"
     },
     {
       "adapter": "generic",
       "candidateCodes": 0,
       "distinctSchemes": 0,
       "fieldCodeCounts": {},
-      "reportingMonth": "2026-04-30",
+      "reportingMonth": "2026-10-31",
       "status": "no_matches",
-      "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet-April_2026.pdf"
+      "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_October_2026.pdf"
     },
     {
       "adapter": "hsbc",
@@ -450,9 +450,9 @@
       "candidateCodes": 0,
       "distinctSchemes": 0,
       "fieldCodeCounts": {},
-      "reportingMonth": "2026-09-30",
+      "reportingMonth": "2026-10-31",
       "status": "no_matches",
-      "url": "https://www.canararobeco.com/wp-content/uploads/2026/10/Canara-Robeco-factsheet-as-on-September-2026.pdf"
+      "url": "https://www.barodabnpparibasmf.in/assets/download_documents/Factsheet-October_2026_20826.pdf"
     },
     {
       "adapter": "generic",
@@ -504,6 +504,15 @@
       "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
     },
     {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.oldbridgemf.com/uploads/Old_Bridge_MF_Oct_26_Factsheet_0f9bcd44aa.pdf"
+    },
+    {
       "adapter": "pgim",
       "candidateCodes": 32,
       "distinctSchemes": 7,
@@ -518,6 +527,29 @@
       "reportingMonth": "2026-10-31",
       "status": "extracted",
       "url": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/85cf48e2-ce33-4b90-a887-b89ce36b45f4.pdf"
+    },
+    {
+      "errorType": "HTTPError",
+      "status": "failed",
+      "url": "https://www.samcomf.com/amc-document-download/Factsheet-October2026_1793705471.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-October2026_1793705471.pdf"
     },
     {
       "adapter": "sbi",
@@ -544,9 +576,9 @@
       "candidateCodes": 0,
       "distinctSchemes": 0,
       "fieldCodeCounts": {},
-      "reportingMonth": "2026-09-30",
+      "reportingMonth": "2026-10-31",
       "status": "no_matches",
-      "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Fact-Sheet/2026-2027/Factsheet-September-2026.pdf"
+      "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Fact-Sheet/2026-2027/Shriram-AMC-October-2026.pdf"
     },
     {
       "adapter": "generic",
@@ -563,14 +595,10 @@
       "configuredAMCs": [
         "PPFAS"
       ],
-      "datedLinks": 158,
+      "datedLinks": 159,
       "pdfLinks": 164,
       "status": "discovered",
       "unrecognizedDateSamples": [
-        {
-          "title": "Download Factsheet",
-          "url": "https://amc.ppfas.com/downloads/factsheet/2018/facsheet_May_2018_New.pdf?07022022"
-        },
         {
           "title": "Download Factsheet",
           "url": "https://amc.ppfas.com/downloads/factsheet/2018/pltvf-factsheet-februaryweb-2018.pdf?07022022"
@@ -606,42 +634,10 @@
       "configuredAMCs": [
         "Nippon India"
       ],
-      "datedLinks": 63,
+      "datedLinks": 99,
       "pdfLinks": 180,
       "status": "discovered",
       "unrecognizedDateSamples": [
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Aug-2025.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Dec-2025.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Feb-2026.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Jan-2026.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Mar-2026.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Nov-2025.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Oct-2025.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/Nippon-FS-Sep-2025.pdf"
-        },
         {
           "title": "Download",
           "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheetsDocuments/Nippon-FS-APR-2026.pdf"
@@ -657,6 +653,38 @@
         {
           "title": "Download",
           "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheetsDocuments/Nippon-FS-JUNE-2026.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheetsDocuments/Nippon-FS-MAY-2026.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheetsDocuments/Nippon-FS-November-2026.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheetsDocuments/Nippon-FS-October-2026.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheetsDocuments/Nippon-FS-September-2026.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactsheetsDocuments/Changes-in-Riskometers-in-FY21.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactsheetsDocuments/Changes-in-Riskometers-in-FY22.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactsheetsDocuments/Changes-in-Riskometers-in-FY23.pdf"
+        },
+        {
+          "title": "D\u200bownload",
+          "url": "https://mf.nipponindiaim.com/InvestorServices/FactsheetsDocuments/Changes-in-Riskometers-in-FY24.pdf"
         }
       ],
       "url": "https://mf.nipponindiaim.com/investor-service/downloads/factsheet-portfolio-and-other-disclosures"
@@ -685,49 +713,13 @@
       "configuredAMCs": [
         "quant"
       ],
-      "datedLinks": 1,
+      "datedLinks": 10,
       "pdfLinks": 16,
       "status": "discovered",
       "unrecognizedDateSamples": [
         {
           "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_-_August_2026.pdf"
-        },
-        {
-          "title": "",
           "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_-_November_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_-_September_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_February_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_January_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_July_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_June_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_March_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_May_2026.pdf"
-        },
-        {
-          "title": "",
-          "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet_October_2026.pdf"
         }
       ],
       "url": "https://quantmutual.com/downloads/factsheet"
@@ -786,25 +778,20 @@
       "configuredAMCs": [
         "Baroda BNP Paribas"
       ],
-      "datedLinks": 0,
+      "datedLinks": 1,
       "pdfLinks": 11,
-      "status": "no_dated_pdf",
-      "unrecognizedDateSamples": [
-        {
-          "title": "Copy Link",
-          "url": "https://www.barodabnpparibasmf.in/assets/download_documents/Factsheet-October_2026_20826.pdf"
-        }
-      ],
+      "status": "discovered",
+      "unrecognizedDateSamples": [],
       "url": "https://www.barodabnpparibasmf.in/downloads/monthly-factsheet"
     },
     {
       "configuredAMCs": [
         "Canara Robeco"
       ],
-      "datedLinks": 10,
-      "pdfLinks": 32,
-      "status": "discovered",
-      "unrecognizedDateSamples": [],
+      "datedLinks": 0,
+      "errorType": "HTTPError",
+      "pdfLinks": 0,
+      "status": "failed",
       "url": "https://www.canararobeco.com/documents/forms-downloads/forms-information-documents/information-documents/factsheets/"
     },
     {
@@ -1042,42 +1029,10 @@
       "configuredAMCs": [
         "Old Bridge"
       ],
-      "datedLinks": 0,
+      "datedLinks": 26,
       "pdfLinks": 37,
-      "status": "no_dated_pdf",
+      "status": "discovered",
       "unrecognizedDateSamples": [
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_April_2024.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_August_2024.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_February_2024.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_July_2024.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_June_2024.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_March_24.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_May_2024.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://oldbridgemf.com/img/docs/factsheet/2024/Old_Bridge_Mutual_Fund_Factsheet_September_2024.pdf"
-        },
         {
           "title": "Download",
           "url": "https://oldbridgemf.com/uploads/OLD_BRIDGE_MF_Factsheet_11305a79bc.pdf"
@@ -1093,6 +1048,18 @@
         {
           "title": "Download",
           "url": "https://oldbridgemf.com/uploads/OLD_BRIDGE_MF_Factsheet_9e86cb1c2f.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://oldbridgemf.com/uploads/OLD_BRIDGE_MF_Factsheet_c89e4d53ae.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://oldbridgemf.com/uploads/OLD_BRIDGE_MF_Factsheet_f1a71a6cfc.pdf"
+        },
+        {
+          "title": "Download",
+          "url": "https://www.oldbridgemf.com/uploads/Old_Bridge_MF_Sept_26_Factsheet_a930721e44.pdf"
         }
       ],
       "url": "https://www.oldbridgemf.com/factsheet.html"
@@ -1119,116 +1086,67 @@
       "configuredAMCs": [
         "Quantum"
       ],
-      "datedLinks": 0,
+      "datedLinks": 20,
       "pdfLinks": 23,
-      "status": "no_dated_pdf",
-      "unrecognizedDateSamples": [
-        {
-          "title": "October 2025 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/00536281-16a1-488f-ab09-cf652e624dcb.pdf"
-        },
-        {
-          "title": "August 2025 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/0f2adf58-8315-450b-8ccd-5c71182061a1.pdf"
-        },
-        {
-          "title": "September 2025 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/149583bc-328a-4f58-9471-ce534c1631b1.pdf"
-        },
-        {
-          "title": "May 2025 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/18c8a6d8-0adf-49cf-8538-456e3f6c917c.pdf"
-        },
-        {
-          "title": "April 2026 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/2020202f-e9c8-436a-9918-4a355b04891b.pdf"
-        },
-        {
-          "title": "September 2026 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/4b3baa4e-ad9b-4edb-bacc-8664fc058bf5.pdf"
-        },
-        {
-          "title": "January 2026 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/54ae1d5a-4bd2-45df-8d18-30ea05ae89fc.pdf"
-        },
-        {
-          "title": "July 2026 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/5d2d6fde-bc37-4ce2-9318-73b6756d9652.pdf"
-        },
-        {
-          "title": "March 2025 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/62acb490-f057-4eaa-98f9-19a673412f3f.pdf"
-        },
-        {
-          "title": "December 2025 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/6cfd8234-9554-4253-b31c-fe3631029329.pdf"
-        },
-        {
-          "title": "August 2026 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/78e1877b-60c4-412e-9750-67d95b1fc607.pdf"
-        },
-        {
-          "title": "February 2026 - All Funds",
-          "url": "https://www.quantumamc.com/FileCDN/FactSheet/7a7e5834-2b8a-4800-97ab-ef22ffa89fb8.pdf"
-        }
-      ],
+      "status": "discovered",
+      "unrecognizedDateSamples": [],
       "url": "https://www.quantumamc.com/factsheets/combined/-1/0/0"
     },
     {
       "configuredAMCs": [
         "Samco"
       ],
-      "datedLinks": 0,
+      "datedLinks": 86,
       "pdfLinks": 1254,
-      "status": "no_dated_pdf",
+      "status": "discovered",
       "unrecognizedDateSamples": [
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-April2025_1746112453.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/FactsheetAugust2025_1756654934.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-August2026_1788525518.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/July2024Factsheet_04_1722595917.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-December2025_1767286957.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/June2024Factsheet_1719983821.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-February2026_1772364702.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/MethodologyforFactsheet_1788179550.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-January2025_1738414735.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMF_Factsheet_May_1685628829.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-January2026_1769959976.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMutualFundFactsheetAugust2022_1662368994.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-July2025_1754061514.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMutualFundFactsheetDecember2024_1735742187.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-July2026_1785606935.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMutualFundFactsheetFeb2022_1646475996.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-June2025_1751384647.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMutualFundFactsheetJuly2022_1659529560.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-June2026_1782920868.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMutualFundFactsheetJune2022_1657029919.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-March2024_1712044405.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMutualFundFactsheetMay2024_1717414656.pdf"
         },
         {
           "title": "",
-          "url": "https://media.samcomf.com/scomamc/amc_documents/Factsheet-March2025_1743490800.pdf"
+          "url": "https://media.samcomf.com/scomamc/amc_documents/SamcoMutualFundFactsheetOctober2022_1667452917.pdf"
         }
       ],
       "url": "https://www.samcomf.com/downloads"
@@ -1255,7 +1173,7 @@
       "configuredAMCs": [
         "Shriram"
       ],
-      "datedLinks": 96,
+      "datedLinks": 153,
       "pdfLinks": 155,
       "status": "discovered",
       "unrecognizedDateSamples": [
@@ -1265,47 +1183,7 @@
         },
         {
           "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Fact-Sheet/2026-2027/Shriram-AMC-October-2026.pdf"
-        },
-        {
-          "title": "Download",
           "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2017-2018/Final-Factsheet-170118.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-(Full)-December-2018.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-(Full)-February-2019.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-(Full)-January-2019.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-(Full)-March-2019.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-(Full)-November-2018.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-(Full)-October-2018.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-Full-July-2018.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-Full-June-2018.pdf"
-        },
-        {
-          "title": "Download",
-          "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Monthly-Fact-Sheet/2018-2019/AMC-Fund-Facts-Brochure-Full-May-2018.pdf"
         }
       ],
       "url": "https://www.shriramamc.in/factsheet"
