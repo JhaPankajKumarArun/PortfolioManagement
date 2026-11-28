@@ -1,5 +1,5 @@
 {
-  "acceptedCodes": 208,
+  "acceptedCodes": 212,
   "amcCount": 55,
   "amcUniverse": [
     {
@@ -256,9 +256,9 @@
     },
     {
       "amfiCodes": 1870,
-      "candidateCodes": 0,
-      "catalogCodes": 0,
-      "codesWithMetrics": 0,
+      "candidateCodes": 4,
+      "catalogCodes": 4,
+      "codesWithMetrics": 4,
       "name": "Nippon India Mutual Fund"
     },
     {
@@ -389,9 +389,39 @@
     }
   ],
   "amfiCodes": 14486,
-  "candidateCodes": 208,
-  "catalogCodes": 368,
+  "candidateCodes": 212,
+  "catalogCodes": 372,
   "documents": [
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://amc.ppfas.com/downloads/factsheet/2026/ppfas-mf-factsheet-for-October-2026.pdf?20112026"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 4,
+      "distinctSchemes": 1,
+      "fieldCodeCounts": {
+        "beta": 4,
+        "sharpe": 4
+      },
+      "reportingMonth": "2025-07-31",
+      "status": "extracted",
+      "url": "https://mf.nipponindiaim.com/InvestorServices/FactSheets/NipponIndia-Factsheet-July-2025.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-04-30",
+      "status": "no_matches",
+      "url": "https://quantmutual.com/Admin/Factsheet/quant_Factsheet-April_2026.pdf"
+    },
     {
       "adapter": "hsbc",
       "candidateCodes": 56,
@@ -412,6 +442,24 @@
       "reportingMonth": "2026-10-31",
       "status": "extracted",
       "url": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.heliosmf.in/wp-content/uploads/2026/11/helios-mutual-fund-factsheet-oct-26.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.licmf.com/assets/downloads/monthly_fact_sheet/2026-2027/11/lic-mf-factsheet-31st-october-2026-294800677.pdf"
     },
     {
       "adapter": "motilal-oswal",
@@ -457,9 +505,79 @@
       "reportingMonth": "2026-10-31",
       "status": "extracted",
       "url": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-09-30",
+      "status": "no_matches",
+      "url": "https://cdn.shriramamc.in/uploads/fact-sheet/Fact-Sheet/2026-2027/Factsheet-September-2026.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://assets.zerodhafundhouse.com/offer-documents/factsheet/Factsheet - Oct 26.pdf"
     }
   ],
   "sources": [
+    {
+      "datedLinks": 159,
+      "pdfLinks": 164,
+      "status": "discovered",
+      "url": "https://amc.ppfas.com/downloads/factsheet/"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 8,
+      "status": "no_dated_pdf",
+      "url": "https://downloads.njmutualfund.com/downloads.php"
+    },
+    {
+      "datedLinks": 63,
+      "pdfLinks": 180,
+      "status": "discovered",
+      "url": "https://mf.nipponindiaim.com/investor-service/downloads/factsheet-portfolio-and-other-disclosures"
+    },
+    {
+      "datedLinks": 0,
+      "errorType": "HTTPError",
+      "pdfLinks": 0,
+      "status": "failed",
+      "url": "https://mf.whiteoakamc.com/download"
+    },
+    {
+      "datedLinks": 0,
+      "errorType": "HTTPError",
+      "pdfLinks": 0,
+      "status": "failed",
+      "url": "https://navi.com/mutual-fund/downloads/factsheet"
+    },
+    {
+      "datedLinks": 1,
+      "pdfLinks": 16,
+      "status": "discovered",
+      "url": "https://quantmutual.com/downloads/factsheet"
+    },
+    {
+      "datedLinks": 0,
+      "errorType": "ConnectionError",
+      "pdfLinks": 0,
+      "status": "failed",
+      "url": "https://unionmf.com/about-us/downloads/factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "errorType": "ConnectionError",
+      "pdfLinks": 0,
+      "status": "failed",
+      "url": "https://www.archive.icicipruamc.com/downloads/factsheet-and-portfolio"
+    },
     {
       "datedLinks": 117,
       "pdfLinks": 8457,
@@ -468,10 +586,77 @@
     },
     {
       "datedLinks": 0,
+      "pdfLinks": 12,
+      "status": "no_dated_pdf",
+      "url": "https://www.dspim.com/factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "errorType": "HTTPError",
+      "pdfLinks": 0,
+      "status": "failed",
+      "url": "https://www.edelweissmf.com/downloads/factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.franklintempletonindia.com/downloads/fund-documents"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 4,
+      "status": "no_dated_pdf",
+      "url": "https://www.growwmf.in/downloads/fact-sheet"
+    },
+    {
+      "datedLinks": 0,
       "errorType": "HTTPError",
       "pdfLinks": 0,
       "status": "failed",
       "url": "https://www.hdfcfund.com/mutual-funds/factsheets"
+    },
+    {
+      "datedLinks": 35,
+      "pdfLinks": 457,
+      "status": "discovered",
+      "url": "https://www.heliosmf.in/downloads/"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.invescomutualfund.com/literature-and-form?tab=Factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.itiamc.com/downloads"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.jmfinancialmf.com/downloads/Factsheet/Factsheet"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.kotakmf.com/Information/forms-and-downloads"
+    },
+    {
+      "datedLinks": 8,
+      "pdfLinks": 31,
+      "status": "discovered",
+      "url": "https://www.licmf.com/downloads/factsheet"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.mahindramanulife.com/downloads#mandatory-disclosures"
     },
     {
       "datedLinks": 0,
@@ -486,16 +671,89 @@
       "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
     },
     {
+      "datedLinks": 0,
+      "pdfLinks": 21,
+      "status": "no_dated_pdf",
+      "url": "https://www.motilaloswalmf.com/download/factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 37,
+      "status": "no_dated_pdf",
+      "url": "https://www.oldbridgemf.com/factsheet.html"
+    },
+    {
       "datedLinks": 1,
       "pdfLinks": 1,
       "status": "discovered",
       "url": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
     },
     {
+      "datedLinks": 0,
+      "errorType": "HTTPError",
+      "pdfLinks": 0,
+      "status": "failed",
+      "url": "https://www.pgimindiamf.com/forms-and-updates/fund-factsheet"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 1254,
+      "status": "no_dated_pdf",
+      "url": "https://www.samcomf.com/downloads"
+    },
+    {
       "datedLinks": 1,
       "pdfLinks": 1,
       "status": "discovered",
       "url": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 5,
+      "status": "no_dated_pdf",
+      "url": "https://www.sbimf.com/factsheets"
+    },
+    {
+      "datedLinks": 96,
+      "pdfLinks": 155,
+      "status": "discovered",
+      "url": "https://www.shriramamc.in/factsheet"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 1,
+      "status": "no_dated_pdf",
+      "url": "https://www.sundarammutual.com/Downloads"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 5,
+      "status": "no_dated_pdf",
+      "url": "https://www.tatamutualfund.com/information-documents"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 30,
+      "status": "no_dated_pdf",
+      "url": "https://www.taurusmutualfund.com/factsheet"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.trustmf.com/downloads?activeTab=factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 0,
+      "status": "no_dated_pdf",
+      "url": "https://www.utimf.com/downloads/fact-sheet"
+    },
+    {
+      "datedLinks": 36,
+      "pdfLinks": 114,
+      "status": "discovered",
+      "url": "https://www.zerodhafundhouse.com/resources/fund-documents/"
     }
   ],
   "unclassifiedAmfiCodes": 0
