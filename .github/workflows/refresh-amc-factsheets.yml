@@ -10,6 +10,7 @@ on:
       - 'scripts/refresh_amc_factsheets.py'
       - 'scripts/factsheet_metrics.py'
       - 'scripts/factsheet_adapters.py'
+      - 'scripts/factsheet_schema.py'
       - 'scripts/test_factsheet_metrics.py'
 permissions:
   contents: write

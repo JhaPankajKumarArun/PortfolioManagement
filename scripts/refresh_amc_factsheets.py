@@ -6,6 +6,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
+from factsheet_schema import validate_fields
 from factsheet_adapters import adapter_for, extract, hsbc_profile
 import requests
 from bs4 import BeautifulSoup
@@ -90,6 +91,9 @@ def main():
                         coverage.update(fields.keys())
                         matched_names.add(name)
                     for n,value,fields in rows:
+                        validated=validate_fields(fields,asof)
+                        if set(fields)-set(validated):print('Rejected fields:',n,sorted(set(fields)-set(validated)),flush=True)
+                        fields=validated
                         matched_pages+=1
                         for code,isins in names[n]:
                             found.setdefault(code,[]).append({"name":value,"isins":isins,"source":u,"verifiedAsOf":asof,"metrics":fields})

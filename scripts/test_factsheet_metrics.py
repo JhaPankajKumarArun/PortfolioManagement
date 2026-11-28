@@ -75,3 +75,10 @@ class AdapterTests(unittest.TestCase):
         from factsheet_adapters import adapter_for
         self.assertEqual(adapter_for("https://www.assetmanagement.hsbc.co.in/a.pdf").name,"hsbc")
         self.assertEqual(adapter_for("https://example.org/a.pdf").name,"generic")
+
+
+class SchemaTests(unittest.TestCase):
+    def test_validation(self):
+        from factsheet_schema import validate_fields
+        fields={"aum":{"value":100,"unit":"Cr"},"beta":{"value":float("nan"),"unit":""},"directBER":{"value":0.5,"unit":"%"},"largeCap":{"value":101,"unit":"%"},"inceptionDate":"2027-01-01"}
+        self.assertEqual(set(validate_fields(fields,"2026-10-31")),{"aum","directBER"})
