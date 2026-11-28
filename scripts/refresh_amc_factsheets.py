@@ -132,7 +132,13 @@ def main():
                             fields={**hsbc_metrics(page),**hsbc_details(page)}
                             rows.append((profile[0],profile[1],fields))
                             print("Profile:",profile[0],"benchmark:",profile[1],"metrics:",sorted(fields),flush=True)
-                            for line in page.splitlines():
+                            profile_lines=page.splitlines()
+                            for i,line in enumerate(profile_lines):
+                                if re.search(r"fund manager|fund performance|returns for last|since inception|compounded|annualised returns",line,re.I):
+                                    print("Manager/performance layout:",i,repr(line[:400]),flush=True)
+                                    for following in profile_lines[i+1:i+4]:
+                                        print("Layout continuation:",repr(following[:400]),flush=True)
+                            for line in profile_lines:
                                 if re.search(r"AUM|expense ratio|sharpe|sortino|standard deviation|turnover|beta|date of inception",line,re.I):
                                     print("Metric layout:",repr(line[:300]),flush=True)
                     for n,value,fields in rows:
