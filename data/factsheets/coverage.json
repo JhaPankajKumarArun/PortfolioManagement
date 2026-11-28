@@ -1,0 +1,95 @@
+{
+  "acceptedCodes": 56,
+  "amfiCodes": 14486,
+  "candidateCodes": 56,
+  "catalogCodes": 216,
+  "documents": [
+    {
+      "adapter": "hsbc",
+      "candidateCodes": 56,
+      "distinctSchemes": 14,
+      "fieldCodeCounts": {
+        "aum": 56,
+        "averageAum": 56,
+        "beta": 44,
+        "directBER": 56,
+        "equityTurnoverMultiple": 52,
+        "grossTurnoverMultiple": 56,
+        "inceptionDate": 44,
+        "publishedPerformance": 52,
+        "regularBER": 56,
+        "sharpe": 44,
+        "stddev": 44
+      },
+      "reportingMonth": "2026-10-31",
+      "status": "extracted",
+      "url": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
+    },
+    {
+      "adapter": "generic",
+      "candidateCodes": 0,
+      "distinctSchemes": 0,
+      "fieldCodeCounts": {},
+      "reportingMonth": "2026-10-31",
+      "status": "no_matches",
+      "url": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
+    }
+  ],
+  "sources": [
+    {
+      "datedLinks": 117,
+      "pdfLinks": 8457,
+      "status": "discovered",
+      "url": "https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources?Doc=fund-factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "errorType": "HTTPError",
+      "pdfLinks": 0,
+      "status": "failed",
+      "url": "https://www.hdfcfund.com/mutual-funds/factsheets"
+    },
+    {
+      "datedLinks": 0,
+      "pdfLinks": 17,
+      "status": "no_dated_pdf",
+      "url": "https://www.miraeassetmf.co.in/downloads/factsheet"
+    },
+    {
+      "datedLinks": 1,
+      "pdfLinks": 1,
+      "status": "discovered",
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf"
+    },
+    {
+      "datedLinks": 1,
+      "pdfLinks": 1,
+      "status": "discovered",
+      "url": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf"
+    },
+    {
+      "datedLinks": 1,
+      "pdfLinks": 1,
+      "status": "discovered",
+      "url": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf"
+    }
+  ]
+}
