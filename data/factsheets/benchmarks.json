@@ -8,7 +8,36 @@
             "INF336L01024",
             "INF336L01032"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1753.19
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1749.58
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.91
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.34
+            }
+          },
           "name": "Nifty 100 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -18,7 +47,36 @@
         "INF336L01024",
         "INF336L01032"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1753.19
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1749.58
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.91
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.34
+        }
+      },
       "name": "Nifty 100 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -29,7 +87,36 @@
           "isins": [
             "INF336L01016"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1753.19
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1749.58
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.91
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.34
+            }
+          },
           "name": "Nifty 100 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -38,7 +125,36 @@
       "isins": [
         "INF336L01016"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1753.19
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1749.58
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.91
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.34
+        }
+      },
       "name": "Nifty 100 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -92,7 +208,36 @@
             "INF336L01AE8",
             "INF336L01AD0"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5610.75
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5670.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.04
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.51
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.55
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -102,7 +247,36 @@
         "INF336L01AE8",
         "INF336L01AD0"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5610.75
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5670.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.04
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.51
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.55
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -113,7 +287,36 @@
           "isins": [
             "INF336L01AF5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5610.75
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5670.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.04
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.51
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.55
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -122,7 +325,36 @@
       "isins": [
         "INF336L01AF5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5610.75
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5670.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.04
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.51
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.55
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -239,7 +471,32 @@
           "isins": [
             "INF336L01164"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 295.12
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 371.14
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.17
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.32
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 24.93
+            }
+          },
           "name": "MSCI Brazil 10/40 Index TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -248,7 +505,32 @@
       "isins": [
         "INF336L01164"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 295.12
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 371.14
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.17
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.32
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 24.93
+        }
+      },
       "name": "MSCI Brazil 10/40 Index TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -260,7 +542,32 @@
             "INF336L01172",
             "INF336L01180"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 295.12
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 371.14
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.17
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.32
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 24.93
+            }
+          },
           "name": "MSCI Brazil 10/40 Index TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -270,7 +577,32 @@
         "INF336L01172",
         "INF336L01180"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 295.12
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 371.14
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.17
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.32
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 24.93
+        }
+      },
       "name": "MSCI Brazil 10/40 Index TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -446,7 +778,36 @@
             "INF336L01CK1",
             "INF336L01CL9"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1753.19
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1749.58
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.91
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.34
+            }
+          },
           "name": "Nifty 100 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -456,7 +817,36 @@
         "INF336L01CK1",
         "INF336L01CL9"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1753.19
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1749.58
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.91
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.34
+        }
+      },
       "name": "Nifty 100 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -467,7 +857,36 @@
           "isins": [
             "INF336L01CM7"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1753.19
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1749.58
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.91
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.52
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.3
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.34
+            }
+          },
           "name": "Nifty 100 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -476,7 +895,36 @@
       "isins": [
         "INF336L01CM7"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1753.19
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1749.58
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.91
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.52
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.3
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.34
+        }
+      },
       "name": "Nifty 100 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -487,7 +935,32 @@
           "isins": [
             "INF336L01BY4"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 295.12
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 371.14
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.17
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.32
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 24.93
+            }
+          },
           "name": "MSCI Brazil 10/40 Index TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -496,7 +969,32 @@
       "isins": [
         "INF336L01BY4"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 295.12
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 371.14
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.17
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.32
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 24.93
+        }
+      },
       "name": "MSCI Brazil 10/40 Index TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -508,7 +1006,32 @@
             "INF336L01BW8",
             "INF336L01BX6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 295.12
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 371.14
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.17
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.32
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 24.93
+            }
+          },
           "name": "MSCI Brazil 10/40 Index TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -518,7 +1041,32 @@
         "INF336L01BW8",
         "INF336L01BX6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 295.12
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 371.14
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.17
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.32
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 24.93
+        }
+      },
       "name": "MSCI Brazil 10/40 Index TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -656,7 +1204,36 @@
             "INF336L01DF9",
             "INF336L01DG7"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5610.75
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5670.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.04
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.51
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.55
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -666,7 +1243,36 @@
         "INF336L01DF9",
         "INF336L01DG7"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5610.75
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5670.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.04
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.51
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.55
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -677,7 +1283,36 @@
           "isins": [
             "INF336L01DH5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5610.75
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5670.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.04
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.53
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.51
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.55
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -686,7 +1321,36 @@
       "isins": [
         "INF336L01DH5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5610.75
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5670.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.04
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.53
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.51
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.55
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -804,7 +1468,36 @@
             "INF336L01NZ6",
             "INF336L01OA7"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5840.63
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5790.11
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.58
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 18.67
+            }
+          },
           "name": "NIFTY Large Midcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -814,7 +1507,36 @@
         "INF336L01NZ6",
         "INF336L01OA7"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5840.63
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5790.11
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.58
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 18.67
+        }
+      },
       "name": "NIFTY Large Midcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -826,7 +1548,36 @@
             "INF336L01NW3",
             "INF336L01NX1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5840.63
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5790.11
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.58
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 18.67
+            }
+          },
           "name": "NIFTY Large Midcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -836,7 +1587,36 @@
         "INF336L01NW3",
         "INF336L01NX1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5840.63
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5790.11
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.58
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 18.67
+        }
+      },
       "name": "NIFTY Large Midcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -847,7 +1627,36 @@
           "isins": [
             "INF336L01NY9"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5840.63
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5790.11
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.58
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 18.67
+            }
+          },
           "name": "NIFTY Large Midcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -856,7 +1665,36 @@
       "isins": [
         "INF336L01NY9"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5840.63
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5790.11
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.58
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 18.67
+        }
+      },
       "name": "NIFTY Large Midcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -867,7 +1705,36 @@
           "isins": [
             "INF336L01NV5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5840.63
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5790.11
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.56
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.58
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 18.67
+            }
+          },
           "name": "NIFTY Large Midcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -876,7 +1743,36 @@
       "isins": [
         "INF336L01NV5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5840.63
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5790.11
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.56
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.58
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 18.67
+        }
+      },
       "name": "NIFTY Large Midcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1219,7 +2115,36 @@
           "isins": [
             "INF336L01PE6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1688.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1711.89
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.43
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.22
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1228,7 +2153,36 @@
       "isins": [
         "INF336L01PE6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1688.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1711.89
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.43
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.22
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1240,7 +2194,36 @@
             "INF336L01PF3",
             "INF336L01PG1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1688.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1711.89
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.43
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.22
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1250,7 +2233,36 @@
         "INF336L01PF3",
         "INF336L01PG1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1688.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1711.89
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.43
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.22
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1261,7 +2273,36 @@
           "isins": [
             "INF336L01PB2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1688.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1711.89
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.43
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.22
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1270,7 +2311,36 @@
       "isins": [
         "INF336L01PB2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1688.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1711.89
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.43
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.22
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1282,7 +2352,36 @@
             "INF336L01PC0",
             "INF336L01PD8"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1688.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1711.89
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.44
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.43
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.22
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1292,7 +2391,36 @@
         "INF336L01PC0",
         "INF336L01PD8"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1688.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1711.89
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.44
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.43
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.22
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1728,7 +2856,36 @@
             "INF917K01239",
             "INF917K01247"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 16771.54
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 16754.61
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.02
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.72
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.76
+            }
+          },
           "name": "Nifty Midcap 150 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1738,7 +2895,36 @@
         "INF917K01239",
         "INF917K01247"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 16771.54
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 16754.61
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.02
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.72
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.76
+        }
+      },
       "name": "Nifty Midcap 150 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1749,7 +2935,36 @@
           "isins": [
             "INF917K01254"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 16771.54
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 16754.61
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.02
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.72
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.76
+            }
+          },
           "name": "Nifty Midcap 150 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1758,7 +2973,36 @@
       "isins": [
         "INF917K01254"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 16771.54
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 16754.61
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.02
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.72
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.76
+        }
+      },
       "name": "Nifty Midcap 150 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1770,7 +3014,36 @@
             "INF917K01E78",
             "INF917K01FX6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 16771.54
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 16754.61
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.02
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.72
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.76
+            }
+          },
           "name": "Nifty Midcap 150 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1780,7 +3053,36 @@
         "INF917K01E78",
         "INF917K01FX6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 16771.54
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 16754.61
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.02
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.72
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.76
+        }
+      },
       "name": "Nifty Midcap 150 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1791,7 +3093,36 @@
           "isins": [
             "INF917K01FZ1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 16771.54
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 16754.61
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.02
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 1.31
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.72
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.76
+            }
+          },
           "name": "Nifty Midcap 150 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1800,7 +3131,36 @@
       "isins": [
         "INF917K01FZ1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 16771.54
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 16754.61
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.02
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 1.31
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.72
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.76
+        }
+      },
       "name": "Nifty Midcap 150 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1811,7 +3171,36 @@
           "isins": [
             "INF917K01536"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2260.89
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2314.41
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.98
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.45
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1820,7 +3209,36 @@
       "isins": [
         "INF917K01536"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2260.89
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2314.41
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.98
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.45
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1832,7 +3250,36 @@
             "INF917K01544",
             "INF917K01551"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2260.89
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2314.41
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.98
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.45
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1842,7 +3289,36 @@
         "INF917K01544",
         "INF917K01551"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2260.89
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2314.41
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.98
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.45
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1854,7 +3330,36 @@
             "INF917K01E52",
             "INF917K01FU2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2260.89
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2314.41
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.98
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.45
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1864,7 +3369,36 @@
         "INF917K01E52",
         "INF917K01FU2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2260.89
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2314.41
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.98
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.45
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -1875,7 +3409,36 @@
           "isins": [
             "INF917K01FW8"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2260.89
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2314.41
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.98
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.45
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -1884,7 +3447,36 @@
       "isins": [
         "INF917K01FW8"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2260.89
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2314.41
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.98
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.45
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2527,7 +4119,36 @@
           "isins": [
             "INF677K01064"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3843.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3902.06
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.54
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.88
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2536,7 +4157,36 @@
       "isins": [
         "INF677K01064"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3843.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3902.06
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.54
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.88
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2547,7 +4197,36 @@
           "isins": [
             "INF677K01072"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3843.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3902.06
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.54
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.88
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2556,7 +4235,36 @@
       "isins": [
         "INF677K01072"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3843.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3902.06
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.54
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.88
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2567,7 +4275,36 @@
           "isins": [
             "INF917K01GP0"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3843.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3902.06
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.54
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.88
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2576,7 +4313,36 @@
       "isins": [
         "INF917K01GP0"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3843.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3902.06
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.54
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.88
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2587,7 +4353,36 @@
           "isins": [
             "INF917K01GO3"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3843.47
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3902.06
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.0
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.14
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.54
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.88
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2596,7 +4391,36 @@
       "isins": [
         "INF917K01GO3"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3843.47
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3902.06
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.0
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.14
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.54
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.88
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2899,7 +4723,36 @@
           "isins": [
             "INF677K01023"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 14304.58
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 14533.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.48
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.71
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2908,7 +4761,36 @@
       "isins": [
         "INF677K01023"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 14304.58
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 14533.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.48
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.71
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2920,7 +4802,36 @@
             "INF677K01213",
             "INF677K01015"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 14304.58
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 14533.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.48
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.71
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2930,7 +4841,36 @@
         "INF677K01213",
         "INF677K01015"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 14304.58
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 14533.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.48
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.71
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2942,7 +4882,36 @@
             "INF917K01HC6",
             "INF917K01HB8"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 14304.58
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 14533.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.48
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.71
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2952,7 +4921,36 @@
         "INF917K01HC6",
         "INF917K01HB8"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 14304.58
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 14533.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.48
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.71
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -2963,7 +4961,36 @@
           "isins": [
             "INF917K01HD4"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 14304.58
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 14533.97
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.99
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.48
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 16.71
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -2972,7 +4999,36 @@
       "isins": [
         "INF917K01HD4"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 14304.58
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 14533.97
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.99
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.48
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 16.71
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3323,7 +5379,36 @@
           "isins": [
             "INF917K01QA1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 17267.32
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 17945.21
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.31
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 22.41
+            }
+          },
           "name": "Nifty Smallcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3332,7 +5417,36 @@
       "isins": [
         "INF917K01QA1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 17267.32
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 17945.21
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.31
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 22.41
+        }
+      },
       "name": "Nifty Smallcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3344,7 +5458,36 @@
             "INF917K01QB9",
             "INF917K01XQ3"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 17267.32
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 17945.21
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.31
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 22.41
+            }
+          },
           "name": "Nifty Smallcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3354,7 +5497,36 @@
         "INF917K01QB9",
         "INF917K01XQ3"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 17267.32
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 17945.21
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.31
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 22.41
+        }
+      },
       "name": "Nifty Smallcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3366,7 +5538,36 @@
             "INF917K01PZ0",
             "INF917K01XP5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 17267.32
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 17945.21
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.31
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 22.41
+            }
+          },
           "name": "Nifty Smallcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3376,7 +5577,36 @@
         "INF917K01PZ0",
         "INF917K01XP5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 17267.32
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 17945.21
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.31
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 22.41
+        }
+      },
       "name": "Nifty Smallcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3387,7 +5617,36 @@
           "isins": [
             "INF917K01QC7"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 17267.32
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 17945.21
+            },
+            "beta": {
+              "unit": "",
+              "value": 0.95
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.35
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.31
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 22.41
+            }
+          },
           "name": "Nifty Smallcap 250 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3396,7 +5655,36 @@
       "isins": [
         "INF917K01QC7"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 17267.32
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 17945.21
+        },
+        "beta": {
+          "unit": "",
+          "value": 0.95
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.35
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.31
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 22.41
+        }
+      },
       "name": "Nifty Smallcap 250 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3535,7 +5823,36 @@
           "isins": [
             "INF917K01RI2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1121.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1152.17
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.16
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.74
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3544,7 +5861,36 @@
       "isins": [
         "INF917K01RI2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1121.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1152.17
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.16
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.74
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3556,7 +5902,36 @@
             "INF917K01RH4",
             "INF917K01RG6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1121.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1152.17
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.16
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.74
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3566,7 +5941,36 @@
         "INF917K01RH4",
         "INF917K01RG6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1121.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1152.17
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.16
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.74
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3577,7 +5981,36 @@
           "isins": [
             "INF917K01RF8"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1121.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1152.17
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.16
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.74
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3586,7 +6019,36 @@
       "isins": [
         "INF917K01RF8"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1121.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1152.17
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.16
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.74
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3598,7 +6060,36 @@
             "INF917K01RK8",
             "INF917K01RJ0"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1121.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1152.17
+            },
+            "beta": {
+              "unit": "",
+              "value": 1.16
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.32
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.44
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.74
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3608,7 +6099,36 @@
         "INF917K01RK8",
         "INF917K01RJ0"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1121.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1152.17
+        },
+        "beta": {
+          "unit": "",
+          "value": 1.16
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.32
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.44
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.74
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3748,7 +6268,24 @@
             "INF917K01C96",
             "INF917K01D04"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 383.83
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 375.87
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            }
+          },
           "name": "Nifty 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3758,7 +6295,24 @@
         "INF917K01C96",
         "INF917K01D04"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 383.83
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 375.87
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        }
+      },
       "name": "Nifty 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3769,7 +6323,24 @@
           "isins": [
             "INF917K01D12"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 383.83
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 375.87
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            }
+          },
           "name": "Nifty 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3778,7 +6349,24 @@
       "isins": [
         "INF917K01D12"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 383.83
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 375.87
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        }
+      },
       "name": "Nifty 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3789,7 +6377,24 @@
           "isins": [
             "INF917K01D38"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 383.83
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 375.87
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            }
+          },
           "name": "Nifty 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3798,7 +6403,24 @@
       "isins": [
         "INF917K01D38"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 383.83
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 375.87
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        }
+      },
       "name": "Nifty 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3810,7 +6432,24 @@
             "INF917K01D20",
             "INF917K01D46"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 383.83
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 375.87
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.09
+            }
+          },
           "name": "Nifty 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3820,7 +6459,24 @@
         "INF917K01D20",
         "INF917K01D46"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 383.83
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 375.87
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.09
+        }
+      },
       "name": "Nifty 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3831,7 +6487,24 @@
           "isins": [
             "INF917K01D79"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 184.9
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 184.22
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            }
+          },
           "name": "Nifty Next 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3840,7 +6513,24 @@
       "isins": [
         "INF917K01D79"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 184.9
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 184.22
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        }
+      },
       "name": "Nifty Next 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3852,7 +6542,24 @@
             "INF917K01D87",
             "INF917K01E03"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 184.9
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 184.22
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            }
+          },
           "name": "Nifty Next 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3862,7 +6569,24 @@
         "INF917K01D87",
         "INF917K01E03"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 184.9
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 184.22
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        }
+      },
       "name": "Nifty Next 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3873,7 +6597,24 @@
           "isins": [
             "INF917K01D95"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 184.9
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 184.22
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            }
+          },
           "name": "Nifty Next 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3882,7 +6623,24 @@
       "isins": [
         "INF917K01D95"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 184.9
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 184.22
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        }
+      },
       "name": "Nifty Next 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -3894,7 +6652,24 @@
             "INF917K01D53",
             "INF917K01D61"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 184.9
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 184.22
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.28
+            }
+          },
           "name": "Nifty Next 50 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -3904,7 +6679,24 @@
         "INF917K01D53",
         "INF917K01D61"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 184.9
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 184.22
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.28
+        }
+      },
       "name": "Nifty Next 50 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -4251,7 +7043,24 @@
           "isins": [
             "INF336L01RO1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1278.09
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1285.14
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -4260,7 +7069,24 @@
       "isins": [
         "INF336L01RO1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1278.09
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1285.14
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -4271,7 +7097,24 @@
           "isins": [
             "INF336L01RL7"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1278.09
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1285.14
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -4280,7 +7123,24 @@
       "isins": [
         "INF336L01RL7"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1278.09
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1285.14
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -4292,7 +7152,24 @@
             "INF336L01RP8",
             "INF336L01RQ6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1278.09
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1285.14
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -4302,7 +7179,24 @@
         "INF336L01RP8",
         "INF336L01RQ6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1278.09
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1285.14
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -4314,7 +7208,24 @@
             "INF336L01RM5",
             "INF336L01RN3"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1278.09
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1285.14
+            },
+            "equityTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            },
+            "grossTurnoverMultiple": {
+              "unit": "x",
+              "value": 0.4
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -4324,7 +7235,24 @@
         "INF336L01RM5",
         "INF336L01RN3"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1278.09
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1285.14
+        },
+        "equityTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        },
+        "grossTurnoverMultiple": {
+          "unit": "x",
+          "value": 0.4
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/f111d9ef-4a93-4e3e-9c50-e7ff6c83b330/the-asset-as-on-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
