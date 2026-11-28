@@ -14,7 +14,7 @@ import requests
 from bs4 import BeautifulSoup
 
 ROOT = Path("data/factsheets/benchmarks.json")
-from factsheet_sources import DIRECTORY, SOURCES, FALLBACKS, is_pdf, dated_pdf
+from factsheet_sources import DIRECTORY, SOURCES, FALLBACKS, is_pdf, dated_pdf, discovery_candidates
 HEADERS = {"User-Agent":"PortfolioManagement public factsheet reader/1.0"}
 def load(url):
     if urlparse(url).scheme != "https": raise ValueError("HTTPS required")

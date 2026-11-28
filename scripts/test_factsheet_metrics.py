@@ -214,3 +214,13 @@ class AllocationMetricTests(unittest.TestCase):
     def test_inconsistent_total(self):
         from factsheet_metrics import allocation_metrics
         self.assertEqual(allocation_metrics("Asset Allocation\nAsset Class    % of NAV\nEquity    75%\nTotal    100%"),{})
+
+
+class DiscoveryIntegrationTests(unittest.TestCase):
+    def test_refresh_discovery_binding(self):
+        import datetime as dt
+        from refresh_amc_factsheets import discovery_candidates
+        url="https://example.org/factsheet-October-2026.pdf"
+        dated,unknown=discovery_candidates([(url,"October 2026 factsheet"),(url,"October 2026 factsheet")],dt.date(2026,11,28))
+        self.assertEqual(dated,[(dt.date(2026,10,1),url)])
+        self.assertEqual(unknown,[])
