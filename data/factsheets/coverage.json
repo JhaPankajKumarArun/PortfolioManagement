@@ -30,7 +30,11 @@
       "candidateCodes": 60,
       "distinctSchemes": 15,
       "fieldCodeCounts": {
+        "aum": 60,
+        "averageAum": 60,
         "beta": 24,
+        "sharpe": 16,
+        "stddev": 24,
         "ytm": 4
       },
       "reportingMonth": "2026-10-31",
@@ -42,7 +46,10 @@
       "candidateCodes": 32,
       "distinctSchemes": 7,
       "fieldCodeCounts": {
-        "beta": 24
+        "aum": 32,
+        "averageAum": 32,
+        "beta": 24,
+        "stddev": 24
       },
       "reportingMonth": "2026-10-31",
       "status": "extracted",
@@ -53,6 +60,7 @@
       "candidateCodes": 60,
       "distinctSchemes": 15,
       "fieldCodeCounts": {
+        "aum": 60,
         "beta": 40,
         "macaulayDuration": 4,
         "modifiedDuration": 4,

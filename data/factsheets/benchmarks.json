@@ -9,6 +9,10 @@
             "INF200K01438"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4478.26
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -28,6 +32,10 @@
         "INF200K01438"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4478.26
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -49,6 +57,10 @@
             "INF200K01354"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 44443.13
+            },
             "beta": {
               "unit": "",
               "value": 0.9
@@ -68,6 +80,10 @@
         "INF200K01354"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 44443.13
+        },
         "beta": {
           "unit": "",
           "value": 0.9
@@ -89,6 +105,10 @@
             "INF200K01206"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5010.84
+            },
             "beta": {
               "unit": "",
               "value": 0.95
@@ -108,6 +128,10 @@
         "INF200K01206"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5010.84
+        },
         "beta": {
           "unit": "",
           "value": 0.95
@@ -734,6 +758,10 @@
             "INF200K01362"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 44443.13
+            },
             "beta": {
               "unit": "",
               "value": 0.9
@@ -752,6 +780,10 @@
         "INF200K01362"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 44443.13
+        },
         "beta": {
           "unit": "",
           "value": 0.9
@@ -772,6 +804,10 @@
             "INF200K01370"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 50423.06
+            },
             "beta": {
               "unit": "",
               "value": 0.83
@@ -790,6 +826,10 @@
         "INF200K01370"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 50423.06
+        },
         "beta": {
           "unit": "",
           "value": 0.83
@@ -811,6 +851,10 @@
             "INF200K01396"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 50423.06
+            },
             "beta": {
               "unit": "",
               "value": 0.83
@@ -830,6 +874,10 @@
         "INF200K01396"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 50423.06
+        },
         "beta": {
           "unit": "",
           "value": 0.83
@@ -850,6 +898,10 @@
             "INF200K01271"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6133.01
+            },
             "beta": {
               "unit": "",
               "value": 0.65
@@ -868,6 +920,10 @@
         "INF200K01271"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6133.01
+        },
         "beta": {
           "unit": "",
           "value": 0.65
@@ -889,6 +945,10 @@
             "INF200K01263"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6133.01
+            },
             "beta": {
               "unit": "",
               "value": 0.65
@@ -908,6 +968,10 @@
         "INF200K01263"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6133.01
+        },
         "beta": {
           "unit": "",
           "value": 0.65
@@ -928,6 +992,10 @@
             "INF200K01222"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 21635.06
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -946,6 +1014,10 @@
         "INF200K01222"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 21635.06
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -967,6 +1039,10 @@
             "INF200K01248"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 21635.06
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -986,6 +1062,10 @@
         "INF200K01248"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 21635.06
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -1006,6 +1086,10 @@
             "INF200K01180"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 52416.37
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -1024,6 +1108,10 @@
         "INF200K01180"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 52416.37
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -1045,6 +1133,10 @@
             "INF200K01172"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 52416.37
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -1064,6 +1156,10 @@
         "INF200K01172"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 52416.37
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -1084,6 +1180,10 @@
             "INF200K01479"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 29858.97
+            },
             "beta": {
               "unit": "",
               "value": 0.97
@@ -1102,6 +1202,10 @@
         "INF200K01479"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 29858.97
+        },
         "beta": {
           "unit": "",
           "value": 0.97
@@ -1122,6 +1226,10 @@
             "INF200K01214"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5010.84
+            },
             "beta": {
               "unit": "",
               "value": 0.95
@@ -1140,6 +1248,10 @@
         "INF200K01214"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5010.84
+        },
         "beta": {
           "unit": "",
           "value": 0.95
@@ -1160,6 +1272,10 @@
             "INF200K01495"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 29858.97
+            },
             "beta": {
               "unit": "",
               "value": 0.97
@@ -1178,6 +1294,10 @@
         "INF200K01495"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 29858.97
+        },
         "beta": {
           "unit": "",
           "value": 0.97
@@ -1241,6 +1361,10 @@
             "INF200K01BE6"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6191.02
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -1260,6 +1384,10 @@
         "INF200K01BE6"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6191.02
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -1280,6 +1408,10 @@
             "INF200K01BC0"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6191.02
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -1298,6 +1430,10 @@
         "INF200K01BC0"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6191.02
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -1777,6 +1913,10 @@
             "INF200K01QW6"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 52416.37
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -1796,6 +1936,10 @@
         "INF200K01QW6"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 52416.37
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -1816,6 +1960,10 @@
             "INF200K01QX4"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 52416.37
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -1834,6 +1982,10 @@
         "INF200K01QX4"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 52416.37
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -1855,6 +2007,10 @@
             "INF200K01SD2"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5010.84
+            },
             "beta": {
               "unit": "",
               "value": 0.95
@@ -1874,6 +2030,10 @@
         "INF200K01SD2"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5010.84
+        },
         "beta": {
           "unit": "",
           "value": 0.95
@@ -1894,6 +2054,10 @@
             "INF200K01SE0"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5010.84
+            },
             "beta": {
               "unit": "",
               "value": 0.95
@@ -1912,6 +2076,10 @@
         "INF200K01SE0"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5010.84
+        },
         "beta": {
           "unit": "",
           "value": 0.95
@@ -1933,6 +2101,10 @@
             "INF200K01SM3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6133.01
+            },
             "beta": {
               "unit": "",
               "value": 0.65
@@ -1952,6 +2124,10 @@
         "INF200K01SM3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6133.01
+        },
         "beta": {
           "unit": "",
           "value": 0.65
@@ -1972,6 +2148,10 @@
             "INF200K01SN1"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6133.01
+            },
             "beta": {
               "unit": "",
               "value": 0.65
@@ -1990,6 +2170,10 @@
         "INF200K01SN1"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6133.01
+        },
         "beta": {
           "unit": "",
           "value": 0.65
@@ -2011,6 +2195,10 @@
             "INF200K01UF3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 21635.06
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -2030,6 +2218,10 @@
         "INF200K01UF3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 21635.06
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -2050,6 +2242,10 @@
             "INF200K01UG1"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 21635.06
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -2068,6 +2264,10 @@
         "INF200K01UG1"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 21635.06
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -2088,6 +2288,10 @@
             "INF200K01UK3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 29858.97
+            },
             "beta": {
               "unit": "",
               "value": 0.97
@@ -2106,6 +2310,10 @@
         "INF200K01UK3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 29858.97
+        },
         "beta": {
           "unit": "",
           "value": 0.97
@@ -2126,6 +2334,10 @@
             "INF200K01UM9"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 29858.97
+            },
             "beta": {
               "unit": "",
               "value": 0.97
@@ -2144,6 +2356,10 @@
         "INF200K01UM9"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 29858.97
+        },
         "beta": {
           "unit": "",
           "value": 0.97
@@ -2165,6 +2381,10 @@
             "INF200K01QZ9"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 44443.13
+            },
             "beta": {
               "unit": "",
               "value": 0.9
@@ -2184,6 +2404,10 @@
         "INF200K01QZ9"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 44443.13
+        },
         "beta": {
           "unit": "",
           "value": 0.9
@@ -2204,6 +2428,10 @@
             "INF200K01RJ1"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 50423.06
+            },
             "beta": {
               "unit": "",
               "value": 0.83
@@ -2222,6 +2450,10 @@
         "INF200K01RJ1"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 50423.06
+        },
         "beta": {
           "unit": "",
           "value": 0.83
@@ -2243,6 +2475,10 @@
             "INF200K01RU8"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4478.26
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -2262,6 +2498,10 @@
         "INF200K01RU8"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4478.26
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -2282,6 +2522,10 @@
             "INF200K01UY4"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6191.02
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -2300,6 +2544,10 @@
         "INF200K01UY4"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6191.02
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -2321,6 +2569,10 @@
             "INF200K01UX6"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 6191.02
+            },
             "beta": {
               "unit": "",
               "value": 0.92
@@ -2340,6 +2592,10 @@
         "INF200K01UX6"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 6191.02
+        },
         "beta": {
           "unit": "",
           "value": 0.92
@@ -2361,6 +2617,10 @@
             "INF200K01RI3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 50423.06
+            },
             "beta": {
               "unit": "",
               "value": 0.83
@@ -2380,6 +2640,10 @@
         "INF200K01RI3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 50423.06
+        },
         "beta": {
           "unit": "",
           "value": 0.83
@@ -2400,6 +2664,10 @@
             "INF200K01RA0"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 44443.13
+            },
             "beta": {
               "unit": "",
               "value": 0.9
@@ -2418,6 +2686,10 @@
         "INF200K01RA0"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 44443.13
+        },
         "beta": {
           "unit": "",
           "value": 0.9
@@ -3464,6 +3736,10 @@
             "INF200K01VS4"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4478.26
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -3482,6 +3758,10 @@
         "INF200K01VS4"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4478.26
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -3502,6 +3782,10 @@
             "INF200K01RV6"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4478.26
+            },
             "beta": {
               "unit": "",
               "value": 0.87
@@ -3520,6 +3804,10 @@
         "INF200K01RV6"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4478.26
+        },
         "beta": {
           "unit": "",
           "value": 0.87
@@ -3540,9 +3828,25 @@
             "INF247L01155"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1848.42
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1840.07
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.1
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 19.4
             }
           },
           "name": "NIFTY 500 TRI",
@@ -3554,9 +3858,25 @@
         "INF247L01155"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1848.42
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1840.07
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.1
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 19.4
         }
       },
       "name": "NIFTY 500 TRI",
@@ -3571,9 +3891,25 @@
             "INF247L01163"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1848.42
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1840.07
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.1
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 19.4
             }
           },
           "name": "NIFTY 500 TRI",
@@ -3586,9 +3922,25 @@
         "INF247L01163"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1848.42
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1840.07
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.1
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 19.4
         }
       },
       "name": "NIFTY 500 TRI",
@@ -3602,9 +3954,25 @@
             "INF247L01189"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1848.42
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1840.07
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.1
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 19.4
             }
           },
           "name": "NIFTY 500 TRI",
@@ -3616,9 +3984,25 @@
         "INF247L01189"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1848.42
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1840.07
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.1
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 19.4
         }
       },
       "name": "NIFTY 500 TRI",
@@ -3633,9 +4017,25 @@
             "INF247L01197"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1848.42
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1840.07
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.1
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 19.4
             }
           },
           "name": "NIFTY 500 TRI",
@@ -3648,9 +4048,25 @@
         "INF247L01197"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1848.42
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1840.07
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.1
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 19.4
         }
       },
       "name": "NIFTY 500 TRI",
@@ -3665,9 +4081,21 @@
             "INF663L01DX9"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 10144.22
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 10323.81
+            },
             "beta": {
               "unit": "",
               "value": 0.85
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.31
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3680,9 +4108,21 @@
         "INF663L01DX9"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 10144.22
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 10323.81
+        },
         "beta": {
           "unit": "",
           "value": 0.85
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.31
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3696,9 +4136,21 @@
             "INF663L01DZ4"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 10144.22
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 10323.81
+            },
             "beta": {
               "unit": "",
               "value": 0.85
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.31
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3710,9 +4162,21 @@
         "INF663L01DZ4"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 10144.22
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 10323.81
+        },
         "beta": {
           "unit": "",
           "value": 0.85
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.31
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3727,9 +4191,21 @@
             "INF663L01EB3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 10144.22
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 10323.81
+            },
             "beta": {
               "unit": "",
               "value": 0.85
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.31
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3742,9 +4218,21 @@
         "INF663L01EB3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 10144.22
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 10323.81
+        },
         "beta": {
           "unit": "",
           "value": 0.85
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.31
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3758,9 +4246,21 @@
             "INF663L01DV3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 10144.22
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 10323.81
+            },
             "beta": {
               "unit": "",
               "value": 0.85
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.31
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3772,9 +4272,21 @@
         "INF663L01DV3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 10144.22
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 10323.81
+        },
         "beta": {
           "unit": "",
           "value": 0.85
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.31
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3788,9 +4300,25 @@
             "INF247L01411"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 39628.56
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 40132.01
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.0
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3802,9 +4330,25 @@
         "INF247L01411"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 39628.56
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 40132.01
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.0
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3819,9 +4363,25 @@
             "INF247L01429"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 39628.56
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 40132.01
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.0
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3834,9 +4394,25 @@
         "INF247L01429"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 39628.56
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 40132.01
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.0
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3850,9 +4426,25 @@
             "INF247L01445"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 39628.56
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 40132.01
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.0
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3864,9 +4456,25 @@
         "INF247L01445"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 39628.56
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 40132.01
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.0
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3881,9 +4489,25 @@
             "INF247L01452"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 39628.56
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 40132.01
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.0
             }
           },
           "name": "NIFTY Midcap 150 TRI",
@@ -3896,9 +4520,25 @@
         "INF247L01452"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 39628.56
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 40132.01
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.0
         }
       },
       "name": "NIFTY Midcap 150 TRI",
@@ -3912,9 +4552,25 @@
             "INF247L01502"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 13228.33
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 13303.94
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.8
             }
           },
           "name": "Nifty 500 TRI",
@@ -3926,9 +4582,25 @@
         "INF247L01502"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 13228.33
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 13303.94
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.8
         }
       },
       "name": "Nifty 500 TRI",
@@ -3943,9 +4615,25 @@
             "INF247L01510"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 13228.33
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 13303.94
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.8
             }
           },
           "name": "Nifty 500 TRI",
@@ -3958,9 +4646,25 @@
         "INF247L01510"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 13228.33
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 13303.94
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.8
         }
       },
       "name": "Nifty 500 TRI",
@@ -3974,9 +4678,25 @@
             "INF247L01478"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 13228.33
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 13303.94
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.8
             }
           },
           "name": "Nifty 500 TRI",
@@ -3988,9 +4708,25 @@
         "INF247L01478"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 13228.33
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 13303.94
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.8
         }
       },
       "name": "Nifty 500 TRI",
@@ -4005,9 +4741,25 @@
             "INF247L01486"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 13228.33
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 13303.94
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 17.8
             }
           },
           "name": "Nifty 500 TRI",
@@ -4020,9 +4772,25 @@
         "INF247L01486"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 13228.33
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 13303.94
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 17.8
         }
       },
       "name": "Nifty 500 TRI",
@@ -4036,9 +4804,25 @@
             "INF247L01551"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4672.36
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 4777.32
+            },
             "beta": {
               "unit": "",
               "value": 1.2
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.8
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.9
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4050,9 +4834,25 @@
         "INF247L01551"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4672.36
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 4777.32
+        },
         "beta": {
           "unit": "",
           "value": 1.2
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.8
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.9
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4066,9 +4866,25 @@
             "INF247L01577"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4672.36
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 4777.32
+            },
             "beta": {
               "unit": "",
               "value": 1.2
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.8
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.9
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4080,9 +4896,25 @@
         "INF247L01577"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4672.36
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 4777.32
+        },
         "beta": {
           "unit": "",
           "value": 1.2
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.8
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.9
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4096,9 +4928,25 @@
             "INF247L01544"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4672.36
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 4777.32
+            },
             "beta": {
               "unit": "",
               "value": 1.2
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.8
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.9
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4110,9 +4958,25 @@
         "INF247L01544"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4672.36
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 4777.32
+        },
         "beta": {
           "unit": "",
           "value": 1.2
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.8
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.9
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4126,9 +4990,25 @@
             "INF247L01569"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 4672.36
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 4777.32
+            },
             "beta": {
               "unit": "",
               "value": 1.2
+            },
+            "sharpe": {
+              "unit": "",
+              "value": 0.8
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 21.9
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4140,9 +5020,25 @@
         "INF247L01569"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 4672.36
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 4777.32
+        },
         "beta": {
           "unit": "",
           "value": 1.2
+        },
+        "sharpe": {
+          "unit": "",
+          "value": 0.8
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 21.9
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4156,9 +5052,21 @@
             "INF663L01FJ3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5474.0
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5520.16
+            },
             "beta": {
               "unit": "",
               "value": 0.92
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.62
             }
           },
           "name": "Nifty 500 TRI",
@@ -4170,9 +5078,21 @@
         "INF663L01FJ3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5474.0
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5520.16
+        },
         "beta": {
           "unit": "",
           "value": 0.92
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.62
         }
       },
       "name": "Nifty 500 TRI",
@@ -4187,9 +5107,21 @@
             "INF663L01FH7"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5474.0
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5520.16
+            },
             "beta": {
               "unit": "",
               "value": 0.92
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.62
             }
           },
           "name": "Nifty 500 TRI",
@@ -4202,9 +5134,21 @@
         "INF663L01FH7"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5474.0
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5520.16
+        },
         "beta": {
           "unit": "",
           "value": 0.92
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.62
         }
       },
       "name": "Nifty 500 TRI",
@@ -4219,9 +5163,21 @@
             "INF663L01FL9"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5474.0
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5520.16
+            },
             "beta": {
               "unit": "",
               "value": 0.92
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.62
             }
           },
           "name": "Nifty 500 TRI",
@@ -4234,9 +5190,21 @@
         "INF663L01FL9"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5474.0
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5520.16
+        },
         "beta": {
           "unit": "",
           "value": 0.92
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.62
         }
       },
       "name": "Nifty 500 TRI",
@@ -4250,9 +5218,21 @@
             "INF663L01FF1"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5474.0
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 5520.16
+            },
             "beta": {
               "unit": "",
               "value": 0.92
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.62
             }
           },
           "name": "Nifty 500 TRI",
@@ -4264,9 +5244,21 @@
         "INF663L01FF1"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5474.0
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 5520.16
+        },
         "beta": {
           "unit": "",
           "value": 0.92
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.62
         }
       },
       "name": "Nifty 500 TRI",
@@ -4280,9 +5272,21 @@
             "INF663L01FQ8"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 669.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 670.58
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.31
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4294,9 +5298,21 @@
         "INF663L01FQ8"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 669.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 670.58
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.31
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4310,9 +5326,21 @@
             "INF663L01FR6"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 669.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 670.58
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.31
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4324,9 +5352,21 @@
         "INF663L01FR6"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 669.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 670.58
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.31
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4340,9 +5380,21 @@
             "INF663L01FO3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 669.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 670.58
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.31
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4354,9 +5406,21 @@
         "INF663L01FO3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 669.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 670.58
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.31
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4370,9 +5434,21 @@
             "INF663L01FN5"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 669.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 670.58
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.31
             }
           },
           "name": "NIFTY 500 TRI",
@@ -4384,9 +5460,21 @@
         "INF663L01FN5"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 669.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 670.58
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.31
         }
       },
       "name": "NIFTY 500 TRI",
@@ -4401,9 +5489,21 @@
             "INF663L01GV6"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4416,9 +5516,21 @@
         "INF663L01GV6"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4432,9 +5544,21 @@
             "INF663L01GW4"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4446,9 +5570,21 @@
         "INF663L01GW4"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4462,9 +5598,21 @@
             "INF223J01242"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4476,9 +5624,21 @@
         "INF223J01242"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4492,9 +5652,21 @@
             "INF223J01267"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4506,9 +5678,21 @@
         "INF223J01267"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4522,9 +5706,21 @@
             "INF223J01895"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4536,9 +5732,21 @@
         "INF223J01895"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4552,9 +5760,21 @@
             "INF663L01GR4"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4566,9 +5786,21 @@
         "INF663L01GR4"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4583,9 +5815,21 @@
             "INF663L01GT0"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4598,9 +5842,21 @@
         "INF663L01GT0"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4614,9 +5870,21 @@
             "INF223J01MM0"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 506.08
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 500.95
+            },
             "beta": {
               "unit": "",
               "value": 0.93
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 13.05
             }
           },
           "name": "NIFTY 100 TRI",
@@ -4628,9 +5896,21 @@
         "INF223J01MM0"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 506.08
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 500.95
+        },
         "beta": {
           "unit": "",
           "value": 0.93
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 13.05
         }
       },
       "name": "NIFTY 100 TRI",
@@ -4645,6 +5925,10 @@
             "INF200KA1A63"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 195.76
+            },
             "beta": {
               "unit": "",
               "value": 1.01
@@ -4664,6 +5948,10 @@
         "INF200KA1A63"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 195.76
+        },
         "beta": {
           "unit": "",
           "value": 1.01
@@ -4685,6 +5973,10 @@
             "INF200KA1A97"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 195.76
+            },
             "beta": {
               "unit": "",
               "value": 1.01
@@ -4704,6 +5996,10 @@
         "INF200KA1A97"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 195.76
+        },
         "beta": {
           "unit": "",
           "value": 1.01
@@ -4724,6 +6020,10 @@
             "INF200KA1A71"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 195.76
+            },
             "beta": {
               "unit": "",
               "value": 1.01
@@ -4742,6 +6042,10 @@
         "INF200KA1A71"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 195.76
+        },
         "beta": {
           "unit": "",
           "value": 1.01
@@ -4762,6 +6066,10 @@
             "INF200KA1A48"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 195.76
+            },
             "beta": {
               "unit": "",
               "value": 1.01
@@ -4780,6 +6088,10 @@
         "INF200KA1A48"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 195.76
+        },
         "beta": {
           "unit": "",
           "value": 1.01
@@ -6372,6 +7684,10 @@
             "INF200KA1S55"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3026.84
+            },
             "macaulayDuration": {
               "unit": "Years",
               "value": 0.16
@@ -6390,6 +7706,10 @@
         "INF200KA1S55"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3026.84
+        },
         "macaulayDuration": {
           "unit": "Years",
           "value": 0.16
@@ -6410,6 +7730,10 @@
             "INF200KA1S48"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3026.84
+            },
             "macaulayDuration": {
               "unit": "Years",
               "value": 0.16
@@ -6428,6 +7752,10 @@
         "INF200KA1S48"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3026.84
+        },
         "macaulayDuration": {
           "unit": "Years",
           "value": 0.16
@@ -6448,6 +7776,10 @@
             "INF200KA1S63"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3026.84
+            },
             "macaulayDuration": {
               "unit": "Years",
               "value": 0.16
@@ -6466,6 +7798,10 @@
         "INF200KA1S63"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3026.84
+        },
         "macaulayDuration": {
           "unit": "Years",
           "value": 0.16
@@ -6486,6 +7822,10 @@
             "INF200KA1S30"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3026.84
+            },
             "macaulayDuration": {
               "unit": "Years",
               "value": 0.16
@@ -6504,6 +7844,10 @@
         "INF200KA1S30"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3026.84
+        },
         "macaulayDuration": {
           "unit": "Years",
           "value": 0.16
@@ -6524,9 +7868,21 @@
             "INF663L01W06"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1661.17
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1693.45
+            },
             "beta": {
               "unit": "",
               "value": 0.76
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.73
             }
           },
           "name": "NIFTY Smallcap 250 TRI",
@@ -6538,9 +7894,21 @@
         "INF663L01W06"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1661.17
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1693.45
+        },
         "beta": {
           "unit": "",
           "value": 0.76
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.73
         }
       },
       "name": "NIFTY Smallcap 250 TRI",
@@ -6554,9 +7922,21 @@
             "INF663L01W30"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1661.17
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1693.45
+            },
             "beta": {
               "unit": "",
               "value": 0.76
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.73
             }
           },
           "name": "NIFTY Smallcap 250 TRI",
@@ -6568,9 +7948,21 @@
         "INF663L01W30"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1661.17
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1693.45
+        },
         "beta": {
           "unit": "",
           "value": 0.76
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.73
         }
       },
       "name": "NIFTY Smallcap 250 TRI",
@@ -6585,9 +7977,21 @@
             "INF663L01W22"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1661.17
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1693.45
+            },
             "beta": {
               "unit": "",
               "value": 0.76
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.73
             }
           },
           "name": "NIFTY Smallcap 250 TRI",
@@ -6600,9 +8004,21 @@
         "INF663L01W22"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1661.17
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1693.45
+        },
         "beta": {
           "unit": "",
           "value": 0.76
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.73
         }
       },
       "name": "NIFTY Smallcap 250 TRI",
@@ -6617,9 +8033,21 @@
             "INF663L01W55"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1661.17
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1693.45
+            },
             "beta": {
               "unit": "",
               "value": 0.76
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 15.73
             }
           },
           "name": "NIFTY Smallcap 250 TRI",
@@ -6632,9 +8060,21 @@
         "INF663L01W55"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1661.17
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1693.45
+        },
         "beta": {
           "unit": "",
           "value": 0.76
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 15.73
         }
       },
       "name": "NIFTY Smallcap 250 TRI",
@@ -13600,9 +15040,21 @@
             "INF247L01BV9"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 8096.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 8221.29
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.2
             }
           },
           "name": "Nifty Smallcap 250 TRI",
@@ -13614,9 +15066,21 @@
         "INF247L01BV9"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 8096.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 8221.29
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.2
         }
       },
       "name": "Nifty Smallcap 250 TRI",
@@ -13631,9 +15095,21 @@
             "INF247L01BX5"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 8096.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 8221.29
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.2
             }
           },
           "name": "Nifty Smallcap 250 TRI",
@@ -13646,9 +15122,21 @@
         "INF247L01BX5"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 8096.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 8221.29
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.2
         }
       },
       "name": "Nifty Smallcap 250 TRI",
@@ -13663,9 +15151,21 @@
             "INF247L01CA1"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 8096.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 8221.29
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.2
             }
           },
           "name": "Nifty Smallcap 250 TRI",
@@ -13678,9 +15178,21 @@
         "INF247L01CA1"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 8096.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 8221.29
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.2
         }
       },
       "name": "Nifty Smallcap 250 TRI",
@@ -13694,9 +15206,21 @@
             "INF247L01BY3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 8096.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 8221.29
+            },
             "beta": {
               "unit": "",
               "value": 0.9
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 20.2
             }
           },
           "name": "Nifty Smallcap 250 TRI",
@@ -13708,9 +15232,21 @@
         "INF247L01BY3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 8096.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 8221.29
+        },
         "beta": {
           "unit": "",
           "value": 0.9
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 20.2
         }
       },
       "name": "Nifty Smallcap 250 TRI",
@@ -13725,9 +15261,21 @@
             "INF247L01CG8"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2936.67
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2919.3
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.5
             }
           },
           "name": "NIFTY 100 TRI",
@@ -13740,9 +15288,21 @@
         "INF247L01CG8"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2936.67
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2919.3
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.5
         }
       },
       "name": "NIFTY 100 TRI",
@@ -13756,9 +15316,21 @@
             "INF247L01CB9"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2936.67
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2919.3
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.5
             }
           },
           "name": "NIFTY 100 TRI",
@@ -13770,9 +15342,21 @@
         "INF247L01CB9"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2936.67
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2919.3
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.5
         }
       },
       "name": "NIFTY 100 TRI",
@@ -13787,9 +15371,21 @@
             "INF247L01CD5"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2936.67
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2919.3
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.5
             }
           },
           "name": "NIFTY 100 TRI",
@@ -13802,9 +15398,21 @@
         "INF247L01CD5"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2936.67
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2919.3
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.5
         }
       },
       "name": "NIFTY 100 TRI",
@@ -13818,9 +15426,21 @@
             "INF247L01CE3"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2936.67
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 2919.3
+            },
             "beta": {
               "unit": "",
               "value": 1.0
+            },
+            "stddev": {
+              "unit": "%",
+              "value": 14.5
             }
           },
           "name": "NIFTY 100 TRI",
@@ -13832,9 +15452,21 @@
         "INF247L01CE3"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2936.67
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 2919.3
+        },
         "beta": {
           "unit": "",
           "value": 1.0
+        },
+        "stddev": {
+          "unit": "%",
+          "value": 14.5
         }
       },
       "name": "NIFTY 100 TRI",
@@ -13931,7 +15563,12 @@
           "isins": [
             "INF200KB1126"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 7548.47
+            }
+          },
           "name": "NIFTY Energy TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -13940,7 +15577,12 @@
       "isins": [
         "INF200KB1126"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 7548.47
+        }
+      },
       "name": "NIFTY Energy TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -13951,7 +15593,12 @@
           "isins": [
             "INF200KB1092"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 7548.47
+            }
+          },
           "name": "NIFTY Energy TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -13960,7 +15607,12 @@
       "isins": [
         "INF200KB1092"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 7548.47
+        }
+      },
       "name": "NIFTY Energy TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -13972,7 +15624,12 @@
             "INF200KB1100",
             "INF200KB1118"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 7548.47
+            }
+          },
           "name": "NIFTY Energy TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -13982,7 +15639,12 @@
         "INF200KB1100",
         "INF200KB1118"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 7548.47
+        }
+      },
       "name": "NIFTY Energy TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -13994,7 +15656,12 @@
             "INF200KB1134",
             "INF200KB1142"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 7548.47
+            }
+          },
           "name": "NIFTY Energy TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14004,7 +15671,12 @@
         "INF200KB1134",
         "INF200KB1142"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 7548.47
+        }
+      },
       "name": "NIFTY Energy TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14015,7 +15687,16 @@
           "isins": [
             "INF663L01Y61"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 101.85
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 102.33
+            }
+          },
           "name": "BSE 500 TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14024,7 +15705,16 @@
       "isins": [
         "INF663L01Y61"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 101.85
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 102.33
+        }
+      },
       "name": "BSE 500 TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14035,7 +15725,16 @@
           "isins": [
             "INF663L01Y46"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 101.85
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 102.33
+            }
+          },
           "name": "BSE 500 TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14044,7 +15743,16 @@
       "isins": [
         "INF663L01Y46"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 101.85
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 102.33
+        }
+      },
       "name": "BSE 500 TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14055,7 +15763,16 @@
           "isins": [
             "INF663L01Y79"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 101.85
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 102.33
+            }
+          },
           "name": "BSE 500 TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14064,7 +15781,16 @@
       "isins": [
         "INF663L01Y79"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 101.85
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 102.33
+        }
+      },
       "name": "BSE 500 TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14075,7 +15801,16 @@
           "isins": [
             "INF663L01Y53"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 101.85
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 102.33
+            }
+          },
           "name": "BSE 500 TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14084,7 +15819,16 @@
       "isins": [
         "INF663L01Y53"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 101.85
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 102.33
+        }
+      },
       "name": "BSE 500 TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14096,7 +15840,12 @@
             "INF200KB1191",
             "INF200KB1209"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5870.81
+            }
+          },
           "name": "NIFTY Auto TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14106,7 +15855,12 @@
         "INF200KB1191",
         "INF200KB1209"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5870.81
+        }
+      },
       "name": "NIFTY Auto TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14118,7 +15872,12 @@
             "INF200KB1167",
             "INF200KB1175"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5870.81
+            }
+          },
           "name": "NIFTY Auto TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14128,7 +15887,12 @@
         "INF200KB1167",
         "INF200KB1175"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5870.81
+        }
+      },
       "name": "NIFTY Auto TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14139,7 +15903,12 @@
           "isins": [
             "INF200KB1183"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5870.81
+            }
+          },
           "name": "NIFTY Auto TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14148,7 +15917,12 @@
       "isins": [
         "INF200KB1183"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5870.81
+        }
+      },
       "name": "NIFTY Auto TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14159,7 +15933,12 @@
           "isins": [
             "INF200KB1159"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5870.81
+            }
+          },
           "name": "NIFTY Auto TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14168,7 +15947,12 @@
       "isins": [
         "INF200KB1159"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5870.81
+        }
+      },
       "name": "NIFTY Auto TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14179,7 +15963,16 @@
           "isins": [
             "INF247L01CP9"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 231.06
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 232.4
+            }
+          },
           "name": "Nifty 200 Index TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14188,7 +15981,16 @@
       "isins": [
         "INF247L01CP9"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 231.06
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 232.4
+        }
+      },
       "name": "Nifty 200 Index TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14200,7 +16002,16 @@
             "INF247L01CQ7",
             "INF247L01CR5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 231.06
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 232.4
+            }
+          },
           "name": "Nifty 200 Index TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14210,7 +16021,16 @@
         "INF247L01CQ7",
         "INF247L01CR5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 231.06
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 232.4
+        }
+      },
       "name": "Nifty 200 Index TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14221,7 +16041,16 @@
           "isins": [
             "INF247L01CS3"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 231.06
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 232.4
+            }
+          },
           "name": "Nifty 200 Index TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14230,7 +16059,16 @@
       "isins": [
         "INF247L01CS3"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 231.06
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 232.4
+        }
+      },
       "name": "Nifty 200 Index TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14242,7 +16080,16 @@
             "INF247L01CT1",
             "INF247L01CU9"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 231.06
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 232.4
+            }
+          },
           "name": "Nifty 200 Index TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14252,7 +16099,16 @@
         "INF247L01CT1",
         "INF247L01CU9"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 231.06
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 232.4
+        }
+      },
       "name": "Nifty 200 Index TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14263,7 +16119,12 @@
           "isins": [
             "INF200KB1290"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5083.68
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14272,7 +16133,12 @@
       "isins": [
         "INF200KB1290"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5083.68
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14284,7 +16150,12 @@
             "INF200KB1308",
             "INF200KB1316"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5083.68
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14294,7 +16165,12 @@
         "INF200KB1308",
         "INF200KB1316"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5083.68
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14305,7 +16181,12 @@
           "isins": [
             "INF200KB1324"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5083.68
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14314,7 +16195,12 @@
       "isins": [
         "INF200KB1324"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5083.68
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14326,7 +16212,12 @@
             "INF200KB1332",
             "INF200KB1340"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 5083.68
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14336,7 +16227,12 @@
         "INF200KB1332",
         "INF200KB1340"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 5083.68
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14347,7 +16243,16 @@
           "isins": [
             "INF247L01DD3"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1378.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1414.02
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14356,7 +16261,16 @@
       "isins": [
         "INF247L01DD3"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1378.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1414.02
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14368,7 +16282,16 @@
             "INF247L01DE1",
             "INF247L01DF8"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1378.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1414.02
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14378,7 +16301,16 @@
         "INF247L01DE1",
         "INF247L01DF8"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1378.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1414.02
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14389,7 +16321,16 @@
           "isins": [
             "INF247L01DG6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1378.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1414.02
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14398,7 +16339,16 @@
       "isins": [
         "INF247L01DG6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1378.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1414.02
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14410,7 +16360,16 @@
             "INF247L01DH4",
             "INF247L01DI2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1378.27
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1414.02
+            }
+          },
           "name": "NIFTY 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14420,7 +16379,16 @@
         "INF247L01DH4",
         "INF247L01DI2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1378.27
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1414.02
+        }
+      },
       "name": "NIFTY 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14803,7 +16771,16 @@
           "isins": [
             "INF247L01DN2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 972.77
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 995.37
+            }
+          },
           "name": "BSE Teck TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14812,7 +16789,16 @@
       "isins": [
         "INF247L01DN2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 972.77
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 995.37
+        }
+      },
       "name": "BSE Teck TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14824,7 +16810,16 @@
             "INF247L01DO0",
             "INF247L01DP7"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 972.77
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 995.37
+            }
+          },
           "name": "BSE Teck TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14834,7 +16829,16 @@
         "INF247L01DO0",
         "INF247L01DP7"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 972.77
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 995.37
+        }
+      },
       "name": "BSE Teck TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14845,7 +16849,16 @@
           "isins": [
             "INF247L01DQ5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 972.77
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 995.37
+            }
+          },
           "name": "BSE Teck TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14854,7 +16867,16 @@
       "isins": [
         "INF247L01DQ5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 972.77
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 995.37
+        }
+      },
       "name": "BSE Teck TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14866,7 +16888,16 @@
             "INF247L01DR3",
             "INF247L01DS1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 972.77
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 995.37
+            }
+          },
           "name": "BSE Teck TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14876,7 +16907,16 @@
         "INF247L01DR3",
         "INF247L01DS1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 972.77
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 995.37
+        }
+      },
       "name": "BSE Teck TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14888,7 +16928,16 @@
             "INF663L01Z60",
             "INF663L01Z78"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 142.11
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.16
+            }
+          },
           "name": "BSE Healthcare TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14898,7 +16947,16 @@
         "INF663L01Z60",
         "INF663L01Z78"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 142.11
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.16
+        }
+      },
       "name": "BSE Healthcare TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14910,7 +16968,16 @@
             "INF663L01Z86",
             "INF663L01Z94"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 142.11
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.16
+            }
+          },
           "name": "BSE Healthcare TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14920,7 +16987,16 @@
         "INF663L01Z86",
         "INF663L01Z94"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 142.11
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.16
+        }
+      },
       "name": "BSE Healthcare TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14931,7 +17007,16 @@
           "isins": [
             "INF663L01Z45"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 142.11
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.16
+            }
+          },
           "name": "BSE Healthcare TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14940,7 +17025,16 @@
       "isins": [
         "INF663L01Z45"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 142.11
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.16
+        }
+      },
       "name": "BSE Healthcare TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14951,7 +17045,16 @@
           "isins": [
             "INF663L01Z52"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 142.11
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.16
+            }
+          },
           "name": "BSE Healthcare TRI",
           "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14960,7 +17063,16 @@
       "isins": [
         "INF663L01Z52"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 142.11
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.16
+        }
+      },
       "name": "BSE Healthcare TRI",
       "source": "https://www.pgimindia.com/api/v1/brochure/about-us/image/Factsheet-October2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14972,7 +17084,12 @@
             "INF200KB1514",
             "INF200KB1522"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2543.96
+            }
+          },
           "name": "BSE 200 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -14982,7 +17099,12 @@
         "INF200KB1514",
         "INF200KB1522"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2543.96
+        }
+      },
       "name": "BSE 200 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -14994,7 +17116,12 @@
             "INF200KB1480",
             "INF200KB1498"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2543.96
+            }
+          },
           "name": "BSE 200 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15004,7 +17131,12 @@
         "INF200KB1480",
         "INF200KB1498"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2543.96
+        }
+      },
       "name": "BSE 200 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15015,7 +17147,12 @@
           "isins": [
             "INF200KB1472"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2543.96
+            }
+          },
           "name": "BSE 200 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15024,7 +17161,12 @@
       "isins": [
         "INF200KB1472"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2543.96
+        }
+      },
       "name": "BSE 200 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15035,7 +17177,12 @@
           "isins": [
             "INF200KB1506"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 2543.96
+            }
+          },
           "name": "BSE 200 TRI",
           "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15044,7 +17191,12 @@
       "isins": [
         "INF200KB1506"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 2543.96
+        }
+      },
       "name": "BSE 200 TRI",
       "source": "https://www.sbimf.com/docs/default-source/scheme-factsheets/all-sbimf-schemes-factsheet-october-2026.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15057,6 +17209,14 @@
             "INF247L01EF6"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3500.43
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3158.7
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -15072,6 +17232,14 @@
         "INF247L01EF6"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3500.43
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3158.7
+        },
         "ytm": {
           "unit": "%",
           "value": 7.17
@@ -15089,6 +17257,14 @@
             "INF247L01EI0"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3500.43
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3158.7
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -15104,6 +17280,14 @@
         "INF247L01EI0"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3500.43
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3158.7
+        },
         "ytm": {
           "unit": "%",
           "value": 7.17
@@ -15120,6 +17304,14 @@
             "INF247L01ED1"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3500.43
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3158.7
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -15134,6 +17326,14 @@
         "INF247L01ED1"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3500.43
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3158.7
+        },
         "ytm": {
           "unit": "%",
           "value": 7.17
@@ -15150,6 +17350,14 @@
             "INF247L01EG4"
           ],
           "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 3500.43
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 3158.7
+            },
             "ytm": {
               "unit": "%",
               "value": 7.17
@@ -15164,6 +17372,14 @@
         "INF247L01EG4"
       ],
       "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 3500.43
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 3158.7
+        },
         "ytm": {
           "unit": "%",
           "value": 7.17
@@ -15179,7 +17395,16 @@
           "isins": [
             "INF247L01EM2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 840.93
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 857.56
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15188,7 +17413,16 @@
       "isins": [
         "INF247L01EM2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 840.93
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 857.56
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15200,7 +17434,16 @@
             "INF247L01EN0",
             "INF247L01EO8"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 840.93
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 857.56
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15210,7 +17453,16 @@
         "INF247L01EN0",
         "INF247L01EO8"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 840.93
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 857.56
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15221,7 +17473,16 @@
           "isins": [
             "INF247L01EJ8"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 840.93
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 857.56
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15230,7 +17491,16 @@
       "isins": [
         "INF247L01EJ8"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 840.93
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 857.56
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15242,7 +17512,16 @@
             "INF247L01EK6",
             "INF247L01EL4"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 840.93
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 857.56
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15252,7 +17531,16 @@
         "INF247L01EK6",
         "INF247L01EL4"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 840.93
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 857.56
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15347,7 +17635,16 @@
           "isins": [
             "INF247L01EP5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1473.41
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1446.6
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15356,7 +17653,16 @@
       "isins": [
         "INF247L01EP5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1473.41
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1446.6
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15367,7 +17673,16 @@
           "isins": [
             "INF247L01ES9"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1473.41
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1446.6
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15376,7 +17691,16 @@
       "isins": [
         "INF247L01ES9"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1473.41
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1446.6
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15388,7 +17712,16 @@
             "INF247L01ET7",
             "INF247L01EU5"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1473.41
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1446.6
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15398,7 +17731,16 @@
         "INF247L01ET7",
         "INF247L01EU5"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1473.41
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1446.6
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15410,7 +17752,16 @@
             "INF247L01EQ3",
             "INF247L01ER1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 1473.41
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 1446.6
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15420,7 +17771,16 @@
         "INF247L01EQ3",
         "INF247L01ER1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 1473.41
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 1446.6
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15431,7 +17791,16 @@
           "isins": [
             "INF247L01EZ4"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 148.26
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 148.67
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15440,7 +17809,16 @@
       "isins": [
         "INF247L01EZ4"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 148.26
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 148.67
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15452,7 +17830,16 @@
             "INF247L01EX9",
             "INF247L01EY7"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 148.26
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 148.67
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15462,7 +17849,16 @@
         "INF247L01EX9",
         "INF247L01EY7"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 148.26
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 148.67
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15473,7 +17869,16 @@
           "isins": [
             "INF247L01EW1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 148.26
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 148.67
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15482,7 +17887,16 @@
       "isins": [
         "INF247L01EW1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 148.26
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 148.67
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15494,7 +17908,16 @@
             "INF247L01FA4",
             "INF247L01FB2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 148.26
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 148.67
+            }
+          },
           "name": "Nifty Infrastructure TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15504,7 +17927,16 @@
         "INF247L01FA4",
         "INF247L01FB2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 148.26
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 148.67
+        }
+      },
       "name": "Nifty Infrastructure TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15515,7 +17947,16 @@
           "isins": [
             "INF247L01FE6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 133.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.34
+            }
+          },
           "name": "Nifty Services Sector TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15524,7 +17965,16 @@
       "isins": [
         "INF247L01FE6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 133.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.34
+        }
+      },
       "name": "Nifty Services Sector TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15535,7 +17985,16 @@
           "isins": [
             "INF247L01FG1"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 133.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.34
+            }
+          },
           "name": "Nifty Services Sector TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15544,7 +18003,16 @@
       "isins": [
         "INF247L01FG1"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 133.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.34
+        }
+      },
       "name": "Nifty Services Sector TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15556,7 +18024,16 @@
             "INF247L01FJ5",
             "INF247L01FH9"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 133.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.34
+            }
+          },
           "name": "Nifty Services Sector TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15566,7 +18043,16 @@
         "INF247L01FJ5",
         "INF247L01FH9"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 133.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.34
+        }
+      },
       "name": "Nifty Services Sector TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15578,7 +18064,16 @@
             "INF247L01FI7",
             "INF247L01FF3"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 133.64
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 136.34
+            }
+          },
           "name": "Nifty Services Sector TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15588,7 +18083,16 @@
         "INF247L01FI7",
         "INF247L01FF3"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 133.64
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 136.34
+        }
+      },
       "name": "Nifty Services Sector TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15599,7 +18103,16 @@
           "isins": [
             "INF247L01FS6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 120.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 115.84
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15608,7 +18121,16 @@
       "isins": [
         "INF247L01FS6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 120.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 115.84
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15620,7 +18142,16 @@
             "INF247L01FT4",
             "INF247L01FU2"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 120.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 115.84
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15630,7 +18161,16 @@
         "INF247L01FT4",
         "INF247L01FU2"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 120.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 115.84
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15641,7 +18181,16 @@
           "isins": [
             "INF247L01FV0"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 120.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 115.84
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15650,7 +18199,16 @@
       "isins": [
         "INF247L01FV0"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 120.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 115.84
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
@@ -15662,7 +18220,16 @@
             "INF247L01FW8",
             "INF247L01FX6"
           ],
-          "metrics": {},
+          "metrics": {
+            "aum": {
+              "unit": "Cr",
+              "value": 120.18
+            },
+            "averageAum": {
+              "unit": "Cr",
+              "value": 115.84
+            }
+          },
           "name": "Nifty 500 TRI",
           "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
           "verifiedAsOf": "2026-10-31"
@@ -15672,7 +18239,16 @@
         "INF247L01FW8",
         "INF247L01FX6"
       ],
-      "metrics": {},
+      "metrics": {
+        "aum": {
+          "unit": "Cr",
+          "value": 120.18
+        },
+        "averageAum": {
+          "unit": "Cr",
+          "value": 115.84
+        }
+      },
       "name": "Nifty 500 TRI",
       "source": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/factsheet/2026/nov/Factsheet%20October%202026%20Active.pdf",
       "verifiedAsOf": "2026-10-31"
